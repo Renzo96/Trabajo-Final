@@ -1,6 +1,6 @@
 # Concepto de Rúbrica — Implementación de IA Agéntica para la Creación de Rúbricas
 
-Trabajo Final de Grado — **Renzo Sosa** y **Emmanuel Avellaneda**.
+Trabajo Final de Grado — **Emmanuel Avellaneda** y **Renzo Sosa**.
 
 Este repositorio documenta la implementación de una **IA agéntica** (Claude Code)
 junto con la skill [`rubrica-builder`](.agents/skills/rubrica-builder) para curar
@@ -19,7 +19,6 @@ tomada como caso de estudio es **Organización Empresarial (OE)**.
 El documento central de este repositorio está en [`informe/`](informe/), en tres
 formatos equivalentes:
 
-- [`Informe_Tesina_Rubrica_Builder.md`](informe/Informe_Tesina_Rubrica_Builder.md) — versión Markdown, editable.
 - [`Informe_Tesina_Rubrica_Builder.html`](informe/Informe_Tesina_Rubrica_Builder.html) — versión con formato de tesis (portada, índice, estilos), lista para imprimir a PDF.
 - [`Informe_Tesina_Rubrica_Builder.pdf`](informe/Informe_Tesina_Rubrica_Builder.pdf) — versión final exportada.
 
