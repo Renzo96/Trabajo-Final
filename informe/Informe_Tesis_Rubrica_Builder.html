@@ -307,7 +307,7 @@ de un Trabajo Práctico en una rúbrica de evaluación estructurada, coherente y
 —sobre todo— <b>corregible por otra IA sin ambigüedad</b>.</p>
 <p>Como caso de estudio transversal a lo largo de todo el informe se utilizan las
 rúbricas reales elaboradas para la materia <b>Organización Empresarial (OE)</b>, ya
-que es el contexto en el que se origina esta tesina.</p>
+que es el contexto en el que se origina esta tesis.</p>
 </div>
 
 <!-- ============ 2. MARCO TEORICO ============ -->
@@ -515,7 +515,7 @@ rúbrica completa. El proceso que ejecuta el agente es:</p>
 <p>Como ejemplo concreto, se tomó la consigna del <b>TP2 — Ingeniería de Prompts y
 Pensamiento Computacional</b>, que pide al alumno resolver 6 actividades relacionadas
 con técnicas de diseño de instrucciones para modelos de lenguaje. La rúbrica
-resultante (<code>U2/rubrica-tp2-ingenieria-prompts.json</code>) quedó estructurada en
+resultante (<code>TPs/TP2/rubrica-tp2-ingenieria-prompts.json</code>) quedó estructurada en
 6 criterios —uno por actividad—, cada uno con su propio peso y sus
 <code>instrucciones_puntuacion</code> explícitas. A modo ilustrativo, el primer
 criterio quedó modelado así:</p>
@@ -619,7 +619,7 @@ entrega perfecta, y el feedback generado debe señalar puntualmente esa falla.</
 <tr><td>s6_falla_c6</td><td>C6 discrimina (14 pts)</td><td>~86</td><td>87.5</td><td>✅</td></tr>
 <tr><td>s7_parcial_c1</td><td>C1 con cumplimiento parcial</td><td>~91</td><td>88.3</td><td>✅</td></tr>
 </table>
-<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>U2/sinteticos/2026-06-22_175052/resumen.json</code>,
+<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP2/sinteticos/2026-06-22_175052/resumen.json</code>,
 generado por el script de testeo de la skill sobre la rúbrica del TP2.</i></p>
 <p>Se observa que, en la mayoría de los criterios, la nota obtenida discrimina
 correctamente al alumno con la falla simulada respecto de la entrega perfecta. El
@@ -657,16 +657,17 @@ forman parte del JSON y se completan aparte en el formulario (<code>tipo</code>,
 <h1 class="section-title" id="s10">10. Caso de estudio aplicado: Organización Empresarial</h1>
 <p>A lo largo de la cursada de Organización Empresarial se aplicó este flujo de
 trabajo completo a las rúbricas de los distintos Trabajos Prácticos y del Trabajo
-Práctico Integrador (TPI), organizados por unidad dentro del repositorio:</p>
+Práctico Integrador (TPI), organizados dentro de la carpeta <code>TPs/</code> del
+repositorio:</p>
 <ul>
-  <li><b>U1</b> — Git y control de versiones (<code>rubrica-tp1-git.json</code>)</li>
-  <li><b>U2</b> — Ingeniería de prompts y pensamiento computacional
+  <li><b>TPs/TP1</b> — Git y control de versiones (<code>rubrica-tp1-git.json</code>)</li>
+  <li><b>TPs/TP2</b> — Ingeniería de prompts y pensamiento computacional
   (<code>rubrica-tp2-ingenieria-prompts.json</code>)</li>
-  <li><b>U3</b> — Metodologías ágiles (<code>rubrica-tp3-metodologias-agiles.json</code>)</li>
-  <li><b>U4</b> — Ecosistema de una startup (<code>rubrica-tp4-ecosistema-startup.json</code>)</li>
-  <li><b>U5</b> — Live coding (<code>rubrica-tp5-live-coding.json</code>)</li>
-  <li><b>U6</b> — N8N (<code>rubrica-tp6-n8n.json</code>)</li>
-  <li><b>TPI</b> — Trabajo Práctico Integrador (<code>rubrica-tpi-oe.json</code>)</li>
+  <li><b>TPs/TP3</b> — Metodologías ágiles (<code>rubrica-tp3-metodologias-agiles.json</code>)</li>
+  <li><b>TPs/TP4</b> — Ecosistema de una startup (<code>rubrica-tp4-ecosistema-startup.json</code>)</li>
+  <li><b>TPs/TP5</b> — Live coding (<code>rubrica-tp5-live-coding.json</code>)</li>
+  <li><b>TPs/TP6</b> — N8N (<code>rubrica-tp6-n8n.json</code>)</li>
+  <li><b>TPs/TPI</b> — Trabajo Práctico Integrador (<code>rubrica-tpi-oe.json</code>)</li>
 </ul>
 <p>Para cada una de estas rúbricas se generó, además, una carpeta
 <code>sinteticos/</code> con entregas de prueba fechadas y su correspondiente
