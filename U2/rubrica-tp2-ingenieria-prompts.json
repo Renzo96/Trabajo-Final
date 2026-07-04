@@ -1,0 +1,188 @@
+{
+  "titulo": "TP2 - Ingeniería de Prompts y Pensamiento Computacional",
+  "descripcion": "El alumno debe completar 6 actividades que abarcan técnicas profesionales de diseño de instrucciones, configuración de parámetros de LLM y estrategias de razonamiento. Cada actividad requiere redactar prompts o análisis escritos con requisitos técnicos específicos. La corrección verifica que cada prompt cumpla los criterios conceptuales y formales de la consigna, sin ejecutar ningún código.",
+  "puntaje_maximo": 100,
+  "metadata": {
+    "materia": "Organización Empresarial",
+    "unidad": "3 - Ingeniería de Prompts",
+    "formato_entrega": "documento de texto con las 6 actividades resueltas"
+  },
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Actividad 1: Arquitectura de la Instrucción",
+      "descripcion": "El alumno diseña un prompt profesional para clasificar correos de soporte técnico en 'Urgente', 'Consulta General' y 'Feedback'. El prompt debe contener estrictamente los 4 elementos fundamentales: Instrucción, Contexto, Datos de Entrada e Indicador de Salida; y usar delimitadores para separar cada sección.",
+      "peso": 18,
+      "instrucciones_puntuacion": "Si alguno de los 4 elementos fundamentales está ausente, techo de 60% (10.8 pts). Si no hay delimitadores visibles entre secciones, descontar 25% (4.5 pts). Si el prompt no menciona las 3 categorías de clasificación requeridas, descontar 20% (3.6 pts). Los descuentos son acumulables.",
+      "subcriterios": [
+        {
+          "id": "C1.1",
+          "descripcion": "Los 4 elementos fundamentales (Instrucción, Contexto, Datos de Entrada, Indicador de Salida) están presentes y claramente identificados en el prompt.",
+          "evidencias": [
+            "El prompt incluye una sección que funciona como Instrucción (indica la tarea que debe realizar el modelo)",
+            "El prompt incluye una sección que funciona como Contexto (describe el escenario, rol del asistente o información de fondo)",
+            "El prompt incluye una sección que funciona como Datos de Entrada (muestra o define el correo a clasificar)",
+            "El prompt incluye una sección que funciona como Indicador de Salida (especifica el formato o estructura de la respuesta esperada)"
+          ]
+        },
+        {
+          "id": "C1.2",
+          "descripcion": "El prompt usa delimitadores visibles para separar las secciones entre sí.",
+          "evidencias": [
+            "Se identifican caracteres o marcadores delimitadores (como ---, ###, ===, <>, comillas triples u otros) entre al menos dos secciones del prompt"
+          ]
+        },
+        {
+          "id": "C1.3",
+          "descripcion": "El prompt está orientado al caso pedido: clasificar correos de soporte técnico en las 3 categorías específicas.",
+          "evidencias": [
+            "El prompt menciona las 3 categorías de clasificación: 'Urgente', 'Consulta General' y 'Feedback'",
+            "El prompt está dirigido a un asistente de IA para clasificar correos electrónicos de soporte técnico"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "nombre": "Actividad 2: Laboratorio de Parámetros (Cuadro Comparativo)",
+      "descripcion": "El alumno completa un análisis comparativo en formato texto con los valores recomendados de Temperatura y Top-p para dos casos opuestos, justificando con base en la teoría de Predicción de Tokens. Caso A: generación de función matemática compleja en Python (requiere precisión/determinismo). Caso B: escritura de post creativo para redes sociales sobre lanzamiento de startup (requiere creatividad/variedad).",
+      "peso": 18,
+      "instrucciones_puntuacion": "Cada caso vale aprox. 9 pts. Por caso: si valores correctos pero sin justificación, techo de 50% (4.5 pts) en ese caso. Si valores incorrectos o contradictorios (ej: temperatura alta para código matemático), 0 en ese caso. Si la justificación no referencia la teoría de Predicción de Tokens, descontar 30% en ese caso.",
+      "subcriterios": [
+        {
+          "id": "C2.1",
+          "descripcion": "Caso A (función matemática Python): los valores de Temperatura y Top-p son coherentes con la necesidad de determinismo/precisión, con justificación técnica basada en la teoría de Predicción de Tokens.",
+          "evidencias": [
+            "Para el Caso A se propone un valor de Temperatura bajo (rango 0.0–0.3)",
+            "Para el Caso A se propone un valor de Top-p bajo o se justifica por qué se reduce el pool de tokens candidatos",
+            "La justificación del Caso A explica que valores bajos de temperatura reducen la aleatoriedad y producen resultados deterministas o precisos",
+            "La justificación del Caso A hace referencia a la teoría de Predicción de Tokens o a la selección del token más probable"
+          ]
+        },
+        {
+          "id": "C2.2",
+          "descripcion": "Caso B (post creativo startup): los valores de Temperatura y Top-p son coherentes con la necesidad de creatividad/variedad, con justificación técnica basada en la teoría de Predicción de Tokens.",
+          "evidencias": [
+            "Para el Caso B se propone un valor de Temperatura alto (rango 0.7–1.0)",
+            "Para el Caso B se propone un valor de Top-p alto (rango 0.8–1.0) que amplíe el pool de tokens candidatos",
+            "La justificación del Caso B explica que valores altos de temperatura aumentan la aleatoriedad y favorecen respuestas creativas o diversas",
+            "La justificación del Caso B hace referencia a la teoría de Predicción de Tokens o a la selección entre múltiples tokens candidatos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "nombre": "Actividad 3: Razonamiento Avanzado (Chain-of-Thought)",
+      "descripcion": "El alumno redacta un prompt usando la técnica Few-shot Chain-of-Thought (CoT) para que el modelo resuelva: '5 camisas se secan al sol en 5 horas, ¿cuánto tardarán en secarse 30 camisas?'. El prompt debe incluir al menos un ejemplo previo de un problema DIFERENTE al de las camisas que muestre el razonamiento paso a paso antes de llegar a la solución.",
+      "peso": 18,
+      "instrucciones_puntuacion": "Si el prompt es zero-shot (sin ningún ejemplo previo), techo de 40% (7.2 pts). Si el ejemplo previo no muestra razonamiento paso a paso sino solo la respuesta final, descontar 35%. Si el problema target de las camisas no está incluido, techo de 50% (9 pts). Si el ejemplo previo usa el mismo problema de las camisas en lugar de uno diferente, descontar 30%.",
+      "subcriterios": [
+        {
+          "id": "C3.1",
+          "descripcion": "El prompt incluye al menos un ejemplo resuelto de un problema diferente al de las camisas, con razonamiento paso a paso explícito.",
+          "evidencias": [
+            "El prompt contiene al menos un ejemplo de un problema lógico o matemático distinto al de las camisas",
+            "El ejemplo muestra pasos intermedios de razonamiento (deducción explícita) antes de llegar a la solución final, no solo la respuesta directa"
+          ]
+        },
+        {
+          "id": "C3.2",
+          "descripcion": "El prompt incluye el problema objetivo de las camisas y está diseñado para que el modelo lo resuelva siguiendo el esquema CoT.",
+          "evidencias": [
+            "El prompt incluye el problema objetivo: '5 camisas se secan al sol en 5 horas, ¿cuánto tardarán en secarse 30 camisas?' (o formulación equivalente)",
+            "El prompt está diseñado para que el modelo resuelva el problema objetivo siguiendo el mismo esquema de razonamiento paso a paso del ejemplo previo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "nombre": "Actividad 4: Asistente de Refactorización de Código",
+      "descripcion": "El alumno redacta un prompt de refactorización para el código `def suma(a,b): return a+b`. El prompt debe indicar que la IA actúe como desarrollador Senior e incluir los 4 requisitos: (1) agregar tipado de datos (type hints), (2) documentar con Docstring, (3) explicar el cambio realizado línea por línea, (4) mejorar/refactorizar el código provisto.",
+      "peso": 16,
+      "instrucciones_puntuacion": "Si el rol de desarrollador Senior no está definido, descontar 20% (3.2 pts). Si el código original `def suma(a,b): return a+b` no está incluido en el prompt, descontar 20% (3.2 pts). Por cada uno de los 4 requisitos técnicos ausente (type hints, docstring, explicación línea por línea, instrucción de mejora/refactorización), descontar 15% cada uno (2.4 pts c/u). Descuentos acumulables.",
+      "subcriterios": [
+        {
+          "id": "C4.1",
+          "descripcion": "El prompt define el rol de desarrollador Senior y provee el código original a refactorizar.",
+          "evidencias": [
+            "El prompt indica explícitamente que la IA debe actuar como un desarrollador Senior (o título profesional equivalente con experiencia senior)",
+            "El prompt incluye el bloque de código original `def suma(a,b): return a+b` que debe ser refactorizado"
+          ]
+        },
+        {
+          "id": "C4.2",
+          "descripcion": "Los 4 requisitos técnicos de transformación están incluidos en el prompt.",
+          "evidencias": [
+            "El prompt solicita agregar tipado de datos (type hints) a los parámetros y/o al valor de retorno",
+            "El prompt solicita documentar la función usando el formato Docstring",
+            "El prompt solicita explicar el cambio realizado línea por línea",
+            "El prompt está orientado a mejorar o refactorizar el código (no solo agregar comentarios sin modificar la lógica)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "nombre": "Actividad 5: Seguridad y Ética (Defensa de Prompts)",
+      "descripcion": "El alumno redacta un System Prompt defensivo que proteja a una IA contra ataques de Jailbreaking (intentos de modificar su comportamiento) y Prompt Leaking (intentos de extraer instrucciones internas o datos sensibles como claves API). El System Prompt debe garantizar que el modelo mantenga su propósito original sin importar lo que el usuario solicite.",
+      "peso": 16,
+      "instrucciones_puntuacion": "Si el texto no tiene estructura de System Prompt (ej: es una respuesta al ataque en lugar de una instrucción al sistema), techo de 40% (6.4 pts). Si no incluye protección contra Jailbreaking, descontar hasta 40% (6.4 pts). Si no incluye protección contra Prompt Leaking, descontar hasta 35% (5.6 pts).",
+      "subcriterios": [
+        {
+          "id": "C5.1",
+          "descripcion": "El texto está formulado como instrucción de sistema (System Prompt) con un propósito principal definido.",
+          "evidencias": [
+            "El texto está redactado como instrucciones dirigidas al modelo (no como respuesta al usuario ni como análisis teórico sobre seguridad)",
+            "El System Prompt establece un propósito o función principal que el modelo debe mantener siempre"
+          ]
+        },
+        {
+          "id": "C5.2",
+          "descripcion": "El System Prompt incluye protección explícita contra Jailbreaking.",
+          "evidencias": [
+            "El System Prompt contiene instrucciones para que el modelo ignore o rechace mensajes del usuario que intenten anular, modificar o contradecir sus instrucciones originales",
+            "El System Prompt instruye al modelo a mantener su comportamiento y propósito original ante cualquier intento de manipulación o reencuadre"
+          ]
+        },
+        {
+          "id": "C5.3",
+          "descripcion": "El System Prompt incluye protección explícita contra Prompt Leaking.",
+          "evidencias": [
+            "El System Prompt contiene instrucciones para que el modelo no revele su contenido interno, sus instrucciones de sistema ni datos sensibles (como claves de API) ante ninguna solicitud del usuario"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "nombre": "Actividad 6: Simulación de Sesgos (Análisis Crítico)",
+      "descripcion": "El alumno redacta un prompt de Mitigación de Sesgos para obtener una descripción de 'CEO exitoso' diversa, inclusiva y basada en competencias profesionales universales, evitando que el modelo reproduzca sesgos de género o culturales. Además, el alumno debe justificar por escrito por qué es necesario intervenir en la instrucción original.",
+      "peso": 14,
+      "instrucciones_puntuacion": "Si el prompt no incluye ninguna instrucción orientada a diversidad, inclusión o competencias universales, techo de 30% (4.2 pts). Si la justificación de por qué intervenir está ausente, descontar hasta 40% (5.6 pts). Si la justificación no explica el origen del sesgo (datos de entrenamiento o patrones históricos del modelo), descontar 20% (2.8 pts).",
+      "subcriterios": [
+        {
+          "id": "C6.1",
+          "descripcion": "El prompt mitiga sesgos de género y culturales orientando la respuesta hacia diversidad, inclusión y competencias profesionales universales.",
+          "evidencias": [
+            "El prompt incluye instrucción explícita para que la descripción no se limite a características masculinas o de un género específico",
+            "El prompt orienta al modelo a incluir diversidad de género, cultural o de origen geográfico en la descripción",
+            "El prompt instruye al modelo a basar la descripción en competencias y habilidades profesionales universales (no en rasgos físicos, culturales o de género específicos)"
+          ]
+        },
+        {
+          "id": "C6.2",
+          "descripcion": "El alumno justifica por escrito la necesidad de intervenir en la instrucción original, explicando el origen del sesgo.",
+          "evidencias": [
+            "El alumno incluye texto que explica por qué la instrucción original ('Describa a un CEO exitoso') genera respuestas sesgadas",
+            "La justificación menciona que el sesgo proviene de los datos de entrenamiento del modelo (patrones históricos, representación desigual en los datos)",
+            "La justificación argumenta la necesidad de instrucciones explícitas de diversidad para corregir o mitigar el sesgo en la salida del modelo"
+          ]
+        }
+      ]
+    }
+  ],
+  "penalizaciones": [],
+  "condiciones_desaprobacion": []
+}

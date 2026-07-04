@@ -1,0 +1,47 @@
+**Pregunta 1 – Waterfall vs mentalidad ágil**
+
+El modelo Cascada organiza el desarrollo en fases secuenciales y bien definidas: levantamiento de requisitos, diseño, implementación, testing y despliegue. Cada fase debe estar completamente cerrada antes de pasar a la siguiente. El problema grave de cambiar requisitos a mitad del desarrollo es que, justamente por esa secuencialidad, volver atrás implica desarmar trabajo que ya se dio por terminado y rehacerlo desde la fase en la que se introdujo el cambio. Si el cliente pide una modificación durante la etapa de testing, por ejemplo, hay que retroceder hasta diseño o incluso hasta requisitos, lo que dispara un efecto dominó de retrabajo en todas las fases intermedias. El costo de esos cambios tardíos es altísimo: no solo en horas de desarrollo desperdiciadas, sino también en dinero y en tiempo de entrega, porque el plan inicial se firmó con un alcance cerrado y cualquier desvío rompe el cronograma.
+
+La mentalidad ágil ataca este problema de raíz. En lugar de un plan rígido de meses, se trabaja en iteraciones cortas (de una a cuatro semanas) y al final de cada una se entrega una porción funcional del producto. Eso permite mostrarle algo concreto al cliente de forma frecuente y recibir feedback temprano. Si surge un cambio de requisitos —y en software siempre surgen—, se toma como algo natural y se incorpora en la iteración siguiente, cuando el costo de adaptación es mínimo porque todavía no se construyó todo el sistema alrededor de una decisión vieja. En resumen, Cascada castiga el cambio porque su estructura secuencial lo vuelve caro y disruptivo; la mentalidad ágil lo abraza como una oportunidad de mejora y lo vuelve barato gracias a la entrega incremental y al feedback continuo.
+
+---
+
+**Pregunta 2 – Roles de Scrum**
+
+El primer problema es que el equipo no sabe qué tareas priorizar para el negocio. El rol que resuelve esto es el **Product Owner (PO)**. El PO es la persona que representa al negocio y a los stakeholders dentro del equipo Scrum. Es quien gestiona el Product Backlog —la lista ordenada de todo lo que hay que hacer— y decide qué se construye primero en función del valor que le aporta al negocio. No es un rol técnico: su foco está en maximizar el retorno de inversión, y por eso tiene la autoridad para decir "esto va antes que aquello" y mantener la visión del producto alineada con lo que el cliente o el mercado realmente necesita.
+
+El segundo problema son las interrupciones de gerentes externos que le piden cosas al equipo de desarrollo por fuera del canal oficial. El rol que resuelve esto es el **Scrum Master**. El Scrum Master no es un jefe: es un facilitador cuya responsabilidad principal es asegurarse de que el equipo pueda trabajar sin impedimentos y de que se respete el marco Scrum. Una de sus funciones clave es justamente proteger al equipo de interferencias externas. Cuando un gerente se acerca a un desarrollador a pedirle una tarea que no está en el Sprint actual, el Scrum Master actúa de escudo: redirige ese pedido al Product Owner y al Product Backlog para que pase por el proceso correcto, evitando que el equipo pierda el foco y se desvíe del objetivo del Sprint.
+
+---
+
+**Pregunta 3 – Kanban y WIP Limit**
+
+El desperdicio Lean que se comete al asignar cinco tareas simultáneas a cada programador es la **multitarea** y el consecuente **cambio de contexto (context switching)**. Tener cinco tareas abiertas al mismo tiempo no significa que las cinco avancen en paralelo a buena velocidad; en realidad, el programador salta de una a otra constantemente, y cada salto tiene un costo cognitivo alto: hay que recordar en qué punto se dejó cada tarea, recargar el contexto mental, entender de nuevo el problema. El resultado es que todas las tareas avanzan lentas y ninguna se termina, generando además trabajo parcialmente hecho que se acumula sin entregar valor real.
+
+El WIP Limit de Kanban soluciona esto de forma directa: limita la cantidad de tareas que pueden estar activas en cada columna del tablero. Si el límite de la columna "En desarrollo" es dos, un programador no puede tener más de dos tareas abiertas a la vez. Eso lo obliga a terminar lo que empezó antes de tomar algo nuevo. Al reducir la multitarea, el programador puede concentrarse de verdad en una o dos cosas, elimina la fricción del cambio de contexto y completa cada tarea en menos tiempo. La velocidad real del equipo —el throughput, es decir, cuántas tareas terminadas se entregan por semana— mejora porque las tareas fluyen de punta a punta sin estancarse, en lugar de estar todas a medio hacer.
+
+---
+
+**Pregunta 4 – Pair Programming**
+
+Decir que la Programación en Pareja es "perder el tiempo de un empleado" es mirar solo el costo inmediato y perderse todos los beneficios que la práctica trae al producto y al equipo. La voy a defender con dos beneficios concretos.
+
+El primero es la **revisión de código en tiempo real** y la consiguiente reducción de defectos. Cuando dos personas escriben código juntas, una va pensando la lógica mientras la otra revisa cada línea en el momento, y se cuestionan decisiones entre los dos. Los errores se detectan apenas se cometen, no días después en una code review o —peor— en producción. El resultado es un código con menos bugs desde el primer momento, lo que baja el costo de corrección y hace que el producto final sea más robusto.
+
+El segundo beneficio es la **transferencia de conocimiento dentro del equipo**. Cuando rotás las parejas y programás con distintas personas, el conocimiento sobre el código, las decisiones de diseño y las partes del sistema deja de estar en la cabeza de un solo desarrollador. Si alguien se va de vacaciones, se enferma o deja la empresa, no se lleva consigo la única comprensión de un módulo crítico: el conocimiento ya está distribuido. Además, los desarrolladores con menos experiencia aprenden más rápido de quienes tienen más cancha, y los más experimentados también ganan, porque explicar tu razonamiento en voz alta te obliga a cuestionarlo y muchas veces encontrás mejores soluciones. No es perder el tiempo de un empleado: es invertirlo en calidad y en un equipo más sólido.
+
+---
+
+**Pregunta 5 – Historia de Usuario y Criterios de Aceptación**
+
+**(a) Historia de Usuario**
+
+Como usuario registrado de la plataforma, quiero poder agregar películas y series a una sección personal llamada "Mi Lista", para guardar los contenidos que me interesan y encontrarlos fácilmente cuando quiera verlos sin tener que volver a buscarlos.
+
+**(b) Criterios de Aceptación**
+
+1. Dado que el usuario está navegando el catálogo, cuando presiona el botón "Agregar a Mi Lista" en una película o serie, entonces ese contenido aparece inmediatamente en la sección "Mi Lista" del perfil del usuario y el botón cambia su estado a "En Mi Lista" para indicar que ya fue agregado.
+
+2. Dado que el usuario está dentro de "Mi Lista", cuando presiona el botón "Quitar" en un contenido previamente agregado, entonces ese contenido desaparece de la lista sin necesidad de recargar la página y el botón "Agregar a Mi Lista" vuelve a estar disponible desde la ficha del contenido en el catálogo.
+
+3. Dado que el usuario agregó contenidos a "Mi Lista" y cierra sesión, cuando vuelve a iniciar sesión desde cualquier dispositivo, entonces todos los contenidos que agregó previamente se muestran en "Mi Lista" tal como los dejó.

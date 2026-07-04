@@ -1,0 +1,60 @@
+{
+  "nota": 85,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 85,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Waterfall vs mentalidad ágil",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica con argumentos propios y coherentes ambas partes. Detalla por qué el cambio de requisitos en Cascada es un desastre (fases secuenciales, retroceder implica rehacer trabajo, costo elevado, rigidez del plan firmado) y cómo la mentalidad ágil lo resuelve (iteraciones cortas, entregas incrementales, feedback frecuente, adaptación al cambio). La explicación conecta lógicamente el problema con la solución: \"Mientras que en Cascada un cambio tardío es una catástrofe, en ágil es algo esperado\". Todas las evidencias esperadas están cubiertas."
+    },
+    {
+      "id": "C2",
+      "nombre": "Roles de Scrum",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Identifica correctamente ambos roles y los justifica con precisión. Para el problema de priorización de negocio nombra al Product Owner y explica que gestiona el Product Backlog, ordena ítems por valor y define qué se hace primero en cada sprint. Para las interrupciones de gerentes externos nombra al Scrum Master y explica que actúa como facilitador y protector, filtrando pedidos externos y derivándolos al PO. Ambas justificaciones son completas y conectan el rol con la solución del problema planteado."
+    },
+    {
+      "id": "C3",
+      "nombre": "Kanban y WIP Limit",
+      "puntaje_obtenido": 5,
+      "puntaje_maximo": 20,
+      "estado": "ERROR",
+      "feedback": "La respuesta no cumple con los requisitos del criterio. Describe Kanban en términos generales (tablero, columnas, visualización) y reconoce que la multitarea es problemática (\"nada termina de salir porque todos están repartidos entre muchas cosas\"), pero no identifica explícitamente un desperdicio Lean por su nombre (multitarea, cambio de contexto, trabajo parcialmente hecho). Lo más grave es que no explica cómo el WIP Limit soluciona el problema: en lugar de eso, rechaza explícitamente el concepto diciendo \"no termino de ver cómo un límite numérico de tareas por columna por sí solo mejora la velocidad\" y atribuye la mejora solo a la visibilidad del tablero. La pregunta pedía específicamente explicar el mecanismo del WIP Limit, y la respuesta argumenta en contra de él. Se otorgan 5 puntos por reconocer parcialmente el problema de la multitarea."
+    },
+    {
+      "id": "C4",
+      "nombre": "Pair Programming",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Defiende la práctica con dos beneficios concretos, distintos y bien argumentados. El primero: revisión de código en tiempo real, con detección instantánea de errores y mayor calidad del código final. El segundo: transferencia de conocimiento dentro del equipo, donde ambos perfiles (junior y senior) ganan y se evita que una sola persona concentre conocimiento crítico. Ambos beneficios están desarrollados, no solo listados, y se relacionan directamente con la calidad del código y el trabajo en equipo."
+    },
+    {
+      "id": "C5",
+      "nombre": "Historias de Usuario y Criterios de Aceptación",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "La Historia de Usuario cumple con la fórmula estándar completa: rol (\"Como usuario registrado\"), acción (\"quiero guardar películas y series en una sección personal llamada 'Mi Lista'\") y beneficio (\"para poder retomar más tarde lo que me interesa sin tener que volver a buscarlo\"), todo coherente con el contexto Netflix. Los tres criterios de aceptación son verificables y pertinentes: agrega desde múltiples puntos con cambio de estado del botón, elimina con actualización automática sin recarga, y muestra la lista ordenada con mensaje de estado vacío. Supera el mínimo de dos criterios exigidos."
+    }
+  ],
+  "fortalezas": [
+    "Excelente explicación de Waterfall vs Ágil con argumentos propios y una conexión lógica clara entre el problema y la solución (C1).",
+    "Identificación precisa y justificación completa de los roles de Scrum, vinculando cada rol directamente con el problema concreto que resuelve (C2).",
+    "Defensa sólida del Pair Programming con dos beneficios bien desarrollados y conceptualmente distintos: revisión en tiempo real y transferencia de conocimiento (C4).",
+    "Historia de Usuario impecable con los tres elementos de la fórmula y tres criterios de aceptación verificables que incluso superan el mínimo exigido (C5)."
+  ],
+  "recomendaciones": [
+    "C3: Identificá el desperdicio Lean por su nombre (multitarea, cambio de contexto o 'trabajo parcialmente hecho') y estudiá cómo el WIP Limit no es solo visualización — es un mecanismo que fuerza a terminar tareas antes de empezar nuevas, reduciendo el context switching y aumentando el throughput real del equipo.",
+    "C3: Revisá la diferencia entre Kanban como método (donde el WIP Limit es central) y la mera visualización con tablero. Sin límites de WIP, un tablero Kanban es solo un tablero de tareas; el WIP Limit es lo que lo convierte en un sistema pull que optimiza el flujo.",
+    "El nivel de profundidad y argumentación propia en C1, C2, C4 y C5 es muy bueno. Aplicá ese mismo rigor a todos los criterios para lograr consistencia en la entrega."
+  ],
+  "comentario_general": "El alumno demuestra comprensión sólida de los fundamentos ágiles en cuatro de los cinco criterios, con argumentos propios, bien desarrollados y conectados lógicamente. La falla está en C3 (Kanban/WIP Limit), donde no solo omite explicar el concepto central que la pregunta pedía, sino que explícitamente rechaza la efectividad del WIP Limit y reduce Kanban a una herramienta de visualización. Con reforzar ese único punto, la entrega pasaría de muy buena a excelente."
+}

@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# Node (si se llega a correr npx localmente)
+node_modules/
+
+# Python (si se corren los scripts de la skill localmente)
+__pycache__/
+*.pyc
+.venv/
+
+# Archivos temporales de exportacion
+*.tmp
+~$*

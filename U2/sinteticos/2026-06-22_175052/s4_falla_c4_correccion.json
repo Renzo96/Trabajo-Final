@@ -1,0 +1,68 @@
+{
+  "nota": 47.0,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 47.0,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Actividad 1: Arquitectura de la Instrucción",
+      "puntaje_obtenido": 9.0,
+      "puntaje_maximo": 18,
+      "estado": "WARNING",
+      "feedback": "El resumen menciona los 4 elementos fundamentales por nombre (Instrucción, Contexto, Datos de Entrada, Indicador de Salida), los delimitadores '###' y las 3 categorías. Sin embargo, el prompt completo no está incluido en la entrega: no se puede verificar que los elementos estén correctamente estructurados, que los delimitadores separen secciones de forma visible ni que las categorías aparezcan dentro del prompt. La entrega demuestra conocimiento conceptual pero no presenta el artefacto evaluable. Corresponde techo de 60% (10.8 pts) por no poder verificar los elementos en el prompt más un descuento adicional por delimitadores no verificables. Puntaje final: 9/18."
+    },
+    {
+      "id": "C2",
+      "nombre": "Actividad 2: Laboratorio de Parámetros (Cuadro Comparativo)",
+      "puntaje_obtenido": 12.0,
+      "puntaje_maximo": 18,
+      "estado": "WARNING",
+      "feedback": "Los valores declarados son correctos: Caso A (Temperatura 0.1, Top-p 0.1) está en el rango bajo requerido para determinismo, y Caso B (Temperatura 0.9, Top-p 0.95) está en el rango alto para creatividad. La justificación se menciona como existente y referencia la teoría de Predicción de Tokens, pero el texto completo de las justificaciones no está en la entrega, por lo que no puede verificarse su profundidad ni corrección técnica. Se aplica un descuento parcial del 30% en cada caso por justificación no verificable contra la entrega: 9 - 2.7 = 6.3 por caso, totalizando 12.6 ≈ 12/18."
+    },
+    {
+      "id": "C3",
+      "nombre": "Actividad 3: Razonamiento Avanzado (Chain-of-Thought)",
+      "puntaje_obtenido": 10.0,
+      "puntaje_maximo": 18,
+      "estado": "WARNING",
+      "feedback": "El resumen indica que el prompt usa Few-shot Chain-of-Thought con un ejemplo diferente al de las camisas (máquinas y tornillos, razonado paso a paso) y que incluye el problema objetivo al final. Esto demuestra comprensión de la técnica CoT. Sin embargo, el prompt completo no está presente en la entrega: no se puede verificar que el ejemplo muestre razonamiento paso a paso explícito (y no solo la respuesta final), ni que el problema target esté correctamente formulado dentro del prompt. El alumno sabe qué hacer pero el artefacto no está disponible para verificación completa."
+    },
+    {
+      "id": "C4",
+      "nombre": "Actividad 4: Asistente de Refactorización de Código",
+      "puntaje_obtenido": 0.0,
+      "puntaje_maximo": 16,
+      "estado": "ERROR",
+      "feedback": "El propio alumno declara que escribió un 'prompt genérico pidiendo opinión sobre el código', sin definir el rol de Desarrollador Senior, sin incluir el código original 'def suma(a,b): return a+b', y sin solicitar ninguno de los 4 requisitos técnicos (type hints, docstring, explicación línea por línea, mejora/refactorización). Se aplican los 6 descuentos acumulables: -20% (3.2 pts) por falta de rol Senior, -20% (3.2 pts) por no incluir el código original, y -15% (2.4 pts) por cada uno de los 4 requisitos ausentes. Total de descuentos: 16 pts. Puntaje: 0/16. La actividad debe rehacerse por completo."
+    },
+    {
+      "id": "C5",
+      "nombre": "Actividad 5: Seguridad y Ética (Defensa de Prompts)",
+      "puntaje_obtenido": 8.0,
+      "puntaje_maximo": 16,
+      "estado": "WARNING",
+      "feedback": "El resumen afirma que el texto tiene estructura de System Prompt y que incluye protecciones explícitas contra Jailbreaking (reglas 3 y 4) y contra Prompt Leaking (reglas 1, 2 y 5). Sin embargo, el System Prompt completo no está en la entrega: no se puede verificar que el texto esté formulado como instrucciones al sistema (y no como análisis teórico), que establezca un propósito principal definido, ni que las reglas de protección estén redactadas de forma efectiva. Se demuestra comprensión conceptual de los dos tipos de ataque y las defensas necesarias, pero el artefacto evaluable no está presente."
+    },
+    {
+      "id": "C6",
+      "nombre": "Actividad 6: Simulación de Sesgos (Análisis Crítico)",
+      "puntaje_obtenido": 8.0,
+      "puntaje_maximo": 14,
+      "estado": "WARNING",
+      "feedback": "El resumen menciona que el prompt incluye instrucciones de diversidad y que la justificación escrita menciona el origen del sesgo en los datos de entrenamiento. Este último punto es verificable en el resumen (se menciona explícitamente 'datos de entrenamiento'). Sin embargo, ni el prompt de mitigación ni el texto completo de la justificación están en la entrega. No se puede verificar que el prompt instruya sobre diversidad de género, cultural y competencias universales de forma concreta, ni que la justificación desarrolle el argumento con profundidad. Puntaje parcial por demostrar conocimiento del concepto y mencionar correctamente el origen del sesgo."
+    }
+  ],
+  "fortalezas": [
+    "Comprensión conceptual sólida de los fundamentos de ingeniería de prompts: identifica correctamente los 4 elementos de la arquitectura de instrucción (C1), la técnica Chain-of-Thought (C3) y los mecanismos de defensa contra Jailbreaking y Prompt Leaking (C5).",
+    "Conocimiento preciso de los parámetros de generación: asigna valores correctos de Temperatura y Top-p para escenarios deterministas (0.1/0.1) y creativos (0.9/0.95), demostrando entender la relación entre parámetros y comportamiento del modelo (C2).",
+    "Autoconocimiento de las propias falencias: la admisión explícita del error en C4 ('falla creíble', 'pidió una opinión genérica en vez de armar un prompt de refactorización') muestra honestidad académica y capacidad de autoevaluación."
+  ],
+  "recomendaciones": [
+    "Incluir el texto completo de cada prompt en la entrega. La rúbrica evalúa artefactos concretos (prompts, justificaciones, cuadros), no resúmenes de lo que se hizo. Sin los prompts reales, las evidencias del checklist no son verificables y el puntaje se resiente en todos los criterios.",
+    "Rehacer la Actividad 4 (C4) desde cero: redactar un prompt que defina el rol de Desarrollador Senior, incluya el código original `def suma(a,b): return a+b`, y solicite explícitamente los 4 requisitos técnicos (type hints, docstring, explicación línea por línea y mejora/refactorización). Es la actividad más comprometida y actualmente tiene 0 puntos.",
+    "Para C2 y C6, desarrollar las justificaciones por escrito en la entrega, no solo mencionar que existen. En C2, explicar por qué cada par de valores es adecuado vinculándolo con la teoría de Predicción de Tokens (token más probable vs. exploración del espacio de tokens). En C6, argumentar con profundidad el origen del sesgo en los datos de entrenamiento y por qué se necesitan instrucciones explícitas de diversidad.",
+    "Para C1, C3 y C5, presentar los prompts completos con su estructura visible (delimitadores, formato paso a paso, reglas numeradas) para que el corrector pueda verificar cada evidencia del checklist contra el texto real."
+  ],
+  "comentario_general": "El alumno demuestra comprensión conceptual de los seis temas evaluados, pero la entrega consiste en un resumen descriptivo en lugar de los prompts completos solicitados. Esto impide verificar la mayoría de las evidencias del checklist y genera descuentos significativos en todos los criterios excepto C2 (donde los valores numéricos son verificables). La Actividad 4 es la más crítica: está explícitamente incompleta y debe rehacerse por completo. Con los artefactos reales presentes, el desempeño en C1, C3, C5 y C6 podría mejorar sustancialmente."
+}

@@ -1,0 +1,67 @@
+{
+  "nota": 87.5,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 87.5,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Actividad 1: Arquitectura de la Instrucción",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "Los 4 elementos fundamentales están presentes y claramente identificados con delimitadores ###. La salida JSON especifica las 3 categorías requeridas (Urgente, Consulta General, Feedback). Prompt profesional, completo y perfectamente estructurado."
+    },
+    {
+      "id": "C2",
+      "nombre": "Actividad 2: Laboratorio de Parámetros (Cuadro Comparativo)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "Caso A: Temperatura 0.1 y Top-p 0.2, valores correctos para determinismo. Caso B: Temperatura 0.9 y Top-p 0.95, valores correctos para creatividad. Ambos casos justificados con referencia explícita a la teoría de Predicción de Tokens (softmax, logits, distribución de probabilidad)."
+    },
+    {
+      "id": "C3",
+      "nombre": "Actividad 3: Razonamiento Avanzado (Chain-of-Thought)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "El prompt incluye un ejemplo diferente (gallinas y huevos) con razonamiento paso a paso explícito en 4 pasos. El problema objetivo de las camisas está incluido y se indica al modelo seguir el mismo esquema CoT. Formato claro y bien estructurado."
+    },
+    {
+      "id": "C4",
+      "nombre": "Actividad 4: Asistente de Refactorización de Código",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "Rol de Desarrollador Senior definido. Código original incluido. Los 4 requisitos (type hints, docstring, refactorización, explicación línea por línea) están presentes y bien especificados con formato de entrega estructurado en bloques A y B."
+    },
+    {
+      "id": "C5",
+      "nombre": "Actividad 5: Seguridad y Ética (Defensa de Prompts)",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "System Prompt bien estructurado con propósito definido (VitalConnect). Protección contra jailbreaking con ejemplos concretos de ataques y respuesta predefinida. Protección contra prompt leaking explícita, incluyendo mención de claves API. Delimitadores claros y redacción profesional."
+    },
+    {
+      "id": "C6",
+      "nombre": "Actividad 6: Simulación de Sesgos (Análisis Crítico)",
+      "puntaje_obtenido": 1.5,
+      "puntaje_maximo": 14,
+      "estado": "ERROR",
+      "feedback": "El prompt no incluye ninguna instrucción de diversidad, inclusión o competencias profesionales universales: es simplemente el prompt original sin modificar (techo 30% = 4.2 pts). La justificación argumenta en contra de intervenir, contradiciendo el objetivo de la actividad. No se menciona el origen del sesgo en datos de entrenamiento ni patrones históricos del modelo. Se confunde 'realidad estadística del mundo corporativo' con sesgo algorítmico en modelos de lenguaje."
+    }
+  ],
+  "fortalezas": [
+    "Dominio técnico preciso de los 4 elementos fundamentales del prompt con delimitadores y salida JSON estructurada (C1)",
+    "Justificación rigurosa de parámetros basada en teoría de Predicción de Tokens con explicación del mecanismo softmax y distribución de probabilidad (C2)",
+    "System Prompt defensivo muy completo con ejemplos concretos de ataques de jailbreaking y prompt leaking, y respuestas predefinidas para cada tipo (C5)"
+  ],
+  "recomendaciones": [
+    "Reformular completamente la Actividad 6: el prompt debe incluir instrucciones explícitas de diversidad de género, origen cultural y competencias profesionales universales; no se trata de dejar el prompt original sin tocar",
+    "La justificación de C6 debe explicar que los modelos de lenguaje heredan sesgos de sus datos de entrenamiento por patrones históricos de subrepresentación, y que la ingeniería de prompts incluye la responsabilidad de mitigarlos activamente",
+    "Repasar la diferencia conceptual entre correlación estadística en datos del mundo real y sesgo algorítmico: el hecho de que los datos históricos muestren una tendencia no implica que el modelo deba perpetuarla sin intervención"
+  ],
+  "comentario_general": "Trabajo técnicamente impecable en las primeras 5 actividades, con dominio notable de arquitectura de prompts, parámetros de generación y defensa contra ataques. La Actividad 6, sin embargo, revela un error conceptual de fondo: el alumno argumenta en contra de la intervención y confunde realidad estadística con sesgo algorítmico, incumpliendo completamente el objetivo de la actividad. Esta confusión entre 'los datos muestran X' y 'el modelo debe perpetuar X' es justamente lo que la unidad busca desarmar."
+}

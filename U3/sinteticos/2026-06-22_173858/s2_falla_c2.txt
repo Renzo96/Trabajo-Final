@@ -1,0 +1,25 @@
+---
+
+**TP3 – Fundamentos de Metodologías Ágiles**
+
+**1)** El modelo en Cascada organiza el desarrollo en fases secuenciales bien definidas: requisitos, diseño, implementación, pruebas y mantenimiento. El problema grave de cambiar requisitos a mitad del desarrollo es que este modelo asume que cada fase se completa y se cierra antes de pasar a la siguiente; si en plena etapa de implementación el cliente pide modificar algo que ya se definió en la fase de requisitos, hay que desarmar parte del diseño ya aprobado, reescribir código ya escrito y volver a probar funcionalidades que ya estaban validadas. Esto implica retrabajo costoso tanto en tiempo como en dinero, y además el contrato inicial suele estar firmado sobre un alcance fijo, lo que hace que cualquier cambio se transforme en una negociación contractual.
+
+En cambio, la mentalidad ágil propone trabajar en iteraciones cortas —por ejemplo, sprints de dos semanas— donde al final de cada ciclo se entrega un incremento de producto funcionando. Esto permite que el cliente vea resultados rápido y dé feedback frecuente. Si surge un cambio de requisitos, el equipo puede incorporarlo en la siguiente iteración sin tener que deshacer meses de trabajo planificado. La adaptación al cambio deja de ser una crisis y pasa a ser parte natural del proceso.
+
+**2)** En un equipo de desarrollo es importante tener figuras que ayuden a organizar el trabajo. Cuando el equipo no sabe qué tareas priorizar para el negocio, eso lo debería resolver el Project Manager o el líder técnico del equipo, que es quien tiene la visión general del proyecto y puede ordenar las tareas según lo que haga avanzar más rápido el desarrollo. Por otro lado, el problema de las interrupciones de gerentes externos es algo que debería manejar cada desarrollador de forma individual, estableciendo sus propios horarios de concentración y comunicándole a los gerentes que respeten esos bloques de trabajo; también podría llevarse a una reunión de retrospectiva para charlarlo entre todos y buscarle una solución como equipo.
+
+**3)** Asignar cinco tareas simultáneas a cada programador genera el desperdicio Lean de multitarea y cambio de contexto. Cuando un desarrollador tiene que alternar entre cinco tareas distintas, cada salto implica un costo cognitivo: necesita recordar en qué quedó cada una, recuperar el estado mental del problema anterior y volver a concentrarse. Ese tiempo de «recalentamiento» es tiempo que no se está produciendo código, y además aumenta la probabilidad de errores porque la atención está fragmentada.
+
+El límite de trabajo en curso (WIP Limit) de Kanban soluciona esto obligando al equipo a terminar lo que ya empezó antes de tomar algo nuevo. Si el tablero tiene un WIP de dos tareas por persona, el programador no puede seguir acumulando trabajo sin finalizar; esto reduce el cambio de contexto, mejora el foco y acorta el tiempo que cada tarea pasa «en progreso». El resultado es que las tareas individuales se entregan más rápido y el throughput del equipo —la velocidad real de entrega— mejora, porque terminar antes significa liberar valor para el cliente cuanto antes.
+
+**4)** La Programación en Pareja no es un desperdicio de tiempo; al contrario, aporta beneficios concretos. El primero es la revisión de código en tiempo real: mientras uno escribe, el otro está revisando cada línea al instante, detectando errores de sintaxis, de lógica o malas prácticas que en una revisión posterior podrían pasar desapercibidas o requerir correcciones costosas. Esto hace que el código que llega al repositorio tenga menos bugs y sea de mejor calidad desde el minuto uno.
+
+El segundo beneficio es la transferencia de conocimiento entre los dos programadores. Cuando trabajan juntos, se comparten técnicas, atajos del IDE, formas de encarar problemas y conocimiento sobre distintas partes del sistema. Esto evita que haya una sola persona que sepa cómo funciona X módulo y que, si esa persona se enferma o se va, el equipo quede bloqueado. El aprendizaje mutuo fortalece al equipo entero y hace que el código final sea más mantenible por cualquiera de sus integrantes.
+
+**5)** (a) Historia de Usuario:
+«Como usuario de la plataforma, quiero guardar películas y series en una sección llamada "Mi Lista", para poder encontrarlas rápido cuando quiera verlas sin tener que buscarlas de nuevo.»
+
+(b) Criterios de Aceptación:
+- Dado que el usuario está en la ficha de una película o serie, cuando presiona el botón «Agregar a Mi Lista», entonces esa película o serie aparece inmediatamente en la sección «Mi Lista».
+- Dado que el usuario está en «Mi Lista», cuando selecciona una película o serie y presiona «Quitar de Mi Lista», entonces ese contenido desaparece de la lista sin afectar al resto de los elementos guardados.
+- Dado que el usuario no ha iniciado sesión, cuando intenta agregar contenido a «Mi Lista», entonces el sistema muestra un mensaje que le solicita iniciar sesión o crear una cuenta.

@@ -1,0 +1,39 @@
+TP4 - El Ecosistema Startup y el Modelo Lean
+
+Pregunta 1:
+
+La app que conecta panaderos caseros con clientes de toda la ciudad es una Startup, mientras que una panadería de barrio es una PyME tradicional. La diferencia clave está en dos conceptos: escalabilidad e incertidumbre.
+
+En cuanto a la escalabilidad, la app puede crecer de forma exponencial porque su producto es digital. Puede sumar miles de usuarios y procesar cientos de pedidos sin que sus costos aumenten en la misma proporción, ya que la distribución es a través de la tienda de aplicaciones y la infraestructura es software. En cambio, la panadería de barrio tiene un crecimiento lineal: si quiere vender el doble de pan, necesita más harina, más hornos, más empleados y posiblemente otro local. Está limitada por su capacidad física y su ubicación geográfica.
+
+Respecto a la incertidumbre, la app opera bajo condiciones de incertidumbre extrema. No se sabe si va a haber suficiente demanda de gente que quiera comprar pan casero por una app, no se sabe si los panaderos van a querer sumarse a la plataforma, y no se sabe si el modelo de negocio (por ejemplo, cobrar una comisión por pedido) va a ser rentable. Nadie hizo esto antes, no hay un camino probado. La panadería de barrio, en cambio, opera con mucha más certeza: el modelo de negocio de vender pan es conocido desde hace siglos, se sabe que la gente compra pan, se sabe más o menos cuánto se vende por día según la ubicación. La incertidumbre es baja porque el mercado ya existe y está validado.
+
+
+Pregunta 2:
+
+Lean Startup es una metodología que propone no hacer planes de negocio larguísimos sino ir probando cosas chicas y ver qué funciona. La idea principal es "fallar rápido" y aprender de los errores sin gastar tanta plata. Básicamente es no pasarse años desarrollando algo sin saber si a alguien le interesa, que es justo lo que hicieron los programadores de la red social de mascotas.
+
+En lugar de estar dos años programando, tendrían que haber sacado versiones chiquitas o prototipos e ir preguntándole a la gente si les gustaba. Por ejemplo, en vez de hacer toda la red social de una, podrían haber hecho una página de Facebook o un grupo de WhatsApp de dueños de mascotas para ver si la gente se sumaba, y si funcionaba ahí recién construir la plataforma. Así se ahorraban los dos años de desarrollo para algo que al final a nadie le interesó.
+
+
+Pregunta 3:
+
+La pregunta "¿usarían una app para compartir resúmenes?" genera respuestas inútiles por varios motivos. En primer lugar, cuando le preguntás eso a alguien, sobre todo si es un amigo o conocido, la persona tiende a responder que sí por cortesía o para no quedar mal. Esto se conoce como sesgo de confirmación o sesgo social: la gente te dice lo que quiere escuchar, no lo que realmente haría.
+
+En segundo lugar, preguntar sobre intenciones futuras ("¿usarías...?") te da opiniones, no hechos. Que alguien diga que usaría una app no significa que efectivamente la vaya a descargar, registrarse y usarla todos los días cuando la app exista. Son predicciones que la gente hace sobre su propio comportamiento futuro, y están casi siempre equivocadas.
+
+Lo que hay que hacer, según el Test de la Madre, es preguntar sobre comportamientos pasados concretos. Por ejemplo: "¿Cómo conseguís los resúmenes hoy para estudiar?" o "La última vez que tuviste que preparar un final, ¿cuánto tiempo perdiste buscando apuntes de otros compañeros?" o "¿Alguna vez pagaste por material de estudio, como resúmenes o cursos online?". Estas preguntas indagan sobre hechos reales que ya ocurrieron, no sobre lo que la persona cree que haría en el futuro. Ahí obtenés información accionable de verdad.
+
+
+Pregunta 4:
+
+El modelo de negocio está destinado a quebrar porque el LTV (Lifetime Value) del cliente es menor que el CAC (Customer Acquisition Cost). Haciendo la cuenta: el CAC es de $5.000 por cada usuario nuevo que adquieren, mientras que el LTV es de $1.000 por mes durante 2 meses, o sea $2.000 en total. Como $2.000 es menor que $5.000, la empresa pierde $3.000 con cada cliente que suma. Es un modelo de negocio roto: cuanto más crece, más plata pierde.
+
+El Churn Rate está directamente relacionado con este problema. El Churn Rate es la tasa de cancelación o abandono de usuarios, es decir, qué porcentaje de clientes deja de pagar en un período determinado. En este caso, el usuario se va a los 2 meses, lo que implica que el Churn Rate es muy alto. Esto hace que la vida útil del cliente sea muy corta, y como el LTV se calcula justamente multiplicando el ingreso mensual por los meses que el cliente se queda, un Churn Rate alto aplasta el LTV. Por más que bajaran el CAC o subieran el precio, si los usuarios se siguen yendo a los 2 meses, el LTV nunca va a alcanzar para cubrir los costos de adquisición. La retención es el problema de fondo: sin clientes que se queden, no hay forma de que el LTV supere al CAC.
+
+
+Pregunta 5:
+
+El modelo que elijo es Freemium. Este modelo consiste en ofrecer una versión gratuita de la aplicación con funcionalidades básicas, y una o varias versiones pagas (Premium) que desbloquean funcionalidades avanzadas, eliminan publicidad o dan algún beneficio exclusivo. La idea es que la versión gratuita funcione como motor de adquisición de usuarios: mucha gente usa el producto gratis, y un pequeño porcentaje de esos usuarios decide pagar por el plan premium, generando los ingresos del negocio. Ejemplos conocidos son Spotify, Dropbox o Notion.
+
+Un desafío técnico concreto para implementar correctamente un modelo Freemium es el feature flagging. Hay que diseñar la arquitectura del sistema de forma que, según el plan del usuario, la aplicación muestre u oculte funcionalidades sin necesidad de mantener dos versiones de código distintas. Esto implica implementar un sistema de permisos o "feature flags" a nivel de backend que controle qué endpoints o funcionalidades están habilitadas para cada tipo de usuario. Si no está bien hecho, es muy fácil que se filtren funcionalidades premium a usuarios gratuitos por un bug en el frontend o en la lógica de autorización. Además, hay que decidir si las comprobaciones de permisos se hacen en tiempo real contra una base de datos (lo cual puede afectar la performance) o si se cachean en el cliente (lo cual abre riesgos de seguridad si alguien manipula el código).

@@ -1,0 +1,275 @@
+Eres un evaluador experto de trabajos prácticos de programación para la materia "Organización Empresarial".
+
+Tu tarea es evaluar el siguiente código del alumno "Alumno Falla-C4 S4" según la rúbrica proporcionada.
+
+## RÚBRICA DE EVALUACIÓN
+
+Título: TPI - Del MVP a la Automatización (Parte 2: Automatización y Control de Versiones)
+Tipo: TP
+Puntaje máximo: 100
+
+## CONTEXTO ADICIONAL
+
+- materia: Organización Empresarial
+- universidad: UTN - Facultad Regional Mendoza
+- carrera: Tecnicatura Universitaria en Programación
+- herramientas: n8n, Git
+- formato_entrega: .zip con .json de n8n + git-log.txt
+- modo_correccion: proyecto_completo
+- nota: La Parte 1 (respuestas teóricas en PDF) se evalúa manualmente y NO está incluida en esta rúbrica.
+
+
+Criterios:
+- ID: C1
+  Nombre: Nodo Webhook en el flujo n8n
+  Peso: 25 pts
+  Descripción: El archivo .json exportado de n8n contiene un flujo con un nodo Webhook correctamente configurado como punto de entrada, preparado para recibir los datos 'nombre' y 'email' desde una página web mediante método HTTP GET o POST.
+  Instrucciones de puntuación: Si no existe archivo .json o no es un export válido de n8n → 0. Si existe el JSON pero no hay nodo Webhook → 0. Si el Webhook existe pero no tiene método HTTP configurado (GET o POST) → techo 15. Si el método está pero no hay referencia a los parámetros nombre/email en el flujo → techo 20.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Existe un archivo .json que es una exportación válida de un flujo de n8n.
+    * Existe al menos un archivo con extensión .json en la entrega
+    * El archivo .json tiene la estructura de una exportación de n8n (contiene claves como 'nodes', 'connections' o estructura equivalente de flujo n8n)
+  - El flujo contiene un nodo de tipo Webhook como punto de entrada.
+    * Existe un nodo cuyo tipo contiene 'webhook' (ej: 'n8n-nodes-base.webhook' o similar)
+    * El nodo Webhook está configurado con método HTTP GET o POST
+  - El Webhook está preparado para recibir los datos 'nombre' y 'email'.
+    * La configuración del Webhook o los nodos posteriores hacen referencia a los parámetros 'nombre' y 'email' (ya sea por query string con $json.query o por body con $json.body)
+
+- ID: C2
+  Nombre: Nodo Edit Fields y expresión dinámica de bienvenida
+  Peso: 35 pts
+  Descripción: El flujo conecta la salida del Webhook a un nodo Edit Fields (Set) que crea un campo String llamado 'mensaje_bienvenida' con una expresión dinámica que saluda al usuario usando su nombre. Este es el objetivo central del flujo de automatización pedido por la consigna.
+  Instrucciones de puntuación: Sin nodo Edit Fields/Set conectado al Webhook → 0. Si existe el nodo pero no tiene el campo 'mensaje_bienvenida' → techo 15. Si tiene el campo pero usa texto estático en vez de expresión dinámica → techo 20. Si usa expresión pero no referencia el nombre del usuario → techo 25.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Existe un nodo Edit Fields (Set) conectado a la salida del Webhook.
+    * Existe un nodo de tipo 'set' o 'Edit Fields' en el flujo
+    * El nodo está conectado como destino del nodo Webhook (aparece en las connections del Webhook o en la cadena de conexiones)
+  - El nodo Edit Fields define un campo String llamado 'mensaje_bienvenida'.
+    * En los parámetros del nodo Set/Edit Fields existe un campo con nombre 'mensaje_bienvenida'
+    * El tipo del campo es String
+  - El campo 'mensaje_bienvenida' usa una expresión dinámica que incluye el nombre del usuario.
+    * El valor del campo 'mensaje_bienvenida' es una expresión (no texto estático): se identifica por el uso de sintaxis {{ }} o por la propiedad 'expression' en la configuración del nodo
+    * La expresión referencia el nombre del usuario (ej: {{ $json.query.nombre }}, {{ $json.body.nombre }}, o variante equivalente)
+    * El mensaje resultante saluda o da la bienvenida al usuario usando su nombre de forma dinámica
+
+- ID: C3
+  Nombre: Control de versiones con Git
+  Peso: 25 pts
+  Descripción: El archivo git-log.txt evidencia el uso correcto de Git como control de versiones del proyecto: repositorio inicializado, al menos dos commits con mensajes descriptivos y relevantes al trabajo realizado, y el log generado con 'git log --oneline --stat' mostrando los archivos versionados en cada commit.
+  Instrucciones de puntuación: Si no existe el archivo git-log.txt → 0. Si existe pero tiene menos de 2 commits → techo 10. Si hay 2+ commits pero los mensajes no son descriptivos (ej: 'asdf', '1', 'commit', 'test') → techo 18. Si todo está correcto y el --stat muestra archivos relevantes (PDF y .json agregados) → puntaje completo.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Existe el archivo git-log.txt con formato de salida de 'git log --oneline --stat'.
+    * Existe un archivo llamado git-log.txt en la entrega
+    * El contenido tiene el formato de 'git log --oneline --stat': líneas con hash corto + mensaje, seguidas de estadísticas de archivos modificados
+  - El historial muestra al menos dos commits con mensajes descriptivos y relevantes.
+    * Se identifican al menos 2 commits en el log
+    * Un commit tiene un mensaje relacionado con las respuestas teóricas o la parte inicial del proyecto (ej: 'Agrego respuestas de negocio y live coding' o similar)
+    * Otro commit tiene un mensaje relacionado con el flujo de n8n o la automatización (ej: 'Agrego flujo de n8n para bienvenida de usuarios' o similar)
+  - Las estadísticas (--stat) muestran los archivos versionados correctamente.
+    * El --stat de algún commit muestra la incorporación de un archivo PDF (respuestas de la Parte 1)
+    * El --stat de algún commit muestra la incorporación de un archivo .json (flujo de n8n exportado)
+
+- ID: C4
+  Nombre: Estructura y nomenclatura del proyecto
+  Peso: 15 pts
+  Descripción: La entrega respeta la estructura y nomenclatura pedidas por la consigna: carpeta raíz con formato 'tp-integrador-apellido-nombre', y contiene los archivos requeridos para la corrección automatizada (archivo .json exportado de n8n y archivo git-log.txt).
+  Instrucciones de puntuación: Si faltan ambos archivos requeridos (.json y git-log.txt) → 0. Si falta uno de los dos → techo 5. Si ambos archivos están pero la carpeta no sigue la nomenclatura 'tp-integrador-apellido-nombre' → techo 10. Si todo está presente y correctamente nombrado → puntaje completo.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Los archivos requeridos para la corrección automatizada están presentes.
+    * Existe al menos un archivo .json (exportación del flujo de n8n) en la entrega
+    * Existe el archivo git-log.txt en la entrega
+  - La carpeta del proyecto sigue el formato de nomenclatura indicado en la consigna.
+    * El nombre de la carpeta raíz del proyecto sigue el patrón 'tp-integrador-apellido-nombre' (ej: tp-integrador-perez-juan)
+
+
+## PENALIZACIONES
+
+Estas penalizaciones se aplican SOBRE el puntaje obtenido en los criterios. Evalúa si alguna aplica al código entregado.
+Ninguna definida.
+
+## CONDICIONES DE DESAPROBACIÓN
+
+IMPORTANTE: Estas condiciones establecen un TECHO (nota máxima) para la calificación. Si CUALQUIERA de ellas se cumple, la nota final NO PUEDE SUPERAR el máximo indicado. La nota final será el MÍNIMO entre la suma de criterios y la nota máxima de la condición. Evalúa cada condición cuidadosamente.
+Ninguna definida.
+
+## CÓDIGO DEL ALUMNO
+
+```
+Entrega generada (carpeta raíz del .zip: `TP_Integrador_Organizacion_Empresarial/`):
+
+---
+
+**Archivo: `TP_Integrador_Organizacion_Empresarial/My workflow.json`**
+
+```json
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "bienvenida",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "a1b2c3d4-1111-4a5b-8c6d-2e3f4a5b6c7d",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "b2c3d4e5-2222-4b6c-9d7e-3f4a5b6c7d8e"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c3d4e5f6-3333-4c7d-ae8f-4a5b6c7d8e9f",
+              "name": "mensaje_bienvenida",
+              "value": "={{ 'Hola ' + $json.query.nombre + '! Gracias por registrarte, recibimos tu email ' + $json.query.email + ' correctamente.' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d4e5f6a7-4444-4d8e-bf9a-5b6c7d8e9f0a",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"mensaje\": $json.mensaje_bienvenida } }}",
+        "options": {}
+      },
+      "id": "e5f6a7b8-5555-4e9f-ca0b-6c7d8e9f0a1b",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a"
+  }
+}
+```
+
+---
+
+**Archivo: `TP_Integrador_Organizacion_Empresarial/git-log.txt`**
+
+```
+9c1f8a4 (HEAD -> main) Agrego flujo de n8n para bienvenida de usuarios (Webhook + Edit Fields)
+ My workflow.json | 84 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 84 insertions(+)
+
+b7d3e05 Agrego respuestas de la parte 1: preguntas de negocio y live coding
+ respuestas-parte1-ibanez-rocio.pdf | Bin 0 -> 356210 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+f4a2c91 Inicializo repositorio del TPI con README y gitignore
+ .gitignore | 3 +++
+ README.md  | 9 +++++++++
+ 2 files changed, 12 insertions(+)
+```
+
+---
+
+**Archivo: `TP_Integrador_Organizacion_Empresarial/respuestas-parte1-ibanez-rocio.pdf`**
+
+(Documento con las respuestas teóricas de la Parte 1 del TPI — preguntas de negocio y live coding. Se evalúa manualmente fuera de esta rúbrica.)
+
+```
+
+## INSTRUCCIONES DE EVALUACIÓN
+
+1. Primero, evalúa cada criterio de la rúbrica normalmente (puntaje y feedback), verificando las evidencias esperadas de cada criterio contra el código.
+2. Luego, verifica si alguna CONDICIÓN DE DESAPROBACIÓN se cumple:
+   Ninguna.
+3. Luego, verifica si alguna PENALIZACIÓN aplica:
+   Ninguna.
+4. Calcula la nota final:
+   - Calcula nota_antes_penalizaciones = suma de puntajes de los criterios.
+   - Si aplica alguna condición de desaprobación → nota = min(nota_antes_penalizaciones, nota_maxima_de_la_condicion). Es decir, la nota no puede superar el techo.
+   - Si aplica alguna penalización → aplica el descuento porcentual sobre nota_antes_penalizaciones.
+   - Si no aplica nada → nota = nota_antes_penalizaciones.
+
+Para cada criterio:
+1. DEBES incluir el ID exacto del criterio de la rúbrica
+2. Asigna un puntaje entre 0 y el peso del criterio
+3. Determina el estado:
+   - "OK" si logra ≥80% del peso del criterio
+   - "WARNING" si logra 40-79% del peso
+   - "ERROR" si logra <40% del peso
+4. Proporciona feedback específico y constructivo, citando las evidencias cumplidas o faltantes
+
+Además:
+- Lista 2-4 fortalezas del código (array de strings)
+- Lista 2-4 recomendaciones de mejora específicas (array de strings)
+- Escribe un comentario general de 2-3 oraciones
+
+## FORMATO DE RESPUESTA OBLIGATORIO
+
+Responde ÚNICAMENTE con un JSON válido con esta estructura exacta:
+
+{
+  "nota": <número entre 0 y 100>,
+  "condicion_desaprobacion_aplicada": <null si no aplica, o el ID de la condición que aplica (ej: "CD1")>,
+  "penalizaciones_aplicadas": [<array de IDs de penalizaciones aplicadas, vacío si ninguna>],
+  "nota_antes_penalizaciones": <número: suma de criterios antes de aplicar condiciones o penalizaciones>,
+  "criterios": [
+    {
+      "id": "<ID exacto del criterio de la rúbrica>",
+      "nombre": "<nombre exacto del criterio de la rúbrica>",
+      "puntaje_obtenido": <número>,
+      "puntaje_maximo": <número igual al peso del criterio>,
+      "estado": "<OK|WARNING|ERROR>",
+      "feedback": "<feedback específico>"
+    }
+  ],
+  "fortalezas": ["<fortaleza 1>", "<fortaleza 2>"],
+  "recomendaciones": ["<recomendación 1>", "<recomendación 2>"],
+  "comentario_general": "<comentario de 2-3 oraciones>"
+}
+
+IMPORTANTE:
+- CADA criterio debe tener su ID exacto de la rúbrica
+- Si aplica una condición de desaprobación, "nota" debe ser min(suma_criterios, nota_maxima_de_la_condicion), pero IGUAL debes evaluar todos los criterios con su puntaje real.
+- Si aplica una penalización, "nota" debe reflejar el descuento aplicado sobre "nota_antes_penalizaciones".
+- Si no aplica ni condición ni penalización, "nota" = "nota_antes_penalizaciones" = suma de puntajes.
+- Cada criterio de la rúbrica debe aparecer en la respuesta
+- NO incluyas texto antes o después del JSON

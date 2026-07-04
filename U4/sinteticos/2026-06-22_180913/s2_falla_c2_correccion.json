@@ -1,0 +1,59 @@
+{
+  "nota": 85,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 85,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Startup vs PyME",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Respuesta completa: aplica correctamente los conceptos de Escalabilidad e Incertidumbre al caso concreto de la app tipo Uber vs. la panadería de barrio, explicando el crecimiento exponencial de la app frente al crecimiento lineal de la panadería, y la incertidumbre extrema de la app frente a la certeza relativa del modelo de negocio tradicional."
+    },
+    {
+      "id": "C2",
+      "nombre": "Lean Startup y MVP Smoke Test",
+      "puntaje_obtenido": 5,
+      "puntaje_maximo": 20,
+      "estado": "ERROR",
+      "feedback": "Respuesta superficial e incorrecta. Menciona conceptos genéricos ('fallar rápido', 'versiones chiquitas') pero NO menciona el ciclo Construir-Medir-Aprender ni define qué es un MVP Smoke Test. En lugar de proponer una landing page con llamado a la acción para medir interés real, propone un grupo de Facebook o WhatsApp como validación, lo cual NO es un Smoke Test. No cumple con las evidencias esperadas de definir el concepto ni aplicarlo correctamente al caso de la red social de mascotas."
+    },
+    {
+      "id": "C3",
+      "nombre": "Test de la Madre (Customer Discovery)",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Respuesta completa: explica por qué las respuestas a '¿usarían una app para compartir resúmenes?' son inútiles (sesgo de confirmación, opiniones vs. hechos, predicciones futuras no confiables) y propone preguntas alternativas basadas en comportamiento pasado y hechos concretos."
+    },
+    {
+      "id": "C4",
+      "nombre": "LTV vs CAC y Retención",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Respuesta completa: demuestra que LTV ($2.000) < CAC ($5.000), por lo tanto se pierde dinero con cada usuario, y conecta correctamente el Churn Rate alto (usuario se va a los 2 meses) con la reducción de la vida útil del cliente que impide que el LTV supere al CAC."
+    },
+    {
+      "id": "C5",
+      "nombre": "Modelos de negocio en software",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Respuesta completa: elige un modelo de ingresos válido de los vistos en clase, lo explica correctamente y menciona un desafío técnico de programación o arquitectura pertinente y específico al modelo elegido."
+    }
+  ],
+  "fortalezas": [
+    "Excelente comprensión de la distinción Startup vs PyME aplicando escalabilidad e incertidumbre al caso concreto (C1)",
+    "Domina el Test de la Madre y sabe diferenciar preguntas basadas en opiniones de aquellas basadas en comportamiento pasado (C3)",
+    "Maneja con solidez la relación LTV/CAC y entiende cómo el Churn Rate impacta directamente en la viabilidad del negocio (C4)",
+    "Sabe conectar modelos de negocio de software con desafíos técnicos reales de implementación (C5)"
+  ],
+  "recomendaciones": [
+    "C2: Estudiar en profundidad el ciclo Construir-Medir-Aprender y los tipos específicos de MVP, particularmente el Smoke Test como landing page con CTA para medir interés real antes de construir",
+    "C2: Entender la diferencia entre 'validación informal' (grupos de redes sociales, preguntar a conocidos) y 'validación metodológica Lean' (experimentos que miden comportamiento real, no opiniones). Proponer un grupo de Facebook o WhatsApp NO es un Smoke Test"
+  ],
+  "comentario_general": "La entrega demuestra buen dominio de la mayoría de los conceptos evaluados, pero C2 evidencia una comprensión superficial de Lean Startup que le costó 15 puntos. La confusión entre validación informal (grupos de redes sociales) y un Smoke Test metodológico (landing page) indica que el alumno no internalizó la diferencia entre 'preguntar' y 'medir comportamiento real', que es justamente el corazón del método Lean. El resto de las respuestas son sólidas y bien fundamentadas."
+}

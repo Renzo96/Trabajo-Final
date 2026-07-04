@@ -1,0 +1,60 @@
+{
+  "nota": 96,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 96,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Startup vs PyME",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Excelente aplicación del concepto de escalabilidad: explicás con claridad el crecimiento exponencial de la app (sin costos proporcionales, gracias a la distribución digital) versus el crecimiento lineal de la panadería (limitada por local, empleados y geografía). En incertidumbre, explicás bien que la startup opera sin saber si el modelo funcionará y lo aplicás al caso concreto. Lo que falta para el puntaje completo es el contraste explícito del lado de la panadería: mencionar que la panadería opera con certeza relativa porque el modelo de negocio (vender pan) es conocido y probado. Cerraste con 'la startup puede escalar sin los límites que tiene un negocio tradicional', que redondea bien escalabilidad, pero dejaste la incertidumbre sin el espejo del negocio tradicional."
+    },
+    {
+      "id": "C2",
+      "nombre": "Lean Startup y MVP Smoke Test",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Respuesta completa y precisa. Explicás el ciclo Construir-Medir-Aprender, identificás claramente el error de los programadores (construir sin validar, enamorarse de la idea), definís correctamente el MVP Smoke Test como landing page con llamado a la acción, y lo conectás con un ejemplo concreto (PetConnect, 'Sé de los primeros, registrate acá'). La conexión con el ahorro de dos años de desarrollo cierra el argumento con fuerza."
+    },
+    {
+      "id": "C3",
+      "nombre": "Test de la Madre (Customer Discovery)",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Sólida comprensión del Test de la Madre. Explicás por qué las respuestas a '¿usarías...?' no sirven: sesgo social/de confirmación, la gente responde por cortesía, y las intenciones futuras no predicen comportamiento real. Proponés tres preguntas alternativas excelentes basadas en comportamiento pasado ('¿Cómo conseguís resúmenes hoy?', '¿Cuánto tiempo perdiste la última vez?', '¿Pagaste alguna vez por material de estudio?'), todas enfocadas en hechos concretos y accionables."
+    },
+    {
+      "id": "C4",
+      "nombre": "LTV vs CAC y Retención",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Respuesta impecable. Calculás correctamente LTV = $1.000 × 2 = $2.000, identificás que LTV < CAC ($2.000 < $5.000) implica pérdida de $3.000 por cliente, y definís el Churn Rate como tasa de cancelación. La conexión entre churn alto y LTV bajo está bien explicada: si el usuario se va a los 2 meses, el LTV se desploma y nunca alcanza a cubrir el CAC. Incluso mencionás las dos vías de solución (bajar CAC o mejorar retención), mostrando comprensión del problema de negocio."
+    },
+    {
+      "id": "C5",
+      "nombre": "Modelos de negocio en software",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Elegís SaaS correctamente y lo explicás con precisión: cobro recurrente por acceso a software en la nube, sin licencia perpetua ni instalación local. El desafío técnico que mencionás es pertinente y específico: sistema de facturación recurrente, control de acceso por tiers, integración con procesadores de pago (Stripe/MercadoPago), manejo de cobros fallidos con reintentos, notificaciones y degradación de acceso. Demostrás entender que no es solo 'cobrar una vez' sino mantener un sistema vivo de suscripciones, renovaciones, cancelaciones y cambios de plan."
+    }
+  ],
+  "fortalezas": [
+    "Aplicación concreta del ciclo Construir-Medir-Aprender y el Smoke Test al caso de la red social de mascotas, con un ejemplo de landing page bien detallado (PetConnect).",
+    "Excelente manejo del Test de la Madre: no solo diagnostica el problema de las preguntas basadas en intenciones, sino que propone tres preguntas alternativas concretas sobre comportamiento pasado.",
+    "Profundidad técnica en el desafío de SaaS: va más allá de nombrar la facturación recurrente y detalla reintentos, notificaciones, degradación de acceso y cambios de plan.",
+    "En LTV vs CAC hace el cálculo numérico explícito, conecta el Churn Rate con el problema de fondo y sugiere vías de solución, mostrando comprensión sistémica del modelo de negocio."
+  ],
+  "recomendaciones": [
+    "En C1 (Startup vs PyME), cerrá el contraste de incertidumbre mencionando explícitamente que la panadería opera con certeza relativa porque su modelo de negocio —vender pan— es conocido y probado desde hace siglos. Eso redondea la aplicación del concepto a ambos lados del caso.",
+    "En C2, podrías mencionar que si la landing page mostraba bajo interés, aplicarían un 'pivot' (otro concepto central de Lean Startup) para cambiar el rumbo sin haber gastado dos años, reforzando aún más la conexión metodológica.",
+    "En C4, sumaría la fórmula explícita de LTV en función del churn (LTV = ARPU / Churn Rate) para mostrar la relación matemática directa entre retención y valor del cliente, en lugar de solo describirla."
+  ],
+  "comentario_general": "Trabajo muy sólido. Demostrás comprensión real de los conceptos del ecosistema startup y Lean Startup, no solo definiciones de memoria: aplicás cada idea al caso concreto, conectás causas con consecuencias, y en los criterios C2 a C5 cubrís todas las evidencias. El único punto débil menor está en C1, donde el contraste de incertidumbre queda incompleto del lado de la panadería. Bien laburado."
+}

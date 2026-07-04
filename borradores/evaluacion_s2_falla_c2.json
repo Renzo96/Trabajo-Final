@@ -1,0 +1,68 @@
+{
+  "nota": 82,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 82,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Actividad 1: Arquitectura de la Instrucción",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "Los 4 elementos fundamentales están presentes, claramente identificados y correctamente delimitados con ###. El prompt menciona las 3 categorías de clasificación requeridas (Urgente, Consulta General, Feedback) y está orientado al caso de soporte técnico. La entrega cumple con todas las evidencias esperadas sin excepción."
+    },
+    {
+      "id": "C2",
+      "nombre": "Actividad 2: Laboratorio de Parámetros (Cuadro Comparativo)",
+      "puntaje_obtenido": 0,
+      "puntaje_maximo": 18,
+      "estado": "ERROR",
+      "feedback": "Ambos casos tienen valores incorrectos. Caso A (precisión/determinismo): el alumno propone Temperatura 0.85 y Top-p 0.92, valores ALTOS que generan aleatoriedad — lo opuesto a lo requerido para una función matemática que necesita determinismo (rango esperado: Temp 0.0–0.3, Top-p bajo). Caso B (creatividad/variedad): el alumno propone Temperatura 0.25 y Top-p 0.35, valores BAJOS que producen respuestas deterministas — lo opuesto a lo requerido para un post creativo (rango esperado: Temp 0.7–1.0, Top-p 0.8–1.0). Las justificaciones, además de ser incorrectas por defender valores invertidos, no referencian la teoría de Predicción de Tokens. Según la rúbrica: 'Si valores incorrectos o contradictorios, 0 en ese caso'. Ambos casos reciben 0 pts."
+    },
+    {
+      "id": "C3",
+      "nombre": "Actividad 3: Razonamiento Avanzado (Chain-of-Thought)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "El prompt incluye un ejemplo previo de un problema diferente (máquinas y piezas) con razonamiento paso a paso explícito en 4 etapas antes de la respuesta final. El problema objetivo de las camisas está incluido y el prompt está diseñado para que el modelo siga el mismo esquema CoT. La estructura Few-shot Chain-of-Thought está correctamente implementada y cumple todas las evidencias esperadas."
+    },
+    {
+      "id": "C4",
+      "nombre": "Actividad 4: Asistente de Refactorización de Código",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El prompt define claramente el rol de Desarrollador Senior, incluye el código original `def suma(a,b): return a+b`, y detalla los 4 requisitos técnicos de forma explícita y numerada: type hints, Docstring, explicación línea por línea y mejora/refactorización con buenas prácticas (PEP 8, nombres descriptivos, casos borde). La entrega satisface plenamente todas las evidencias esperadas."
+    },
+    {
+      "id": "C5",
+      "nombre": "Actividad 5: Seguridad y Ética (Defensa de Prompts)",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El texto está formulado como System Prompt con un propósito principal definido (recomendaciones de libros). Incluye protección explícita contra Jailbreaking (reglas 3 y 4: rechaza intentos de modificar comportamiento, ignorar instrucciones previas, reencuadre de rol) y contra Prompt Leaking (reglas 1 y 2: nunca revelar instrucciones internas, claves API ni datos sensibles). La regla 5 refuerza todo con criterio restrictivo. Todas las evidencias esperadas están cubiertas con solidez."
+    },
+    {
+      "id": "C6",
+      "nombre": "Actividad 6: Simulación de Sesgos (Análisis Crítico)",
+      "puntaje_obtenido": 14,
+      "puntaje_maximo": 14,
+      "estado": "OK",
+      "feedback": "El prompt mitiga sesgos de género (instrucción de no asumir masculino, alternar géneros), incluye diversidad cultural/geográfica y centra la descripción en competencias profesionales universales (liderazgo, pensamiento estratégico, comunicación, adaptabilidad, inteligencia emocional, toma de decisiones). La justificación explica de forma sólida que el sesgo proviene de los datos de entrenamiento (sobrerrepresentación de hombres occidentales en el corpus) y argumenta por qué es necesaria la intervención explícita. Todas las evidencias esperadas se cumplen."
+    }
+  ],
+  "fortalezas": [
+    "La Actividad 1 muestra un dominio impecable de la arquitectura de prompts: los 4 elementos están presentes, correctamente delimitados y perfectamente orientados al caso de clasificación de correos de soporte.",
+    "La Actividad 3 implementa Few-shot Chain-of-Thought con calidad profesional: el ejemplo previo es de un problema distinto, muestra razonamiento en múltiples pasos verificables y el prompt target está correctamente encadenado al mismo esquema.",
+    "La Actividad 5 construye un sistema defensivo robusto con capas de protección: cubre jailbreaking directo e indirecto, prompt leaking, reencuadre de rol, y establece un criterio restrictivo general ante ambigüedad.",
+    "La Actividad 6 demuestra comprensión profunda del origen del sesgo en modelos de lenguaje, vinculándolo directamente a los datos de entrenamiento y justificando con claridad por qué la intervención explícita es técnicamente necesaria."
+  ],
+  "recomendaciones": [
+    "Actividad 2: Estudiar la teoría de Predicción de Tokens a fondo. Temperatura baja (0.0–0.3) concentra la distribución de probabilidad en el token más probable → determinismo. Temperatura alta (0.7–1.0) aplana la distribución → creatividad. Los valores propuestos están completamente invertidos entre ambos casos.",
+    "Actividad 2: En el Caso A, proponer Temperatura 0.0–0.2 y Top-p bajo (o justificar que para código determinista conviene sampling mínimamente variado). En el Caso B, proponer Temperatura 0.8–1.0 y Top-p 0.9–1.0 para maximizar la diversidad léxica y creativa del post.",
+    "Actividad 3: Considerar que el ejemplo de máquinas/piezas es de proporcionalidad directa, mientras que el problema de las camisas tiene una estructura lógica diferente (el tiempo de secado no escala con la cantidad de camisas si se secan simultáneamente). Un ejemplo más adecuado evitaría inducir al modelo a un razonamiento proporcional erróneo."
+  ],
+  "comentario_general": "El alumno demuestra un manejo sólido en 5 de los 6 criterios, con entregas de alta calidad especialmente en arquitectura de prompts, Chain-of-Thought, refactorización, defensa y mitigación de sesgos. Sin embargo, la Actividad 2 revela una confusión conceptual crítica: los valores de Temperatura y Top-p están invertidos entre precisión y creatividad, y las justificaciones no referencian la teoría de Predicción de Tokens. Este error evidencia que el alumno no comprende correctamente cómo estos parámetros controlan la distribución de probabilidad en la selección de tokens, un concepto fundamental de la unidad."
+}

@@ -1,0 +1,60 @@
+{
+  "nota": 100,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 100,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Startup vs PyME",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Aplica ambos conceptos al caso concreto de forma impecable. Explica la escalabilidad de la app (costo marginal → cero, crecimiento exponencial, sin hornos ni locales propios) y el crecimiento lineal de la panadería (límites físicos, geográficos, proporcionalidad de costos). Explica la incertidumbre extrema de la app (no se sabe si habrá demanda, si el modelo funcionará, si pagarán) y la certeza relativa de la panadería (modelo probado por siglos, clientes conocidos). Cubre todas las evidencias esperadas."
+    },
+    {
+      "id": "C2",
+      "nombre": "Lean Startup y MVP Smoke Test",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica Lean Startup mencionando el ciclo Construir-Medir-Aprender e identifica correctamente el error de los programadores (enamorarse de la idea, construir sin validar demanda). Define el MVP Smoke Test como landing page con CTA y lo aplica al caso concreto con un ejemplo claro (PetConnect, registro, publicidad en grupos de Facebook). La conexión entre teoría y caso es perfecta."
+    },
+    {
+      "id": "C3",
+      "nombre": "Test de la Madre (Customer Discovery)",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica por qué las respuestas no sirven abordando tres razones válidas: sesgo de confirmación/cortesía social, predicciones futuras no confiables, y falta de información accionable. Propone preguntas alternativas basadas en comportamiento pasado (cómo consiguió resúmenes la última vez, cuánto tiempo perdió buscando apuntes, si pagó por material de estudio). Las preguntas se enfocan en hechos concretos y acciones reales."
+    },
+    {
+      "id": "C4",
+      "nombre": "LTV vs CAC y Retención",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Demuestra numéricamente que LTV ($2.000) < CAC ($5.000) y concluye correctamente que el negocio pierde $3.000 por cliente. Define Churn Rate y lo conecta causalmente con el LTV: un churn alto reduce la vida útil del cliente, lo que achata el LTV. Incluso calcula el punto de equilibrio (5 meses) donde el modelo se volvería viable, mostrando dominio completo de la relación entre métricas."
+    },
+    {
+      "id": "C5",
+      "nombre": "Modelos de negocio en software",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Elige Freemium (modelo válido visto en clase), lo explica correctamente (versión gratuita con limitaciones + planes pagos premium, motor de adquisición) y da ejemplos pertinentes (Spotify, Notion, Canva). El desafío técnico (feature flagging) es específico, pertinente al modelo elegido y está desarrollado con profundidad: middleware de autorización por plan, componentes frontend condicionales, esquemas de suscripción en BD, A/B testing de pricing, prevención de acceso no autorizado a endpoints."
+    }
+  ],
+  "fortalezas": [
+    "Aplica los conceptos teóricos al caso concreto en todas las preguntas, nunca se limita a definiciones abstractas ni genéricas.",
+    "La explicación del Smoke Test conecta perfectamente con el caso de la red social de mascotas, incluyendo un ejemplo concreto (PetConnect, registros, grupos de Facebook).",
+    "Demuestra comprensión técnica profunda en C5 al detallar desafíos reales de arquitectura (feature flagging, middleware de autorización, A/B testing de pricing).",
+    "La relación LTV-CAC-Churn está impecablemente desarrollada, mostrando tanto el cálculo como la conexión causal entre retención y viabilidad del negocio, incluyendo el punto de equilibrio."
+  ],
+  "recomendaciones": [
+    "En C3, podría mencionar explícitamente 'The Mom Test' de Rob Fitzpatrick como fuente del concepto, aunque la explicación es completamente correcta.",
+    "En C5, podría complementar mencionando desafíos adicionales del modelo Freemium como el manejo de upgrades/downgrades de plan y la consistencia de entitlements en sistemas distribuidos.",
+    "En C1, podría reforzar con un contraste explícito de los modelos de revenue (transaccional recurrente por comisión vs. venta directa por unidad) para enriquecer el análisis."
+  ],
+  "comentario_general": "El alumno demuestra dominio completo y excepcional de todos los conceptos evaluados. Cada respuesta aplica la teoría al caso concreto con precisión quirúrgica, sin limitarse a reproducir definiciones. La entrega es técnicamente impecable y cubre la totalidad de las evidencias esperadas. Una evaluación perfecta que refleja comprensión profunda del ecosistema startup y el modelo Lean."
+}

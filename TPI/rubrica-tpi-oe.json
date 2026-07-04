@@ -1,0 +1,142 @@
+{
+  "titulo": "TPI - Del MVP a la Automatización (Parte 2: Automatización y Control de Versiones)",
+  "descripcion": "Evaluación de la Parte 2 del Trabajo Práctico Integrador de Organización Empresarial. Se evalúa la construcción de un flujo de automatización en n8n (nodo Webhook + nodo Edit Fields con expresión dinámica que genera un mensaje de bienvenida personalizado) y el uso correcto de Git como control de versiones (evidenciado mediante el archivo git-log.txt generado con 'git log --oneline --stat'). La Parte 1 (respuestas teóricas en PDF) se evalúa manualmente fuera de esta rúbrica. La entrega es un .zip que contiene el .json exportado de n8n y el archivo git-log.txt.",
+  "puntaje_maximo": 100,
+  "metadata": {
+    "materia": "Organización Empresarial",
+    "universidad": "UTN - Facultad Regional Mendoza",
+    "carrera": "Tecnicatura Universitaria en Programación",
+    "herramientas": "n8n, Git",
+    "formato_entrega": ".zip con .json de n8n + git-log.txt",
+    "modo_correccion": "proyecto_completo",
+    "nota": "La Parte 1 (respuestas teóricas en PDF) se evalúa manualmente y NO está incluida en esta rúbrica."
+  },
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Nodo Webhook en el flujo n8n",
+      "descripcion": "El archivo .json exportado de n8n contiene un flujo con un nodo Webhook correctamente configurado como punto de entrada, preparado para recibir los datos 'nombre' y 'email' desde una página web mediante método HTTP GET o POST.",
+      "peso": 25,
+      "instrucciones_puntuacion": "Si no existe archivo .json o no es un export válido de n8n → 0. Si existe el JSON pero no hay nodo Webhook → 0. Si el Webhook existe pero no tiene método HTTP configurado (GET o POST) → techo 15. Si el método está pero no hay referencia a los parámetros nombre/email en el flujo → techo 20.",
+      "subcriterios": [
+        {
+          "id": "C1.1",
+          "descripcion": "Existe un archivo .json que es una exportación válida de un flujo de n8n.",
+          "evidencias": [
+            "Existe al menos un archivo con extensión .json en la entrega",
+            "El archivo .json tiene la estructura de una exportación de n8n (contiene claves como 'nodes', 'connections' o estructura equivalente de flujo n8n)"
+          ]
+        },
+        {
+          "id": "C1.2",
+          "descripcion": "El flujo contiene un nodo de tipo Webhook como punto de entrada.",
+          "evidencias": [
+            "Existe un nodo cuyo tipo contiene 'webhook' (ej: 'n8n-nodes-base.webhook' o similar)",
+            "El nodo Webhook está configurado con método HTTP GET o POST"
+          ]
+        },
+        {
+          "id": "C1.3",
+          "descripcion": "El Webhook está preparado para recibir los datos 'nombre' y 'email'.",
+          "evidencias": [
+            "La configuración del Webhook o los nodos posteriores hacen referencia a los parámetros 'nombre' y 'email' (ya sea por query string con $json.query o por body con $json.body)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "nombre": "Nodo Edit Fields y expresión dinámica de bienvenida",
+      "descripcion": "El flujo conecta la salida del Webhook a un nodo Edit Fields (Set) que crea un campo String llamado 'mensaje_bienvenida' con una expresión dinámica que saluda al usuario usando su nombre. Este es el objetivo central del flujo de automatización pedido por la consigna.",
+      "peso": 35,
+      "instrucciones_puntuacion": "Sin nodo Edit Fields/Set conectado al Webhook → 0. Si existe el nodo pero no tiene el campo 'mensaje_bienvenida' → techo 15. Si tiene el campo pero usa texto estático en vez de expresión dinámica → techo 20. Si usa expresión pero no referencia el nombre del usuario → techo 25.",
+      "subcriterios": [
+        {
+          "id": "C2.1",
+          "descripcion": "Existe un nodo Edit Fields (Set) conectado a la salida del Webhook.",
+          "evidencias": [
+            "Existe un nodo de tipo 'set' o 'Edit Fields' en el flujo",
+            "El nodo está conectado como destino del nodo Webhook (aparece en las connections del Webhook o en la cadena de conexiones)"
+          ]
+        },
+        {
+          "id": "C2.2",
+          "descripcion": "El nodo Edit Fields define un campo String llamado 'mensaje_bienvenida'.",
+          "evidencias": [
+            "En los parámetros del nodo Set/Edit Fields existe un campo con nombre 'mensaje_bienvenida'",
+            "El tipo del campo es String"
+          ]
+        },
+        {
+          "id": "C2.3",
+          "descripcion": "El campo 'mensaje_bienvenida' usa una expresión dinámica que incluye el nombre del usuario.",
+          "evidencias": [
+            "El valor del campo 'mensaje_bienvenida' es una expresión (no texto estático): se identifica por el uso de sintaxis {{ }} o por la propiedad 'expression' en la configuración del nodo",
+            "La expresión referencia el nombre del usuario (ej: {{ $json.query.nombre }}, {{ $json.body.nombre }}, o variante equivalente)",
+            "El mensaje resultante saluda o da la bienvenida al usuario usando su nombre de forma dinámica"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "nombre": "Control de versiones con Git",
+      "descripcion": "El archivo git-log.txt evidencia el uso correcto de Git como control de versiones del proyecto: repositorio inicializado, al menos dos commits con mensajes descriptivos y relevantes al trabajo realizado, y el log generado con 'git log --oneline --stat' mostrando los archivos versionados en cada commit.",
+      "peso": 25,
+      "instrucciones_puntuacion": "Si no existe el archivo git-log.txt → 0. Si existe pero tiene menos de 2 commits → techo 10. Si hay 2+ commits pero los mensajes no son descriptivos (ej: 'asdf', '1', 'commit', 'test') → techo 18. Si todo está correcto y el --stat muestra archivos relevantes (PDF y .json agregados) → puntaje completo.",
+      "subcriterios": [
+        {
+          "id": "C3.1",
+          "descripcion": "Existe el archivo git-log.txt con formato de salida de 'git log --oneline --stat'.",
+          "evidencias": [
+            "Existe un archivo llamado git-log.txt en la entrega",
+            "El contenido tiene el formato de 'git log --oneline --stat': líneas con hash corto + mensaje, seguidas de estadísticas de archivos modificados"
+          ]
+        },
+        {
+          "id": "C3.2",
+          "descripcion": "El historial muestra al menos dos commits con mensajes descriptivos y relevantes.",
+          "evidencias": [
+            "Se identifican al menos 2 commits en el log",
+            "Un commit tiene un mensaje relacionado con las respuestas teóricas o la parte inicial del proyecto (ej: 'Agrego respuestas de negocio y live coding' o similar)",
+            "Otro commit tiene un mensaje relacionado con el flujo de n8n o la automatización (ej: 'Agrego flujo de n8n para bienvenida de usuarios' o similar)"
+          ]
+        },
+        {
+          "id": "C3.3",
+          "descripcion": "Las estadísticas (--stat) muestran los archivos versionados correctamente.",
+          "evidencias": [
+            "El --stat de algún commit muestra la incorporación de un archivo PDF (respuestas de la Parte 1)",
+            "El --stat de algún commit muestra la incorporación de un archivo .json (flujo de n8n exportado)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "nombre": "Estructura y nomenclatura del proyecto",
+      "descripcion": "La entrega respeta la estructura y nomenclatura pedidas por la consigna: carpeta raíz con formato 'tp-integrador-apellido-nombre', y contiene los archivos requeridos para la corrección automatizada (archivo .json exportado de n8n y archivo git-log.txt).",
+      "peso": 15,
+      "instrucciones_puntuacion": "Si faltan ambos archivos requeridos (.json y git-log.txt) → 0. Si falta uno de los dos → techo 5. Si ambos archivos están pero la carpeta no sigue la nomenclatura 'tp-integrador-apellido-nombre' → techo 10. Si todo está presente y correctamente nombrado → puntaje completo.",
+      "subcriterios": [
+        {
+          "id": "C4.1",
+          "descripcion": "Los archivos requeridos para la corrección automatizada están presentes.",
+          "evidencias": [
+            "Existe al menos un archivo .json (exportación del flujo de n8n) en la entrega",
+            "Existe el archivo git-log.txt en la entrega"
+          ]
+        },
+        {
+          "id": "C4.2",
+          "descripcion": "La carpeta del proyecto sigue el formato de nomenclatura indicado en la consigna.",
+          "evidencias": [
+            "El nombre de la carpeta raíz del proyecto sigue el patrón 'tp-integrador-apellido-nombre' (ej: tp-integrador-perez-juan)"
+          ]
+        }
+      ]
+    }
+  ],
+  "penalizaciones": [],
+  "condiciones_desaprobacion": []
+}

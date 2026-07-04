@@ -1,0 +1,45 @@
+**Pregunta 1**
+
+En el modelo Cascada (Waterfall) el desarrollo se organiza en fases secuenciales y rígidas: primero se relevan todos los requisitos, después se diseña, después se codifica, después se prueba. El problema grave de cambiar requisitos a mitad del desarrollo es que, como cada fase se construye sobre la anterior, cualquier modificación te obliga a retroceder y rehacer trabajo que ya estaba terminado y aprobado. Eso implica retrabajo, más tiempo y más costo, y encima el plan inicial firmado con el cliente no contemplaba ese ida y vuelta, así que el contrato también se complica.
+
+La mentalidad ágil lo resuelve justamente al revés: en lugar de un plan rígido para todo el proyecto, trabaja con iteraciones cortas (sprints de 2 a 4 semanas, por ejemplo). Al final de cada iteración se entrega un incremento funcional del producto y se lo muestra al cliente. Ese feedback frecuente permite que si el cliente cambia de opinión o aparecen nuevos requisitos, se puedan incorporar en la iteración siguiente sin tener que desarmar todo. La premisa ágil es adaptarse al cambio en lugar de resistirse a él. Mientras que en Cascada un cambio tardío es una catástrofe, en ágil es algo esperado y el proceso está diseñado para absorberlo sin que el proyecto se caiga a pedazos.
+
+---
+
+**Pregunta 2**
+
+El primer problema es no saber qué tareas priorizar según valor de negocio. El rol de Scrum que lo resuelve es el Product Owner (PO). El PO es la persona responsable de gestionar el Product Backlog: decide qué ítems entran, los ordena según el valor que le aportan al negocio y define qué se hace primero en cada sprint. Justamente por eso existe ese rol: para que el equipo no tenga que adivinar qué es importante, sino que haya alguien con la visión del producto que baja prioridades claras.
+
+El segundo problema son las interrupciones de gerentes externos que le caen al equipo a pedir cosas fuera del sprint. Eso lo resuelve el Scrum Master. El Scrum Master actúa como un facilitador y protector del equipo: cuando aparecen esas interrupciones, el Scrum Master es quien pone el freno y filtra los pedidos externos, derivándolos al Product Owner para que los evalúe en lugar de que caigan directamente sobre los desarrolladores. También elimina cualquier otro impedimento que frene al equipo, y eso incluye mantener a raya las interferencias para que los devs puedan concentrarse en lo planificado para el sprint.
+
+---
+
+**Pregunta 3**
+
+Kanban es un método que viene de la manufactura, sobre todo de Toyota, y lo que hace es ayudarte a visualizar el flujo de trabajo con un tablero dividido en columnas (por ejemplo "Por hacer", "En progreso", "Terminado"). La idea es que las tareas van avanzando de columna en columna y vos podés ver de un vistazo cómo está el equipo.
+
+Cuando se le asignan 5 tareas simultáneas a cada programador, el problema que se genera es que nada termina de salir porque todos están repartidos entre muchas cosas. Kanban ayuda porque al tener las tareas visibles en el tablero se puede detectar dónde se están acumulando cuellos de botella y tomar decisiones para destrabar. Pero la verdad es que no termino de ver cómo un límite numérico de tareas por columna por sí solo mejora la velocidad, me parece que la mejora viene más por el lado de tener visibilidad y saber en qué está cada uno, que ya de por sí obliga al equipo a ser más ordenado.
+
+---
+
+**Pregunta 4**
+
+El primer beneficio concreto de la Programación en Pareja es la revisión de código en tiempo real. Literalmente mientras uno escribe el otro está leyendo, revisando y cuestionando lo que se hace. Eso hace que los errores se detecten al instante, cuando corregirlos cuesta segundos, en lugar de encontrarlos días después en una revisión formal o en testing, cuando ya salieron carísimos. La calidad del código que sale de una sesión de pair programming es mucho más alta porque pasó por dos cabezas en el momento de escribirlo, no una.
+
+El segundo beneficio es la transferencia de conocimiento dentro del equipo. Cuando dos desarrolladores trabajan juntos, sobre todo si uno tiene más experiencia o si vienen de partes distintas del código, lo que sabe cada uno se comparte naturalmente. El más junior aprende buenas prácticas y detalles técnicos que no están en ningún documento, y el más senior también gana porque el junior puede traer una mirada fresca. A la larga eso hace que el equipo entero sea más sólido y que no haya una sola persona que sepa de una parte crítica del sistema, porque ese conocimiento ya circuló entre todos.
+
+---
+
+**Pregunta 5**
+
+**(a) Historia de Usuario**
+
+Como usuario registrado, quiero guardar películas y series en una sección personal llamada "Mi Lista", para poder retomar más tarde lo que me interesa sin tener que volver a buscarlo en el catálogo.
+
+**(b) Criterios de Aceptación**
+
+1. El usuario puede agregar un título a "Mi Lista" desde la ficha del contenido, desde los resultados de búsqueda y desde la pantalla de reproducción, y en todos los casos el botón cambia de estado a "En Mi Lista" tras agregarlo.
+
+2. El usuario puede quitar un título de "Mi Lista" desde los mismos lugares donde lo agregó, y al hacerlo el título desaparece de la sección "Mi Lista" automáticamente, sin necesidad de recargar la pantalla.
+
+3. La sección "Mi Lista" muestra todos los títulos guardados por el usuario ordenados por fecha de agregado (más reciente primero), y si la lista está vacía se muestra un mensaje que diga "Todavía no agregaste nada a tu lista".

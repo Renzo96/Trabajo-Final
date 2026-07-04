@@ -1,0 +1,69 @@
+{
+  "nota": 91.9,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 91.9,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Actividad 1: Arquitectura de la Instrucción",
+      "puntaje_obtenido": 9.9,
+      "puntaje_maximo": 18,
+      "estado": "WARNING",
+      "feedback": "Los 4 elementos fundamentales están presentes conceptualmente (Instrucción: 'clasifiques unos correos', Contexto: 'recibimos en la empresa', Datos de Entrada: 'los correos son los que te paso abajo', Indicador de Salida: 'lista con cada correo y al lado la etiqueta'), pero el prompt no usa ningún delimitador visible (---, ###, comillas triples) para separar las secciones entre sí (-25%, 4.5 pts). Además, las 3 categorías requeridas ('Urgente', 'Consulta General', 'Feedback') no se mencionan por su nombre exacto; solo se parafrasean como 'para ya mismo', 'pueden esperar' y 'comentario de un cliente' (-20%, 3.6 pts). Estos dos descuentos son acumulables. Si bien los 4 elementos existen en esencia, la estructura es coloquial y poco profesional para un prompt de clasificación."
+    },
+    {
+      "id": "C2",
+      "nombre": "Actividad 2: Laboratorio de Parámetros (Cuadro Comparativo)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "Ambos casos están resueltos con precisión técnica. Caso A: Temperatura 0.1 (rango 0.0–0.3) y Top-p 0.1, con justificación que explica que la temperatura baja concentra la masa de probabilidad en el token más probable ('distribución más picuda') y el Top-p bajo restringe el pool de candidatos, logrando determinismo. Caso B: Temperatura 0.9 (rango 0.7–1.0) y Top-p 0.95 (rango 0.8–1.0), con justificación que describe el aplanamiento de la distribución y la ampliación del abanico de tokens para favorecer creatividad. Ambas justificaciones referencian correctamente la teoría de Predicción de Tokens y explican el mecanismo de muestreo. Hay un error tipográfico menor ('Tokenos' en el Caso B) que no afecta la corrección técnica."
+    },
+    {
+      "id": "C3",
+      "nombre": "Actividad 3: Razonamiento Avanzado (Chain-of-Thought)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "El prompt cumple todos los requisitos de Few-shot Chain-of-Thought. Incluye un ejemplo previo de un problema diferente al de las camisas (gallinas y vacas) con razonamiento paso a paso completo: definición de variables, planteo de ecuaciones, sustitución, resolución algebraica y verificación final. El ejemplo muestra explícitamente cada paso deductivo antes de la respuesta. Luego presenta el problema target ('5 camisas se secan al sol en 5 horas...') con la instrucción de resolverlo siguiendo el mismo método CoT. La transición entre ejemplo y target está claramente delimitada con '---'."
+    },
+    {
+      "id": "C4",
+      "nombre": "Actividad 4: Asistente de Refactorización de Código",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El prompt cumple todos los requisitos. Define explícitamente el rol de desarrollador Senior ('Actuá como un desarrollador Senior con amplia experiencia en Python'). Incluye el código original `def suma(a,b): return a+b`. Los 4 requisitos técnicos están enunciados con claridad: (1) type hints a parámetros y retorno, (2) documentación con Docstring explicando propósito/parámetros/retorno, (3) explicación línea por línea de los cambios, (4) mejora/refactorización con estándares profesionales (PEP 8, nombres descriptivos). La estructura del prompt es ordenada y profesional."
+    },
+    {
+      "id": "C5",
+      "nombre": "Actividad 5: Seguridad y Ética (Defensa de Prompts)",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El texto está correctamente formulado como System Prompt, dirigido al modelo ('Eres un asistente de IA...'). Define un propósito principal claro (ciberseguridad empresarial, normativas ISO 27001/GDPR). La protección contra Jailbreaking está en la Regla 2: rechaza mensajes que intenten anular, modificar o redefinir instrucciones, con respuesta predefinida y ejemplos de frases de ataque. La protección contra Prompt Leaking está en la Regla 1: prohíbe revelar instrucciones del sistema, menciona explícitamente 'claves de API' y 'datos sensibles', e incluye ejemplos de solicitudes maliciosas. Las Reglas 3 y 4 refuerzan el blindaje. Es un System Prompt defensivo completo y bien estructurado."
+    },
+    {
+      "id": "C6",
+      "nombre": "Actividad 6: Simulación de Sesgos (Análisis Crítico)",
+      "puntaje_obtenido": 14,
+      "puntaje_maximo": 14,
+      "estado": "OK",
+      "feedback": "El prompt de mitigación de sesgos incluye instrucciones explícitas para evitar sesgos de género ('no limites a características de un género específico'), promover diversidad cultural y geográfica, y basar la descripción en competencias profesionales universales (liderazgo, pensamiento estratégico, inteligencia emocional, etc.), excluyendo rasgos físicos, vestimenta o estereotipos. La justificación escrita es sólida: identifica el origen del sesgo en los datos de entrenamiento ('patrones históricos del mundo real', 'hombres de determinados perfiles culturales'), explica el mecanismo de reproducción estadística del sesgo, y argumenta convincentemente por qué las instrucciones explícitas de diversidad son necesarias para corregir la salida del modelo."
+    }
+  ],
+  "fortalezas": [
+    "La Actividad 2 demuestra comprensión profunda de la teoría de Predicción de Tokens, con justificaciones técnicas que explican el efecto de temperatura y top-p sobre la distribución de probabilidad en ambos casos (determinista y creativo).",
+    "La Actividad 3 presenta un Few-shot Chain-of-Thought impecable: ejemplo diferente al target, razonamiento paso a paso completo con verificación, y transición clara hacia el problema objetivo.",
+    "La Actividad 5 construye un System Prompt defensivo robusto que cubre Jailbreaking y Prompt Leaking con reglas específicas, ejemplos de ataques y respuestas predefinidas ante cada intento de manipulación.",
+    "La Actividad 6 articula con claridad el origen del sesgo en los datos de entrenamiento y la necesidad de intervenir, mostrando pensamiento crítico sobre las limitaciones éticas de los LLMs."
+  ],
+  "recomendaciones": [
+    "Reestructurar la Actividad 1 usando delimitadores visibles (###, ---, o comillas triples) entre las 4 secciones (Instrucción, Contexto, Datos de Entrada, Indicador de Salida) y etiquetarlas explícitamente para que el prompt tenga formato profesional.",
+    "En la Actividad 1, nombrar las categorías de clasificación por su designación exacta ('Urgente', 'Consulta General', 'Feedback') en lugar de parafrasearlas coloquialmente como 'para ya mismo', 'pueden esperar' y 'comentario de un cliente'.",
+    "Incluir datos de entrada concretos (correos de ejemplo) o un placeholder explícito como <CORREO_A_CLASIFICAR> en la Actividad 1, en lugar de solo referenciar su existencia con 'los correos son los que te paso abajo'.",
+    "Corregir el error tipográfico 'Predicción de Tokenos' → 'Predicción de Tokens' en la justificación del Caso B de la Actividad 2."
+  ],
+  "comentario_general": "El trabajo muestra un dominio sólido de ingeniería de prompts en 5 de las 6 actividades, con justificaciones técnicas rigurosas y prompts bien diseñados que cumplen todos los requisitos. La Actividad 1 es el punto débil: aunque los 4 elementos fundamentales están presentes conceptualmente, el prompt carece de estructura profesional, no usa delimitadores entre secciones y no nombra las categorías requeridas por su designación exacta. Corregir esa actividad —agregando delimitadores y usando los nombres 'Urgente', 'Consulta General' y 'Feedback'— elevaría el trabajo a un nivel de excelencia consistente en todos los criterios."
+}

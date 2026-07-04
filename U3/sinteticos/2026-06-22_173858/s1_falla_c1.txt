@@ -1,0 +1,39 @@
+**TP3 — Fundamentos de Metodologías Ágiles**
+
+**Pregunta 1 — Waterfall vs mentalidad ágil**
+
+En el modelo Waterfall el problema es que todo se planifica de antemano y después se ejecuta, pero si el cliente pide cambios a mitad del proyecto no hay mucho margen para incorporarlos. En el fondo los cambios siempre van a aparecer, y el modelo Waterfall no está preparado para eso porque asume que los requisitos no van a cambiar. En cambio la mentalidad ágil entiende que los requisitos evolucionan y que hay que entregar valor al cliente desde el primer momento. Por eso es mejor usar metodologías ágiles, porque se adaptan mejor a la realidad de los proyectos de software, donde nunca se sabe todo desde el día uno.
+
+**Pregunta 2 — Roles de Scrum**
+
+El primer problema es no saber qué tareas priorizar para el negocio. Eso lo resuelve el Product Owner, que es el rol encargado de gestionar el Product Backlog y decidir qué se hace primero y qué después, siempre basándose en lo que más valor le aporta al negocio. El PO es la voz del cliente dentro del equipo y ordena las historias de usuario por prioridad para que el equipo siempre esté trabajando en lo más importante.
+
+El segundo problema es que gerentes externos interrumpan al equipo. Eso lo resuelve el Scrum Master, que actúa como un facilitador y protector del equipo. El Scrum Master se encarga de eliminar los impedimentos que frenan al equipo, y eso incluye filtrar las interrupciones de gente de afuera. Si un gerente quiere meter cambios a mitad del sprint, el SM lo para y le dice que espere al próximo sprint review, así el equipo puede mantenerse enfocado.
+
+**Pregunta 3 — Kanban y WIP Limit**
+
+El desperdicio Lean que se comete al asignar 5 tareas simultáneas a cada programador es la multitarea, que genera cambio de contexto constante. Cada vez que un desarrollador salta de una tarea a otra pierde tiempo y concentración porque tiene que "reconstruir" mentalmente dónde estaba parado, y además ninguna de las 5 tareas avanza realmente. Es el típico "mucho empezado, nada terminado".
+
+El WIP Limit de Kanban soluciona esto justamente limitando cuántas tareas puede tener cada persona en curso al mismo tiempo. Si el límite es, por ejemplo, 2 tareas por desarrollador, la persona se ve obligada a terminar lo que empezó antes de agarrar algo nuevo. Esto reduce el cambio de contexto, mejora el foco y hace que las tareas se terminen más rápido. Aunque parezca contradictorio, hacer menos cosas en paralelo hace que el equipo entregue más rápido porque cada tarea fluye sin interrupciones hasta estar terminada.
+
+**Pregunta 4 — Pair Programming**
+
+La objeción de que la programación en pareja es "perder el tiempo de un empleado" es bastante común pero no se sostiene cuando mirás los beneficios reales.
+
+El primer beneficio es la revisión de código en tiempo real. En vez de que alguien revise el código días después en un pull request, la segunda persona está ahí viendo cada línea mientras se escribe. Esto hace que los bugs se detecten al instante, cuando arreglarlos es barato, en vez de encontrarlos en testing o en producción cuando ya son un problema caro. El código que sale de una sesión de pair programming tiene mucha menos densidad de errores.
+
+El segundo beneficio es la transferencia de conocimiento dentro del equipo. Cuando dos personas programan juntas, la que sabe menos de esa parte del sistema aprende de la que sabe más, y además las dos terminan entendiendo el código que escribieron. Esto evita que haya una sola persona que entiende un módulo entero y que si se va o se enferma nadie más pueda tocarlo. Al final el equipo queda más parejo en conocimiento y el código no depende de un solo dueño.
+
+**Pregunta 5 — Historias de Usuario y Criterios de Aceptación**
+
+**(a) Historia de Usuario**
+
+Como usuario de la plataforma, quiero poder guardar películas y series en una sección llamada "Mi Lista", para no perder de vista los contenidos que me interesan y acceder a ellos rápidamente sin tener que buscarlos de nuevo.
+
+**(b) Criterios de Aceptación**
+
+- Dado que estoy en la página de detalle de una película o serie, cuando presiono el botón "Agregar a Mi Lista", entonces el contenido se añade a la sección "Mi Lista" y el botón cambia su estado a "En Mi Lista" como confirmación visual.
+
+- Dado que estoy en la sección "Mi Lista", cuando presiono el ícono de eliminar sobre un contenido guardado, entonces ese contenido se quita de la lista inmediatamente y desaparece de la vista sin recargar la página entera.
+
+- Dado que tengo al menos un contenido en Mi Lista, cuando cierro sesión y vuelvo a ingresar con la misma cuenta, entonces los contenidos guardados previamente siguen estando disponibles en Mi Lista.

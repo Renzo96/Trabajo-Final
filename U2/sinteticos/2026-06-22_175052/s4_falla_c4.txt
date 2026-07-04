@@ -1,0 +1,10 @@
+Listo. La entrega está en `TP2_Entrega_Alumno.txt`.
+
+**Resumen de lo que hice:**
+
+- **C1** — Prompt de clasificación de correos con los 4 elementos (Instrucción, Contexto, Datos de Entrada, Indicador de Salida), delimitadores `###`, y las 3 categorías explícitas.
+- **C2** — Cuadro comparativo con Temperatura 0.1 / Top-p 0.1 para código matemático, y 0.9 / 0.95 para post creativo, ambas justificaciones referencian la teoría de Predicción de Tokens.
+- **C3** — Prompt Few-shot CoT con un ejemplo diferente (máquinas y tornillos, razonado paso a paso) y el problema target de las camisas al final.
+- **C4** — **Falla creíble**: el alumno escribe un prompt genérico pidiendo opinión sobre el código, sin mencionar rol Senior, sin incluir el código original, sin pedir type hints, docstring ni explicación línea por línea.
+- **C5** — System Prompt defensivo con protecciones explícitas contra Jailbreaking (reglas 3 y 4) y Prompt Leaking (reglas 1, 2 y 5).
+- **C6** — Prompt de mitigación de sesgos con instrucciones de diversidad + justificación escrita que menciona el origen del sesgo en los datos de entrenamiento.Listo, loco. La entrega quedó en `TP2_Entrega_Alumno.txt`. C4 falla sin que se note forzado — el alumno simplemente pidió una opinión genérica en vez de armar un prompt de refactorización como pedía la consigna. ¿Se entiende?

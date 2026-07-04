@@ -1,0 +1,60 @@
+{
+  "nota": 92,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 92,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Startup vs PyME",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Aplica correctamente AMBOS conceptos al caso concreto. Escalabilidad: explica que la app puede crecer exponencialmente sin aumentar costos proporcionalmente (marginal tiende a cero) vs. la panadería limitada por geografía y capacidad física. Incertidumbre: la app enfrenta incertidumbre extrema (no se sabe si panaderos se sumarán, si clientes confiarán, si el modelo funcionará) vs. certeza relativa del negocio de panadería (modelo probado, demanda diaria conocida)."
+    },
+    {
+      "id": "C2",
+      "nombre": "Lean Startup y MVP Smoke Test",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica el ciclo Construir-Medir-Aprender e identifica el error clásico: enamorarse de la solución sin validar el problema. Describe correctamente el MVP Smoke Test como landing page con llamado a la acción (registro/email) para medir interés real sin construir el producto, y lo conecta al caso: podrían haber creado una landing page de la red social de mascotas y medir cuántos se registraban antes de invertir dos años de desarrollo."
+    },
+    {
+      "id": "C3",
+      "nombre": "Test de la Madre (Customer Discovery)",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica con claridad por qué las respuestas no sirven: sesgo de confirmación (la gente dice lo que querés oír por cortesía) y el problema de preguntar sobre intenciones futuras (las personas son pésimas prediciendo su propio comportamiento). Propone alternativas excelentes basadas en comportamiento pasado: \"¿Cómo hiciste para conseguir los resúmenes del último parcial?\" y \"¿Cuánto tiempo estuviste buscando apuntes la semana pasada?\"."
+    },
+    {
+      "id": "C4",
+      "nombre": "LTV vs CAC y Retención",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Demuestra numéricamente que LTV ($2.000) < CAC ($5.000), pierden $3.000 por cliente = modelo roto. Conecta explícitamente con el Churn Rate: lo define como tasa de abandono, explica que un churn altísimo (usuario se va a los 2 meses) achica la vida útil y por lo tanto el LTV. Incluso va más allá y calcula el punto de equilibrio: necesitarían 5+ meses de retención para que LTV empate al CAC."
+    },
+    {
+      "id": "C5",
+      "nombre": "Modelos de negocio en software",
+      "puntaje_obtenido": 12,
+      "puntaje_maximo": 20,
+      "estado": "WARNING",
+      "feedback": "Elige SaaS (modelo válido) y lo explica correctamente: suscripción, cloud-hosted, acceso condicionado al pago, ejemplo de Netflix. Sin embargo, el desafío técnico mencionado —alta disponibilidad 24/7, redundancia, backups— es genérico y aplica a prácticamente cualquier servicio online, no es específico del modelo SaaS. Desafíos verdaderamente pertinentes a SaaS serían: facturación recurrente (ciclos de cobro, manejo de pagos fallidos, dunning), control de acceso por tiers (feature flagging según plan contratado), o multi-tenancy (aislamiento de datos entre clientes). Por ser un desafío genérico, aplica el techo de 12/20 según la instrucción de puntuación del criterio."
+    }
+  ],
+  "fortalezas": [
+    "Aplicación precisa de todos los conceptos teóricos a los casos concretos (nunca se queda en definiciones abstractas).",
+    "Cálculo explícito del punto de equilibrio en C4 (5 meses para empatar CAC), demostrando comprensión que va más allá de lo mínimo esperado.",
+    "Vocabulario técnico correcto y pertinente en toda la entrega: Build-Measure-Learn, Smoke Test, sesgo de confirmación, LTV, CAC, Churn Rate.",
+    "Respuestas concisas, bien estructuradas y sin relleno: cada oración aporta a la evaluación del criterio."
+  ],
+  "recomendaciones": [
+    "En C5, reemplazar el desafío de alta disponibilidad por uno específico del modelo SaaS, como facturación recurrente (manejo de ciclos de cobro, renovaciones, pagos fallidos) o control de acceso por tiers (feature flagging según plan), que son desafíos de programación exclusivos de este modelo de ingresos.",
+    "En C5, profundizar en aspectos concretos de implementación del desafío técnico: no alcanza con mencionar redundancia y backups; sería mejor describir qué patrón de arquitectura usar, cómo manejar el failover, o qué tecnologías específicas resolverían el problema.",
+    "En C4, definir el Churn Rate más formalmente además de describirlo (ej: porcentaje de usuarios que cancelan en un período, fórmula = usuarios perdidos / usuarios al inicio del período) para demostrar dominio completo del concepto."
+  ],
+  "comentario_general": "Excelente trabajo con comprensión profunda de los conceptos del ecosistema startup, Lean Startup y métricas de negocio. Las respuestas de C1 a C4 son impecables: aplican cada concepto al caso concreto con precisión, vocabulario técnico correcto y razonamiento propio. El criterio C5 es el punto débil porque el desafío técnico elegido (alta disponibilidad) es genérico y no exclusivo del modelo SaaS; la explicación del modelo en sí es correcta, pero el desafío no alcanza la especificidad que la rúbrica pide para el puntaje completo."
+}

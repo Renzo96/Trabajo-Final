@@ -1,0 +1,35 @@
+### Respuesta 1
+
+Una aplicación que conecta panaderos caseros con clientes de toda la ciudad es una Startup, mientras que una panadería de barrio es una PyME tradicional. La diferencia clave está en dos conceptos: escalabilidad e incertidumbre.
+
+Por el lado de la escalabilidad, la app puede crecer de forma exponencial porque su producto es digital. Una vez desarrollada la plataforma, puede servir a miles de usuarios sin que los costos aumenten en la misma proporción —el costo marginal de sumar un nuevo panadero o un nuevo cliente es prácticamente cero—. En cambio, la panadería de barrio tiene un crecimiento lineal: si quiere vender más, necesita más hornos, más empleados, más mostrador o abrir otro local físico. Está limitada por su capacidad productiva, su ubicación geográfica y su personal.
+
+Por el lado de la incertidumbre, la app opera bajo incertidumbre extrema. No se sabe si va a haber suficiente demanda de gente que quiera comprar pan casero por una app, no se sabe si los panaderos van a querer registrarse, no se sabe si el modelo de negocio va a funcionar ni si los usuarios van a estar dispuestos a pagar por el servicio. En cambio, la panadería de barrio opera con certeza relativa: el modelo de negocio de vender pan ya es conocido y está probado hace siglos, se sabe que la gente compra pan todos los días y el riesgo es mucho más bajo.
+
+### Respuesta 2
+
+El problema de los programadores que pasaron dos años desarrollando una red social para dueños de mascotas es que construyeron el producto completo sin haber validado antes si a alguien realmente le interesaba. Se enamoraron de la idea y asumieron que iba a funcionar.
+
+La metodología Lean Startup propone justamente evitar este error mediante el ciclo Construir-Medir-Aprender. La idea es no pasar años desarrollando un producto entero, sino construir algo chico y rápido, medir cómo reaccionan los usuarios reales, aprender de esa información y después decidir si vale la pena seguir invirtiendo o si hay que pivotear hacia otra dirección.
+
+Una herramienta concreta dentro de esta metodología es el MVP tipo Smoke Test, o prueba de humo. Consiste en crear una landing page que presenta el producto como si ya existiera, con una descripción, capturas de pantalla o mockups, y un llamado a la acción como un botón de "Registrate", "Dejanos tu email" o "Pre-ordená". La clave es que el producto real no está construido todavía —lo que se mide es cuánta gente hace clic, deja su mail o muestra interés genuino—. Si nadie se registra, es una señal de que no hay demanda y no conviene construirlo.
+
+En el caso de la red social de mascotas, los programadores podrían haber armado una landing page que dijera algo como "La primera red social para dueños de mascotas. Conectate con otros dueños, compartí fotos, encontrá veterinarios cerca. ¡Registrate gratis!" y medir cuánta gente se registraba. Si después de un mes veían que casi nadie dejaba su mail, se ahorraban dos años de desarrollo y se ponían a buscar otra idea que sí tuviera tracción.
+
+### Respuesta 3
+
+Según el Test de la Madre, preguntar "¿usarían una app para compartir resúmenes?" no sirve porque la respuesta no te da información útil para decidir si construir o no el producto. La persona te puede decir que sí por compromiso pero después en la práctica no la usa, y encima cada persona tiene necesidades distintas.
+
+Lo que habría que hacer es preguntar directamente si pagarían por una app así y cuánto estarían dispuestos a pagar. Si la mayoría dice que no pagaría o que pagaría muy poco, ya sabés que no es un buen negocio. También podrías preguntar qué funcionalidades les gustaría que tuviera la app, así cuando la construyas ya sabés qué cosas incluir y no perdés tiempo programando cosas que a nadie le interesan.
+
+### Respuesta 4
+
+Si el CAC (Customer Acquisition Cost) es de $5.000 y cada usuario paga $1.000 por mes durante 2 meses, el LTV (Lifetime Value) es de $2.000. Esto significa que la empresa gasta $5.000 para adquirir un cliente que solo le va a generar $2.000 de ingresos durante toda su vida útil. Es decir, LTV ($2.000) es menor que CAC ($5.000), por lo que el modelo de negocio está destinado a quebrar: cada nuevo cliente que adquieren les hace perder $3.000.
+
+El Churn Rate está directamente relacionado con este problema. El Churn Rate es la tasa de abandono o cancelación de usuarios, es decir, qué porcentaje de usuarios deja de usar el servicio en un período determinado. En este caso, el Churn Rate es altísimo porque los usuarios se van a los 2 meses. Esto reduce drásticamente la vida útil del cliente, y como el LTV depende directamente de cuánto tiempo se queda el usuario pagando, un Churn Rate alto hace que el LTV sea bajo y se vuelva imposible que supere al CAC. Para que el negocio fuera viable, habría que o bajar el CAC, o subir el precio de la suscripción, pero sobre todo lograr que los usuarios se queden más tiempo —es decir, reducir el Churn Rate—, porque si el usuario se quedara por ejemplo 10 meses en vez de 2, el LTV pasaría a ser $10.000 y ahí sí superaría al CAC.
+
+### Respuesta 5
+
+El modelo de ingresos que elijo es SaaS (Software as a Service). Este modelo consiste en ofrecer un software que se ejecuta en la nube y los usuarios pagan una suscripción recurrente —normalmente mensual o anual— para acceder a él. El usuario no compra una licencia de por vida ni instala nada en su máquina, sino que accede por internet y paga mientras lo usa. Ejemplos de esto son Netflix, Spotify, Google Drive o Slack.
+
+Un desafío técnico importante que habría que resolver para implementar correctamente un modelo SaaS es el sistema de facturación recurrente con control de acceso por tiers o planes. No es simplemente cobrar una vez, sino que hay que manejar suscripciones que se renuevan automáticamente, manejar pagos fallidos (cuando la tarjeta de crédito vence o no tiene fondos), upgrades y downgrades de planes en cualquier momento del mes haciendo el prorrateo correspondiente, y asegurarse de que un usuario que dejó de pagar pierda el acceso a las funcionalidades premium de forma inmediata y sin afectar a los demás usuarios. También hay que integrar todo esto con una pasarela de pagos como Stripe o MercadoPago, lo cual agrega complejidad en el manejo de webhooks, estados de transacción y facturación electrónica.

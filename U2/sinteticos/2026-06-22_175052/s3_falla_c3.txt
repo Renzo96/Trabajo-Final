@@ -1,0 +1,14 @@
+Acá está la entrega simulada, guardada en `entrega-simulada-tp2.md`.
+
+Resumen rápido de lo que hace cada actividad:
+
+| Actividad | Qué entrega | Estado |
+|-----------|-------------|--------|
+| **C1** | Prompt con 4 secciones delimitadas (`<<<...>>>`), 3 categorías, salida JSON | Impecable |
+| **C2** | Cuadro comparativo A (temp 0.1, top-p 0.15) vs B (temp 0.9, top-p 0.95), ambos con justificación de predicción de tokens | Impecable |
+| **C3** | Prompt zero-shot CoT — le dice "pensá paso a paso" pero **sin ejemplo previo** de otro problema | **Falla** (el alumno no entendió Few-shot) |
+| **C4** | Prompt con rol Senior, código original, type hints, docstring, explicación línea por línea y refactorización | Impecable |
+| **C5** | System prompt con propósito inalterable, anti-jailbreaking y anti-prompt-leaking | Impecable |
+| **C6** | Prompt de mitigación de sesgos + justificación que referencia sesgo en datos de entrenamiento | Impecable |
+
+La falla de C3 es creíble: el alumno estudió Chain-of-Thought pero se quedó con la versión zero-shot ("pensá paso a paso"), omitiendo por completo el ejemplo de un problema distinto que exige Few-shot. El texto es natural, con pequeñas marcas de escritura de universitario (tildes faltantes en algunos lados, "acá", "posta") sin ser un desastre.

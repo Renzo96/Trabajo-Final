@@ -1,0 +1,40 @@
+**1. Waterfall vs mentalidad ágil**
+
+El modelo en Cascada organiza el desarrollo en fases secuenciales bien definidas (requisitos, diseño, implementación, testing, despliegue), donde cada fase debe estar completamente terminada y aprobada antes de pasar a la siguiente. El problema grave de cambiar requisitos a mitad del desarrollo en este modelo es que, como las fases están encadenadas, cualquier modificación obliga a retroceder a la fase de requisitos y volver a atravesar diseño, implementación y testing desde esa altura. Esto implica retrabajo masivo: documentación que se tiró, código ya escrito que hay que reescribir, casos de prueba que pierden validez. Además, los contratos y el plan inicial suelen estar "firmados" con el cliente al comienzo, por lo que un cambio tardío dispara renegociaciones de alcance, presupuesto y cronograma —el famoso "costo del cambio" crece exponencialmente cuanto más avanzado está el proyecto.
+
+La mentalidad ágil encara el problema de raíz: en lugar de asumir que los requisitos son fijos, acepta que el cambio es inevitable y lo abraza. Trabaja en iteraciones cortas (sprints de 2 a 4 semanas) donde al final de cada ciclo se entrega un incremento funcional del producto y se recolecta feedback del cliente. Esto permite que los cambios de requisitos se incorporen naturalmente en la iteración siguiente —no hay que "volver atrás" porque nunca se avanzó meses en una dirección equivocada. El feedback continuo es el mecanismo clave: el cliente ve avances reales, ajusta prioridades sobre la marcha y el equipo pivotea sin arrastrar semanas de trabajo desperdiciado. Así, lo que en Cascada es una crisis de retrabajo, en ágil es simplemente un ítem más en el backlog para el próximo sprint.
+
+---
+
+**2. Roles de Scrum**
+
+El rol que resuelve el problema de no saber qué tareas priorizar para el negocio es el **Product Owner** (PO). El PO es la persona responsable de maximizar el valor del producto y gestionar el Product Backlog, que es la lista ordenada de todo lo que podría hacerse. Es quien define *qué* se construye y en *qué orden*, basándose en las necesidades del negocio, el feedback de los stakeholders y el retorno de inversión esperado. Al ser una única persona con autoridad para priorizar, el equipo no entra en la parálisis de "no sabemos qué es más importante" —el PO ya ordenó el backlog por valor y eso baja directamente al sprint planning.
+
+El rol que resuelve el problema de las interrupciones de gerentes externos es el **Scrum Master**. El Scrum Master actúa como un escudo para el equipo: su responsabilidad es asegurarse de que Scrum se entienda y se aplique correctamente, y eso incluye eliminar impedimentos. Cuando un gerente externo interrumpe al equipo con pedidos fuera de ciclo, el Scrum Master filtra esa interrupción —le explica al gerente que los pedidos deben canalizarse a través del Product Owner para ingresar al backlog, no salteando al equipo a mitad del sprint. Al mismo tiempo, facilita las ceremonias y enseña a la organización a respetar los límites del equipo, para que los desarrolladores puedan concentrarse en el objetivo del sprint sin distracciones externas.
+
+---
+
+**3. Kanban y WIP Limit**
+
+El desperdicio Lean que se comete al asignarle 5 tareas simultáneas a cada programador es la **multitarea y el cambio de contexto** (context switching). Cuando un desarrollador tiene 5 tareas abiertas a la vez, no puede concentrarse de lleno en ninguna: cada vez que salta de una a otra pierde tiempo "cargando" mentalmente el contexto de esa tarea, recordando dónde estaba, qué dependencias tenía y qué faltaba. Ese cambio de contexto genera trabajo parcialmente hecho —todas las tareas están "a medio hacer" pero ninguna está realmente terminada y lista para entregar. Es un desperdicio porque ese tiempo de switching no agrega valor y encima ninguna tarea cruza la línea de "done".
+
+El **WIP Limit** (límite de trabajo en curso) de Kanban ataca directamente este problema: establece un número máximo de tareas que pueden estar simultáneamente en cada columna del tablero. Si el límite es 2, un programador no puede agarrar una tercera tarea hasta que no termine alguna de las que ya tiene en progreso. Esto lo obliga a llevar las tareas hasta el final antes de empezar nuevas —es el famoso principio de "stop starting, start finishing". Al eliminar la multitarea, el foco mejora drásticamente, se reduce el cambio de contexto y el throughput (cantidad de trabajo terminado por unidad de tiempo) aumenta. Aunque parezca contradictorio, hacer menos cosas en paralelo acelera la velocidad real del equipo, porque las tareas no se estancan semanas en un limbo de "80% hechas" y empiezan a fluir completas hacia el cliente.
+
+---
+
+**4. Pair Programming**
+
+La verdad es que coincido bastante con la crítica de que la programación en pareja es perder el tiempo de un empleado. Tener dos personas mirando la misma pantalla escribiendo el mismo código me parece ineficiente. Podrían estar cada uno programando su propia funcionalidad y avanzarían el doble. Entiendo que algunas empresas lo hacen, pero yo creo que depende mucho del equipo y en la mayoría de los casos no se justifica el costo de tener dos sueldos produciendo la mitad del código. Si el código queda bien lo puede revisar uno solo después en una code review y listo.
+
+---
+
+**5. Historia de Usuario y Criterios de Aceptación**
+
+**Historia de Usuario:**
+
+> Como usuario de la plataforma, quiero poder guardar películas y series en una sección personal llamada "Mi Lista", para retomar más tarde los contenidos que me interesan sin tener que volver a buscarlos.
+
+**Criterios de Aceptación:**
+
+- Dado un usuario autenticado que está viendo la ficha de una película o serie, cuando presiona el botón "Agregar a Mi Lista", el contenido aparece inmediatamente en la sección "Mi Lista" del menú principal y el botón cambia su estado a "En Mi Lista".
+- Dado un usuario autenticado que tiene contenidos guardados en "Mi Lista", al ingresar a dicha sección puede verlos ordenados por fecha de agregado (más reciente primero), eliminar cualquiera de ellos con un botón de "Quitar", y al hacerlo el contenido desaparece de la lista sin afectar las recomendaciones generales de la plataforma.

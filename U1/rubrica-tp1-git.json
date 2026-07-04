@@ -1,0 +1,228 @@
+{
+  "titulo": "TP1 — Primeros Pasos con Git",
+  "descripcion": "Rúbrica para el Trabajo Práctico N°1 de Organización Empresarial (UTN TUPaD 2026). Evalúa comprensión teórica de conceptos Git (versionado, estados, .gitignore, ramas) y ejecución práctica de un flujo completo: init, commits, rama de desarrollo y merge. La entrega debe ser un .zip que contenga un PDF de respuestas teóricas (solo texto, sin imágenes) y la carpeta oculta .git del repositorio local.",
+  "puntaje_maximo": 100,
+  "metadata": {
+    "materia": "Organización Empresarial",
+    "carrera": "Tecnicatura Universitaria en Programación",
+    "institucion": "UTN - Facultad Regional Mendoza",
+    "profesor": "Francisco Varberde"
+  },
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Formato y condiciones de entrega",
+      "descripcion": "La entrega cumple exactamente con el formato exigido: un único archivo .zip (no .rar, .7z ni enlace web), que contiene un PDF de respuestas teóricas (solo texto, sin imágenes ni capturas) y la carpeta oculta .git del repositorio local.",
+      "peso": 15,
+      "instrucciones_puntuacion": "Si el archivo entregado no es .zip → techo 0 (condición de desaprobación). Si falta el PDF → descontar 8 puntos de este criterio. Si el PDF contiene imágenes o capturas → descontar 4 puntos. Si falta la carpeta .git → descontar 8 puntos. Defecto parcial (ej: .git presente pero PDF con imágenes) → puntaje proporcional.",
+      "subcriterios": [
+        {
+          "id": "C1.1",
+          "descripcion": "El archivo entregado es un .zip (no .rar, .7z ni enlace)",
+          "evidencias": [
+            "El archivo de entrega tiene extensión .zip"
+          ]
+        },
+        {
+          "id": "C1.2",
+          "descripcion": "Dentro del .zip existe un documento PDF con las respuestas teóricas",
+          "evidencias": [
+            "Se encuentra un archivo .pdf dentro del .zip",
+            "El PDF contiene únicamente texto plano y código escrito, sin imágenes ni capturas de pantalla"
+          ]
+        },
+        {
+          "id": "C1.3",
+          "descripcion": "Dentro del .zip está presente la carpeta oculta .git del repositorio",
+          "evidencias": [
+            "Existe una carpeta llamada .git dentro de la carpeta del proyecto en el .zip",
+            "La carpeta .git contiene al menos los directorios HEAD, objects y refs propios de un repositorio Git inicializado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "nombre": "Comprensión teórica: versionado manual vs Git",
+      "descripcion": "El alumno responde con sus propias palabras por qué la gestión de versiones mediante carpetas manuales (proyecto_final, proyecto_final_v2, etc.) es riesgosa, mencionando al menos un riesgo concreto.",
+      "peso": 10,
+      "instrucciones_puntuacion": "Respuesta que identifica al menos un riesgo concreto y lo argumenta → puntaje completo. Respuesta vaga sin riesgo específico → 50% del peso. Sin respuesta o completamente incorrecta → 0.",
+      "subcriterios": [
+        {
+          "id": "C2.1",
+          "descripcion": "Explica el riesgo del versionado manual con carpetas",
+          "evidencias": [
+            "Menciona al menos uno de los siguientes riesgos: pérdida de historial, confusión sobre cuál es la versión correcta, imposibilidad de comparar cambios, error humano al copiar, falta de registro de autoría o fecha",
+            "La respuesta está redactada con palabras propias y no es una copia literal del material"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "nombre": "Comprensión teórica: estados de Git (Staged)",
+      "descripcion": "El alumno explica correctamente qué significa que un archivo esté en estado 'Preparado' (Staged), diferenciándolo del estado Modificado y Confirmado.",
+      "peso": 10,
+      "instrucciones_puntuacion": "Explicación correcta y clara del estado Staged → puntaje completo. Confunde Staged con Committed o con Modified pero muestra comprensión parcial → 50%. Sin respuesta o incorrecto → 0.",
+      "subcriterios": [
+        {
+          "id": "C3.1",
+          "descripcion": "Define el estado Staged (Preparado) en Git",
+          "evidencias": [
+            "Explica que un archivo Staged es aquel que fue marcado con 'git add' y está listo para incluirse en el próximo commit",
+            "Usa alguna analogía o descripción propia que muestre comprensión del concepto (ej: caja, área de preparación, staging area)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "nombre": "Comprensión teórica: .gitignore",
+      "descripcion": "El alumno explica para qué sirve el archivo .gitignore y menciona un ejemplo concreto de algo que NO debe subirse a internet (ej: credenciales, contraseñas, claves API, archivos .env).",
+      "peso": 8,
+      "instrucciones_puntuacion": "Explica la función del .gitignore Y da un ejemplo concreto → puntaje completo. Solo explica la función sin ejemplo → 60%. Ejemplo sin explicación → 40%. Sin respuesta o incorrecto → 0.",
+      "subcriterios": [
+        {
+          "id": "C4.1",
+          "descripcion": "Explica la función del .gitignore y da un ejemplo de archivo sensible",
+          "evidencias": [
+            "Menciona que .gitignore le indica a Git qué archivos o carpetas debe ignorar y no rastrear",
+            "Da al menos un ejemplo de archivo que no debe compartirse: contraseña, clave API, .env, credenciales, token de acceso u otro dato sensible"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "nombre": "Comprensión teórica: ramas (branches)",
+      "descripcion": "El alumno explica cómo el concepto de ramas (branches) en Git permite experimentar con nuevas funcionalidades sin afectar la rama principal (main).",
+      "peso": 7,
+      "instrucciones_puntuacion": "Explica correctamente el aislamiento que proveen las ramas → puntaje completo. Explicación parcial o imprecisa → 50%. Sin respuesta → 0.",
+      "subcriterios": [
+        {
+          "id": "C5.1",
+          "descripcion": "Describe el propósito de las ramas para trabajo paralelo seguro",
+          "evidencias": [
+            "Menciona que las ramas permiten trabajar en una copia aislada del código sin afectar la rama main",
+            "Indica que los cambios en la rama nueva solo se integran a main cuando el programador decide hacerlo (merge)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "nombre": "Práctica: inicialización y configuración del repositorio",
+      "descripcion": "El alumno crea la carpeta con el nombre correcto (tp1-git-apellido-nombre), inicializa el repositorio Git y configura su identidad local (nombre y correo, sin --global).",
+      "peso": 10,
+      "instrucciones_puntuacion": "Los tres ítems correctos → puntaje completo. Falta configuración de identidad local → -4. Nombre de carpeta incorrecto → -2. Falta git init → -6.",
+      "subcriterios": [
+        {
+          "id": "C6.1",
+          "descripcion": "La carpeta y el repositorio están correctamente inicializados",
+          "evidencias": [
+            "La carpeta raíz del .zip se llama tp1-git-apellido-nombre (con apellido y nombre reales del alumno)",
+            "La carpeta .git existe, indicando que se ejecutó git init",
+            "El archivo .git/config contiene las claves user.name y user.email (identidad configurada localmente sin --global)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "nombre": "Práctica: archivos iniciales y primer commit",
+      "descripcion": "El alumno crea README.md con contenido Markdown, crea .gitignore que ignora archivos .env, excluye config-secreta.env del rastreo y realiza el primer commit con mensaje descriptivo.",
+      "peso": 15,
+      "instrucciones_puntuacion": "Todo completo → puntaje completo. Falta README.md → -6. README.md sin contenido Markdown mínimo (título + descripción) → -3. Falta .gitignore → -6. .gitignore no ignora .env → -3. config-secreta.env rastreado en el historial → -5. Mensaje de primer commit vacío o sin descripción → -2.",
+      "subcriterios": [
+        {
+          "id": "C7.1",
+          "descripcion": "README.md existe con contenido Markdown válido",
+          "evidencias": [
+            "Existe el archivo README.md en el repositorio",
+            "El README.md contiene al menos un título con sintaxis Markdown (línea que empieza con #) y una descripción del proyecto"
+          ]
+        },
+        {
+          "id": "C7.2",
+          "descripcion": ".gitignore configurado para ignorar archivos .env",
+          "evidencias": [
+            "Existe el archivo .gitignore en el repositorio",
+            "El .gitignore contiene una regla que ignora archivos .env (ej: *.env o config-secreta.env)",
+            "El archivo config-secreta.env NO aparece en el historial de commits (no fue rastreado por Git)"
+          ]
+        },
+        {
+          "id": "C7.3",
+          "descripcion": "Primer commit realizado con mensaje descriptivo",
+          "evidencias": [
+            "Existe al menos un commit en la rama principal (main o master)",
+            "El mensaje del primer commit describe el contenido añadido (ej: 'Añadir estructura inicial y archivo gitignore' o similar)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C8",
+      "nombre": "Práctica: rama de desarrollo y segundo commit",
+      "descripcion": "El alumno crea la rama 'desarrollo-funcionalidad', agrega app.py (o equivalente) con al menos una línea de código o comentario, modifica README.md añadiendo el subtítulo 'Instrucciones de uso' y realiza un commit en esa rama.",
+      "peso": 15,
+      "instrucciones_puntuacion": "Todo completo → puntaje completo. Falta la rama desarrollo-funcionalidad en el historial .git → -8. Falta app.py (o equivalente) en la rama → -4. README.md no tiene el subtítulo 'Instrucciones de uso' → -3. No hay commit en la rama → -6.",
+      "subcriterios": [
+        {
+          "id": "C8.1",
+          "descripcion": "La rama desarrollo-funcionalidad existe en el historial Git",
+          "evidencias": [
+            "El directorio .git/refs/heads/ contiene una referencia a la rama 'desarrollo-funcionalidad'",
+            "El historial de commits (visible en .git) muestra commits asociados a esa rama"
+          ]
+        },
+        {
+          "id": "C8.2",
+          "descripcion": "app.py (o equivalente) fue creado y commiteado en la rama",
+          "evidencias": [
+            "Existe un archivo de código (app.py u otra extensión válida) en el historial de la rama desarrollo-funcionalidad",
+            "El archivo contiene al menos una línea de código o un comentario"
+          ]
+        },
+        {
+          "id": "C8.3",
+          "descripcion": "README.md modificado con subtítulo 'Instrucciones de uso' en la rama",
+          "evidencias": [
+            "El commit de la rama desarrollo-funcionalidad incluye cambios en README.md",
+            "README.md en esa rama contiene un subtítulo con el texto 'Instrucciones de uso' (con sintaxis Markdown: ## o ###)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C9",
+      "nombre": "Práctica: merge de rama a main",
+      "descripcion": "El alumno vuelve a la rama principal y ejecuta el merge de desarrollo-funcionalidad hacia main, integrando todos los cambios.",
+      "peso": 10,
+      "instrucciones_puntuacion": "El merge está presente en el historial → puntaje completo. No hay evidencia de merge en .git pero los archivos de la rama están presentes → 50%. Sin evidencia de trabajo con ramas → 0.",
+      "subcriterios": [
+        {
+          "id": "C9.1",
+          "descripcion": "El merge de desarrollo-funcionalidad hacia main está registrado",
+          "evidencias": [
+            "El historial de commits en .git muestra un merge commit o una integración de la rama desarrollo-funcionalidad en main",
+            "Los archivos creados en la rama (app.py, README.md actualizado) están presentes en la rama main después del merge"
+          ]
+        }
+      ]
+    }
+  ],
+  "penalizaciones": [],
+  "condiciones_desaprobacion": [
+    {
+      "id": "CD1",
+      "condicion": "El archivo entregado no es un .zip (ej: .rar, .7z, enlace web u otro formato no permitido)",
+      "nota_maxima": 0
+    },
+    {
+      "id": "CD2",
+      "condicion": "La carpeta .git está ausente en el .zip entregado",
+      "nota_maxima": 30
+    }
+  ]
+}

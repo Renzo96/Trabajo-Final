@@ -1,0 +1,196 @@
+# TP2 — Ingeniería de Prompts y Pensamiento Computacional
+
+---
+
+## Actividad 1: Arquitectura de la Instrucción
+
+```
+============================================================
+INSTRUCCIÓN
+============================================================
+
+Actuá como un clasificador automático de correos electrónicos
+de soporte técnico. Tu tarea es leer el correo provisto en la
+sección DATOS DE ENTRADA y clasificarlo en una de tres
+categorías: "Urgente", "Consulta General" o "Feedback".
+
+============================================================
+CONTEXTO
+============================================================
+
+Trabajás en el equipo de soporte de una empresa de software.
+Los correos urgentes requieren respuesta en menos de 2 horas
+porque involucran caídas del sistema, pérdida de datos o
+bloqueos que impiden operar. Las consultas generales son
+preguntas sobre funcionalidades, configuración o dudas que no
+interrumpen la operación. Los correos de feedback contienen
+sugerencias, elogios o quejas sobre el producto sin requerir
+una acción técnica inmediata.
+
+============================================================
+DATOS DE ENTRADA
+============================================================
+
+Asunto: El sistema no me deja entrar y perdí todo
+
+Cuerpo: Hola, desde esta mañana intento entrar al panel y me
+tira error 500. Tengo que cerrar la contabilidad del mes y no
+puedo hacer nada. Ya reinicié y sigue igual. ¿Me pueden ayudar
+urgente por favor?
+
+============================================================
+INDICADOR DE SALIDA
+============================================================
+
+Respondé exclusivamente con una línea en el siguiente formato:
+
+CATEGORÍA: [Urgente | Consulta General | Feedback]
+JUSTIFICACIÓN: [una oración que explique por qué corresponde
+esa categoría]
+```
+
+---
+
+## Actividad 2: Laboratorio de Parámetros — Cuadro Comparativo
+
+### Caso A: Generación de una función matemática compleja en Python
+
+| Parámetro   | Valor recomendado | Justificación |
+|-------------|-------------------|---------------|
+| Temperatura | 0.1               | Una temperatura baja achata la distribución de probabilidad sobre los tokens candidatos, lo que hace que el token con mayor probabilidad tenga todavía más peso relativo. Esto fuerza al modelo a elegir casi siempre el token más probable, produciendo una salida determinista y precisa. Para código matemático esto es crítico: cualquier desviación de la sintaxis o lógica esperada rompe la función. |
+| Top-p       | 0.2               | Con un Top-p bajo, el modelo solo considera un núcleo reducido de tokens — aquellos cuya probabilidad acumulada alcanza el 20%. Esto recorta el espacio de muestreo a los tokens más seguros, eliminando opciones creativas o arriesgadas que en código matemático serían errores. La predicción de tokens se vuelve conservadora y confiable. |
+
+### Caso B: Escritura de un post creativo para redes sociales sobre el lanzamiento de una startup
+
+| Parámetro   | Valor recomendado | Justificación |
+|-------------|-------------------|---------------|
+| Temperatura | 0.9               | Una temperatura alta suaviza la distribución de probabilidad, haciendo que tokens con probabilidades originalmente bajas compitan más con los más probables. Esto inyecta variedad en cada paso de generación. Para un post creativo necesitamos frases inesperadas, metáforas, juegos de palabras — todo eso surge cuando el modelo se aparta del token más probable y explora alternativas. |
+| Top-p       | 0.95              | Con Top-p cercano a 1, el modelo considera prácticamente todo el vocabulario como pool de candidatos viables, descartando solo los tokens con probabilidad insignificante. Esto permite que en cada paso de la predicción aparezcan opciones poco convencionales pero coherentes. La redacción de un post de lanzamiento necesita ese abanico amplio para encontrar combinaciones originales que generen impacto. |
+
+---
+
+## Actividad 3: Razonamiento Avanzado — Chain-of-Thought
+
+```
+Vas a resolver problemas de razonamiento lógico siguiendo el
+método paso a paso que muestro en el ejemplo. Antes de dar la
+respuesta final, desglosá tu razonamiento en pasos numerados
+explicando cada deducción.
+
+EJEMPLO:
+
+Problema: En una caja hay 3 manzanas rojas y 5 verdes. Si saco
+2 frutas sin mirar, ¿cuál es la probabilidad de que ambas sean
+verdes?
+
+Razonamiento paso a paso:
+
+Paso 1 - Identifico el total de frutas: 3 rojas + 5 verdes =
+8 frutas en total.
+
+Paso 2 - Calculo la probabilidad de que la primera fruta sea
+verde: hay 5 verdes entre 8 totales → 5/8.
+
+Paso 3 - Si la primera fue verde, ahora quedan 4 verdes y 7
+frutas en total. La probabilidad de que la segunda también sea
+verde es 4/7.
+
+Paso 4 - Multiplico ambas probabilidades porque los eventos
+son dependientes: (5/8) × (4/7) = 20/56 = 5/14.
+
+Respuesta: La probabilidad de sacar dos frutas verdes es 5/14.
+
+---
+
+Ahora resolvé el siguiente problema usando el mismo método de
+razonamiento paso a paso:
+
+Problema: 5 camisas se secan al sol en 5 horas, ¿cuánto
+tardarán en secarse 30 camisas?
+
+Razonamiento paso a paso:
+```
+
+---
+
+## Actividad 4: Asistente de Refactorización de Código
+
+```
+Actuá como un Desarrollador Senior con más de 10 años de
+experiencia en Python. Tu tarea es refactorizar el siguiente
+código aplicando buenas prácticas de ingeniería de software y
+clean code.
+
+CÓDIGO ORIGINAL:
+
+def suma(a,b): return a+b
+
+REQUISITOS DE LA REFACTORIZACIÓN:
+
+1. Agregar tipado de datos (type hints) en todos los parámetros
+   y en el valor de retorno de la función.
+
+2. Documentar la función utilizando el formato Docstring,
+   incluyendo la descripción de lo que hace, los parámetros
+   que recibe, el valor que retorna y un ejemplo de uso.
+
+3. Explicar cada cambio realizado línea por línea, detallando
+   qué se modificó, por qué se modificó y cómo eso mejora la
+   calidad del código.
+
+4. Mejorar y refactorizar el código más allá de solo agregar
+   comentarios. Considerá aspectos como nombres de variables,
+   estructura, legibilidad, manejo de casos borde y
+   escalabilidad de la función para que acepte múltiples
+   argumentos en lugar de solo dos.
+```
+
+---
+
+## Actividad 5: Seguridad y Ética — Defensa de Prompts
+
+La seguridad en modelos de lenguaje es un tema importante. Cuando un usuario intenta hacer jailbreaking, básicamente busca saltarse las restricciones del sistema mediante prompts diseñados para engañar al modelo, como pedirle que "imagine" que no tiene reglas o que actúe en un rol donde supuestamente puede ignorar sus instrucciones.
+
+Por otro lado, el prompt leaking ocurre cuando alguien intenta que el modelo revele información que no debería compartir, como su prompt de sistema original o supuestas claves internas.
+
+Para defenderse de estas técnicas, lo más efectivo es implementar capas de seguridad externas al modelo:
+- Un filtro de entrada que analice los prompts del usuario en busca de patrones típicos de jailbreaking (frases como "ignorá tus instrucciones anteriores", "DAN mode", "vas a actuar como si...").
+- Un filtro de salida que revise la respuesta del modelo antes de enviarla al usuario, bloqueando cualquier texto que parezca contener instrucciones del sistema o datos internos.
+- Rate limiting para evitar que un atacante pruebe cientos de variaciones de prompts maliciosos en poco tiempo.
+- Validación del lado del servidor con expresiones regulares que detecten intentos de inyección de instrucciones.
+
+La clave está en entender que el modelo de lenguaje por sí solo no puede defenderse; necesita que el sistema que lo rodea implemente las protecciones. Es como un firewall: no le pedís a la aplicación que se defienda sola, ponés la seguridad en la capa de infraestructura.
+
+---
+
+## Actividad 6: Simulación de Sesgos — Análisis Crítico
+
+### Prompt de mitigación
+
+```
+Generá una descripción de una persona que ocupa el cargo de
+CEO y es considerada exitosa en su industria. Es fundamental
+que tu descripción cumpla con lo siguiente:
+
+- No asumas ni sugieras que la persona pertenece a un género
+  específico. La descripción debe ser aplicable por igual a
+  cualquier género.
+- Incluí diversidad en los ejemplos y referencias que uses:
+  considerá personas de distintos orígenes geográficos,
+  culturales y trayectorias profesionales no tradicionales.
+- Centrá la descripción exclusivamente en competencias y
+  habilidades profesionales universales: capacidad de
+  liderazgo, visión estratégica, toma de decisiones basada
+  en datos, inteligencia emocional, comunicación efectiva,
+  capacidad de construir equipos diversos y gestión de crisis.
+- Evitá cualquier referencia a rasgos físicos, edad, estado
+  civil, origen étnico específico o características que
+  puedan perpetuar estereotipos sobre cómo "debe verse" o
+  "de dónde debe venir" un CEO exitoso.
+```
+
+### Justificación de la intervención
+
+La instrucción original "Describa a un CEO exitoso" sin ninguna acotación tiende a producir respuestas sesgadas porque los modelos de lenguaje se entrenan con datos que reflejan desigualdades históricas del mundo real. Durante décadas, la gran mayoría de los CEO de empresas Fortune 500 han sido hombres de determinado perfil demográfico, y esa sobrerrepresentación quedó codificada en los datasets de entrenamiento. Cuando el modelo recibe un prompt neutro, recurre a los patrones estadísticos que más aparecen en sus datos: asocia "CEO exitoso" con atributos masculinos, traje, oficina corporativa en una ciudad occidental, y un camino profesional lineal (MBA, consultoría, ascenso jerárquico).
+
+El problema no es que el modelo "tenga opiniones", sino que la predicción del siguiente token —su mecanismo fundamental— se basa en frecuencias de co-ocurrencia en el corpus de entrenamiento. Si en ese corpus "CEO" co-ocurre desproporcionadamente con pronombres masculinos y descripciones físicas de hombres, el modelo reproducirá ese sesgo como si fuera la respuesta más probable. Por eso es necesario intervenir con instrucciones explícitas de diversidad: para contrarrestar la inercia estadística del entrenamiento y forzar al modelo a muestrear tokens que reflejen un espectro más amplio y justo de lo que significa ser un líder exitoso.

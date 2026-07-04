@@ -1,0 +1,59 @@
+{
+  "nota": 90,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 90,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Waterfall vs mentalidad ágil",
+      "puntaje_obtenido": 10,
+      "puntaje_maximo": 20,
+      "estado": "WARNING",
+      "feedback": "La respuesta aborda ambas partes (problema de Waterfall y solución ágil) en palabras propias, lo cual es correcto en espíritu, pero es demasiado genérica y carece de los conceptos ágiles concretos que la rúbrica esperaba. Sobre Waterfall: mencionás que 'todo se planifica de antemano' y que 'no hay mucho margen para incorporar cambios', pero no explicitás que las fases son secuenciales ni el costo de retrabajo de los cambios tardíos. Sobre la solución ágil: decís que 'se adaptan mejor a la realidad' y 'entregan valor desde el primer momento', pero no mencionás iteraciones cortas, entregas incrementales ni feedback frecuente del cliente, que son los mecanismos ágiles puntuales que resuelven el problema del plan rígido. La conexión entre el problema y la solución queda a nivel de idea general, no de mecanismo concreto."
+    },
+    {
+      "id": "C2",
+      "nombre": "Roles de Scrum",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Respuesta impecable. Identificás correctamente al Product Owner para la priorización de tareas del negocio (gestiona el Product Backlog, decide qué se hace primero según valor de negocio, ordena historias de usuario por prioridad) y al Scrum Master para la protección del equipo frente a interrupciones externas (facilitador, elimina impedimentos, frena a gerentes que quieren meter cambios a mitad del sprint). La justificación de cada rol es precisa y conecta directamente con el problema planteado."
+    },
+    {
+      "id": "C3",
+      "nombre": "Kanban y WIP Limit",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Excelente. Identificás claramente la multitarea y el cambio de contexto (context switching) como el desperdicio Lean, y lo ilustrás con 'mucho empezado, nada terminado'. La explicación del WIP Limit es precisa: limitar el trabajo en curso obliga a terminar antes de empezar algo nuevo, lo cual reduce el cambio de contexto, mejora el foco y aumenta la velocidad real de entrega (throughput). La paradoja de 'hacer menos cosas en paralelo hace que el equipo entregue más rápido' está muy bien explicada."
+    },
+    {
+      "id": "C4",
+      "nombre": "Pair Programming",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Defensa sólida con dos beneficios claramente distintos y bien argumentados. Primer beneficio: revisión de código en tiempo real, donde los bugs se detectan al instante cuando arreglarlos es barato, resultando en código con menor densidad de errores. Segundo beneficio: transferencia de conocimiento, donde ambos aprenden y entienden el código, evitando el problema de una sola persona dueña de un módulo (bus factor). Ambos están correctamente vinculados al código final y al trabajo en equipo."
+    },
+    {
+      "id": "C5",
+      "nombre": "Historias de Usuario y Criterios de Aceptación",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Sobresaliente. La Historia de Usuario sigue perfectamente la fórmula 'Como [rol], quiero [acción], para [beneficio]' con los tres componentes bien definidos y coherentes con el contexto Netflix/Mi Lista. Los tres Criterios de Aceptación están redactados en formato Given-When-Then (Dado que/Cuando/Entonces) y son verificables: agregar contenido con confirmación visual, eliminar contenido sin recarga de página, y persistencia de la lista entre sesiones. Supera el mínimo de dos criterios y todos son pertinentes a la función descrita."
+    }
+  ],
+  "fortalezas": [
+    "Uso impecable del formato Given-When-Then en los criterios de aceptación de C5, incluyendo un tercer criterio de persistencia que muestra comprensión de testing funcional",
+    "Justificación precisa y diferenciada de los roles de Scrum (C2), explicando no solo quién sino cómo cada rol resuelve su problema concreto",
+    "Explicación clara del WIP Limit en C3, incluyendo la paradoja de throughput que suele ser contraintuitiva para quien recién aprende Kanban",
+    "Argumentación sólida del Pair Programming (C4) con dos beneficios independientes, bien desarrollados y conectados al resultado final"
+  ],
+  "recomendaciones": [
+    "En C1: incorporá los términos técnicos clave que la materia espera — 'iteraciones cortas', 'feedback frecuente del cliente', 'entregas incrementales' — en lugar de descripciones genéricas como 'se adaptan mejor a la realidad'. La idea la tenés, pero falta anclarla en el vocabulario de metodologías ágiles.",
+    "En C1: detallá por qué el cambio tardío en Waterfall es un desastre económico, mencionando el costo exponencial de arreglar defectos según la fase (la curva de Boehm), el retrabajo de fases ya cerradas, o la rigidez contractual del plan firmado. Con una oración extra bien técnica pasabas de 10 a 20 en este criterio."
+  ],
+  "comentario_general": "El trabajo demuestra una comprensión sólida y madura de los fundamentos ágiles en cuatro de los cinco criterios, con respuestas que no solo son correctas sino que muestran razonamiento propio. La única debilidad está en C1, donde la respuesta es conceptualmente acertada pero carece del vocabulario técnico específico y los mecanismos concretos que la rúbrica pedía como evidencia. Es un detalle de precisión terminológica, no de falta de comprensión: afilá ese criterio y el TP queda redondo en 100."
+}

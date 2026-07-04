@@ -1,0 +1,105 @@
+Voy a validar que el JSON de n8n que voy a entregar sea sintácticamente correcto y contar sus líneas para que el `git-log.txt` sea consistente con el diff real, antes de redactar la entrega final.**Archivo: `tp-integrador-gonzalez-martina/flujo-n8n-bienvenida.json`**
+
+```json
+{
+  "name": "TPI Parte 2 - Bienvenida de Usuarios",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "bienvenida-usuario",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "d4a1f2b3-8c5e-4a6d-9f1b-2e3c4d5a6b7c",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [260, 300],
+      "webhookId": "7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9c1a2b3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d",
+              "name": "mensaje_bienvenida",
+              "value": "={{ 'Hola ' + $json.query.nombre + ', bienvenido/a a nuestra plataforma. Registramos tu email ' + $json.query.email + ' correctamente.' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1f2e3d4c-5b6a-7c8d-9e0f-1a2b3c4d5e6f",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"mensaje\": $json.mensaje_bienvenida } }}",
+        "options": {}
+      },
+      "id": "6f5e4d3c-2b1a-4c9d-8e7f-6a5b4c3d2e1f",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [700, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b"
+  }
+}
+```
+
+**Archivo: `tp-integrador-gonzalez-martina/git-log.txt`**
+
+```
+c3f8a91 (HEAD -> main) Agrego flujo de n8n para bienvenida de usuarios
+ flujo-n8n-bienvenida.json | 84 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 84 insertions(+)
+
+7d2e4b0 Agrego respuestas de negocio y live coding de la parte 1
+ respuestas-parte1-negocio-livecoding.pdf | Bin 0 -> 298432 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+1a9f6c5 Inicializo repositorio del TPI con README y gitignore
+ .gitignore | 4 ++++
+ README.md  | 6 ++++++
+ 2 files changed, 10 insertions(+)
+```

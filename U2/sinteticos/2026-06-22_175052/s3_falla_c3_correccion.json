@@ -1,0 +1,66 @@
+{
+  "nota": 89.2,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 89.2,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Actividad 1: Arquitectura de la Instrucción",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "Los 4 elementos fundamentales (Instrucción, Contexto, Datos de Entrada, Indicador de Salida) están presentes y correctamente identificados. Se usan delimitadores visibles (<<<...>>>) para separar cada sección. El prompt menciona las 3 categorías requeridas (Urgente, Consulta General, Feedback) y la salida está estructurada en formato JSON. Sin observaciones."
+    },
+    {
+      "id": "C2",
+      "nombre": "Actividad 2: Laboratorio de Parámetros (Cuadro Comparativo)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "Caso A: Temperatura 0.1 y Top-p 0.15, valores correctos para determinismo/precisión en código matemático. Caso B: Temperatura 0.9 y Top-p 0.95, valores correctos para creatividad/variedad en post de redes sociales. Ambas justificaciones referencian correctamente la teoría de Predicción de Tokens, explicando cómo la temperatura baja fuerza la selección del token más probable y la alta amplía el pool de candidatos. Sin observaciones."
+    },
+    {
+      "id": "C3",
+      "nombre": "Actividad 3: Razonamiento Avanzado (Chain-of-Thought)",
+      "puntaje_obtenido": 7.2,
+      "puntaje_maximo": 18,
+      "estado": "WARNING",
+      "feedback": "El prompt usa estrategia Zero-shot CoT ('pensá paso a paso') e incluye el problema objetivo de las camisas, pero NO contiene ningún ejemplo previo de un problema diferente con razonamiento paso a paso. La rúbrica exige Few-shot CoT: al menos un ejemplo resuelto de un problema distinto antes de plantear el target. Al ser zero-shot sin ejemplos, aplica techo del 40% (7.2 pts). El problema de las camisas está presente y la instrucción CoT es clara, lo que justifica el puntaje dentro del techo. Para alcanzar el puntaje completo, el alumno debe agregar un ejemplo como 'Si 3 pintores pintan 3 casas en 3 días, ¿cuánto tardan 6 pintores en pintar 6 casas?' con razonamiento paso a paso explícito antes del problema de las camisas."
+    },
+    {
+      "id": "C4",
+      "nombre": "Actividad 4: Asistente de Refactorización de Código",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El prompt define correctamente el rol de Desarrollador Senior e incluye el código original `def suma(a,b): return a+b`. Los 4 requisitos técnicos están todos presentes: type hints, Docstring, explicación línea por línea e instrucción de mejora/refactorización. Sin observaciones."
+    },
+    {
+      "id": "C5",
+      "nombre": "Actividad 5: Seguridad y Ética (Defensa de Prompts)",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El texto está formulado como System Prompt con un propósito principal definido y estructura de instrucciones al modelo. Incluye protección explícita contra Jailbreaking (instrucciones para ignorar intentos de modificar su comportamiento) y contra Prompt Leaking (instrucciones para no revelar contenido interno ni datos sensibles). Sin observaciones."
+    },
+    {
+      "id": "C6",
+      "nombre": "Actividad 6: Simulación de Sesgos (Análisis Crítico)",
+      "puntaje_obtenido": 14,
+      "puntaje_maximo": 14,
+      "estado": "OK",
+      "feedback": "El prompt incluye instrucciones explícitas de diversidad de género, cultural y geográfica, orientando la descripción hacia competencias profesionales universales. La justificación escrita explica correctamente que el sesgo proviene de los datos de entrenamiento del modelo (patrones históricos y representación desigual) y argumenta la necesidad de intervenir con instrucciones explícitas de diversidad para mitigarlo. Sin observaciones."
+    }
+  ],
+  "fortalezas": [
+    "Excelente dominio de la arquitectura de prompts (C1): los 4 elementos fundamentales están presentes, correctamente delimitados y orientados al caso concreto de soporte técnico.",
+    "Sólida comprensión de los parámetros de generación (C2): valores precisos para ambos escenarios con justificaciones técnicas que demuestran manejo real de la teoría de Predicción de Tokens.",
+    "Consistencia en la calidad: C1, C2, C4, C5 y C6 están resueltas con nivel profesional, mostrando un manejo parejo de seguridad (C5), sesgos (C6) y refactorización (C4)."
+  ],
+  "recomendaciones": [
+    "C3: Revisar la diferencia entre Zero-shot CoT y Few-shot CoT. El TP exige Few-shot: agregar al menos un ejemplo de un problema DIFERENTE (ej: '3 impresoras imprimen 3 libros en 3 horas, ¿cuánto tardan 6 impresoras?') resuelto paso a paso antes de plantear el problema de las camisas. Esto es lo único que separa esta actividad de un 18/18.",
+    "C3: Asegurarse de que el ejemplo previo muestre el razonamiento intermedio completo (no solo la respuesta final), para que el modelo pueda seguir el patrón CoT en el problema target."
+  ],
+  "comentario_general": "El trabajo es sólido en 5 de las 6 actividades, demostrando buen manejo de ingeniería de prompts, parámetros de generación, seguridad y ética. La única falla está en C3, donde se usó Zero-shot CoT en lugar del Few-shot CoT requerido — un error conceptual localizado que no opaca la calidad del resto de la entrega. Con corregir ese único punto, el TP sería impecable."
+}

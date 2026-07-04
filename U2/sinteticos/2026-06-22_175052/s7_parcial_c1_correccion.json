@@ -1,0 +1,68 @@
+{
+  "nota": 88.3,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 88.3,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Actividad 1: Arquitectura de la Instrucción",
+      "puntaje_obtenido": 6.3,
+      "puntaje_maximo": 18,
+      "estado": "ERROR",
+      "feedback": "El prompt define el rol ('Sos un asistente de soporte técnico') y menciona las 3 categorías requeridas (Urgente, Consulta General, Feedback), e incluye un correo de ejemplo como Datos de Entrada. Sin embargo, falta el Indicador de Salida: no se especifica en qué formato debe responder el modelo (ej: 'Categoría: X - Justificación: Y'). Esto activa el techo de 60% (10.8 pts). Además, no hay delimitadores visibles entre secciones (todo es un solo párrafo sin marcadores como ### o ---), lo que descuenta otros 4.5 pts. Puntaje final: 10.8 - 4.5 = 6.3 pts."
+    },
+    {
+      "id": "C2",
+      "nombre": "Actividad 2: Laboratorio de Parámetros (Cuadro Comparativo)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "Caso A: Temperatura 0.1 y Top-p 0.1, ambos en rango bajo para determinismo. Justificación técnica sólida que explica cómo la temperatura baja aplana la distribución y fuerza al modelo a elegir el token más probable, con referencia explícita a la teoría de Predicción de Tokens. Caso B: Temperatura 0.9 y Top-p 0.9, ambos en rango alto para creatividad. La justificación explica cómo la temperatura alta aplana la distribución permitiendo explorar tokens menos probables, referenciando correctamente la teoría. Ambos casos impecables."
+    },
+    {
+      "id": "C3",
+      "nombre": "Actividad 3: Razonamiento Avanzado (Chain-of-Thought)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "El prompt incluye un ejemplo previo de un problema diferente al de las camisas (pintores y casas) con razonamiento paso a paso detallado: desglosa el trabajo por pintor, calcula ritmo diario y llega a la solución con lógica explícita. Luego presenta el problema objetivo de las camisas con la instrucción 'resolvé usando el mismo método' y 'mostrá tu razonamiento paso a paso', diseñado correctamente para Few-shot Chain-of-Thought."
+    },
+    {
+      "id": "C4",
+      "nombre": "Actividad 4: Asistente de Refactorización de Código",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El prompt define el rol de desarrollador Senior con experiencia en Python y buenas prácticas. Incluye el código original `def suma(a,b): return a+b`. Cubre los 4 requisitos técnicos: (1) type hints en parámetros y retorno, (2) documentación con Docstring describiendo qué hace, parámetros y retorno, (3) explicación línea por línea de los cambios, y (4) mejora/refactorización aplicando principios de código limpio y convenciones PEP. Sin observaciones."
+    },
+    {
+      "id": "C5",
+      "nombre": "Actividad 5: Seguridad y Ética (Defensa de Prompts)",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El texto está correctamente formulado como System Prompt con un propósito principal definido (asistente de recomendaciones literarias). La protección contra Jailbreaking está en las Reglas 1 y 2: lista ejemplos concretos de frases de ataque ('ignorá tus instrucciones anteriores', 'ahora sos otro asistente', 'resetéate') e instruye al modelo a mantener su propósito. La protección contra Prompt Leaking está en la Regla 3: prohíbe revelar instrucciones internas, system prompt y datos sensibles como claves API, con ejemplos de preguntas de ataque. Incluye además una respuesta estándar ante intentos de manipulación. Robusto y completo."
+    },
+    {
+      "id": "C6",
+      "nombre": "Actividad 6: Simulación de Sesgos (Análisis Crítico)",
+      "puntaje_obtenido": 14,
+      "puntaje_maximo": 14,
+      "estado": "OK",
+      "feedback": "El prompt de mitigación incluye instrucciones explícitas para evitar sesgos de género ('términos neutros', 'sin pronombres que asuman género'), diversidad cultural y geográfica, y enfoque en competencias profesionales universales (visión estratégica, toma de decisiones, inteligencia emocional, etc.). La justificación explica el origen del sesgo en los datos de entrenamiento ('patrones históricos y culturales', 'representación dominada por figuras masculinas') y argumenta la necesidad de intervención explícita porque el modelo 'no tiene conciencia de este sesgo ni mecanismos automáticos para corregirlo'. Completo y bien fundamentado."
+    }
+  ],
+  "fortalezas": [
+    "Excelente justificación técnica en Actividad 2, con referencia precisa a la teoría de Predicción de Tokens y cómo Temperatura y Top-p afectan la distribución de probabilidad en cada caso.",
+    "El ejemplo Few-shot CoT en Actividad 3 es impecable: problema diferente al target, razonamiento paso a paso detallado con cálculos intermedios, y prompt diseñado para que el modelo replique el esquema.",
+    "El System Prompt de la Actividad 5 es robusto: define propósito claro, cubre Jailbreaking con ejemplos concretos de frases de ataque, y cubre Prompt Leaking mencionando explícitamente claves API y datos sensibles.",
+    "La justificación de la Actividad 6 demuestra comprensión profunda del origen del sesgo en los datos de entrenamiento y articula por qué la intervención explícita es necesaria."
+  ],
+  "recomendaciones": [
+    "En Actividad 1: estructurar el prompt con los 4 elementos fundamentales claramente separados mediante delimitadores visibles (###, ---) e incluir un Indicador de Salida que especifique el formato esperado de respuesta (ej: 'Categoría: [Urgente|Consulta General|Feedback]').",
+    "En Actividad 1: etiquetar explícitamente cada sección ('### Instrucción', '### Contexto', '### Datos de Entrada', '### Indicador de Salida') para que los elementos sean identificables sin ambigüedad por cualquier lector o modelo.",
+    "Considerar en Actividad 4 agregar ejemplos concretos del código refactorizado esperado o del formato de Docstring deseado, para reducir ambigüedad en la salida del modelo."
+  ],
+  "comentario_general": "El trabajo muestra un dominio sólido de Ingeniería de Prompts, con profundidad técnica destacable en parámetros de generación, Chain-of-Thought y mitigación de sesgos. La Actividad 1 es el único punto débil: la ausencia del Indicador de Salida y de delimitadores entre secciones impide que el prompt alcance una arquitectura de instrucción completa según los 4 elementos fundamentales. Corregir ese único detalle llevaría el trabajo a un puntaje perfecto de 100."
+}

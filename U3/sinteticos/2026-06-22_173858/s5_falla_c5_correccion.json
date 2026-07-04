@@ -1,0 +1,60 @@
+{
+  "nota": 80,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 80,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Waterfall vs mentalidad ágil",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Respuesta completa y bien estructurada. Explica con claridad por qué el cambio de requisitos en Waterfall es un desastre (fases secuenciales, retrabajo, costo elevado, rigidez del plan firmado) y cómo la mentalidad ágil lo resuelve (iteraciones cortas, feedback frecuente, adaptación al cambio). La conexión lógica entre ambas partes es sólida y los argumentos son propios, no copia textual."
+    },
+    {
+      "id": "C2",
+      "nombre": "Roles de Scrum",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Identifica correctamente ambos roles: Product Owner para el problema de priorización (gestiona el Product Backlog, ordena por valor de negocio) y Scrum Master para las interrupciones externas (protege al equipo, canaliza pedidos por las vías correctas). Cada rol está bien justificado con detalles concretos sobre sus responsabilidades. No hay confusión ni inversión de roles."
+    },
+    {
+      "id": "C3",
+      "nombre": "Kanban y WIP Limit",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Identifica correctamente los desperdicios Lean de multitarea y cambio de contexto (context switching), y menciona también el trabajo parcialmente hecho. La explicación del WIP Limit es precisa: describe cómo el tope explícito obliga a terminar antes de empezar nuevas tareas, reduce el cambio de contexto y mejora el throughput. La conexión entre el problema y la solución está bien desarrollada."
+    },
+    {
+      "id": "C4",
+      "nombre": "Pair Programming",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Defensa sólida con dos beneficios distintos y bien argumentados: (1) revisión de código en tiempo real que reduce bugs y mejora la calidad, y (2) transferencia de conocimiento que evita personas indispensables y acelera el desarrollo a mediano plazo. Ambos están desarrollados con razonamientos propios y conectados a resultados concretos sobre el código final y el equipo."
+    },
+    {
+      "id": "C5",
+      "nombre": "Historias de Usuario y Criterios de Aceptación",
+      "puntaje_obtenido": 0,
+      "puntaje_maximo": 20,
+      "estado": "ERROR",
+      "feedback": "Parte (a): No redacta una Historia de Usuario usando la fórmula estándar 'Como [rol], quiero [acción], para [beneficio]'. Describe la funcionalidad de forma narrativa pero nunca estructura la historia con los tres componentes en el formato solicitado. Parte (b): No presenta criterios de aceptación verificables. Lo que escribe ('el equipo de QA debería verificar que todo funcione sin errores en los distintos dispositivos y navegadores. Si pasa las pruebas de testing, la funcionalidad está lista para salir a producción') son instrucciones de testing vagas y genéricas, no una checklist de criterios concretos que permitan determinar si la función está terminada."
+    }
+  ],
+  "fortalezas": [
+    "Excelente explicación de Waterfall vs Agile en C1, conectando lógicamente el problema de la rigidez secuencial con la solución de iteraciones cortas y feedback continuo, usando argumentos propios y coherentes.",
+    "Identificación y justificación precisa de los roles de Scrum en C2, detallando responsabilidades concretas del PO (backlog, valor de negocio) y del SM (protección del equipo, canalización de pedidos).",
+    "Explicación clara de WIP Limit en C3, vinculando el desperdicio de multitarea con la mejora de throughput a través del límite de trabajo en curso.",
+    "Defensa bien argumentada del Pair Programming en C4 con dos beneficios distintos y desarrollados (revisión en tiempo real y transferencia de conocimiento), ambos conectados a resultados medibles."
+  ],
+  "recomendaciones": [
+    "C5 parte (a): Redactá la Historia de Usuario usando explícitamente la fórmula 'Como [rol], quiero [acción], para [beneficio]'. Ejemplo: 'Como usuario de la app, quiero guardar películas y series en Mi Lista, para no perder de vista el contenido que me interesa ver más tarde.'",
+    "C5 parte (b): Escribí Criterios de Aceptación verificables y específicos. Ejemplo: 'DADO QUE estoy en la pantalla de un título, CUANDO presiono el botón Agregar a Mi Lista, ENTONCES el título aparece en la sección Mi Lista' y 'DADO QUE tengo al menos un título en Mi Lista, CUANDO ingreso a la pantalla Mi Lista, ENTONCES veo todos los títulos guardados ordenados por fecha de agregado (más reciente primero).'",
+    "No reemplaces los criterios de aceptación con instrucciones genéricas de QA. Los criterios deben ser una checklist binaria: cada uno se cumple o no se cumple, sin ambigüedad."
+  ],
+  "comentario_general": "El alumno demuestra un dominio sólido de los conceptos de metodologías ágiles en las primeras cuatro preguntas, con respuestas bien estructuradas, argumentos propios y conexiones lógicas claras. Sin embargo, en la pregunta 5 no sigue el formato estándar de Historia de Usuario solicitado explícitamente y no proporciona criterios de aceptación verificables, dejando sin responder lo que la rúbrica pide en el criterio de mayor peso procedimental."
+}

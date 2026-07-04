@@ -1,0 +1,61 @@
+{
+  "nota": 86,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 86,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Startup vs PyME",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Aplica correctamente ambos conceptos al caso. Escalabilidad: explica con claridad que la app crece exponencialmente (costo marginal ≈ 0) mientras la panadería tiene crecimiento lineal limitado por capacidad física, geografía y personal. Incertidumbre: distingue nítidamente la incertidumbre extrema de la app (demanda, registro de panaderos, modelo de negocio no probado) de la certeza relativa de la panadería (modelo conocido y probado). Respuesta completa y precisa."
+    },
+    {
+      "id": "C2",
+      "nombre": "Lean Startup y MVP Smoke Test",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica con precisión el ciclo Build-Measure-Learn de Lean Startup, identifica correctamente el error de los programadores (construir sin validar, enamorarse de la idea) y describe el Smoke Test MVP (landing page con CTA sin producto real). Conecta ambos al caso con un ejemplo concreto y pertinente: una landing page para la red social de mascotas midiendo registros. Demuestra comprensión integral del concepto."
+    },
+    {
+      "id": "C3",
+      "nombre": "Test de la Madre (Customer Discovery)",
+      "puntaje_obtenido": 6,
+      "puntaje_maximo": 20,
+      "estado": "ERROR",
+      "feedback": "La explicación de por qué '¿usarían?' no funciona es insuficiente: solo menciona que responden 'por compromiso' (toca superficialmente el sesgo de cortesía) y agrega 'cada persona tiene necesidades distintas', que no es un concepto del Test de la Madre. Omite explicar que las preguntas sobre intenciones futuras generan opiniones no hechos, y que las personas no predicen confiablemente su propio comportamiento. Además, las alternativas propuestas —'¿pagarían por una app así?' y '¿qué funcionalidades les gustaría?'— son preguntas de intención futura y opinión, exactamente el tipo de preguntas que el Test de la Madre enseña a NO hacer. El estudiante propone alternativas que caen en la misma trampa que la pregunta original, evidenciando que no comprende el principio central del método: buscar hechos del pasado, no opiniones ni predicciones."
+    },
+    {
+      "id": "C4",
+      "nombre": "LTV vs CAC y Retención",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Realiza el cálculo correcto (LTV $2.000 < CAC $5.000, pérdida de $3.000 por cliente), concluye que el modelo quiebra, y explica con claridad la relación con el Churn Rate: lo define como tasa de abandono, conecta el Churn alto con la reducción de la vida útil del cliente que deprime el LTV, y propone correctamente que la solución de fondo es reducir el Churn para que LTV supere al CAC. Respuesta completa y fundamentada."
+    },
+    {
+      "id": "C5",
+      "nombre": "Modelos de negocio en software",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Elige SaaS, modelo válido de la clase, y lo explica correctamente: software en la nube con suscripción recurrente, sin licencia perpetua, con ejemplos pertinentes. El desafío técnico es específico y relevante: facturación recurrente con control de acceso por tiers, manejo de pagos fallidos, upgrades/downgrades con prorrateo, corte de acceso por falta de pago e integración con pasarela de pagos (webhooks, estados de transacción, facturación electrónica). Demuestra comprensión técnica genuina, no generalidades vagas."
+    }
+  ],
+  "fortalezas": [
+    "Aplica con precisión ambos conceptos (Escalabilidad e Incertidumbre) al caso, diferenciando claramente Startup de PyME con argumentos técnicos sólidos.",
+    "Explica correctamente el ciclo Build-Measure-Learn y aplica el Smoke Test al caso concreto de la red social de mascotas con un ejemplo práctico y bien desarrollado.",
+    "Demuestra comprensión sólida de la relación LTV-CAC-Churn Rate: cálculo correcto, diagnóstico claro del problema y propuesta de solución coherente.",
+    "Elige un modelo de negocio válido (SaaS) y describe un desafío técnico específico a nivel de arquitectura/implementación, no generalidades vagas."
+  ],
+  "recomendaciones": [
+    "Estudiá a fondo el Test de la Madre: las preguntas sobre intenciones futuras ('¿pagarían?', '¿usarían?') generan opiniones sesgadas, no hechos. La gente no predice confiablemente su propio comportamiento futuro.",
+    "Reemplazá '¿pagarían por una app así?' por preguntas de comportamiento pasado como '¿Cómo conseguís resúmenes hoy?', '¿Cuánto pagaste la última vez por material de estudio?' o '¿Cuánto tiempo perdiste buscando apuntes la semana pasada?'.",
+    "Evitá preguntar por funcionalidades deseadas ('¿qué funcionalidades les gustaría?') — también es especulación. En su lugar, indagá qué herramientas YA usan y qué fricciones concretas tienen en su flujo actual.",
+    "El concepto clave: el Test de la Madre busca hechos concretos del pasado, no opiniones ni predicciones. '¿Usarían?', '¿Pagarían?' y '¿Qué les gustaría?' son exactamente las tres preguntas que el método enseña a NO hacer."
+  ],
+  "comentario_general": "El estudiante demuestra un manejo sólido de los conceptos centrales del ecosistema startup: escalabilidad, incertidumbre, Lean Startup, métricas LTV/CAC y modelos de negocio SaaS, con respuestas precisas y bien fundamentadas en cuatro de los cinco criterios. Sin embargo, en el Test de la Madre (C3) comete un error conceptual crítico: las alternativas que propone ('¿pagarían?', '¿qué funcionalidades?') caen exactamente en la misma trampa que la pregunta original, revelando que no internalizó la distinción entre hechos del pasado y opiniones sobre el futuro. Este punto merece atención prioritaria por ser la base del Customer Discovery."
+}

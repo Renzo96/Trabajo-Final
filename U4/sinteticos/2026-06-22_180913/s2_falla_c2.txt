@@ -1,0 +1,6 @@
+Listo, generé la entrega en `entrega_tp4.txt`. Un resumen rápido de lo que hice:
+
+- **C1, C3, C4, C5**: Respuestas completas, aplicando los conceptos correctamente al caso concreto de cada pregunta.
+- **C2**: Respuesta superficial y equivocada. El alumno habla de "fallar rápido" y "versiones chiquitas" pero nunca menciona el ciclo Construir-Medir-Aprender ni el concepto de Smoke Test con landing page. En lugar de eso propone un grupo de Facebook o WhatsApp como validación, que no es lo que pide la consigna. Es el tipo de respuesta genérica que daría alguien que ojeó el material pero no entendió los conceptos específicos.
+
+¿Querés que revise algo en particular o ajuste el tono de alguna respuesta?

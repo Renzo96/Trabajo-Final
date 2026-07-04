@@ -1,0 +1,45 @@
+**Pregunta 1**
+
+En el modelo en cascada el proyecto se divide en etapas que van una después de la otra: primero se juntan todos los requerimientos, después se diseña, se codifica, se testea y se entrega. El problema de cambiar algo a mitad del desarrollo es que como cada fase depende de la anterior, volver para atrás implica rehacer trabajo que ya estaba terminado. Por ejemplo, si ya pasamos la etapa de diseño y aparece un requisito nuevo, hay que rediseñar parte del sistema y eso impacta en todo lo que ya se codificó. Esto hace que los cambios sean muy caros y atrasen todo el proyecto. La forma ágil de trabajar propone otra mentalidad donde los cambios son bienvenidos en lugar de evitarlos, y eso ayuda a que el producto final sea más útil para el cliente.
+
+---
+
+**Pregunta 2**
+
+Los dos roles de Scrum que resuelven los problemas planteados son el Product Owner y el Scrum Master.
+
+El Product Owner (PO) es quien resuelve el problema de no saber qué tareas priorizar para el negocio. Su responsabilidad principal es gestionar el Product Backlog y ordenar los elementos según el valor que aportan al negocio y al cliente. El PO conoce la visión del producto y las necesidades del mercado, por lo que decide qué funcionalidades se construyen primero para maximizar el retorno de inversión. Sin esta figura, el equipo técnico estaría decidiendo prioridades sin entender realmente el impacto en el negocio.
+
+El Scrum Master resuelve el problema de las interrupciones de gerentes externos. Su rol es proteger al equipo de desarrollo de interferencias que desvíen el foco del Sprint. Actúa como un facilitador del proceso, eliminando impedimentos y blindando al equipo para que pueda concentrarse en el trabajo comprometido. Si un gerente quiere meter cambios a mitad del Sprint, el Scrum Master es quien gestiona esa situación, explicando que los pedidos deben canalizarse por el Product Owner y priorizarse para Sprints futuros.
+
+---
+
+**Pregunta 3**
+
+El desperdicio Lean que se comete al asignar cinco tareas simultáneas a cada programador es el de multitarea y cambio de contexto. Cuando un desarrollador tiene que alternar entre varias tareas a la vez, su cerebro pierde tiempo y eficiencia cada vez que salta de una a otra, porque necesita recordar en qué estaba, dónde dejó el código y reenfocarse. Ese cambio constante genera trabajo parcialmente hecho: muchas tareas empezadas pero ninguna terminada, y el valor solo se entrega cuando la tarea está completa.
+
+El límite de Trabajo en Curso (WIP Limit) de Kanban soluciona este problema estableciendo un tope máximo de tareas que pueden estar en progreso al mismo tiempo. Al limitar el WIP, se obliga al equipo a terminar lo que ya empezó antes de tomar algo nuevo. Esto fuerza a que las tareas fluyan hasta el final en lugar de acumularse a medio hacer. La consecuencia directa es que se reduce drásticamente la multitarea, lo que se traduce en mayor foco, menos pérdida por cambio de contexto y una velocidad real de entrega más alta, porque lo que importa no es cuántas tareas se empiezan sino cuántas se terminan.
+
+---
+
+**Pregunta 4**
+
+El Pair Programming no es perder el tiempo de un empleado. Al contrario, aporta beneficios concretos que compensan ampliamente la inversión de tener dos personas en una misma tarea.
+
+El primer beneficio es la revisión de código en tiempo real. Mientras uno escribe, el otro revisa cada línea al instante. Esto permite detectar errores, malas prácticas o posibles bugs en el momento mismo en que se están introduciendo, no días después en una code review o peor aún, en producción. Como resultado, el código final tiene menos defectos y la calidad es superior desde el primer momento, lo que ahorra muchísimo tiempo de debugging y corrección posterior.
+
+El segundo beneficio es la transferencia de conocimiento dentro del equipo. Cuando dos personas programan juntas, comparten sus enfoques, atajos, patrones y formas de resolver problemas. Nadie queda como único dueño de una parte del sistema, se evitan los silos de conocimiento y todo el equipo gana comprensión del código. Si alguien se va de vacaciones o deja la empresa, no se lleva consigo el único entendimiento de ese módulo. Esto fortalece al equipo como conjunto y hace que el proyecto sea más resiliente y sostenible en el tiempo.
+
+---
+
+**Pregunta 5**
+
+**(a) Historia de Usuario**
+
+Como usuario registrado de la plataforma, quiero poder guardar películas y series en una sección personal llamada "Mi Lista", para no perder de vista los contenidos que me interesan y acceder a ellos rápidamente cuando quiera verlos sin tener que volver a buscarlos.
+
+**(b) Criterios de Aceptación**
+
+1. Dado que el usuario está navegando la ficha de una película o serie, cuando presiona el botón "Agregar a Mi Lista", entonces el contenido se añade a su lista personal y el botón cambia su estado visual para indicar que ya fue agregado (por ejemplo, el ícono se rellena o cambia de color).
+
+2. Dado que el usuario tiene al menos un contenido guardado en "Mi Lista", cuando accede a la sección "Mi Lista" desde el menú principal, entonces visualiza todos los contenidos guardados ordenados por fecha de agregado (más reciente primero), y desde esa pantalla puede quitar cualquier contenido con un botón de "Eliminar de Mi Lista".

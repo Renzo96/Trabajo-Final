@@ -1,0 +1,59 @@
+{
+  "nota": 80,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 80,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Waterfall vs mentalidad ágil",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Respuesta completa y con elaboración propia. Explica claramente el problema de Cascada (fases secuenciales, retrabajo masivo, contratos firmados, costo exponencial del cambio) y la solución ágil (iteraciones cortas, feedback continuo, incorporación natural de cambios). La conexión lógica entre ambas partes es sólida."
+    },
+    {
+      "id": "C2",
+      "nombre": "Roles de Scrum",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Ambos roles correctamente identificados y justificados. Product Owner bien explicado como responsable del backlog y priorización por valor de negocio. Scrum Master correctamente descrito como escudo del equipo, filtrando interrupciones y canalizándolas al PO. No hay confusión de responsabilidades."
+    },
+    {
+      "id": "C3",
+      "nombre": "Kanban y WIP Limit",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Identifica correctamente la multitarea y el cambio de contexto (context switching) como desperdicio Lean. Explica con precisión cómo el WIP Limit fuerza a terminar antes de empezar nuevas tareas ('stop starting, start finishing'), reduce el cambio de contexto y aumenta el throughput real del equipo. La conexión entre problema y solución está bien desarrollada."
+    },
+    {
+      "id": "C4",
+      "nombre": "Pair Programming",
+      "puntaje_obtenido": 0,
+      "puntaje_maximo": 20,
+      "estado": "ERROR",
+      "feedback": "El alumno NO defiende la práctica de Pair Programming. Por el contrario, argumenta EN CONTRA, coincidiendo con la crítica de que es 'perder el tiempo de un empleado' y proponiendo code review como alternativa. No presenta ningún beneficio de la práctica. La consigna pide explícitamente defenderla con al menos dos beneficios concretos. Según la rúbrica: 'Si no responde o no defiende la práctica → 0'."
+    },
+    {
+      "id": "C5",
+      "nombre": "Historias de Usuario y Criterios de Aceptación",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Historia de Usuario completa con los tres elementos (rol, acción, beneficio) y coherente con el contexto Netflix/Mi Lista. Los dos criterios de aceptación son verificables, pertinentes y específicos: el primero cubre la acción de agregar con feedback visual inmediato, el segundo cubre visualización ordenada y eliminación sin efectos colaterales."
+    }
+  ],
+  "fortalezas": [
+    "Excelente desarrollo de C1: explicación detallada del problema de Cascada con referencias a contratos, retrabajo y costo exponencial, conectada lógicamente con la solución ágil de iteraciones y feedback continuo.",
+    "C2 y C3 impecables: identificación precisa de roles Scrum con justificaciones que demuestran comprensión profunda del framework, y excelente explicación del WIP Limit como solución al context switching.",
+    "Historia de Usuario (C5) perfectamente redactada con la fórmula estándar y criterios de aceptación verificables que cubren casos clave de la funcionalidad 'Mi Lista'."
+  ],
+  "recomendaciones": [
+    "C4: Es FUNDAMENTAL leer qué pide cada consigna. La pregunta 4 solicita DEFENDER el Pair Programming con beneficios concretos, no dar tu opinión personal. Aunque no estés de acuerdo con la práctica, el ejercicio evalúa tu capacidad de argumentar sus ventajas técnicas (revisión de código en tiempo real, menos bugs, transferencia de conocimiento, mejor calidad del código final, onboarding más rápido de nuevos miembros).",
+    "C4: Para futuros exámenes, recordá que cuando una consigna dice 'defienda' o 'explique por qué es útil', está pidiendo que desarrolles los argumentos a favor de la técnica, independientemente de tu opinión personal. Responder con una crítica invalida completamente el criterio.",
+    "El trabajo está muy bien en 4 de 5 criterios. Corrigiendo el enfoque de C4 (defender en lugar de criticar) pasaría de 80 a 100 puntos sin dificultad."
+  ],
+  "comentario_general": "El trabajo demuestra un muy buen dominio de metodologías ágiles en 4 de los 5 criterios, con explicaciones propias, bien argumentadas y conectadas lógicamente. Sin embargo, en C4 (Pair Programming) el alumno no responde lo solicitado: en lugar de defender la práctica con beneficios concretos, argumenta en contra, lo que resulta en un 0 en ese criterio. Es una lástima porque el resto del TP es de excelente nivel y denota comprensión genuina de los temas."
+}

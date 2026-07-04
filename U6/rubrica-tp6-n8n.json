@@ -1,0 +1,197 @@
+{
+  "titulo": "TP6 — Automatización de Flujos con n8n",
+  "descripcion": "Rúbrica para el Trabajo Práctico N°6 de Organización Empresarial (UTN TUPaD 2026). Evalúa la comprensión teórica del ecosistema Low-Code (n8n, triggers vs acciones, gestión de secretos, nodo Edit Fields) y la construcción práctica de un workflow funcional de automatización: Schedule Trigger → Edit Fields (campo mensaje_recordatorio) → nodo de mensajería (Telegram o Gmail) con expresión mapeada, exportado como .json. La entrega debe ser un .zip con un PDF de respuestas teóricas (solo texto, sin imágenes) y el archivo .json exportado directamente desde n8n.",
+  "puntaje_maximo": 100,
+  "metadata": {
+    "materia": "Organización Empresarial",
+    "carrera": "Tecnicatura Universitaria en Programación",
+    "institucion": "UTN - Facultad Regional Mendoza",
+    "profesor": "Francisco Varberde",
+    "unidad": "Unidad 7"
+  },
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Formato y condiciones de entrega",
+      "descripcion": "La entrega cumple exactamente con el formato exigido: un único archivo .zip (no .rar, .7z ni enlace web), que contiene un PDF de respuestas teóricas (solo texto, sin imágenes) y el archivo .json exportado directamente desde n8n, renombrado como tp-n8n-apellido-nombre.json.",
+      "peso": 10,
+      "instrucciones_puntuacion": "Si el archivo entregado no es .zip → techo 0 (condición de desaprobación). Si falta el PDF → -4 puntos. Si el PDF tiene imágenes o capturas → -2 puntos. Si falta el .json de n8n → -5 puntos. Si el .json no es un export real de n8n (no tiene estructura de workflow) → -5 puntos.",
+      "subcriterios": [
+        {
+          "id": "C1.1",
+          "descripcion": "El archivo entregado es un .zip válido",
+          "evidencias": [
+            "El archivo de entrega tiene extensión .zip",
+            "El .zip contiene al menos un archivo PDF y un archivo .json"
+          ]
+        },
+        {
+          "id": "C1.2",
+          "descripcion": "El PDF cumple con las restricciones de formato",
+          "evidencias": [
+            "El PDF contiene únicamente texto plano, sin imágenes ni capturas de pantalla",
+            "El PDF tiene respuestas para las cuatro consignas teóricas del TP"
+          ]
+        },
+        {
+          "id": "C1.3",
+          "descripcion": "El archivo .json es un export válido de n8n, renombrado según la convención pedida",
+          "evidencias": [
+            "Existe un archivo con extensión .json dentro del .zip",
+            "El archivo .json contiene una estructura de workflow de n8n reconocible (campos 'nodes', 'connections' u otros propios del formato de exportación de n8n)",
+            "El nombre del archivo sigue la convención tp-n8n-apellido-nombre.json con el apellido y nombre reales del alumno"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "nombre": "Teoría: valor comercial del Low-Code",
+      "descripcion": "El alumno explica el verdadero valor comercial de integrar una herramienta Low-Code como n8n en una empresa de desarrolladores con experiencia en Python o Java, en lugar de programar todas las integraciones desde cero.",
+      "peso": 12,
+      "instrucciones_puntuacion": "Identifica claramente al menos un beneficio comercial concreto (velocidad, costo, mantenimiento, reutilización, acceso a no-programadores) → puntaje completo. Respuesta vaga tipo 'es más fácil' sin argumento comercial → 40%. Sin respuesta → 0.",
+      "subcriterios": [
+        {
+          "id": "C2.1",
+          "descripcion": "Argumenta el valor comercial del Low-Code para equipos técnicos",
+          "evidencias": [
+            "Menciona al menos uno de los siguientes beneficios: reducción del tiempo de desarrollo de integraciones, menor costo de mantenimiento, posibilidad de que perfiles no-desarrolladores configuren flujos, conectores preconstruidos para servicios populares, mayor velocidad para prototipar o probar automatizaciones",
+            "La respuesta va más allá de 'es más fácil' y contextualiza el beneficio en términos de productividad o ahorro para la empresa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "nombre": "Teoría: Triggers vs Acciones, Schedule vs Webhook",
+      "descripcion": "El alumno diferencia correctamente entre Nodos Trigger (disparadores) y Nodos de Acción en n8n, y da un ejemplo práctico de cuándo usar Schedule Trigger vs Webhook.",
+      "peso": 15,
+      "instrucciones_puntuacion": "Diferencia correcta entre Trigger y Acción + ejemplo válido de ambos tipos → puntaje completo. Diferencia correcta pero sin ejemplos → 60%. Confunde los conceptos pero da algún ejemplo válido → 30%. Sin respuesta → 0.",
+      "subcriterios": [
+        {
+          "id": "C3.1",
+          "descripcion": "Distingue entre Nodo Trigger y Nodo de Acción",
+          "evidencias": [
+            "Explica que un Nodo Trigger inicia o dispara el flujo (define cuándo empieza la automatización)",
+            "Explica que un Nodo de Acción ejecuta una tarea en respuesta al trigger (hace algo: enviar correo, guardar datos, llamar a una API, etc.)"
+          ]
+        },
+        {
+          "id": "C3.2",
+          "descripcion": "Da ejemplos prácticos de Schedule Trigger y Webhook",
+          "evidencias": [
+            "Propone un caso de uso válido para Schedule Trigger (ej: enviar un reporte todos los lunes, limpiar datos nocturnos, recordatorio periódico)",
+            "Propone un caso de uso válido para Webhook (ej: recibir una notificación cuando alguien llena un formulario, cuando se crea un pago, cuando GitHub hace un push)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "nombre": "Teoría: gestión de secretos y credenciales",
+      "descripcion": "El alumno explica por qué n8n exige configurar 'Credenciales' en lugar de escribir contraseñas directamente en el nodo, y por qué esto es una práctica de seguridad fundamental en trabajo en equipo y entornos de producción.",
+      "peso": 13,
+      "instrucciones_puntuacion": "Menciona al menos dos motivos de seguridad (ej: evita exposición de credenciales en el código/interfaz visible, permite rotar claves sin cambiar el flujo, facilita el trabajo en equipo sin compartir contraseñas, evita que las credenciales queden en exports/logs) → puntaje completo. Un solo motivo → 60%. Solo 'es más seguro' sin argumento → 20%. Sin respuesta → 0.",
+      "subcriterios": [
+        {
+          "id": "C4.1",
+          "descripcion": "Argumenta los beneficios de las credenciales centralizadas vs contraseñas en el nodo",
+          "evidencias": [
+            "Menciona que escribir la contraseña directamente en el nodo la expone visualmente a cualquiera que tenga acceso al workflow o a su exportación",
+            "Menciona al menos uno de los siguientes beneficios adicionales: permite reutilizar credenciales entre flujos, permite revocar o rotar sin editar cada nodo, evita que las claves se filtren si se comparte o exporta el workflow, facilita el trabajo en equipo sin revelar contraseñas individuales"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "nombre": "Teoría: nodo Edit Fields (Set)",
+      "descripcion": "El alumno explica qué función cumple el nodo Edit Fields (Set) cuando se reciben datos desordenados de una plataforma y se necesitan enviar limpios y estructurados a otra.",
+      "peso": 10,
+      "instrucciones_puntuacion": "Explica que el nodo permite crear, renombrar, filtrar o transformar campos del JSON que fluye por el workflow → puntaje completo. Respuesta vaga tipo 'limpia datos' sin explicar el mecanismo → 40%. Sin respuesta → 0.",
+      "subcriterios": [
+        {
+          "id": "C5.1",
+          "descripcion": "Describe la función del nodo Edit Fields (Set) en un flujo de transformación",
+          "evidencias": [
+            "Explica que el nodo Edit Fields permite seleccionar, crear o renombrar campos específicos del dato que viaja entre nodos, descartando lo que no se necesita",
+            "Contextualiza el uso: los datos que llegan de una plataforma suelen tener campos extras o nombres distintos, y el nodo los transforma para que el siguiente nodo los reciba en el formato esperado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "nombre": "Práctica: Schedule Trigger configurado correctamente",
+      "descripcion": "El workflow exportado contiene un nodo Schedule Trigger configurado para ejecutarse todos los lunes a las 8:00 AM.",
+      "peso": 10,
+      "instrucciones_puntuacion": "Nodo Schedule Trigger presente Y configurado para lunes 8:00 AM → puntaje completo. Nodo presente pero con horario/día incorrecto → 50%. Nodo ausente → 0.",
+      "subcriterios": [
+        {
+          "id": "C6.1",
+          "descripcion": "El .json exportado incluye un Schedule Trigger con la configuración correcta",
+          "evidencias": [
+            "El archivo .json contiene un nodo de tipo Schedule Trigger (o equivalente en n8n)",
+            "La configuración del nodo especifica el día lunes y la hora 8:00 AM (o 08:00)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "nombre": "Práctica: nodo Edit Fields con campo mensaje_recordatorio",
+      "descripcion": "El workflow contiene un nodo Edit Fields (Set) conectado al Schedule Trigger, con un campo de tipo String llamado exactamente 'mensaje_recordatorio' y un valor de mensaje motivacional estático.",
+      "peso": 15,
+      "instrucciones_puntuacion": "Nodo Edit Fields presente, conectado al Trigger, con campo 'mensaje_recordatorio' de tipo String y valor no vacío → puntaje completo. Nodo presente pero nombre del campo incorrecto (ej: 'mensaje') → -5. Nodo presente pero sin valor asignado → -5. Nodo desconectado del trigger → -4. Nodo ausente → 0.",
+      "subcriterios": [
+        {
+          "id": "C7.1",
+          "descripcion": "El nodo Edit Fields existe, está conectado y tiene el campo correcto",
+          "evidencias": [
+            "El archivo .json contiene un nodo de tipo Edit Fields o Set, conectado en la cadena después del Schedule Trigger",
+            "El nodo define un campo de tipo String con el nombre exacto 'mensaje_recordatorio'",
+            "El valor asignado al campo es un texto no vacío (mensaje motivacional o similar)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C8",
+      "nombre": "Práctica: nodo de mensajería con expresión mapeada",
+      "descripcion": "El workflow contiene un nodo de mensajería (Telegram o Gmail) conectado a la salida del Edit Fields, con el campo de mensaje configurado mediante una expresión que referencia la variable {{ $json.mensaje_recordatorio }}.",
+      "peso": 15,
+      "instrucciones_puntuacion": "Nodo de mensajería presente, conectado, con expresión {{ $json.mensaje_recordatorio }} en el campo de texto → puntaje completo. Nodo presente pero con texto estático en lugar de expresión → -7. Nodo presente con expresión incorrecta → -4. Nodo desconectado → -5. Nodo ausente → 0. Nota: no se requiere que el nodo funcione con credenciales reales para la nota completa.",
+      "subcriterios": [
+        {
+          "id": "C8.1",
+          "descripcion": "El nodo de mensajería existe y está conectado en el flujo",
+          "evidencias": [
+            "El archivo .json contiene un nodo de tipo Telegram o Gmail (u otro servicio de mensajería equivalente)",
+            "El nodo está conectado a la salida del nodo Edit Fields en el workflow"
+          ]
+        },
+        {
+          "id": "C8.2",
+          "descripcion": "El campo de mensaje usa la expresión dinámica correcta",
+          "evidencias": [
+            "El campo de texto del nodo de mensajería contiene una expresión que referencia '{{ $json.mensaje_recordatorio }}' (con o sin espacios internos)",
+            "La expresión mapea el campo creado en el nodo Edit Fields anterior, no un texto estático"
+          ]
+        }
+      ]
+    }
+  ],
+  "penalizaciones": [],
+  "condiciones_desaprobacion": [
+    {
+      "id": "CD1",
+      "condicion": "El archivo entregado no es un .zip (ej: .rar, .7z, enlace web u otro formato no permitido)",
+      "nota_maxima": 0
+    },
+    {
+      "id": "CD2",
+      "condicion": "No se incluye el archivo .json exportado desde n8n en el .zip entregado",
+      "nota_maxima": 30
+    }
+  ]
+}

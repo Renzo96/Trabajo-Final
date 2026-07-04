@@ -1,0 +1,60 @@
+{
+  "nota": 90,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 90,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Startup vs PyME",
+      "puntaje_obtenido": 10,
+      "puntaje_maximo": 20,
+      "estado": "WARNING",
+      "feedback": "Definís ambos conceptos y no confundís cuál es la startup y cuál la PyME, pero la aplicación al caso falla en puntos clave. En Escalabilidad: decís que \"los dos negocios pueden crecer\" y que \"la panadería puede abrir sucursales\", lo cual contradice la idea de que la panadería tiene crecimiento lineal limitado por capacidad física. La diferencia no es solo \"más rápido por ser digital\", sino que la app escala sin aumentar costos proporcionalmente mientras la panadería necesita más hornos, local y personal por cada nuevo cliente. En Incertidumbre: afirmás que \"las dos tienen incertidumbre\", cuando la panadería opera con certeza relativa porque el modelo de negocio (vender pan) es conocido y probado hace siglos. La app sí opera bajo extrema incertidumbre porque no se sabe si habrá demanda, si el modelo funcionará o si los usuarios pagarán."
+    },
+    {
+      "id": "C2",
+      "nombre": "Lean Startup y MVP Smoke Test",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Excelente. Explicás el ciclo Construir-Medir-Aprender, identificás claramente el error de los programadores (\"enamorarse de la idea\" sin validar demanda), definís correctamente el MVP Smoke Test como landing page con llamado a la acción, y lo conectás con el caso concreto de PetConnect con un nivel de detalle impecable — incluso mencionás métricas de conversión con anuncios de Instagram. Muy sólido."
+    },
+    {
+      "id": "C3",
+      "nombre": "Test de la Madre (Customer Discovery)",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Impecable. Explicás con claridad por qué las respuestas no sirven: sesgo de confirmación/social (cortesía), la gente es mala prediciendo su comportamiento futuro, y la pregunta gira alrededor de la idea en vez del problema. Proponés dos preguntas alternativas excelentes basadas en comportamiento pasado concreto: \"¿Cómo hiciste para conseguir los resúmenes del último parcial?\" y \"¿Cuánto tiempo estuviste buscando material de estudio?\". Ambas indagan hechos reales, no opiniones."
+    },
+    {
+      "id": "C4",
+      "nombre": "LTV vs CAC y Retención",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Sólido. Demostrás numéricamente que LTV ($2.000) < CAC ($5.000) con pérdida de $3.000 por cliente, y conectás claramente el Churn Rate con el problema: churn alto → vida útil corta → LTV bajo → imposible superar el CAC. La analogía de \"vender billetes de $2.000 a $5.000\" es efectiva y la mención de que necesitás mejorar retención para que el LTV supere los $5.000 muestra comprensión completa."
+    },
+    {
+      "id": "C5",
+      "nombre": "Modelos de negocio en software",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Excelente. Elegís Freemium (modelo válido de los vistos en clase), lo explicás correctamente con el ejemplo de Spotify, e identificás un desafío técnico pertinente y específico: el feature flagging para controlar qué funcionalidades están habilitadas por plan sin deployar código, con la necesidad de verificarlo en cada request desde el backend. El detalle sobre evitar \"ifs anidados por todos lados\" y usar un panel de administración muestra comprensión técnica real del problema arquitectónico."
+    }
+  ],
+  "fortalezas": [
+    "Aplicación detallada y concreta del Smoke Test al caso de la red social de mascotas, incluyendo métricas de conversión",
+    "Explicación completa del Test de la Madre con fundamentos psicológicos (sesgo de confirmación, predicción de comportamiento futuro) y alternativas accionables",
+    "Análisis numérico impecable de LTV vs CAC con conexión directa al Churn Rate y la imposibilidad de escalar un modelo roto",
+    "Desafío técnico de feature flagging para Freemium bien fundamentado, mostrando comprensión real de las implicancias arquitectónicas"
+  ],
+  "recomendaciones": [
+    "Revisar C1: la panadería NO escala como una startup. Su crecimiento es lineal porque requiere más hornos, local y personal proporcionalmente. Abrir sucursales no es escalar, es replicar el modelo con los mismos costos unitarios.",
+    "Revisar C1: la panadería opera con certeza relativa porque el modelo de negocio 'vender pan' está probado hace siglos. Decir que \"las dos tienen incertidumbre\" es incorrecto y debilita toda la distinción.",
+    "Enfatizar en C1 que la escalabilidad no es solo velocidad de crecimiento sino la relación costo-ingreso al crecer: la app suma miles de usuarios con costo marginal cercano a cero; la panadería necesita inversión proporcional por cada nuevo cliente."
+  ],
+  "comentario_general": "El TP está muy bien resuelto en 4 de 5 preguntas, con un nivel de detalle y aplicación a los casos que demuestra comprensión sólida de Lean Startup, Customer Discovery, métricas de negocio y modelos de ingresos. La Pregunta 1 (Startup vs PyME) es el punto débil: la distinción entre escalabilidad exponencial vs. lineal y entre incertidumbre extrema vs. certeza relativa no queda clara, y afirmar que ambos tipos de empresa tienen incertidumbre y pueden escalar diluye el contraste que la consigna pide explicar."
+}

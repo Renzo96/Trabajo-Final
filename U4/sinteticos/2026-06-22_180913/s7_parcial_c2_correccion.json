@@ -1,0 +1,60 @@
+{
+  "nota": 92,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 92,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Startup vs PyME",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica correctamente ambos conceptos aplicados al caso concreto. Escalabilidad: la app crece exponencialmente sin aumentar costos proporcionalmente (distribución digital), mientras la panadería tiene crecimiento lineal limitado por capacidad física, geografía y personal. Incertidumbre: la app opera bajo incertidumbre extrema (demanda desconocida, modelo no probado), la panadería bajo certeza relativa (negocio probado y conocido). Identifica correctamente cuál es la startup y cuál la PyME. Todas las evidencias esperadas están cubiertas."
+    },
+    {
+      "id": "C2",
+      "nombre": "Lean Startup y MVP Smoke Test",
+      "puntaje_obtenido": 12,
+      "puntaje_maximo": 20,
+      "estado": "WARNING",
+      "feedback": "Explica correctamente la metodología Lean Startup: la idea de validar antes de construir, que evitar construir a ciegas dos años sin preguntar si alguien quería el producto, e identifica que los programadores se enamoraron de su idea sin validar. Sin embargo, NO describe el concepto específico de MVP Smoke Test: no menciona landing page, página de aterrizaje, llamado a la acción (registro, email, pre-orden) ni cómo medir interés real antes de desarrollar. Habla genéricamente de 'un prototipo chiquito' pero no define ni aplica el Smoke Test al caso concreto de la red social de mascotas. Según la rúbrica, si solo explica Lean Startup sin mencionar el Smoke Test → techo 12/20. Se asigna el máximo permitido por el techo ya que la explicación de Lean Startup es sólida."
+    },
+    {
+      "id": "C3",
+      "nombre": "Test de la Madre (Customer Discovery)",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica con claridad por qué las respuestas no sirven: sesgo de confirmación/social (la gente responde lo que cree que querés escuchar, especialmente amigos), preguntar sobre intenciones futuras (las personas son pésimas prediciendo su comportamiento), y que se piden opiniones sobre la idea en vez de datos sobre comportamiento real. Propone tres preguntas alternativas excelentes basadas en comportamiento pasado concreto: '¿cómo conseguís los resúmenes hoy?', '¿cuánto tiempo perdiste la última vez buscando apuntes?', '¿alguna vez pagaste por material de estudio?'. Todas las evidencias esperadas están cubiertas."
+    },
+    {
+      "id": "C4",
+      "nombre": "LTV vs CAC y Retención",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Calcula correctamente LTV = $2.000 y demuestra que LTV < CAC ($2.000 < $5.000), concluyendo que se pierden $3.000 por cliente y el modelo está quebrado. Relaciona el Churn Rate con el problema: define la tasa de cancelación/abandono, explica que un churn alto → vida útil corta → LTV aplastado, y que mientras el churn siga alto el LTV nunca superará al CAC. Incluso menciona las dos palancas para arreglar el modelo (bajar CAC o aumentar retención). Todas las evidencias esperadas están cubiertas."
+    },
+    {
+      "id": "C5",
+      "nombre": "Modelos de negocio en software",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Elige SaaS (modelo válido de los vistos en clase), lo explica correctamente como cobro de suscripción recurrente por acceso a software alojado en la nube, con ejemplos pertinentes (Netflix, Spotify, Google Workspace). El desafío técnico es específico y bien desarrollado: facturación recurrente con control de acceso por tiers, manejando renovaciones automáticas, fallos de pago con períodos de gracia y reintentos, upgrades/downgrades con prorrateo, arquitectura de feature flagging combinada con permisos atados al estado de la suscripción. Todas las evidencias esperadas están cubiertas."
+    }
+  ],
+  "fortalezas": [
+    "Excelente aplicación de los conceptos de escalabilidad e incertidumbre al caso concreto de la panadería vs. la app, con argumentos claros y bien diferenciados para cada una.",
+    "Muy buena explicación del Test de la Madre: identifica las tres razones de por qué las respuestas son inútiles (sesgo social, predicciones futuras no confiables, opiniones vs. hechos) y propone preguntas alternativas concretas y bien enfocadas en comportamiento pasado.",
+    "Análisis numérico sólido del LTV vs CAC con conexión clara y bien razonada al Churn Rate, incluyendo las palancas de solución (bajar CAC o mejorar retención).",
+    "El desafío técnico de SaaS está detallado con precisión: facturación recurrente, manejo de fallos de pago, upgrades/downgrades con prorrateo, y arquitectura de feature flagging — es específico y pertinente al modelo elegido."
+  ],
+  "recomendaciones": [
+    "En la pregunta 2, era necesario describir explícitamente qué es un MVP Smoke Test: una landing page que presenta el producto sin tenerlo construido, con un llamado a la acción (botón de registro, email, pre-orden) para medir interés real. No alcanza con hablar de 'un prototipo chiquito' de forma genérica.",
+    "Conectar el Smoke Test al caso concreto: 'podrían haber creado una landing page de la red social de mascotas con un formulario de registro y medir cuánta gente se anotaba antes de escribir una sola línea de código'. Esto habría cerrado perfectamente el criterio.",
+    "En la pregunta 2, mencionar explícitamente el ciclo Construir-Medir-Aprender por su nombre le daría más precisión terminológica a una respuesta que conceptualmente ya es correcta."
+  ],
+  "comentario_general": "El alumno demuestra un dominio sólido de los conceptos centrales de la materia: Startup vs PyME, Test de la Madre, métricas LTV/CAC/Churn y modelos de negocio en software, con respuestas precisas, bien argumentadas y correctamente aplicadas a los casos planteados. La única debilidad está en la pregunta 2, donde explica correctamente Lean Startup pero omite describir el concepto específico de MVP Smoke Test y su aplicación concreta al caso de la red social de mascotas, lo que activa el techo de 12/20 en ese criterio. Fuera de eso, es una entrega de muy buen nivel."
+}

@@ -1,0 +1,60 @@
+{
+  "nota": 100,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 100,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Waterfall vs mentalidad ágil",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica con claridad ambas partes del problema. Describe el modelo Cascada como secuencial, con fases que se cierran, y detalla por qué cambiar requisitos implica retrabajo costoso (rehacer diseño, revisar decisiones, desandar código). La mención al plan firmado con el cliente suma realismo. La solución ágil está bien conectada: iteraciones cortas, entregas incrementales, feedback del cliente al final de cada ciclo, y el cambio se incorpora como parte natural del proceso sin deshacer trabajo previo. La conexión lógica entre el problema de Waterfall y la solución ágil está presente y bien hilada."
+    },
+    {
+      "id": "C2",
+      "nombre": "Roles de Scrum",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Identifica correctamente ambos roles. Product Owner como responsable de priorizar según valor de negocio, y Scrum Master como escudo frente a interrupciones externas. Cada rol está justificado en función del problema planteado, sin invertir responsabilidades. La justificación del PO menciona explícitamente la priorización por valor de negocio. La del SM destaca su rol de protección para mantener al equipo enfocado en el sprint. No confunde los roles ni inventa ninguno."
+    },
+    {
+      "id": "C3",
+      "nombre": "Kanban y WIP Limit",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Identifica el desperdicio de multitarea (cambio de contexto) y lo desarrolla correctamente: explica el costo cognitivo del context switching, el tiempo de recalentamiento y el problema del trabajo parcialmente hecho sin valor para el cliente. La explicación del WIP Limit es sólida: describe el tope máximo en la columna 'en curso', la obligación de terminar antes de empezar, y conecta esto con la reducción de multitarea y el aumento del throughput. La analogía del embudo con autos es efectiva para ilustrar el concepto."
+    },
+    {
+      "id": "C4",
+      "nombre": "Pair Programming",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Presenta dos beneficios concretos y bien diferenciados. El primero (revisión continua y detección temprana de errores) está argumentado con el contraste frente a code reviews tardías y el efecto sobre la calidad del código. El segundo (transferencia de conocimiento) está desarrollado con múltiples aristas: aprendizaje cruzado junior-senior, claridad al explicar, y reducción del riesgo por dependencia de una sola persona. Ambos beneficios están bien argumentados y conectados con el impacto en el equipo y el producto."
+    },
+    {
+      "id": "C5",
+      "nombre": "Historias de Usuario y Criterios de Aceptación",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "La historia de usuario contiene los tres elementos de la fórmula (rol: usuario suscriptor, acción: guardar contenido en Mi Lista, beneficio: no olvidar y acceder rápido) y es coherente con el contexto Netflix. Los criterios de aceptación son tres (supera el mínimo de dos), están redactados en formato Given/When/Then y son verificables: agregar contenido con cambio de estado del botón, visualizar la grilla ordenada por fecha, y quitar contenido con reversión del botón. Todos son pertinentes a la función descrita."
+    }
+  ],
+  "fortalezas": [
+    "Usa analogías efectivas (el embudo con autos) para explicar conceptos abstractos como WIP Limit y throughput, lo que demuestra comprensión genuina.",
+    "Los criterios de aceptación están redactados en formato Given/When/Then con condiciones verificables y concretas, superando el mínimo exigido.",
+    "La defensa de Pair Programming incluye beneficios de distinta naturaleza (calidad técnica y factor humano/equipo), mostrando visión integral.",
+    "Cada respuesta conecta lógicamente el problema planteado con la solución, sin tratarlas como preguntas aisladas."
+  ],
+  "recomendaciones": [
+    "En C2, podría mencionar explícitamente el Product Backlog como artefacto que gestiona el PO, y el rol del SM en la eliminación de impedimentos más allá del 'escudo' (facilitar reuniones, coaching ágil).",
+    "En C3, sumaría los nombres de los otros desperdicios Lean (inventory, overprocessing, defects) para contextualizar que la multitarea es uno entre varios y demostrar amplitud conceptual.",
+    "En C5, podría agregar un criterio de aceptación que cubra el caso borde de contenido ya existente en Mi Lista (evitar duplicados) o el comportamiento cuando la lista está vacía."
+  ],
+  "comentario_general": "El alumno demuestra dominio sólido de los fundamentos ágiles evaluados. Todas las respuestas están bien argumentadas, con elaboración propia y conexiones lógicas claras entre problemas y soluciones. La entrega cumple holgadamente con cada evidencia esperada de la rúbrica. Excelente trabajo."
+}

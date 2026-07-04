@@ -1,0 +1,97 @@
+Estructura del `.zip` entregado:
+
+```
+tp-integrador-rodriguez-tomas/
+├── respuestas-parte1.pdf
+├── flujo-bienvenida-n8n.json
+└── git-log.txt
+```
+
+---
+
+**Archivo: `flujo-bienvenida-n8n.json`**
+
+```json
+{
+  "name": "Bienvenida de Usuarios",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "bienvenida-usuario",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "8f3a1b2c-4d5e-4f6a-9b8c-1d2e3f4a5b6c",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3b1a2c4d-1234-4a5b-9c8d-abc123456789",
+              "name": "mensaje_bienvenida",
+              "value": "=¡Hola {{ $json.query.nombre }}! Bienvenido/a a nuestra plataforma. En breve vas a recibir novedades en {{ $json.query.email }}.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d4e5f6a7-b8c9-4d0e-9f1a-2b3c4d5e6f7a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e"
+  },
+  "id": "12",
+  "tags": []
+}
+```
+
+---
+
+**Archivo: `git-log.txt`**
+
+```
+PS C:\Users\Tomas\Desktop\tp-integrador-rodriguez-tomas> git log --oneline --stat
+
+2c9f6a3 Agrego flujo de n8n para bienvenida de usuarios
+ flujo-bienvenida-n8n.json | 62 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 62 insertions(+)
+
+7b1e4d8 Agrego respuestas de negocio y live coding de la Parte 1
+ respuestas-parte1.pdf | Bin 0 -> 154032 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+f3a9c21 Inicializo repositorio del TP integrador
+ README.md | 3 +++
+ 1 file changed, 3 insertions(+)
+```

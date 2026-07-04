@@ -1,0 +1,52 @@
+{
+  "nota": 95,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 95,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Nodo Webhook en el flujo n8n",
+      "puntaje_obtenido": 25,
+      "puntaje_maximo": 25,
+      "estado": "OK",
+      "feedback": "El archivo 'My workflow.json' es una exportación válida de n8n (contiene 'nodes' y 'connections'). El nodo 'Webhook' (type: n8n-nodes-base.webhook) está correctamente configurado como punto de entrada con método HTTP GET explícito y un path definido ('bienvenida'). Si bien el propio nodo Webhook no declara 'nombre'/'email' en sus parámetros (esperable, ya que solo captura la request), el flujo completo demuestra que está preparado para recibirlos: el nodo siguiente consume $json.query.nombre y $json.query.email, confirmando que se esperan como query params en la petición GET. Cumple el 100% de las evidencias esperadas."
+    },
+    {
+      "id": "C2",
+      "nombre": "Nodo Edit Fields y expresión dinámica de bienvenida",
+      "puntaje_obtenido": 35,
+      "puntaje_maximo": 35,
+      "estado": "OK",
+      "feedback": "El nodo 'Edit Fields' (type: n8n-nodes-base.set) está correctamente conectado a la salida del Webhook. Define el campo 'mensaje_bienvenida' de tipo String, cuyo valor usa una expresión dinámica genuina (prefijo '=' + sintaxis '{{ }}', no texto estático). La expresión referencia $json.query.nombre para saludar al usuario ('Hola ' + nombre) e incluso incorpora $json.query.email en el mensaje, superando el requisito mínimo. Además, se agrega un nodo 'Respond to Webhook' que devuelve 'mensaje_bienvenida' como respuesta JSON, cerrando el flujo de punta a punta aunque no era estrictamente exigido por la rúbrica. Cumple el 100% de las evidencias esperadas."
+    },
+    {
+      "id": "C3",
+      "nombre": "Control de versiones con Git",
+      "puntaje_obtenido": 25,
+      "puntaje_maximo": 25,
+      "estado": "OK",
+      "feedback": "El archivo git-log.txt tiene el formato correcto de 'git log --oneline --stat', con 3 commits (más de los 2 mínimos requeridos). Los mensajes son descriptivos y relevantes: 'Inicializo repositorio del TPI con README y gitignore', 'Agrego respuestas de la parte 1: preguntas de negocio y live coding' y 'Agrego flujo de n8n para bienvenida de usuarios (Webhook + Edit Fields)', reflejando fielmente cada etapa del trabajo. El --stat evidencia la incorporación del PDF de respuestas (respuestas-parte1-ibanez-rocio.pdf) y del JSON del flujo (My workflow.json). Cumple el 100% de las evidencias esperadas."
+    },
+    {
+      "id": "C4",
+      "nombre": "Estructura y nomenclatura del proyecto",
+      "puntaje_obtenido": 10,
+      "puntaje_maximo": 15,
+      "estado": "WARNING",
+      "feedback": "Ambos archivos requeridos para la corrección automatizada están presentes (My workflow.json y git-log.txt), cumpliendo la primera evidencia del criterio. Sin embargo, la carpeta raíz de la entrega se llama 'TP_Integrador_Organizacion_Empresarial', que NO respeta el formato de nomenclatura pedido por la consigna ('tp-integrador-apellido-nombre', ej. 'tp-integrador-ibanez-rocio'): usa el nombre de la materia en lugar del apellido y nombre del alumno, y emplea mayúsculas y guion bajo en vez de minúsculas con guiones. Según las instrucciones de puntuación de la rúbrica, cuando ambos archivos están presentes pero la nomenclatura de carpeta es incorrecta, el puntaje tiene un techo de 10/15 puntos."
+    }
+  ],
+  "fortalezas": [
+    "Configuración impecable del nodo Webhook: método HTTP GET explícito, path definido ('bienvenida') y correctamente conectado al resto del flujo.",
+    "Expresión dinámica de 'mensaje_bienvenida' bien resuelta, incorporando tanto nombre como email del usuario vía $json.query, con sintaxis de expresión correcta de n8n.",
+    "Se agregó un nodo 'Respond to Webhook' adicional que cierra el flujo devolviendo la respuesta al cliente, mostrando comprensión del propósito real de la automatización más allá de lo mínimo pedido.",
+    "Historial de Git ejemplar: 3 commits atómicos y bien segmentados, con mensajes descriptivos que documentan claramente cada etapa (inicialización, parte teórica, automatización), y --stat que evidencia correctamente los archivos versionados."
+  ],
+  "recomendaciones": [
+    "Renombrar la carpeta raíz del proyecto siguiendo el formato exacto pedido por la consigna: 'tp-integrador-apellido-nombre' (ej. 'tp-integrador-ibanez-rocio'), en vez de 'TP_Integrador_Organizacion_Empresarial'.",
+    "Renombrar el workflow de n8n (actualmente 'My workflow', nombre por defecto) a algo descriptivo como 'flujo-bienvenida-usuario' para reflejar mejores prácticas de organización.",
+    "Aunque no es requerido por la consigna, se podría agregar validación o manejo de errores para el caso en que falten los query params 'nombre' o 'email' en la petición al Webhook."
+  ],
+  "comentario_general": "Entrega técnicamente muy sólida: el flujo de n8n cumple e incluso supera los requisitos de automatización (Webhook con método GET, Edit Fields con expresión dinámica que usa nombre y email, y un nodo de respuesta adicional), y el historial de Git es ejemplar en cantidad y calidad de commits. El único punto a corregir es la nomenclatura de la carpeta raíz, que no sigue el formato solicitado en la consigna y le resta puntos en el criterio de estructura pese a la excelente calidad del resto del trabajo."
+}

@@ -1,0 +1,147 @@
+{
+  "titulo": "TP5 — Live Coding: El Arte de Programar en Tiempo Real",
+  "descripcion": "Rúbrica para el Trabajo Práctico N°5 de Organización Empresarial (UTN TUPaD 2026). Evalúa la comprensión analítica del Live Coding como práctica profesional: el valor de la transparencia del proceso, la explicación en paralelo en entrevistas técnicas, el concepto de Boilerplate y Snippet Management, el uso de Hot Reloading y la planificación con Checkpoints. La entrega debe ser un único .zip que contenga un PDF con las respuestas teóricas (solo texto plano, sin imágenes ni capturas de pantalla).",
+  "puntaje_maximo": 100,
+  "metadata": {
+    "materia": "Organización Empresarial",
+    "carrera": "Tecnicatura Universitaria en Programación",
+    "institucion": "UTN - Facultad Regional Mendoza",
+    "profesor": "Francisco Varberde",
+    "unidad": "Unidad 6"
+  },
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Formato y condiciones de entrega",
+      "descripcion": "La entrega cumple exactamente con el formato exigido: un único archivo .zip (no .rar, .7z ni enlace web), que contiene un PDF con las respuestas teóricas redactadas solo en texto plano, sin imágenes ni capturas de pantalla.",
+      "peso": 10,
+      "instrucciones_puntuacion": "Si el archivo entregado no es .zip → techo 0 (condición de desaprobación). Si falta el PDF → -7 puntos de este criterio. Si el PDF contiene imágenes o capturas → -4 puntos. Entrega correcta en todos los aspectos → puntaje completo.",
+      "subcriterios": [
+        {
+          "id": "C1.1",
+          "descripcion": "El archivo entregado es un .zip válido",
+          "evidencias": [
+            "El archivo de entrega tiene extensión .zip",
+            "El .zip no está vacío y contiene al menos un archivo PDF"
+          ]
+        },
+        {
+          "id": "C1.2",
+          "descripcion": "El PDF cumple con las restricciones de formato",
+          "evidencias": [
+            "El PDF contiene únicamente texto plano y no incluye imágenes, capturas de pantalla ni elementos visuales",
+            "El PDF tiene respuestas para las cinco consignas del trabajo práctico"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "nombre": "El programador transparente: errores y consultas en vivo",
+      "descripcion": "El alumno explica por qué cometer un typo o consultar la documentación oficial durante una presentación en vivo NO es un fracaso, sino una parte valiosa del proceso de Live Coding.",
+      "peso": 18,
+      "instrucciones_puntuacion": "Argumenta con claridad por qué el error visible tiene valor (muestra el proceso real, humaniza al programador, educa a la audiencia, demuestra hábitos profesionales) → puntaje completo. Menciona que 'no es malo' sin argumentar el valor positivo → 50%. Sin respuesta o fuera de tema → 0.",
+      "subcriterios": [
+        {
+          "id": "C2.1",
+          "descripcion": "Explica el valor de visibilizar los errores y consultas en tiempo real",
+          "evidencias": [
+            "Argumenta que el Live Coding expone el proceso de pensamiento real, no solo el resultado final",
+            "Menciona al menos uno de los siguientes valores: muestra cómo un profesional diagnostica y corrige errores, educa a la audiencia sobre flujo de trabajo real, demuestra hábitos profesionales como consultar documentación oficial, o humaniza al programador mostrando que los errores son naturales"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "nombre": "Estrategia en entrevistas técnicas: Explicación en Paralelo",
+      "descripcion": "El alumno explica cómo la técnica de Explicación en Paralelo (verbalizar el razonamiento mientras se codifica) puede permitirle aprobar una entrevista técnica incluso sin terminar la solución completa en el tiempo disponible.",
+      "peso": 18,
+      "instrucciones_puntuacion": "Explica que la verbalización del razonamiento demuestra capacidad de análisis y resolución de problemas más allá del código terminado, y que el entrevistador evalúa el pensamiento, no solo el resultado → puntaje completo. Menciona que 'hablar ayuda' sin explicar por qué convence al entrevistador → 50%. Sin respuesta → 0.",
+      "subcriterios": [
+        {
+          "id": "C3.1",
+          "descripcion": "Describe cómo la Explicación en Paralelo compensa no terminar el código",
+          "evidencias": [
+            "Explica que al verbalizar el razonamiento el candidato demuestra que entiende el problema y tiene un plan de solución, aunque no llegue a implementarlo completo",
+            "Menciona que el entrevistador puede evaluar la capacidad de análisis, la lógica y el manejo de la presión, no solo el código final producido"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "nombre": "Boilerplate y Snippet Management",
+      "descripcion": "El alumno explica qué es el Boilerplate (código repetitivo y estructural que no aporta lógica nueva) y cómo la Gestión de Fragmentos (Snippet Management) permite al programador en vivo saltear esa escritura aburrida y concentrarse en la lógica importante.",
+      "peso": 18,
+      "instrucciones_puntuacion": "Define correctamente Boilerplate Y explica el beneficio de los Snippets en contexto de Live Coding → puntaje completo. Define solo Boilerplate sin mencionar Snippets → 50%. Define Snippets sin contextualizar Boilerplate → 40%. Sin respuesta → 0.",
+      "subcriterios": [
+        {
+          "id": "C4.1",
+          "descripcion": "Define Boilerplate con sus propias palabras",
+          "evidencias": [
+            "Describe el Boilerplate como código repetitivo, estructural o de configuración que es necesario pero no contiene la lógica central del problema (ej: imports, declaración de clase, setup inicial, estructura base)"
+          ]
+        },
+        {
+          "id": "C4.2",
+          "descripcion": "Explica el beneficio del Snippet Management en una sesión en vivo",
+          "evidencias": [
+            "Explica que los Snippets son fragmentos de código preconfigurados que el programador inserta rápidamente, evitando escribir el Boilerplate desde cero",
+            "Vincula el beneficio con la dinámica del Live Coding: ahorra tiempo frente a la audiencia y permite enfocarse en demostrar la lógica que realmente importa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "nombre": "Hot Reloading: fluidez en demostraciones en vivo",
+      "descripcion": "El alumno explica la diferencia entre tener que detener, compilar y reiniciar el servidor manualmente vs. usar Hot Reloading, y describe cómo esto impacta en la fluidez de una presentación ante un cliente o audiencia.",
+      "peso": 18,
+      "instrucciones_puntuacion": "Contrasta claramente ambas situaciones y describe el impacto en la experiencia de la audiencia → puntaje completo. Describe solo una de las dos situaciones → 50%. Respuesta vaga sin contraste real → 20%. Sin respuesta → 0.",
+      "subcriterios": [
+        {
+          "id": "C5.1",
+          "descripcion": "Describe la experiencia sin Hot Reloading (compilación manual)",
+          "evidencias": [
+            "Menciona que sin Hot Reloading cada cambio implica detener el programa, esperar la compilación y reiniciar, lo que genera pausas y rompe el ritmo de la presentación"
+          ]
+        },
+        {
+          "id": "C5.2",
+          "descripcion": "Describe el beneficio del Hot Reloading y su impacto en la audiencia",
+          "evidencias": [
+            "Explica que el Hot Reloading aplica los cambios instantáneamente sin detener la ejecución, manteniendo la continuidad visual",
+            "Menciona el impacto positivo en la audiencia o el cliente: la presentación es más dinámica, fluida y profesional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "nombre": "Checkpoints: la máquina del tiempo del programador",
+      "descripcion": "El alumno explica cómo haber planificado Checkpoints (puntos de control guardados antes de la sesión) permite recuperarse rápidamente cuando un cambio en vivo rompe el sistema, sin entrar en pánico ni perder tiempo buscando el error.",
+      "peso": 18,
+      "instrucciones_puntuacion": "Explica que los Checkpoints son estados previos funcionales a los que se puede volver instantáneamente, y vincula esto con la seguridad y fluidez del Live Coding → puntaje completo. Menciona que 'ayudan a volver atrás' sin explicar cómo o por qué reduce el pánico → 40%. Sin respuesta → 0.",
+      "subcriterios": [
+        {
+          "id": "C6.1",
+          "descripcion": "Explica qué son los Checkpoints y cómo protegen una sesión en vivo",
+          "evidencias": [
+            "Describe los Checkpoints como estados del código previamente guardados y verificados como funcionales, creados antes de comenzar la sesión en vivo",
+            "Explica que ante un fallo inesperado se puede revertir al checkpoint anterior en segundos, sin necesidad de depurar el error en tiempo real frente a la audiencia",
+            "Vincula el beneficio con la seguridad psicológica del presentador: saber que hay un punto de retorno elimina el pánico y permite continuar con calma"
+          ]
+        }
+      ]
+    }
+  ],
+  "penalizaciones": [],
+  "condiciones_desaprobacion": [
+    {
+      "id": "CD1",
+      "condicion": "El archivo entregado no es un .zip (ej: .rar, .7z, enlace web u otro formato no permitido)",
+      "nota_maxima": 0
+    }
+  ]
+}

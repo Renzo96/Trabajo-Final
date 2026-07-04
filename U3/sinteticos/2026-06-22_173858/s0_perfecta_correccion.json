@@ -1,0 +1,61 @@
+{
+  "nota": 100,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 100,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Waterfall vs mentalidad ágil",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica de forma completa y articulada ambas partes. Describe con precisión por qué el cambio de requisitos en Cascada es un desastre (fases secuenciales, efecto dominó de retrabajo, costo altísimo, plan rígido firmado) y cómo la mentalidad ágil lo resuelve (iteraciones cortas, entregas incrementales, feedback frecuente, adaptación barata). La conexión lógica entre el problema y la solución es clara y está bien argumentada con vocabulario propio."
+    },
+    {
+      "id": "C2",
+      "nombre": "Roles de Scrum",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Identifica correctamente ambos roles: Product Owner para la priorización de tareas según valor de negocio y Scrum Master para proteger al equipo de interferencias externas. Cada rol está justificado con precisión: el PO gestiona el Product Backlog y decide qué se construye primero maximizando el retorno de inversión; el SM actúa como facilitador y escudo, redirigiendo pedidos externos al proceso formal de Scrum. No hay confusión de responsabilidades."
+    },
+    {
+      "id": "C3",
+      "nombre": "Kanban y WIP Limit",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Identifica con claridad la multitarea y el cambio de contexto (context switching) como el desperdicio Lean cometido, explicando el costo cognitivo y la acumulación de trabajo parcialmente hecho. Luego explica cómo el WIP Limit obliga a terminar antes de empezar, reduce la fricción del cambio de contexto y mejora el throughput real del equipo. La conexión entre el problema Lean y la solución Kanban está bien desarrollada."
+    },
+    {
+      "id": "C4",
+      "nombre": "Pair Programming",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Defiende Pair Programming con dos beneficios sólidos y bien diferenciados: (1) revisión de código en tiempo real que reduce defectos desde el origen, y (2) transferencia de conocimiento que distribuye el saber en el equipo, reduce el bus factor y acelera el aprendizaje mutuo. Ambos beneficios están desarrollados con argumentos propios, ejemplos concretos y conectados al impacto en el código final y en el equipo."
+    },
+    {
+      "id": "C5",
+      "nombre": "Historias de Usuario y Criterios de Aceptación",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "La Historia de Usuario sigue la fórmula estándar completa (rol, acción, beneficio) y es coherente con el contexto Netflix/Mi Lista. Presenta tres criterios de aceptación (superando el mínimo de dos), todos redactados en formato Given/When/Then, verificables y pertinentes a la funcionalidad descrita: agregar contenido, quitar contenido y persistencia entre sesiones/dispositivos."
+    }
+  ],
+  "fortalezas": [
+    "Todas las respuestas están estructuradas con una progresión lógica clara: planteo del problema, explicación del concepto y conexión problema-solución.",
+    "La Historia de Usuario sigue impecablemente el formato estándar y los tres criterios de aceptación usan el patrón Given/When/Then, superando lo mínimo exigido.",
+    "La defensa de Pair Programming es particularmente sólida: dos beneficios distintos, bien argumentados y con ejemplos concretos de impacto en el equipo y el producto.",
+    "La explicación de WIP Limit conecta con precisión la teoría Lean (desperdicio de multitarea/cambio de contexto) con la práctica Kanban (mejora del throughput real)."
+  ],
+  "recomendaciones": [
+    "En la pregunta de Scrum, podría mencionar los artefactos adicionales (Sprint Backlog, Increment) y los eventos (Sprint Planning, Daily Scrum, Sprint Review, Retrospective) para demostrar un dominio aún más completo del marco.",
+    "En la pregunta de Kanban, nombrar explícitamente los 7 desperdicios Lean (muda) y clasificar la multitarea dentro de esa taxonomía sumaría profundidad conceptual.",
+    "En la pregunta de Historias de Usuario, podría incorporar el concepto de las 3 C's (Card, Conversation, Confirmation) para enriquecer la fundamentación teórica.",
+    "En la pregunta de Waterfall, podría reforzar el argumento mencionando la curva del costo del cambio (Boehm) para darle respaldo académico adicional a la explicación."
+  ],
+  "comentario_general": "Trabajo excepcional. Todas las respuestas demuestran comprensión profunda de los conceptos, van más allá de definiciones memorizadas y conectan teoría con práctica de forma coherente y con vocabulario propio. La entrega cumple con creces cada criterio de evaluación sin observaciones negativas. Felicitaciones."
+}

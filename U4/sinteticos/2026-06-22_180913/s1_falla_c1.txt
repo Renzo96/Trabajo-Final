@@ -1,0 +1,63 @@
+```markdown
+**TP4 — El Ecosistema Startup y el Modelo Lean**
+
+---
+
+**Pregunta 1 — Startup vs PyME**
+
+Una startup y una PyME no son lo mismo, aunque las dos sean empresas. La diferencia principal está en la escalabilidad y la incertidumbre.
+
+La escalabilidad es la capacidad de crecer sin que los costos aumenten en la misma proporción. La incertidumbre tiene que ver con no saber si el producto va a funcionar o si la gente lo va a querer.
+
+En el caso que nos dan, la app que conecta panaderos caseros con clientes es una startup porque usa tecnología y tiene una idea innovadora. Al ser una app, puede llegar a más gente que un negocio físico. La panadería de barrio es una PyME porque es un negocio más tradicional, que ya sabe lo que hace y tiene sus clientes fijos.
+
+Las dos tienen incertidumbre porque nunca se sabe si un negocio va a funcionar, pero la app al ser algo nuevo tiene más riesgo. En cuanto a la escalabilidad, los dos negocios pueden crecer: la panadería puede abrir sucursales y la app puede sumar más usuarios. La diferencia es que la app lo hace más rápido por ser digital.
+
+En resumen, la app es una startup por su modelo digital y la panadería es una PyME tradicional por su forma de operar física.
+
+---
+
+**Pregunta 2 — Lean Startup y MVP Smoke Test**
+
+El caso de los programadores que estuvieron dos años haciendo una red social para dueños de mascotas y después nadie la descargó es un ejemplo clarísimo de lo que pasa cuando no se aplica Lean Startup.
+
+Lean Startup propone el ciclo Construir-Medir-Aprender. La idea es NO pasarse años desarrollando un producto completo sin saber si a alguien le interesa. En lugar de eso, construís algo chico y rápido (un MVP), lo ponés frente a usuarios reales, medís cómo reaccionan y aprendés de eso para decidir si vale la pena seguir o si tenés que pivotear. El error de los programadores fue enamorarse de su idea y construir el producto entero sin validar si existía demanda real. Asumieron que como a ellos les gustaba, al resto también.
+
+Dentro de los tipos de MVP, el Smoke Test (Prueba de Humo) es justo lo que tendrían que haber usado. Un Smoke Test es básicamente una landing page o página de aterrizaje que presenta el producto como si ya existiera, pero sin haberlo construido todavía. La página explica qué hace la app, muestra capturas simuladas o un video, y tiene un llamado a la acción: un botón de "Registrate", "Dejanos tu email" o "Sumate a la lista de espera". La métrica clave es cuánta gente hace clic o deja sus datos.
+
+En este caso, los programadores podrían haber armado una landing page de "PetConnect" (o como se llamara la red social), con fotos de mascotas, una descripción de las funcionalidades y un botón de "Crear cuenta gratis". Si después de gastar $100 en anuncios de Instagram dirigidos a dueños de mascotas veían que solo 3 personas se registraban, se ahorraban dos años de desarrollo. Si en cambio 500 personas dejaban su mail en una semana, entonces tenían una señal de que valía la pena construir el producto. Así de simple.
+
+---
+
+**Pregunta 3 — Test de la Madre (Customer Discovery)**
+
+Preguntar "¿usarían una app para compartir resúmenes?" es justo el tipo de pregunta que NO hay que hacer según el Test de la Madre, y te explico por qué.
+
+Primero, porque la gente tiende a ser amable. Si le preguntás a un amigo o a un compañero de facultad si usarían tu app, te van a decir que sí por cortesía o para no quedar mal. Es lo que se llama sesgo de confirmación o sesgo social: te dicen lo que vos querés escuchar, no la verdad. Nadie quiere ser el que te tire abajo la idea.
+
+Segundo, estás preguntando sobre intenciones futuras ("¿usarían...?"), y la gente es pésima prediciendo su propio comportamiento. Que alguien diga que sí hoy no significa que mañana vaya a descargar la app, crear una cuenta y usarla todos los días. Te llevás una validación falsa que no sirve para tomar decisiones.
+
+Tercero, esa pregunta gira alrededor de TU idea (la app), no del PROBLEMA real que tiene el entrevistado. Estás pescando opiniones, no hechos.
+
+Lo que habría que hacer es preguntar sobre comportamiento pasado, sobre cosas que ya pasaron de verdad. Por ejemplo: "¿Cómo hiciste para conseguir los resúmenes del último parcial?" o "¿Cuánto tiempo estuviste buscando material de estudio la última vez que rendiste?". Ahí la persona te cuenta lo que realmente hizo, no lo que cree que haría. Es información accionable porque sabés si el problema es real y cómo lo están resolviendo hoy.
+
+---
+
+**Pregunta 4 — LTV vs CAC y Retención**
+
+Vamos directo a los números. El CAC (Customer Acquisition Cost) es $5.000, o sea que conseguir un nuevo usuario le cuesta a la empresa cinco lucas. El LTV (Lifetime Value) sale de multiplicar lo que paga por mes por los meses que se queda: $1.000 × 2 meses = $2.000.
+
+Acá está el problema: LTV ($2.000) es menor que CAC ($5.000). Dicho fácil: gastás $5.000 para traer a alguien que solo te va a devolver $2.000. Perdés $3.000 por cada cliente nuevo que entra. Es un modelo de negocio roto, no importa cuántos usuarios sumes porque cada usuario nuevo te hunde más. Es como vender billetes de $2.000 a $5.000.
+
+El Churn Rate es la tasa de cancelación o abandono, o sea qué porcentaje de usuarios deja de pagar en un período. En este caso el churn es altísimo porque el usuario promedio se va a los dos meses. Y esto es justo lo que conecta con el LTV: si el churn es alto, la vida útil del cliente es corta, y si la vida útil es corta el LTV es bajo. Mientras el churn siga tan alto es imposible que el LTV llegue a superar al CAC. Para arreglar el negocio necesitás o bajar el CAC (cosa difícil) o mejorar la retención para que los usuarios se queden más tiempo y el LTV suba por encima de los $5.000.
+
+---
+
+**Pregunta 5 — Modelos de negocio en software**
+
+Elijo el modelo **Freemium**.
+
+Freemium es un modelo donde ofrecés una versión gratuita con funcionalidades básicas y una o varias versiones pagas que desbloquean funciones avanzadas. La idea es que la versión gratis funcione como un imán: atrae usuarios, genera adopción masiva y hace que el producto se conozca. Después, un porcentaje de esos usuarios gratis decide pagar porque necesita más storage, más features o sacar las limitaciones. Spotify es el ejemplo clásico: podés escuchar música con anuncios y sin elegir canciones específicas, o pagar Premium para tener todo ilimitado.
+
+Un desafío técnico interesante de implementar Freemium es el feature flagging: necesitás un sistema que controle en tiempo real qué funcionalidades están habilitadas para cada usuario según su plan, sin que eso requiera deployar código nuevo cada vez que cambiás los límites entre el plan gratis y el premium. Si mañana decidís que el plan gratis ahora incluye "exportar a PDF" pero solo 5 veces por mes, deberías poder hacer ese cambio desde un panel de administración, sin tocar el código de la app. Eso implica diseñar una arquitectura donde cada feature tenga una flag asociada al tier del usuario y el backend la verifique en cada request. Si no lo diseñás bien desde el principio, terminás con ifs anidados por todos lados y el código se vuelve un desastre imposible de mantener.
+```

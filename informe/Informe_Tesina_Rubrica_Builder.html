@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Concepto de Rúbrica: Implementación de IA Agéntica para la Creación de Rúbricas</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2.5cm 2cm;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #1a1a1a;
+    line-height: 1.6;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+  }
+  .page {
+    page-break-after: always;
+    padding: 0 0.5cm;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ---------- PORTADA ---------- */
+  .cover {
+    height: 24.7cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  .cover .top {
+    margin-top: 2cm;
+    font-size: 11pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+  }
+  .cover .middle {
+    margin-top: 3cm;
+  }
+  .cover .middle .eyebrow {
+    font-size: 12pt;
+    color: #7a1f2b;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0.8cm;
+    font-weight: 600;
+  }
+  .cover .middle h1 {
+    font-size: 26pt;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 0.6cm 0;
+    color: #111;
+  }
+  .cover .middle h2 {
+    font-size: 14pt;
+    font-weight: 400;
+    color: #444;
+    margin: 0;
+    font-style: italic;
+  }
+  .cover .divider {
+    width: 120px;
+    height: 3px;
+    background: #7a1f2b;
+    margin: 0.9cm auto;
+  }
+  .cover .integrantes {
+    margin-top: 2.2cm;
+    font-size: 12pt;
+  }
+  .cover .integrantes .label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 9.5pt;
+    color: #777;
+    margin-bottom: 0.3cm;
+  }
+  .cover .integrantes .nombres {
+    font-size: 13.5pt;
+    font-weight: 600;
+    color: #222;
+  }
+  .cover .bottom {
+    margin-bottom: 1.5cm;
+    font-size: 10.5pt;
+    color: #666;
+  }
+  .cover .bottom .materia {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.2cm;
+  }
+
+  /* ---------- INDICE ---------- */
+  .toc h1 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 20pt;
+    border-bottom: 2px solid #7a1f2b;
+    padding-bottom: 0.3cm;
+    margin-bottom: 0.8cm;
+  }
+  .toc ol {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: item;
+  }
+  .toc > ol > li {
+    counter-increment: item;
+    margin-bottom: 0.35cm;
+    font-size: 12.5pt;
+    font-weight: 600;
+  }
+  .toc > ol > li::before {
+    content: counter(item) ". ";
+    color: #7a1f2b;
+  }
+  .toc ol ol { margin-top: 0.15cm; margin-bottom: 0.25cm; }
+  .toc ol ol li {
+    font-weight: 400;
+    font-size: 11.5pt;
+    margin-bottom: 0.15cm;
+    color: #333;
+  }
+  .toc a { color: inherit; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ---------- CONTENIDO ---------- */
+  h1.section-title {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 18pt;
+    color: #111;
+    border-bottom: 2px solid #7a1f2b;
+    padding-bottom: 0.2cm;
+    margin-top: 0;
+    margin-bottom: 0.6cm;
+  }
+  h2 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 13.5pt;
+    color: #7a1f2b;
+    margin-top: 0.9cm;
+    margin-bottom: 0.3cm;
+  }
+  h3 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12pt;
+    color: #333;
+    margin-top: 0.7cm;
+  }
+  p { text-align: justify; margin: 0.35cm 0; }
+  blockquote {
+    border-left: 3px solid #7a1f2b;
+    margin: 0.5cm 0;
+    padding: 0.2cm 0.6cm;
+    background: #faf6f6;
+    font-style: italic;
+    color: #444;
+  }
+  code {
+    font-family: "Consolas", "Courier New", monospace;
+    background: #f2f2f2;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 10.5pt;
+  }
+  pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 0.4cm 0.5cm;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 9.5pt;
+    line-height: 1.45;
+  }
+  pre code { background: none; color: inherit; padding: 0; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.4cm 0;
+    font-size: 10.5pt;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 0.2cm 0.3cm;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #7a1f2b;
+    color: #fff;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+  }
+  tr:nth-child(even) { background: #faf6f6; }
+  .note-box {
+    background: #fff8e6;
+    border: 1px solid #e6c94f;
+    border-left: 5px solid #c9a400;
+    padding: 0.4cm 0.6cm;
+    margin: 0.5cm 0;
+    border-radius: 4px;
+  }
+  .note-box .titulo {
+    font-weight: 700;
+    color: #8a6d00;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin-bottom: 0.2cm;
+  }
+  .flujo {
+    font-family: "Consolas", "Courier New", monospace;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 0.3cm 0.5cm;
+    white-space: pre;
+    font-size: 10pt;
+    border-radius: 4px;
+  }
+  ul, ol { margin: 0.3cm 0; padding-left: 0.7cm; }
+  li { margin-bottom: 0.15cm; }
+  .footer-page {
+    text-align: center;
+    font-size: 9pt;
+    color: #999;
+    margin-top: 1cm;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  @media print {
+    a { color: inherit; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PORTADA ============ -->
+<div class="page cover">
+  <div class="top">Trabajo Final de Grado</div>
+  <div class="middle">
+    <div class="eyebrow">Concepto de Rúbrica</div>
+    <h1>Implementación de IA Agéntica para la Creación de Rúbricas</h1>
+    <div class="divider"></div>
+    <h2>Un caso de estudio aplicado a la materia Organización Empresarial</h2>
+  </div>
+  <div>
+    <div class="integrantes">
+      <div class="label">Integrantes</div>
+      <div class="nombres">Renzo Sosa &nbsp;·&nbsp; Emmanuel Avellaneda</div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="materia">Organización Empresarial</div>
+    <div>Profesor: Alberto Cortez</div>
+    <div>2026</div>
+  </div>
+</div>
+
+<!-- ============ INDICE ============ -->
+<div class="page toc">
+  <h1>Índice</h1>
+  <ol>
+    <li><a href="#s1">Introducción</a></li>
+    <li><a href="#s2">Marco teórico</a>
+      <ol>
+        <li><a href="#s2-1">¿Qué es una rúbrica de evaluación?</a></li>
+        <li><a href="#s2-2">¿Qué es una IA agéntica?</a></li>
+        <li><a href="#s2-3">¿Qué es una skill?</a></li>
+      </ol>
+    </li>
+    <li><a href="#s3">Instalación y configuración del entorno</a>
+      <ol>
+        <li><a href="#s3-1">Instalación de la IA agéntica (Claude Code)</a></li>
+        <li><a href="#s3-2">Instalación de la skill <code>rubrica-builder</code></a></li>
+      </ol>
+    </li>
+    <li><a href="#s4">Normalización de la consigna y de la entrega</a></li>
+    <li><a href="#s5">Creación de la rúbrica (modo CREAR)</a></li>
+    <li><a href="#s6">Auditoría de la rúbrica (modo AUDITAR)</a></li>
+    <li><a href="#s7">Validación estructural de la rúbrica</a></li>
+    <li><a href="#s8">Testeo de la rúbrica (modo TEST)</a></li>
+    <li><a href="#s9">Ajuste iterativo de consigna, rúbrica y entrega</a></li>
+    <li><a href="#s10">Caso de estudio aplicado: Organización Empresarial</a></li>
+    <li><a href="#s11">Conclusiones finales</a></li>
+    <li><a href="#s12">Fuentes utilizadas y reconocimiento de autoría</a></li>
+  </ol>
+</div>
+
+<!-- ============ 1. INTRODUCCION ============ -->
+<div class="page">
+<h1 class="section-title" id="s1">1. Introducción</h1>
+<p>El presente trabajo tiene como objetivo documentar la implementación de una <b>IA
+agéntica</b> —en este caso, <b>Claude Code</b>— junto con una extensión de conocimiento
+específica denominada <b>skill</b>, para la creación, curado, auditoría y testeo de
+<b>rúbricas de evaluación autosuficientes</b>, en el marco del sistema de corrección
+automática <b>Active-IA</b>.</p>
+<p>A diferencia de un uso conversacional simple de un modelo de lenguaje (preguntar y
+recibir una respuesta), una IA agéntica es capaz de <b>ejecutar un proceso de varios
+pasos, tomar decisiones intermedias, usar herramientas</b> (scripts, archivos,
+terminal) <b>y validar sus propios resultados</b> antes de entregarlos. Este trabajo
+toma como skill de referencia <code>rubrica-builder</code>, desarrollada por Juan Cruz
+Robledo, y la utiliza como caso de aplicación práctica para transformar la consigna
+de un Trabajo Práctico en una rúbrica de evaluación estructurada, coherente y
+—sobre todo— <b>corregible por otra IA sin ambigüedad</b>.</p>
+<p>Como caso de estudio transversal a lo largo de todo el informe se utilizan las
+rúbricas reales elaboradas para la materia <b>Organización Empresarial (OE)</b>, ya
+que es el contexto en el que se origina esta tesina.</p>
+</div>
+
+<!-- ============ 2. MARCO TEORICO ============ -->
+<div class="page">
+<h1 class="section-title" id="s2">2. Marco teórico</h1>
+
+<h2 id="s2-1">2.1. ¿Qué es una rúbrica de evaluación?</h2>
+<p>Una rúbrica es un instrumento de evaluación que descompone un trabajo práctico en
+<b>criterios</b> (grandes bloques evaluables, cada uno con un peso o ponderación) y
+<b>subcriterios</b> (verificaciones puntuales dentro de un criterio, sin nota propia).
+Cada subcriterio se apoya en <b>evidencias</b>: afirmaciones verificables de forma
+binaria (cumple / no cumple) mirando únicamente la entrega del alumno.</p>
+<blockquote>Contenido ampliado en el video <i>"¿Qué es una rúbrica?"</i>, disponible en:
+<a href="https://drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU">drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU</a>
+(referenciado también en la sección de fuentes).</blockquote>
+<p>El punto central que este trabajo busca remarcar —y que constituye el eje
+conceptual de toda la skill— es que una rúbrica pensada para ser corregida por una
+IA debe ser <b>autosuficiente</b>: en el momento de la corrección automática, el
+modelo que corrige <b>no vuelve a leer la consigna original</b>. Solo tiene ante sí
+dos elementos: la rúbrica y la entrega. En consecuencia, todo requisito de la
+consigna que no haya quedado plasmado explícitamente en la rúbrica <b>directamente
+no se evalúa</b>, sin importar cuán importante fuera para el docente.</p>
+<p>De esta premisa se deriva la segunda regla estructural que gobierna el diseño de
+una rúbrica: <b>el puntaje vive en el criterio, no en el subcriterio</b>. Si un
+requisito necesita poder penalizarse de forma independiente, debe modelarse como
+<b>criterio propio</b> con su peso, y no quedar diluido dentro de un criterio más
+amplio. De lo contrario, el corrector detecta la falla pero no tiene "de dónde
+restar" sin perjudicar a otros requisitos agrupados en el mismo criterio, lo cual
+vuelve la corrección <b>no determinista</b> (la misma entrega podría obtener notas
+distintas según el modelo o la corrida).</p>
+
+<h2 id="s2-2">2.2. ¿Qué es una IA agéntica?</h2>
+<p>Una IA agéntica es un sistema basado en un modelo de lenguaje que, a diferencia de
+un chatbot tradicional, tiene la capacidad de:</p>
+<ul>
+  <li>Interpretar un objetivo complejo y <b>planificar los pasos</b> necesarios para
+  alcanzarlo.</li>
+  <li><b>Usar herramientas</b> del entorno en el que corre (leer y escribir archivos,
+  ejecutar scripts, correr comandos de terminal, consultar documentación).</li>
+  <li><b>Verificar su propio trabajo</b> antes de darlo por terminado (por ejemplo,
+  corriendo un script de validación y corrigiendo el resultado si falla).</li>
+  <li>Operar en <b>múltiples turnos</b>, sosteniendo contexto y tomando decisiones
+  intermedias sin que el usuario deba especificar cada micro-paso.</li>
+</ul>
+<p>En este trabajo la IA agéntica utilizada es <b>Claude Code</b>, de Anthropic, un
+agente de línea de comandos pensado originalmente para tareas de programación, pero
+cuya arquitectura de "modelo + herramientas + instrucciones" es perfectamente
+aplicable a un dominio no estrictamente técnico como la elaboración de instrumentos
+de evaluación.</p>
+<p>El agente, por sí solo, no "sabe" cómo se arma una rúbrica válida para el sistema
+Active-IA. Ese conocimiento específico del dominio se le agrega a través de una
+<b>skill</b>, concepto que se desarrolla a continuación.</p>
+
+<h2 id="s2-3">2.3. ¿Qué es una skill?</h2>
+<p>Una skill es un <b>paquete de conocimiento especializado</b> que se instala sobre la
+IA agéntica para extender sus capacidades a un dominio concreto. Técnicamente se
+compone de:</p>
+<ul>
+  <li>Un archivo <code>SKILL.md</code>, con una descripción (usada por el agente para
+  saber <i>cuándo</i> activarse) y las instrucciones detalladas de <i>cómo</i> ejecutar
+  la tarea.</li>
+  <li>Archivos de referencia (<code>references/</code>) con el conocimiento de dominio
+  que el agente debe respetar como fuente de verdad (por ejemplo, el esquema exacto
+  que debe tener el JSON de una rúbrica, o los límites técnicos de lo que el
+  corrector automático puede o no puede leer).</li>
+  <li>Scripts auxiliares (<code>scripts/</code>) que el propio agente ejecuta para
+  <b>validar</b> o <b>simular</b> su trabajo, en lugar de confiar únicamente en su
+  propio criterio.</li>
+  <li>Ejemplos (<code>assets/</code>, <code>examples/</code>) que sirven de molde.</li>
+</ul>
+<p>La skill utilizada en este trabajo, <code>rubrica-builder</code>, define <b>cuatro
+modos de funcionamiento</b> (CURAR, CREAR, AUDITAR y TEST), que se corresponden,
+respectivamente, con las secciones 4, 5, 6 y 8 de este informe.</p>
+</div>
+
+<!-- ============ 3. INSTALACION ============ -->
+<div class="page">
+<h1 class="section-title" id="s3">3. Instalación y configuración del entorno</h1>
+
+<h2 id="s3-1">3.1. Instalación de la IA agéntica (Claude Code)</h2>
+<p>Claude Code se instala como una herramienta de línea de comandos (CLI). Los pasos
+generales son:</p>
+<ol>
+  <li>Contar con <b>Node.js</b> instalado (requisito de la herramienta de
+  instalación).</li>
+  <li>Instalar el CLI mediante el gestor de paquetes <code>npm</code>.</li>
+  <li>Autenticarse con una cuenta de Anthropic (API key o suscripción, según el
+  plan).</li>
+  <li>Verificar la instalación ejecutando el comando del agente dentro de una
+  carpeta de trabajo (en este caso, la carpeta del repositorio de la materia
+  Organización Empresarial).</li>
+</ol>
+
+<h2 id="s3-2">3.2. Instalación de la skill <code>rubrica-builder</code></h2>
+<p>La skill se instala dentro del entorno del agente mediante el comando indicado en
+su propia documentación:</p>
+<pre><code>npx skills add https://github.com/JuanCruzRobledo/rubrica-builder</code></pre>
+<p>Este comando descarga la skill y la deja disponible para que el agente la cargue
+<b>automáticamente</b> cuando detecta, por el pedido del usuario, que la tarea
+corresponde a alguno de sus cuatro modos (por ejemplo: <i>"armá los criterios para
+este TP"</i>, <i>"revisá si esta rúbrica cubre todo lo que pide el parcial"</i>,
+<i>"probá cómo corrige esta rúbrica con esta entrega"</i>). No es necesario invocarla
+por nombre explícitamente: el agente la reconoce por el contexto del pedido.</p>
+<p>Requisitos técnicos declarados por la skill:</p>
+<ul>
+  <li>Python 3.10 o superior (usa únicamente librería estándar, sin dependencias
+  externas) — necesario para los scripts de validación y testeo.</li>
+  <li>El CLI de Claude Code disponible en el <code>PATH</code> del sistema —
+  necesario específicamente para el modo TEST, que dispara una corrección real con
+  el modelo.</li>
+</ul>
+</div>
+
+<!-- ============ 4. NORMALIZACION ============ -->
+<div class="page">
+<h1 class="section-title" id="s4">4. Normalización de la consigna y de la entrega</h1>
+<p>Este es, en la práctica, el paso más subestimado y el que más impacto tiene sobre
+la calidad final de la rúbrica. Antes de generar cualquier criterio, hay que
+preguntarse: <b>¿esta consigna, tal como está redactada, se puede corregir con una
+IA?</b></p>
+<p>El motivo es que el corrector automático de Active-IA tiene <b>límites duros</b>
+que no dependen de qué tan bien esté escrita la rúbrica:</p>
+<ol>
+  <li><b>No navega a recursos externos.</b> Un link a un repositorio de GitHub, una
+  URL de un deploy o un video en YouTube/Drive nunca se abren: son invisibles para
+  el corrector.</li>
+  <li><b>Filtra archivos por extensión según el modo de corrección</b>
+  (<code>solo_codigo</code>, <code>web_completo</code>, <code>proyecto_completo</code> o
+  <code>personalizado</code>). Las imágenes (<code>.png</code>, <code>.jpg</code>,
+  <code>.jpeg</code>, <code>.gif</code>, etc.) están explícitamente excluidas en los
+  modos de código: <b>nunca llegan al corrector</b>.</li>
+  <li><b>Es un solo flujo: código O informe en PDF, nunca ambos</b> en la misma
+  corrección.</li>
+  <li><b>No ejecuta nada.</b> El corrector lee archivos estáticos; no corre el
+  programa, no verifica que un deploy responda, no corre una batería de tests.</li>
+</ol>
+<p>De este diagnóstico surge el <b>modo CURAR</b> de la skill, cuya función es
+analizar la consigna original y, por cada punto que rompa alguno de los cuatro
+límites anteriores, proponer uno de tres destinos:</p>
+<table>
+<tr><th>Destino</th><th>Cuándo se aplica</th><th>Ejemplo</th></tr>
+<tr>
+  <td><b>Adaptar</b> (preferido)</td>
+  <td>El requisito se puede reformular para que entre en el flujo único, sin perder
+  su intención pedagógica</td>
+  <td><i>"Adjuntá el link del repo"</i> → <i>"Entregá un .zip del proyecto con el
+  README mostrando la URL del repo"</i></td>
+</tr>
+<tr>
+  <td><b>Mantener + corrección manual</b></td>
+  <td>El requisito es importante pero no admite adaptación (ej. un video de defensa
+  oral)</td>
+  <td>Se deja igual en la consigna, se marca como corrección manual, y <b>no entra en
+  la rúbrica</b></td>
+</tr>
+<tr>
+  <td><b>Sacar</b> (solo de la rúbrica)</td>
+  <td>El punto es accesorio para la nota (un link decorativo)</td>
+  <td>No se escribe como criterio; la consigna lo conserva igual</td>
+</tr>
+</table>
+<p>Un principio importante que distingue este modo del resto: <b>la consigna nunca
+pierde contenido</b> por decisión unilateral del agente. Lo que se "saca" es
+exclusivamente de la rúbrica, mientras que la consigna se adapta o se conserva, y el
+proceso es siempre conversacional: el agente propone una cura concreta y pregunta
+antes de aplicarla.</p>
+<p>Este es, precisamente, el criterio pedagógico que se aplicó al confeccionar las
+rúbricas de Organización Empresarial que se documentan en la sección 10: al ser una
+materia no estrictamente de programación, se decidió de antemano que todas las
+entregas de OE se resuelven en <b>texto plano</b>, evitando de raíz pedir capturas de
+pantalla, diagramas en imagen o links externos. Cuando la consigna original
+requería representar un esquema, se optó por describirlo en texto o, en materias con
+contenido técnico afín, expresarlo en formatos de texto estructurado (por ejemplo,
+notación Mermaid o XML) en lugar de una imagen.</p>
+</div>
+
+<!-- ============ 5. CREAR ============ -->
+<div class="page">
+<h1 class="section-title" id="s5">5. Creación de la rúbrica (modo CREAR)</h1>
+<p>Con la consigna ya normalizada (curada), el modo CREAR traduce el texto en una
+rúbrica completa. El proceso que ejecuta el agente es:</p>
+<ol>
+  <li><b>Extracción de requisitos.</b> Lectura completa de la consigna, listando
+  todo lo evaluable: funcionalidades o actividades pedidas, restricciones, condiciones
+  de entrega, estructura obligatoria y prohibiciones. Todo requisito explícito debe
+  terminar reflejado en algún criterio o evidencia; lo que no está en la consigna, no
+  entra en la rúbrica.</li>
+  <li><b>Agrupación en criterios según la "palanca de descuento".</b> No hay un
+  número fijo de criterios: la cantidad la determina la cantidad de aspectos que el
+  docente necesita poder penalizar de forma independiente. El <b>test de
+  granularidad</b> es simple: <i>¿este requisito necesita bajar la nota por sí solo,
+  sin afectar a otros? → criterio propio. ¿Es solo una evidencia de verificación de
+  algo más grande? → subcriterio.</i> A cada criterio se le asigna un peso
+  proporcional a la importancia que la consigna le otorga, y la suma de todos los
+  pesos debe dar exactamente <b>100</b>.</li>
+  <li><b>Subcriterios con evidencias verificables.</b> Cada subcriterio se apoya en
+  evidencias redactadas como afirmaciones binarias y objetivas, nunca subjetivas.</li>
+  <li><b>Penalizaciones y condiciones de desaprobación</b>, solo si la consigna las
+  establece explícitamente.</li>
+  <li><b>Validación obligatoria</b> (ver sección 7) antes de dar la rúbrica por
+  terminada.</li>
+</ol>
+
+<h2>Ejemplo aplicado (TP2 de Organización Empresarial)</h2>
+<p>Como ejemplo concreto, se tomó la consigna del <b>TP2 — Ingeniería de Prompts y
+Pensamiento Computacional</b>, que pide al alumno resolver 6 actividades relacionadas
+con técnicas de diseño de instrucciones para modelos de lenguaje. La rúbrica
+resultante (<code>U2/rubrica-tp2-ingenieria-prompts.json</code>) quedó estructurada en
+6 criterios —uno por actividad—, cada uno con su propio peso y sus
+<code>instrucciones_puntuacion</code> explícitas. A modo ilustrativo, el primer
+criterio quedó modelado así:</p>
+<pre><code>{
+  "id": "C1",
+  "nombre": "Actividad 1: Arquitectura de la Instrucción",
+  "peso": 18,
+  "instrucciones_puntuacion": "Si alguno de los 4 elementos fundamentales
+    está ausente, techo de 60% (10.8 pts). Si no hay delimitadores
+    visibles entre secciones, descontar 25% (4.5 pts)...",
+  "subcriterios": [
+    { "id": "C1.1", "descripcion": "Los 4 elementos fundamentales están
+      presentes...", "evidencias": ["...", "...", "...", "..."] },
+    { "id": "C1.2", "descripcion": "El prompt usa delimitadores
+      visibles...", "evidencias": ["..."] },
+    { "id": "C1.3", "descripcion": "El prompt está orientado al caso
+      pedido...", "evidencias": ["...", "..."] }
+  ]
+}</code></pre>
+<p>Nótese cómo cada subcriterio (C1.1, C1.2, C1.3) es un checklist de evidencias sin
+nota propia, mientras que la nota completa de la actividad depende del peso (18
+puntos) del criterio C1, ajustado hacia abajo mediante reglas numéricas explícitas
+de descuento — exactamente el principio de granularidad descripto en la sección 2.1.</p>
+</div>
+
+<!-- ============ 6. AUDITAR ============ -->
+<div class="page">
+<h1 class="section-title" id="s6">6. Auditoría de la rúbrica (modo AUDITAR)</h1>
+<p>Este modo no figuraba en el esquema orientativo inicial de este informe, pero se
+incorpora porque es uno de los <b>cuatro modos centrales</b> de la skill y cumple un
+rol de control de calidad que ninguno de los otros pasos cubre: revisar una rúbrica
+ya redactada (propia o de un tercero) contra la consigna original, con mirada de
+auditor.</p>
+<p>El agente revisa, en este orden:</p>
+<ol>
+  <li><b>Contradicciones</b> entre lo que pide la consigna y lo que premia o exige la
+  rúbrica.</li>
+  <li><b>Omisiones</b>: requisitos explícitos del TP que la rúbrica no evalúa. Es la
+  falla más grave, porque lo omitido nunca se corrige.</li>
+  <li><b>Requisitos diluidos</b>: puntos importantes que sí están en la rúbrica pero
+  enterrados como subcriterio sin peso propio.</li>
+  <li><b>Invenciones</b>: criterios o concesiones que la rúbrica agrega pero que la
+  consigna no respalda en ningún lado.</li>
+  <li><b>Elementos visuales</b> de la consigna que no se tradujeron a texto dentro de
+  la rúbrica.</li>
+  <li><b>Reajuste de pesos</b> a 100, si se agregaron o quitaron criterios.</li>
+</ol>
+<p>El resultado de este modo es un breve resumen de hallazgos (qué se corrigió y por
+qué) seguido de la rúbrica corregida, lista para volver a validar.</p>
+</div>
+
+<!-- ============ 7. VALIDACION ============ -->
+<div class="page">
+<h1 class="section-title" id="s7">7. Validación estructural de la rúbrica</h1>
+<p>Independientemente del modo utilizado, ninguna rúbrica se entrega sin pasar antes
+por el script <code>scripts/validar_rubrica.py</code>, incluido en la skill:</p>
+<pre><code>python scripts/validar_rubrica.py &lt;ruta_al_json&gt;</code></pre>
+<p>Este script replica en local las reglas que aplica el backend real de Active-IA:
+suma de pesos igual a 100, IDs con el patrón correcto, ausencia de evidencias
+vacías, nombres de campo correctos (por ejemplo, <code>nota_maxima</code> y no
+<code>nota_final</code>, un error presente incluso en cierta documentación
+desactualizada del propio sistema). Si el script falla, indica exactamente qué
+corregir; si pasa, imprime la confirmación <b>"✅ RÚBRICA VÁLIDA"</b>, que se adjunta
+como evidencia en el informe final de cada rúbrica entregada.</p>
+<p>Este paso es barato de ejecutar y evita el rechazo de la rúbrica al cargarla en el
+sistema real.</p>
+</div>
+
+<!-- ============ 8. TEST ============ -->
+<div class="page">
+<h1 class="section-title" id="s8">8. Testeo de la rúbrica (modo TEST)</h1>
+<p>Que una rúbrica sea <b>estructuralmente válida</b> no garantiza que <b>corrija
+bien</b>. El modo TEST cierra esa brecha: simula, en el entorno local, el pipeline
+real de corrección (consolidación de la entrega + armado del prompt de corrección),
+disparando la evaluación con el CLI de Claude en lugar del flujo de producción
+(N8N → Gemini). Los resultados son indicativos, pero permiten detectar problemas de
+diseño de la rúbrica antes de subirla al sistema real.</p>
+<pre><code>python scripts/simular_correccion.py \
+  --rubrica &lt;rubrica.json&gt; \
+  --entrega &lt;archivo|carpeta|.zip|.txt&gt; \
+  --materia "Organización Empresarial" \
+  --alumno  "Alumno de prueba" \
+  --modo solo_codigo</code></pre>
+<p>Para cada rúbrica se generan entregas <b>sintéticas</b> diseñadas a propósito para
+fallar en un único criterio a la vez (<code>s1_falla_c1</code>, <code>s2_falla_c2</code>,
+etc.), además de una entrega perfecta (<code>s0_perfecta</code>) y, en algunos casos,
+entregas con cumplimiento parcial. La lógica es la de un test unitario aplicado a
+una rúbrica: si el criterio C<sub>n</sub> está bien diseñado, la entrega que falla
+exactamente en C<sub>n</sub> debe producir una nota visiblemente más baja que la
+entrega perfecta, y el feedback generado debe señalar puntualmente esa falla.</p>
+
+<h2>Resultados obtenidos (TP2 — Organización Empresarial)</h2>
+<table>
+<tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
+<tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>≥ 90</td><td>100</td><td>✅</td></tr>
+<tr><td>s1_falla_c1</td><td>C1 discrimina (18 pts)</td><td>~82</td><td>91.9</td><td>✅</td></tr>
+<tr><td>s2_falla_c2</td><td>C2 discrimina (18 pts)</td><td>~82</td><td>82</td><td>✅</td></tr>
+<tr><td>s3_falla_c3</td><td>C3 discrimina (18 pts)</td><td>~82</td><td>89.2</td><td>✅</td></tr>
+<tr><td>s4_falla_c4</td><td>C4 discrimina (16 pts)</td><td>~84</td><td>47.0</td><td>✅</td></tr>
+<tr><td>s5_falla_c5</td><td>C5 discrimina (16 pts)</td><td>~84</td><td>87</td><td>✅</td></tr>
+<tr><td>s6_falla_c6</td><td>C6 discrimina (14 pts)</td><td>~86</td><td>87.5</td><td>✅</td></tr>
+<tr><td>s7_parcial_c1</td><td>C1 con cumplimiento parcial</td><td>~91</td><td>88.3</td><td>✅</td></tr>
+</table>
+<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>U2/sinteticos/2026-06-22_175052/resumen.json</code>,
+generado por el script de testeo de la skill sobre la rúbrica del TP2.</i></p>
+<p>Se observa que, en la mayoría de los criterios, la nota obtenida discrimina
+correctamente al alumno con la falla simulada respecto de la entrega perfecta. El
+caso de <code>s4_falla_c4</code> (nota 47.0 frente a un esperado de ~84) es un ejemplo
+de <b>criterio troncal</b>: al fallar, activa una condición de desaprobación o un
+techo de puntuación severo definido en <code>instrucciones_puntuacion</code>, lo cual
+es el comportamiento deseado cuando ese requisito es central para el trabajo. Este
+tipo de desvíos es justamente lo que motiva el siguiente paso: el ajuste iterativo.</p>
+</div>
+
+<!-- ============ 9. AJUSTE ITERATIVO ============ -->
+<div class="page">
+<h1 class="section-title" id="s9">9. Ajuste iterativo de consigna, rúbrica y entrega</h1>
+<p>El proceso descripto en las secciones 4 a 8 no es lineal sino <b>iterativo</b>. Si
+el modo TEST revela que un criterio no discrimina como se esperaba, la causa casi
+nunca está en el modelo que corrige, sino en el diseño de la rúbrica: una
+descripción ambigua, una evidencia no verificable, un peso mal distribuido o
+instrucciones de puntuación poco específicas.</p>
+<p>El ciclo de trabajo aplicado en este proyecto fue, en la práctica:</p>
+<div class="flujo">CURAR (normalizar consigna)
+      │
+      ▼
+CREAR (rúbrica inicial) ──► VALIDAR (estructura) ──► TEST (simulación de corrección)
+      ▲                                                        │
+      └──────────────── AUDITAR / ajustar pesos y evidencias ◄─┘</div>
+<p>Solo cuando el conjunto de entregas sintéticas produce notas coherentes con lo
+esperado para cada criterio, la rúbrica se considera lista para cargarse en el
+sistema real (botón "Cargar criterios" de Active-IA), junto con los campos que no
+forman parte del JSON y se completan aparte en el formulario (<code>tipo</code>,
+<code>numero</code>, <code>año</code>, <code>materia_id</code>).</p>
+</div>
+
+<!-- ============ 10. CASO DE ESTUDIO ============ -->
+<div class="page">
+<h1 class="section-title" id="s10">10. Caso de estudio aplicado: Organización Empresarial</h1>
+<p>A lo largo de la cursada de Organización Empresarial se aplicó este flujo de
+trabajo completo a las rúbricas de los distintos Trabajos Prácticos y del Trabajo
+Práctico Integrador (TPI), organizados por unidad dentro del repositorio:</p>
+<ul>
+  <li><b>U1</b> — Git y control de versiones (<code>rubrica-tp1-git.json</code>)</li>
+  <li><b>U2</b> — Ingeniería de prompts y pensamiento computacional
+  (<code>rubrica-tp2-ingenieria-prompts.json</code>)</li>
+  <li><b>U3</b> — Metodologías ágiles (<code>rubrica-tp3-metodologias-agiles.json</code>)</li>
+  <li><b>U4</b> — Ecosistema de una startup (<code>rubrica-tp4-ecosistema-startup.json</code>)</li>
+  <li><b>U5</b> — Live coding (<code>rubrica-tp5-live-coding.json</code>)</li>
+  <li><b>U6</b> — N8N (<code>rubrica-tp6-n8n.json</code>)</li>
+  <li><b>TPI</b> — Trabajo Práctico Integrador (<code>rubrica-tpi-oe.json</code>)</li>
+</ul>
+<p>Para cada una de estas rúbricas se generó, además, una carpeta
+<code>sinteticos/</code> con entregas de prueba fechadas y su correspondiente
+resultado de corrección (<code>*_correccion.json</code>) y prompt real enviado al
+modelo (<code>*_prompt.txt</code>), lo que permite trazar de forma completa y
+auditable el proceso de diseño → testeo → ajuste de cada instrumento de evaluación
+utilizado en la materia.</p>
+<p>Esta decisión metodológica —trabajar siempre con entregas en texto plano y evitar
+links, imágenes o ejecución de código como requisito de nota— es consistente con el
+criterio de normalización descripto en la sección 4, y es la razón por la cual estas
+rúbricas resultaron, en la práctica, altamente corregibles de forma automática y
+determinista.</p>
+</div>
+
+<!-- ============ 11. CONCLUSIONES ============ -->
+<div class="page">
+<h1 class="section-title" id="s11">11. Conclusiones finales</h1>
+<p>La implementación de una IA agéntica asistida por una skill especializada
+demuestra que es posible sistematizar la creación de instrumentos de evaluación
+—una tarea tradicionalmente artesanal y dependiente del criterio individual del
+docente— sin perder rigurosidad pedagógica, e incluso ganando en consistencia: cada
+rúbrica queda validada estructuralmente, curada respecto de los límites técnicos
+reales del corrector, y testeada empíricamente contra entregas de prueba antes de
+usarse sobre alumnos reales.</p>
+<p>El hallazgo conceptual más relevante de todo el proceso es que <b>la calidad de
+una corrección automática no depende principalmente del modelo de IA que corrige,
+sino de la calidad de la rúbrica que se le entrega</b>. Una rúbrica ambigua,
+incompleta o con requisitos que dependen de contenido que el corrector
+estructuralmente no puede leer (links, imágenes, ejecución) producirá correcciones
+inconsistentes sin importar qué tan avanzado sea el modelo utilizado. Este hallazgo
+es, precisamente, el motivo por el cual la skill utilizada dedica un modo completo
+(CURAR) a normalizar la consigna <i>antes</i> de siquiera pensar en redactar un
+criterio.</p>
+<p>Como línea de trabajo futura, sería valioso extender este análisis a otras
+materias con formatos de entrega más heterogéneos, evaluando qué adaptaciones
+adicionales necesitaría el modo CURAR para esos casos.</p>
+</div>
+
+<!-- ============ 12. FUENTES ============ -->
+<div class="page">
+<h1 class="section-title" id="s12">12. Fuentes utilizadas y reconocimiento de autoría</h1>
+
+<div class="note-box">
+  <div class="titulo">⚠️ Nota de autoría — de lectura obligatoria</div>
+  <p style="margin:0;">La skill <code>rubrica-builder</code> utilizada como
+  herramienta central de este trabajo es <b>propiedad intelectual de Juan Cruz
+  Robledo</b>, distribuida bajo licencia <b>Apache License 2.0</b> (© 2026 Juan Cruz
+  Robledo), disponible públicamente en el repositorio:
+  <code>https://github.com/JuanCruzRobledo/rubrica-builder</code>.</p>
+  <p style="margin:0.3cm 0 0 0;">Este Trabajo Final utiliza dicha skill
+  <b>exclusivamente con fines educativos y de investigación académica</b>, como caso
+  de estudio para analizar y documentar la aplicación de IA agéntica a la
+  elaboración de rúbricas de evaluación. No se reclama autoría alguna sobre el
+  diseño, la lógica ni el código de la skill en sí misma. Todo el mérito de su
+  concepción, arquitectura y reglas de diseño corresponde a su autor original.</p>
+</div>
+
+<h2>Fuentes y materiales</h2>
+<ul>
+  <li>Robledo, J. C. <i>rubrica-builder</i> (skill para Claude Code). Repositorio
+  oficial: <code>https://github.com/JuanCruzRobledo/rubrica-builder</code>. Licencia
+  Apache-2.0.</li>
+  <li>Documentación interna de la skill: <code>SKILL.md</code>, <code>README.md</code>,
+  <code>references/modelo-rubrica.md</code>, <code>references/limites-corrector.md</code>.</li>
+  <li>Anthropic. <i>Claude Code</i> — documentación oficial de la IA agéntica
+  utilizada como entorno de ejecución.</li>
+  <li>Video propio: <i>"¿Qué es una rúbrica?"</i> — disponible en:
+  <a href="https://drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU">drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU</a>.</li>
+  <li>Video propio: <i>"Normalización de la entrega para crear una rúbrica coherente
+  y minimizar fallos"</i> (pendiente de subir; se referenciará en el mismo
+  repositorio de Drive una vez publicado).</li>
+  <li>Material propio generado durante la cursada de Organización Empresarial:
+  rúbricas de las Unidades 1 a 6 y del TPI, junto con sus entregas sintéticas de
+  testeo y resultados de corrección, utilizados como caso de estudio aplicado a lo
+  largo de este informe.</li>
+</ul>
+
+<div class="footer-page">— Fin del informe —</div>
+</div>
+
+</body>
+</html>

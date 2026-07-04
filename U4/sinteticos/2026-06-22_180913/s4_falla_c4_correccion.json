@@ -1,0 +1,60 @@
+{
+  "nota": 86,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 86,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Startup vs PyME",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica y aplica correctamente AMBOS conceptos al caso concreto. Escalabilidad: la app puede crecer exponencialmente sin aumento proporcional de costos por la distribución digital, mientras la panadería tiene crecimiento lineal limitado por capacidad física, geografía y personal. Incertidumbre: la app opera bajo incertidumbre extrema (demanda, adhesión de panaderos, disposición a pagar), mientras la panadería tiene un modelo de negocio probado hace siglos. Aplicación directa y precisa al caso de la panadería de barrio vs. la app tipo Uber."
+    },
+    {
+      "id": "C2",
+      "nombre": "Lean Startup y MVP Smoke Test",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica correctamente la metodología Lean Startup (ciclo Construir-Medir-Aprender, validar antes de construir, el error de enamorarse de la idea) Y describe con precisión el MVP Smoke Test (landing page con CTA para medir interés real sin tener el producto construido). Conecta directamente con el caso: los programadores podrían haber creado una landing page de la red social de mascotas, medir registros, y ahorrarse dos años de desarrollo si no había interés. Ambos checklist items completamente cubiertos."
+    },
+    {
+      "id": "C3",
+      "nombre": "Test de la Madre (Customer Discovery)",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica por qué las respuestas no sirven (sesgo social/de confirmación: amigos dan respuestas amables por cortesía; pedir predicciones de comportamiento futuro genera opiniones, no hechos) Y propone preguntas alternativas basadas en comportamiento pasado (cómo conseguís resúmenes hoy, cuánto tiempo perdiste buscando apuntes, pagaste alguna vez por material de estudio). Las preguntas alternativas son específicas, accionables y enfocadas en hechos concretos. Ambos checklist items completamente cubiertos."
+    },
+    {
+      "id": "C4",
+      "nombre": "LTV vs CAC y Retención",
+      "puntaje_obtenido": 6,
+      "puntaje_maximo": 20,
+      "estado": "ERROR",
+      "feedback": "Identifica los números (LTV = $2.000, CAC = $5.000), pero NO cumple con la consigna. En lugar de explicar por qué el modelo está destinado a quebrar —LTV < CAC implica pérdida por cliente—, argumenta lo contrario diciendo que 'el problema no es tan grave', 'es cuestión de timing' y que se puede revertir si los usuarios se quedan más. La pregunta pide explicar POR QUÉ quiebra, no argumentar que no lo hace. Además, NUNCA menciona el concepto de Churn Rate ni lo relaciona con el LTV, que era una parte central de la pregunta. El techo por no conectar con Churn Rate es 12/20, y además la conclusión es incorrecta, lo que deja el puntaje en la franja baja del techo."
+    },
+    {
+      "id": "C5",
+      "nombre": "Modelos de negocio en software",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Elige Freemium (modelo válido de los vistos en clase) y lo explica correctamente: versión gratuita con funcionalidades básicas, versiones pagas con funciones avanzadas, la gratuita atrae usuarios y un porcentaje convierte a pago. Ejemplos pertinentes (Spotify, Evernote). El desafío técnico es específico y bien desarrollado: feature flagging y separación de funcionalidades a nivel de backend (no solo un if en el frontend), autorización por request, manejo de transiciones entre planes y qué hacer con datos generados durante el período premium. Ambos checklist items completamente cubiertos."
+    }
+  ],
+  "fortalezas": [
+    "Excelente aplicación de los conceptos de escalabilidad e incertidumbre al caso concreto de la panadería vs. la app, con explicaciones detalladas y precisas (C1).",
+    "Explicación clara y completa del ciclo Lean Startup y el MVP Smoke Test, conectando directamente con el error de los programadores y proponiendo cómo lo habrían evitado (C2).",
+    "Sólida comprensión del Test de la Madre: identifica el sesgo social y el problema de las predicciones futuras, y propone preguntas alternativas específicas basadas en comportamiento pasado (C3).",
+    "Buena elección y explicación del modelo Freemium con un desafío técnico pertinente y bien desarrollado a nivel de arquitectura backend (C5)."
+  ],
+  "recomendaciones": [
+    "En C4, reconocer que LTV < CAC significa que el modelo de negocio está roto — se pierde plata con cada cliente. La pregunta pide explicar POR QUÉ quiebra, no argumentar que se puede revertir. Responder lo que la consigna pide, no lo que uno quisiera que pase.",
+    "En C4, incluir el concepto de Churn Rate y explicar su relación con el LTV: una tasa de cancelación alta (el usuario se va a los 2 meses) reduce la vida útil del cliente, lo que achica el LTV e impide que supere al CAC. Es un concepto clave de la unidad.",
+    "En C4, entender que si bien optimizar marketing puede bajar el CAC, eso no cambia el análisis del caso dado. Con los números que te dan (LTV = $2.000, CAC = $5.000), la unidad económica ya es negativa. Primero demostrá que entendés el problema, después —si querés— proponé soluciones."
+  ],
+  "comentario_general": "El alumno demuestra una comprensión sólida y bien articulada de los conceptos de Startup vs PyME, Lean Startup, Test de la Madre y modelos de negocio, con respuestas que aplican correctamente la teoría al caso concreto en C1, C2, C3 y C5. Sin embargo, en C4 no responde lo que se le pide: en lugar de explicar por qué el modelo está destinado a quebrar (LTV < CAC) y conectar con Churn Rate, argumenta lo contrario y omite completamente el concepto de retención, lo que le cuesta casi todo el puntaje de ese criterio y evidencia una confusión importante sobre la relación entre LTV, CAC y retención."
+}

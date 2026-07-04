@@ -1,0 +1,66 @@
+[
+  {
+    "sid": "s0",
+    "testea": "rúbrica completa",
+    "esperado": "≥90",
+    "nota": 100,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s1",
+    "testea": "C1 discrimina (20 pts)",
+    "esperado": "~80",
+    "nota": 90,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s2",
+    "testea": "C2 discrimina (20 pts)",
+    "esperado": "~80",
+    "nota": 85,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s3",
+    "testea": "C3 discrimina (20 pts)",
+    "esperado": "~80",
+    "nota": 86,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s4",
+    "testea": "C4 discrimina (20 pts)",
+    "esperado": "~80",
+    "nota": 86,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s5",
+    "testea": "C5 discrimina (20 pts)",
+    "esperado": "~80",
+    "nota": 92,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s6",
+    "testea": "C1 parcial (20 pts)",
+    "esperado": "~90",
+    "nota": 96,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s7",
+    "testea": "C2 parcial (20 pts)",
+    "esperado": "~90",
+    "nota": 92,
+    "meta": "✅",
+    "warns": []
+  }
+]

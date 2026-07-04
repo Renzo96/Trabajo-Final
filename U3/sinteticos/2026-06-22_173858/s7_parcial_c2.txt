@@ -1,0 +1,32 @@
+1. En el modelo Cascada, las fases del proyecto están bien definidas y son secuenciales: primero se relevan todos los requisitos, después se diseña, se implementa, se prueba y finalmente se entrega. El problema grave de cambiar requisitos a mitad del desarrollo es que, como cada fase se da por cerrada al pasar a la siguiente, volver atrás obliga a rehacer trabajo que ya estaba terminado y validado. Si el cliente pide una modificación cuando el equipo ya está programando, hay que desandar el diseño, revisar decisiones técnicas y volver a codificar partes que ya estaban listas. Esto dispara los costos en tiempo y en plata, porque el retrabajo afecta todo lo que ya se había construido. Además, el plan inicial suele estar firmado con el cliente, lo que hace que cualquier cambio genere discusiones sobre quién paga el sobrecosto o si se corre la fecha de entrega.
+
+La mentalidad ágil evita este problema porque trabaja con iteraciones cortas, de dos o tres semanas, donde al final de cada ciclo se entrega una parte funcional del producto. El cliente ve ese incremento, lo prueba y da su feedback, y en base a eso el equipo ajusta las prioridades y decide qué construir en la siguiente iteración. Si aparece un cambio de requisitos, no hay que deshacer nada grande: simplemente se toma para la próxima iteración y se incorpora sin dramas. En lugar de blindar un plan rígido contra los cambios, el enfoque ágil abraza el cambio como algo natural y lo gestiona a través de este ciclo continuo de construir, mostrar y adaptar. Así, lo que en Cascada es un problema carísimo, en ágil es parte del proceso.
+
+---
+
+2. Acá hay dos problemas distintos que se resuelven con dos roles de Scrum. Cuando el equipo no sabe qué tareas priorizar desde el punto de vista del negocio, quien lo resuelve es el Product Owner, que es el encargado de priorizar el trabajo según lo que más valor le genera al cliente o la empresa. Y cuando hay gerentes externos que interrumpen constantemente al equipo, el que lo soluciona es el Scrum Master, que actúa como un escudo para que los desarrolladores puedan trabajar sin distracciones y enfocados en lo que se comprometieron a hacer en el sprint.
+
+---
+
+3. Cuando a cada programador le encajan cinco tareas al mismo tiempo, lo que se está generando es el desperdicio de multitarea, también conocido como cambio de contexto. El problema es que el cerebro humano no puede hacer dos cosas en paralelo cognitivamente exigentes: cuando un dev salta de una tarea a otra, pierde tiempo tratando de recordar en qué estaba, releer lo que ya había escrito y recuperar el hilo mental. Ese tiempo de "recalentamiento" entre tareas se acumula y se desperdicia por completo. Además, tener muchas tareas empezadas pero ninguna terminada significa mucho trabajo parcialmente hecho, que no le genera valor real al cliente hasta que se completa y se entrega.
+
+El WIP Limit (Work In Progress limit) de Kanban soluciona esto poniendo un tope máximo a la cantidad de tareas que pueden estar simultáneamente en la columna de "en curso". Por ejemplo, si el límite es dos y ya tengo dos tareas activas, no puedo agarrar una tercera: estoy obligado a terminar alguna antes de empezar otra cosa. Esto reduce la multitarea y me fuerza a completar lo que empecé. La consecuencia directa es que cada tarea individual se termina más rápido, y aunque suene contradictorio tener menos cosas en paralelo, la velocidad real del equipo (el throughput) aumenta porque se eliminan los tiempos muertos de cambio de contexto. Es la diferencia entre intentar pasar diez autos al mismo tiempo por un embudo —se traban todos— o dejar que pasen de a uno y que el flujo sea mucho más rápido.
+
+---
+
+4. A simple vista parece un desperdicio tener a dos programadores en la misma computadora, pero Pair Programming tiene beneficios muy concretos que hacen que valga la pena. Un primer beneficio es la revisión continua del código en el momento en que se escribe. Cuando uno programa y el otro observa, los errores se detectan al instante, no una semana después en una code review ni mucho menos cuando ya llegaron a producción. Eso baja muchísimo la cantidad de bugs en el producto final. Además, tener a alguien al lado que cuestiona lo que estás escribiendo hace que pienses dos veces cada decisión, y el resultado es código más limpio y soluciones más sólidas que si lo hicieras solo y sin ese contrapeso.
+
+Un segundo beneficio, distinto al anterior, es la transferencia de conocimiento dentro del equipo. Cuando dos personas programan juntas, comparten formas de resolver problemas, atajos, técnicas que uno conoce y el otro no, y conocimiento sobre cómo funciona el sistema. El más junior aprende del más senior, y el senior también gana porque explicar lo que estás haciendo te obliga a ordenar tus propias ideas. Además, si después alguien se va de vacaciones o se cambia de trabajo, no queda un agujero negro de conocimiento porque al menos otra persona del equipo ya tocó esa parte del código y puede seguir manteniéndola. El equipo se vuelve más resiliente y el conocimiento se distribuye en vez de concentrarse en una sola cabeza.
+
+---
+
+5. **(a) Historia de Usuario:**
+"Como usuario suscriptor de la plataforma, quiero poder guardar series y películas en una sección llamada 'Mi Lista', para no olvidarme de los contenidos que quiero ver más adelante y acceder rápido a ellos cuando tenga tiempo."
+
+**(b) Criterios de Aceptación:**
+
+- **Agregar contenido a Mi Lista:** Dado que estoy navegando el catálogo y veo una película que me interesa, cuando toco el botón "+" o "Agregar a Mi Lista" en la ficha del contenido, entonces ese título aparece automáticamente dentro de la sección Mi Lista y el botón cambia de estado a "Agregado" (mostrando un tilde o check).
+
+- **Ver Mi Lista:** Dado que ya guardé al menos un contenido, cuando entro a la sección Mi Lista desde el menú de navegación, entonces veo una grilla con todos los títulos que fui guardando, cada uno mostrando su póster y nombre, ordenados del más reciente al más antiguo según la fecha en que los agregué.
+
+- **Quitar contenido de Mi Lista:** Dado que un título ya está en Mi Lista, cuando toco el botón de tilde/check sobre ese mismo contenido (ya sea desde el catálogo o desde dentro de Mi Lista), entonces el título desaparece de Mi Lista y el botón vuelve al estado original de "+".

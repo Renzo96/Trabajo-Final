@@ -1,0 +1,60 @@
+{
+  "nota": 80,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 80,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Waterfall vs mentalidad ágil",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Respuesta completa y con argumentación propia. Explica con claridad el problema de los cambios en Cascada (fases secuenciales, retrabajo costoso, contrato de alcance fijo) y cómo la mentalidad ágil lo resuelve (iteraciones cortas, sprints de dos semanas, feedback frecuente, adaptación al cambio como parte natural del proceso). La conexión lógica entre ambas partes está bien lograda: el contraste Waterfall→Ágil es explícito y coherente."
+    },
+    {
+      "id": "C2",
+      "nombre": "Roles de Scrum",
+      "puntaje_obtenido": 0,
+      "puntaje_maximo": 20,
+      "estado": "ERROR",
+      "feedback": "No se identificó ningún rol de Scrum. Para la priorización de tareas del negocio se menciona al 'Project Manager o el líder técnico', figuras que NO pertenecen a Scrum — el rol correcto es el Product Owner (PO), responsable de gestionar el Product Backlog y priorizar por valor de negocio. Para las interrupciones externas se propone que 'cada desarrollador de forma individual' maneje sus horarios y se trate en una retrospectiva — esto ignora completamente al Scrum Master, cuyo rol es precisamente proteger al equipo de interferencias externas y eliminar impedimentos. Ambos puntos están incorrectos: 0/10 por cada rol."
+    },
+    {
+      "id": "C3",
+      "nombre": "Kanban y WIP Limit",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Identifica correctamente el desperdicio Lean de multitarea y cambio de contexto, explicando el costo cognitivo del 'recalentamiento' entre tareas y cómo fragmenta la atención y aumenta errores. Explica con precisión cómo el WIP Limit de Kanban obliga a terminar antes de empezar nuevo trabajo, reduce el cambio de contexto, mejora el foco y acorta el tiempo en progreso, aumentando el throughput real del equipo. La conexión entre problema y solución está bien argumentada."
+    },
+    {
+      "id": "C4",
+      "nombre": "Pair Programming",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Presenta dos beneficios concretos, distintos y bien argumentados. Primer beneficio: revisión de código en tiempo real — detección instantánea de errores de sintaxis, lógica y malas prácticas, resultando en menos bugs y mejor calidad desde el inicio. Segundo beneficio: transferencia de conocimiento — compartición de técnicas, evita dependencia de una sola persona (bus factor), fortalece al equipo y hace el código más mantenible. Ambos están desarrollados, no meramente listados, y se relacionan con la calidad del código final y el trabajo en equipo."
+    },
+    {
+      "id": "C5",
+      "nombre": "Historias de Usuario y Criterios de Aceptación",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Parte (a): La historia de usuario sigue la fórmula estándar completa: rol ('usuario de la plataforma'), acción ('guardar películas y series en Mi Lista'), beneficio ('encontrarlas rápido sin buscarlas de nuevo'). Coherente con el contexto Netflix/Mi Lista. Parte (b): Presenta tres criterios de aceptación en formato Given-When-Then, todos verificables y pertinentes: agregar a Mi Lista desde la ficha, quitar de Mi Lista sin afectar otros elementos, y manejo del caso de usuario no autenticado. Supera el mínimo de dos criterios exigido."
+    }
+  ],
+  "fortalezas": [
+    "Excelente explicación del problema de Waterfall y cómo la mentalidad ágil lo resuelve, con argumentos propios y conexión lógica entre ambas partes (C1).",
+    "Identificación precisa del desperdicio Lean de multitarea/cambio de contexto y explicación clara de cómo el WIP Limit de Kanban lo soluciona mejorando el throughput (C3).",
+    "Defensa sólida del Pair Programming con dos beneficios bien argumentados y distintos: revisión en tiempo real y transferencia de conocimiento (C4).",
+    "Historia de Usuario correctamente formulada con los tres elementos y tres criterios de aceptación en formato verificable (C5)."
+  ],
+  "recomendaciones": [
+    "Revisar los roles de Scrum: la priorización por valor de negocio corresponde al Product Owner (no al Project Manager), y la protección del equipo frente a interrupciones externas es responsabilidad del Scrum Master (no de cada desarrollador individual).",
+    "Estudiar los tres roles de Scrum (Product Owner, Scrum Master, Development Team) y sus responsabilidades específicas, ya que son conceptos centrales de la metodología y representan el 20% del puntaje total.",
+    "En C5, considerar agregar un criterio de aceptación para el caso de intentar agregar un contenido que ya está en Mi Lista (contenido duplicado), para cubrir un escenario edge relevante."
+  ],
+  "comentario_general": "El trabajo muestra una comprensión sólida de la mayoría de los conceptos de metodologías ágiles evaluados, con respuestas propias, bien argumentadas y ejemplos concretos en cuatro de los cinco criterios. Sin embargo, la confusión en C2 es grave: no se identificó ningún rol de Scrum, reemplazándolos por figuras ajenas al marco (Project Manager) y soluciones individuales, lo que evidencia un vacío en uno de los temas centrales de la materia."
+}

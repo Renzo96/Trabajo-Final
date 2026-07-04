@@ -1,0 +1,201 @@
+Eres un evaluador experto de trabajos prácticos de programación para la materia "Organización Empresarial".
+
+Tu tarea es evaluar el siguiente código del alumno "Alumno Sintético (S4 (falla C4))" según la rúbrica proporcionada.
+
+## RÚBRICA DE EVALUACIÓN
+
+Título: TP3 - Fundamentos de Metodologías Ágiles
+Tipo: TP
+Puntaje máximo: 100
+
+## CONTEXTO ADICIONAL
+
+- materia: Organización Empresarial
+- carrera: Tecnicatura Universitaria en Programación
+- universidad: UTN - Facultad Regional Mendoza
+- formato_entrega: ZIP con PDF de texto plano
+- temas: Scrum, Kanban, XP, Historias de Usuario, Waterfall vs Agile
+
+
+Criterios:
+- ID: C1
+  Nombre: Waterfall vs mentalidad ágil
+  Peso: 20 pts
+  Descripción: Pregunta 1: El alumno debe explicar por qué cambiar requisitos a mitad del desarrollo en el modelo Cascada (Waterfall) es un problema grave, y cómo la mentalidad ágil (iteraciones cortas, feedback continuo, adaptación al cambio) ayuda a evitarlo.
+  Instrucciones de puntuación: Puntaje completo: explica ambas partes (problema de Waterfall + solución ágil) con argumentos propios y coherentes. Si solo explica una de las dos partes → techo 10/20. Si la respuesta es copiada textualmente de una fuente sin elaboración propia → techo 5/20. Si no responde o la respuesta es completamente incorrecta → 0.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Explica por qué el cambio de requisitos en Waterfall es un desastre.
+    * Menciona que en Cascada las fases son secuenciales y volver atrás implica rehacer trabajo ya completado
+    * Hace referencia al costo elevado de los cambios tardíos (retrabajo, tiempo, recursos) o a la rigidez del plan inicial firmado
+  - Explica cómo la mentalidad ágil resuelve el problema del plan rígido.
+    * Menciona iteraciones cortas, entregas incrementales, feedback frecuente del cliente o adaptación al cambio como mecanismo ágil
+    * La explicación conecta lógicamente el problema de Waterfall con la solución ágil (no son dos respuestas sueltas)
+
+- ID: C2
+  Nombre: Roles de Scrum
+  Peso: 20 pts
+  Descripción: Pregunta 2: El alumno debe identificar los dos roles de Scrum que resuelven los problemas planteados (no saber qué tareas priorizar para el negocio → Product Owner; interrupciones de gerentes externos → Scrum Master) y justificar por qué cada rol resuelve su problema.
+  Instrucciones de puntuación: Cada rol correctamente identificado y justificado vale 10 puntos. Si identifica el rol pero no justifica por qué resuelve el problema → techo 5 por ese rol. Si confunde los roles (invierte las responsabilidades) → techo 5/20 total. Si nombra roles que no son de Scrum o inventa roles → 0 por ese punto.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Identifica y justifica el rol que prioriza las tareas del negocio.
+    * Nombra al Product Owner (o PO) como responsable de priorizar el trabajo según valor de negocio
+    * Explica que el PO gestiona el Product Backlog o decide qué se hace primero basándose en las necesidades del negocio
+  - Identifica y justifica el rol que protege al equipo de interrupciones externas.
+    * Nombra al Scrum Master como el encargado de proteger al equipo de interferencias externas
+    * Explica que el Scrum Master facilita el proceso y elimina impedimentos, incluyendo las interrupciones de gerentes
+
+- ID: C3
+  Nombre: Kanban y WIP Limit
+  Peso: 20 pts
+  Descripción: Pregunta 3: El alumno debe identificar qué desperdicio Lean se comete al asignar 5 tareas simultáneas a cada programador y explicar cómo el límite de Trabajo en Curso (WIP Limit) de Kanban soluciona este problema y mejora la velocidad real del equipo.
+  Instrucciones de puntuación: Puntaje completo: identifica el desperdicio Lean correcto Y explica cómo WIP Limit lo soluciona. Si identifica el desperdicio pero no explica WIP → techo 10/20. Si explica WIP pero no identifica el desperdicio → techo 10/20. Si no responde o confunde completamente los conceptos → 0.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Identifica el desperdicio Lean asociado a la multitarea excesiva.
+    * Menciona el desperdicio de multitarea, cambio de contexto (context switching), trabajo parcialmente hecho o sobreproducción como el problema Lean de asignar muchas tareas simultáneas
+  - Explica cómo el WIP Limit soluciona el problema y mejora la velocidad.
+    * Explica que limitar el trabajo en curso obliga a terminar tareas antes de empezar nuevas
+    * Conecta la reducción de multitarea con mayor foco, menos cambio de contexto y mayor velocidad real de entrega (throughput)
+
+- ID: C4
+  Nombre: Pair Programming
+  Peso: 20 pts
+  Descripción: Pregunta 4: El alumno debe defender la práctica de Programación en Pareja (Pair Programming) de XP frente a la objeción de que es 'perder el tiempo de un empleado', explicando al menos dos beneficios concretos que aporta al código final y/o al equipo.
+  Instrucciones de puntuación: Cada beneficio bien argumentado vale 10 puntos. Si menciona un beneficio sin desarrollarlo → techo 5 por ese beneficio. Los beneficios deben ser distintos entre sí (no repetir el mismo con otras palabras). Si solo da un beneficio bien desarrollado → techo 10/20. Si no responde o no defiende la práctica → 0.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Presenta al menos dos beneficios concretos y distintos del Pair Programming.
+    * Menciona un primer beneficio válido (ejemplos: revisión de código en tiempo real, menos bugs, mejor calidad del código, transferencia de conocimiento, aprendizaje mutuo, código más limpio, detección temprana de errores)
+    * Menciona un segundo beneficio válido y diferente al primero
+    * Los beneficios están argumentados (no solo listados) y se relacionan con el código final y/o el trabajo en equipo
+
+- ID: C5
+  Nombre: Historias de Usuario y Criterios de Aceptación
+  Peso: 20 pts
+  Descripción: Pregunta 5: El alumno debe (a) redactar una Historia de Usuario para la función 'Mi Lista' de una app tipo Netflix usando la fórmula estándar 'Como [rol], quiero [acción], para [beneficio]', y (b) escribir al menos dos Criterios de Aceptación que sirvan como checklist para verificar que la función está terminada.
+  Instrucciones de puntuación: Parte (a) vale 10 puntos: historia con los 3 elementos de la fórmula (rol, acción, beneficio) y coherente con el contexto Netflix/Mi Lista. Si falta uno de los 3 elementos → techo 5. Parte (b) vale 10 puntos: al menos 2 criterios de aceptación verificables y pertinentes. Si solo escribe 1 criterio → techo 5. Si los criterios son vagos o no verificables → techo 5.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Historia de Usuario con la fórmula estándar completa.
+    * La historia sigue el formato 'Como [rol], quiero [acción], para [beneficio]' (o equivalente claro con los tres componentes)
+    * El rol, la acción y el beneficio son coherentes con el contexto de una app tipo Netflix y la función de guardar películas en 'Mi Lista'
+  - Al menos dos Criterios de Aceptación verificables.
+    * Presenta al menos dos criterios de aceptación
+    * Los criterios son verificables (se puede determinar si se cumplen o no, no son vagos)
+    * Los criterios son pertinentes a la función de 'Mi Lista' descrita en la historia de usuario
+
+
+## PENALIZACIONES
+
+Estas penalizaciones se aplican SOBRE el puntaje obtenido en los criterios. Evalúa si alguna aplica al código entregado.
+Ninguna definida.
+
+## CONDICIONES DE DESAPROBACIÓN
+
+IMPORTANTE: Estas condiciones establecen un TECHO (nota máxima) para la calificación. Si CUALQUIERA de ellas se cumple, la nota final NO PUEDE SUPERAR el máximo indicado. La nota final será el MÍNIMO entre la suma de criterios y la nota máxima de la condición. Evalúa cada condición cuidadosamente.
+- ID: CD1
+  Condición: El documento PDF contiene imágenes o capturas de pantalla en lugar de texto plano, violando la instrucción explícita de entrega.
+  Nota máxima permitida: 0
+
+
+
+## CÓDIGO DEL ALUMNO
+
+```
+**1. Waterfall vs mentalidad ágil**
+
+El modelo en Cascada organiza el desarrollo en fases secuenciales bien definidas (requisitos, diseño, implementación, testing, despliegue), donde cada fase debe estar completamente terminada y aprobada antes de pasar a la siguiente. El problema grave de cambiar requisitos a mitad del desarrollo en este modelo es que, como las fases están encadenadas, cualquier modificación obliga a retroceder a la fase de requisitos y volver a atravesar diseño, implementación y testing desde esa altura. Esto implica retrabajo masivo: documentación que se tiró, código ya escrito que hay que reescribir, casos de prueba que pierden validez. Además, los contratos y el plan inicial suelen estar "firmados" con el cliente al comienzo, por lo que un cambio tardío dispara renegociaciones de alcance, presupuesto y cronograma —el famoso "costo del cambio" crece exponencialmente cuanto más avanzado está el proyecto.
+
+La mentalidad ágil encara el problema de raíz: en lugar de asumir que los requisitos son fijos, acepta que el cambio es inevitable y lo abraza. Trabaja en iteraciones cortas (sprints de 2 a 4 semanas) donde al final de cada ciclo se entrega un incremento funcional del producto y se recolecta feedback del cliente. Esto permite que los cambios de requisitos se incorporen naturalmente en la iteración siguiente —no hay que "volver atrás" porque nunca se avanzó meses en una dirección equivocada. El feedback continuo es el mecanismo clave: el cliente ve avances reales, ajusta prioridades sobre la marcha y el equipo pivotea sin arrastrar semanas de trabajo desperdiciado. Así, lo que en Cascada es una crisis de retrabajo, en ágil es simplemente un ítem más en el backlog para el próximo sprint.
+
+---
+
+**2. Roles de Scrum**
+
+El rol que resuelve el problema de no saber qué tareas priorizar para el negocio es el **Product Owner** (PO). El PO es la persona responsable de maximizar el valor del producto y gestionar el Product Backlog, que es la lista ordenada de todo lo que podría hacerse. Es quien define *qué* se construye y en *qué orden*, basándose en las necesidades del negocio, el feedback de los stakeholders y el retorno de inversión esperado. Al ser una única persona con autoridad para priorizar, el equipo no entra en la parálisis de "no sabemos qué es más importante" —el PO ya ordenó el backlog por valor y eso baja directamente al sprint planning.
+
+El rol que resuelve el problema de las interrupciones de gerentes externos es el **Scrum Master**. El Scrum Master actúa como un escudo para el equipo: su responsabilidad es asegurarse de que Scrum se entienda y se aplique correctamente, y eso incluye eliminar impedimentos. Cuando un gerente externo interrumpe al equipo con pedidos fuera de ciclo, el Scrum Master filtra esa interrupción —le explica al gerente que los pedidos deben canalizarse a través del Product Owner para ingresar al backlog, no salteando al equipo a mitad del sprint. Al mismo tiempo, facilita las ceremonias y enseña a la organización a respetar los límites del equipo, para que los desarrolladores puedan concentrarse en el objetivo del sprint sin distracciones externas.
+
+---
+
+**3. Kanban y WIP Limit**
+
+El desperdicio Lean que se comete al asignarle 5 tareas simultáneas a cada programador es la **multitarea y el cambio de contexto** (context switching). Cuando un desarrollador tiene 5 tareas abiertas a la vez, no puede concentrarse de lleno en ninguna: cada vez que salta de una a otra pierde tiempo "cargando" mentalmente el contexto de esa tarea, recordando dónde estaba, qué dependencias tenía y qué faltaba. Ese cambio de contexto genera trabajo parcialmente hecho —todas las tareas están "a medio hacer" pero ninguna está realmente terminada y lista para entregar. Es un desperdicio porque ese tiempo de switching no agrega valor y encima ninguna tarea cruza la línea de "done".
+
+El **WIP Limit** (límite de trabajo en curso) de Kanban ataca directamente este problema: establece un número máximo de tareas que pueden estar simultáneamente en cada columna del tablero. Si el límite es 2, un programador no puede agarrar una tercera tarea hasta que no termine alguna de las que ya tiene en progreso. Esto lo obliga a llevar las tareas hasta el final antes de empezar nuevas —es el famoso principio de "stop starting, start finishing". Al eliminar la multitarea, el foco mejora drásticamente, se reduce el cambio de contexto y el throughput (cantidad de trabajo terminado por unidad de tiempo) aumenta. Aunque parezca contradictorio, hacer menos cosas en paralelo acelera la velocidad real del equipo, porque las tareas no se estancan semanas en un limbo de "80% hechas" y empiezan a fluir completas hacia el cliente.
+
+---
+
+**4. Pair Programming**
+
+La verdad es que coincido bastante con la crítica de que la programación en pareja es perder el tiempo de un empleado. Tener dos personas mirando la misma pantalla escribiendo el mismo código me parece ineficiente. Podrían estar cada uno programando su propia funcionalidad y avanzarían el doble. Entiendo que algunas empresas lo hacen, pero yo creo que depende mucho del equipo y en la mayoría de los casos no se justifica el costo de tener dos sueldos produciendo la mitad del código. Si el código queda bien lo puede revisar uno solo después en una code review y listo.
+
+---
+
+**5. Historia de Usuario y Criterios de Aceptación**
+
+**Historia de Usuario:**
+
+> Como usuario de la plataforma, quiero poder guardar películas y series en una sección personal llamada "Mi Lista", para retomar más tarde los contenidos que me interesan sin tener que volver a buscarlos.
+
+**Criterios de Aceptación:**
+
+- Dado un usuario autenticado que está viendo la ficha de una película o serie, cuando presiona el botón "Agregar a Mi Lista", el contenido aparece inmediatamente en la sección "Mi Lista" del menú principal y el botón cambia su estado a "En Mi Lista".
+- Dado un usuario autenticado que tiene contenidos guardados en "Mi Lista", al ingresar a dicha sección puede verlos ordenados por fecha de agregado (más reciente primero), eliminar cualquiera de ellos con un botón de "Quitar", y al hacerlo el contenido desaparece de la lista sin afectar las recomendaciones generales de la plataforma.
+```
+
+## INSTRUCCIONES DE EVALUACIÓN
+
+1. Primero, evalúa cada criterio de la rúbrica normalmente (puntaje y feedback), verificando las evidencias esperadas de cada criterio contra el código.
+2. Luego, verifica si alguna CONDICIÓN DE DESAPROBACIÓN se cumple:
+   - CD1: El documento PDF contiene imágenes o capturas de pantalla en lugar de texto plano, violando la instrucción explícita de entrega. → Si se cumple, nota máxima = 0
+3. Luego, verifica si alguna PENALIZACIÓN aplica:
+   Ninguna.
+4. Calcula la nota final:
+   - Calcula nota_antes_penalizaciones = suma de puntajes de los criterios.
+   - Si aplica alguna condición de desaprobación → nota = min(nota_antes_penalizaciones, nota_maxima_de_la_condicion). Es decir, la nota no puede superar el techo.
+   - Si aplica alguna penalización → aplica el descuento porcentual sobre nota_antes_penalizaciones.
+   - Si no aplica nada → nota = nota_antes_penalizaciones.
+
+Para cada criterio:
+1. DEBES incluir el ID exacto del criterio de la rúbrica
+2. Asigna un puntaje entre 0 y el peso del criterio
+3. Determina el estado:
+   - "OK" si logra ≥80% del peso del criterio
+   - "WARNING" si logra 40-79% del peso
+   - "ERROR" si logra <40% del peso
+4. Proporciona feedback específico y constructivo, citando las evidencias cumplidas o faltantes
+
+Además:
+- Lista 2-4 fortalezas del código (array de strings)
+- Lista 2-4 recomendaciones de mejora específicas (array de strings)
+- Escribe un comentario general de 2-3 oraciones
+
+## FORMATO DE RESPUESTA OBLIGATORIO
+
+Responde ÚNICAMENTE con un JSON válido con esta estructura exacta:
+
+{
+  "nota": <número entre 0 y 100>,
+  "condicion_desaprobacion_aplicada": <null si no aplica, o el ID de la condición que aplica (ej: "CD1")>,
+  "penalizaciones_aplicadas": [<array de IDs de penalizaciones aplicadas, vacío si ninguna>],
+  "nota_antes_penalizaciones": <número: suma de criterios antes de aplicar condiciones o penalizaciones>,
+  "criterios": [
+    {
+      "id": "<ID exacto del criterio de la rúbrica>",
+      "nombre": "<nombre exacto del criterio de la rúbrica>",
+      "puntaje_obtenido": <número>,
+      "puntaje_maximo": <número igual al peso del criterio>,
+      "estado": "<OK|WARNING|ERROR>",
+      "feedback": "<feedback específico>"
+    }
+  ],
+  "fortalezas": ["<fortaleza 1>", "<fortaleza 2>"],
+  "recomendaciones": ["<recomendación 1>", "<recomendación 2>"],
+  "comentario_general": "<comentario de 2-3 oraciones>"
+}
+
+IMPORTANTE:
+- CADA criterio debe tener su ID exacto de la rúbrica
+- Si aplica una condición de desaprobación, "nota" debe ser min(suma_criterios, nota_maxima_de_la_condicion), pero IGUAL debes evaluar todos los criterios con su puntaje real.
+- Si aplica una penalización, "nota" debe reflejar el descuento aplicado sobre "nota_antes_penalizaciones".
+- Si no aplica ni condición ni penalización, "nota" = "nota_antes_penalizaciones" = suma de puntajes.
+- Cada criterio de la rúbrica debe aparecer en la respuesta
+- NO incluyas texto antes o después del JSON

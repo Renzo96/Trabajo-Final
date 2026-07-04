@@ -1,0 +1,105 @@
+Voy a verificar la estructura exacta del JSON que exporta n8n (nodo Webhook y nodo Set/Edit Fields) para que el archivo sea técnicamente correcto y creíble.Voy a generar un log de Git real (no inventado) para que el formato sea 100% auténtico. Creo un repo temporal, hago los commits con los archivos reales del entregable, y capturo el output real de `git log --oneline --stat`.Ahora creo el archivo JSON real del flujo n8n (con el fallo de diseño ya incorporado: campo estático en vez de expresión dinámica) y lo commiteo.Verifico que el JSON generado sea sintácticamente válido antes de armar la entrega final.Verifico el formato exacto (incluyendo saltos de línea en blanco entre commits) redirigiendo la salida a un archivo real, tal como lo haría el alumno.Todo verificado: JSON válido, log de Git real y capturado directamente del binario de git. Limpio el directorio temporal.Entrega generada (carpeta raíz del .zip: `tp-integrador-fernandez-lucas/`):
+
+---
+
+**Archivo: `tp-integrador-fernandez-lucas/flujo-bienvenida-usuarios.json`**
+
+```json
+{
+  "name": "TPI - Bienvenida de usuarios",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "bienvenida-usuario",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        240,
+        300
+      ],
+      "id": "8f2a1c4e-9b3d-4a1f-8e2c-1a2b3c4d5e6f",
+      "name": "Webhook",
+      "webhookId": "b6e4d2a1-3f5c-4e7b-9a1d-2c3e4f5a6b7c"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+              "name": "nombre_recibido",
+              "value": "={{ $json.body.nombre }}",
+              "type": "string"
+            },
+            {
+              "id": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+              "name": "email_recibido",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+              "name": "mensaje_bienvenida",
+              "value": "Hola! Gracias por registrarte, ya sos parte de la plataforma.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        460,
+        300
+      ],
+      "id": "3d7f9a2b-5c1e-4b8d-9f3a-6e7c8d9a0b1c",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
+  "meta": {
+    "instanceId": "7e1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a"
+  },
+  "id": "kR8mN2pQ7vX1sT9L",
+  "tags": []
+}
+```
+
+---
+
+**Archivo: `tp-integrador-fernandez-lucas/git-log.txt`**
+
+```
+8e3ee10 Agrego flujo de n8n para bienvenida de usuarios
+ flujo-bienvenida-usuarios.json | 81 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 81 insertions(+)
+420f9ee Agrego respuestas de negocio y live coding
+ respuestas-parte1-fernandez-lucas.pdf | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+3722168 Inicializo repositorio del TPI
+ README.md | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+```

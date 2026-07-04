@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "rubrica-builder": {
+      "source": "JuanCruzRobledo/rubrica-builder",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "45737a7cef3e144e4947046c60838e79462cd092d46e6fc28342077637706f92"
+    }
+  }
+}

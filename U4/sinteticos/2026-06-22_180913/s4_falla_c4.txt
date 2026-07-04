@@ -1,0 +1,55 @@
+# TP4 — El Ecosistema Startup y el Modelo Lean
+
+---
+
+**1.**
+
+Una aplicación tipo Uber para panaderos caseros es una Startup, mientras que una panadería de barrio tradicional es una PyME, y la diferencia está en dos conceptos: escalabilidad e incertidumbre.
+
+La escalabilidad tiene que ver con la capacidad de crecer. La app puede escalar exponencialmente porque está basada en tecnología y distribución digital: puede sumar miles de clientes y panaderos en toda la ciudad sin que los costos aumenten en la misma proporción. Agregar un panadero más a la plataforma o que un cliente nuevo pida un pedido no implica abrir un local nuevo ni contratar más personal de forma directa. En cambio, la panadería de barrio tiene un crecimiento lineal. Está atada a su capacidad física —el tamaño del local, los hornos—, a su ubicación geográfica —solo le compra gente del barrio— y a la cantidad de empleados que puede pagar. Si quiere vender el doble, necesita producir el doble con los mismos recursos o ampliarse.
+
+En cuanto a la incertidumbre, la app opera bajo una incertidumbre extrema. Cuando arranca, nadie sabe si va a haber suficiente demanda, si los panaderos caseros van a querer sumarse, si los clientes van a estar dispuestos a pagar por ese servicio o si el modelo de negocio es viable. Son todas hipótesis sin validar. La panadería de barrio, en cambio, trabaja con mucha más certeza: su modelo de negocio —vender pan y productos de panadería— es algo que ya está probado hace siglos, se sabe que la gente compra pan todos los días, y el mercado es conocido.
+
+---
+
+**2.**
+
+Lo que les pasó a esos programadores que estuvieron dos años desarrollando una red social para dueños de mascotas y después nadie la descargó es justamente lo que la metodología Lean Startup busca evitar. El error fue que se enamoraron de su idea y construyeron el producto entero sin haber validado antes si a alguien realmente le interesaba.
+
+La metodología Lean Startup se basa en el ciclo Construir-Medir-Aprender. La idea es no pasar años desarrollando algo a ciegas, sino construir algo chico y rápido (un experimento), medir cómo reaccionan los usuarios reales, y aprender de esos datos para decidir si seguir apostando por esa dirección o pivotar hacia otra. En lugar de asumir que la gente quiere lo que estamos construyendo, lo validamos con evidencia.
+
+Dentro de ese enfoque, una herramienta clave es el MVP tipo Smoke Test, o prueba de humo. Consiste en crear una landing page —una página de aterrizaje— que presente el producto como si ya existiera, pero sin haberlo construido realmente. La página tiene un llamado a la acción: un botón de "registrate", "dejanos tu email" o "pre-ordená", y lo que se mide es cuánta gente hace clic. Si cientos de personas se registran, hay interés real. Si no se anota nadie, quiere decir que el producto no le importa a la gente y nos ahorramos años de desarrollo.
+
+Aplicado al caso concreto, los programadores podrían haber creado una landing page de su red social de mascotas, poner un formulario de registro con fotos de perros y gatos, y publicitarla un poco en redes. Si veían que cientos de dueños de mascotas se registraban para recibir novedades, tenían una señal para seguir. Si después de un mes no se había anotado casi nadie, se ahorraban dos años de vida y un montón de plata.
+
+---
+
+**3.**
+
+Preguntar "¿usarían una app para compartir resúmenes?" genera respuestas que no sirven para tomar decisiones reales, y esto se explica con lo que plantea el Test de la Madre. El problema de fondo es que las personas, sobre todo si son amigos, familiares o conocidos, tienden a dar respuestas amables o positivas por cortesía. Es el sesgo de confirmación o sesgo social: no te quieren decir que tu idea es mala, entonces te dicen "sí, re buena idea, yo la usaría". Pero después, cuando el producto existe, no lo usa nadie.
+
+Además, este tipo de preguntas les pide a las personas que predigan su comportamiento futuro, y la gente es muy mala prediciendo lo que va a hacer. Que alguien diga "sí, la usaría" no es un hecho, es una opinión. No hay evidencia de comportamiento real de compra o uso.
+
+En lugar de eso, hay que hacer preguntas que indaguen sobre hechos concretos del pasado. Por ejemplo: "¿Cómo hacés hoy para conseguir los resúmenes que usás para estudiar?". O también: "¿Cuánto tiempo perdiste la última vez que tuviste que buscar apuntes para un parcial?" o "¿Alguna vez pagaste por material de estudio?".
+
+Estas preguntas se enfocan en acciones reales y comportamiento pasado, no en intenciones futuras ni en opiniones sobre una idea. Si el entrevistado te cuenta que nunca en su vida pagó por un resumen y que siempre se los pasa un amigo, tenés información accionable. Si en cambio te dice que ya pagó tres veces este cuatrimestre por apuntes de materias difíciles, también.
+
+---
+
+**4.**
+
+Mirando los números que nos dan, la app cobra $1.000 por mes y cada usuario se queda en promedio dos meses, así que deja $2.000 de ingreso por cliente. El CAC de $5.000 es lo que cuesta conseguir cada usuario nuevo.
+
+Yo creo que el problema no es tan grave como parece a simple vista. Si la empresa logra mantener a los usuarios más tiempo —ponele, seis meses o un año— el ingreso por cliente pasa a ser mucho mayor y ahí sí supera el costo de adquisición. El tema es de timing: al principio se pierde plata porque el costo de adquirir es alto, pero si el producto es bueno y la gente se queda, a la larga se recupera. Lo mismo pasa con empresas como Netflix o Spotify, que al principio gastan un montón en publicidad para sumar suscriptores y después lo compensan con los meses de suscripción.
+
+También puede ser que el CAC de $5.000 esté inflado porque están gastando en canales de marketing poco eficientes. Capaz optimizando las campañas pueden bajarlo a $1.500 o $2.000, y ahí el margen ya sería positivo incluso con dos meses de permanencia.
+
+En resumen, no diría que el modelo está destinado a quebrar, sino que está en una etapa temprana donde los costos son altos pero hay formas de dar vuelta la ecuación si logran que los usuarios se queden más o si reducen lo que gastan trayéndolos.
+
+---
+
+**5.**
+
+El modelo que elijo es Freemium. Este modelo consiste en ofrecer una versión gratuita del producto con funcionalidades básicas, y una o más versiones pagas que desbloquean funciones más avanzadas o eliminan limitaciones. La idea es que la versión gratis sirva como vidriera: atraés un montón de usuarios sin fricción, y un porcentaje chico de ellos eventualmente se convierte en cliente pago porque necesita lo que está detrás del paywall. Es muy común en aplicaciones como Spotify (gratis con anuncios vs. premium sin anuncios y con descargas) o Evernote.
+
+Un desafío técnico específico que tendría que resolver para implementar Freemium es el feature flagging y la correcta separación de funcionalidades gratis y premium a nivel de arquitectura. No alcanza con un `if` en el frontend que oculte un botón, porque un usuario técnico podría modificarlo del lado del cliente y acceder igual. La solución tiene que venir del backend: cada feature premium tiene que estar respaldada por un sistema de permisos que, en cada request, verifique contra una base de datos o un servicio de autorización si ese usuario tiene el plan que corresponde. Además hay que manejar bien las transiciones: cuando un usuario pasa de gratis a premium, las nuevas funcionalidades deben activarse inmediatamente, y cuando vuelve a gratis, hay que decidir qué pasa con los datos que generó usando features premium —si se ocultan, si se bloquean, si se borran—.

@@ -1,0 +1,113 @@
+Estructura del `.zip` entregado:
+
+```
+tp-integrador-diaz-nicolas/
+├── respuestas-parte1-diaz-nicolas.pdf
+├── automatizacion-bienvenida.json
+└── git-log.txt
+```
+
+---
+
+**Archivo: `tp-integrador-diaz-nicolas/automatizacion-bienvenida.json`**
+
+```json
+{
+  "name": "TPI Parte 2 - Bienvenida de Usuarios",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "bienvenida",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b7a1c2d3-4e5f-4a6b-8c9d-1e2f3a4b5c6d",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [260, 300],
+      "webhookId": "9f8e7d6c-5b4a-4f3e-8d2c-1a0b9c8d7e6f"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2a3b4c5d-6e7f-4a8b-9c0d-1e2f3a4b5c6d",
+              "name": "mensaje_bienvenida",
+              "value": "={{ 'Hola ' + $json.query.nombre + '! Gracias por registrarte. Te vamos a contactar a ' + $json.query.email + ' con las novedades.' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f6a7b8c-9d0e-4f1a-8b2c-3d4e5f6a7b8c",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"mensaje\": $json.mensaje_bienvenida } }}",
+        "options": {}
+      },
+      "id": "8c9d0e1f-2a3b-4c4d-8e5f-6a7b8c9d0e1f",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [700, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e"
+  }
+}
+```
+
+---
+
+**Archivo: `tp-integrador-diaz-nicolas/git-log.txt`**
+
+```
+PS C:\Users\Nicolas\Desktop\tp-integrador-diaz-nicolas> git log --oneline --stat
+
+a3f9c21 (HEAD -> main) Subo todo el TP
+ README.md                          |  3 +++
+ automatizacion-bienvenida.json     | 84 +++++++++++++++++++++++++++++++++++++
+ respuestas-parte1-diaz-nicolas.pdf | Bin 0 -> 212048 bytes
+ 3 files changed, 87 insertions(+)
+```
