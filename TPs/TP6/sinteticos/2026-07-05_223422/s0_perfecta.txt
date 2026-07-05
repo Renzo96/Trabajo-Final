@@ -1,0 +1,137 @@
+Estructura del `.zip` entregado:
+
+```
+tp6-n8n-vargas-sofia/
+├── respuestas-tp6-n8n.pdf
+└── tp-n8n-vargas-sofia.json
+```
+
+---
+
+**Archivo: `respuestas-tp6-n8n.pdf`** (solo texto plano, sin imágenes)
+
+## Parte 1: Evaluación Teórica
+
+**1. El paradigma Low-Code**
+
+Aunque el equipo ya sepa programar en Python o Java, el valor comercial real
+de n8n no es reemplazar esas habilidades sino acelerar drásticamente las
+integraciones rutinarias entre sistemas (mandar un mail, actualizar una
+planilla, notificar por Telegram) que de otra forma habría que programar,
+mantener y desplegar a mano cada vez. Eso reduce el tiempo de desarrollo de
+cada automatización de días a horas, baja el costo de mantenimiento porque
+los conectores ya vienen probados por la comunidad, y además permite que
+perfiles no técnicos del equipo (marketing, operaciones) puedan armar o
+ajustar flujos simples sin depender siempre de un desarrollador.
+
+**2. Iniciando el flujo: Triggers vs Acciones**
+
+Un Nodo Trigger es el que dispara o inicia el flujo: define el "cuándo"
+arranca la automatización. Un Nodo de Acción, en cambio, es el que ejecuta
+una tarea concreta como respuesta a ese disparo: manda un mensaje, guarda un
+dato, llama a una API. Usaría un Schedule Trigger para algo que tiene que
+pasar en un horario fijo sin que nadie lo dispare manualmente, como mandar un
+reporte de ventas todos los lunes a la mañana. Usaría un Webhook, en cambio,
+para reaccionar a un evento externo impredecible, como recibir una
+notificación apenas alguien completa un formulario en la web.
+
+**3. Gestión de secretos**
+
+Escribir la contraseña directamente en el nodo la deja visible para
+cualquiera que tenga acceso al workflow o que reciba una copia exportada en
+`.json` del mismo, lo cual es un riesgo enorme en un entorno de equipo. Usar
+Credenciales centralizadas evita esa exposición directa, permite rotar o
+revocar una clave sin tener que entrar a editar cada nodo que la usa, y deja
+que varias personas del equipo reutilicen la misma automatización sin que
+nadie tenga que conocer la contraseña real.
+
+**4. El nodo vital: Edit Fields (Set)**
+
+El nodo Edit Fields permite crear, renombrar o filtrar campos específicos del
+dato (JSON) que viaja entre un nodo y el siguiente. Cuando los datos llegan
+desordenados desde una plataforma —con nombres de campo raros o información
+de más que no se necesita— este nodo los reestructura y limpia para que el
+siguiente nodo del flujo reciba exactamente los campos que espera, con el
+nombre y formato correctos.
+
+---
+
+**Archivo: `tp-n8n-vargas-sofia.json`**
+
+```json
+{
+  "name": "Asistente de Productividad Académica",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [1],
+              "triggerAtHour": 8,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "a1b2c3d4-1111-4a5b-9c8d-000000000001",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b2c3d4e5-2222-4a5b-9c8d-000000000002",
+              "name": "mensaje_recordatorio",
+              "value": "¡Buenos días! No olvides revisar las entregas de la semana en el campus y actualizar tus planillas.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c3d4e5f6-3333-4a5b-9c8d-000000000003",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "123456789",
+        "text": "={{ $json.mensaje_recordatorio }}",
+        "additionalFields": {}
+      },
+      "id": "d4e5f6a7-4444-4a5b-9c8d-000000000004",
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [700, 300]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [[{ "node": "Edit Fields", "type": "main", "index": 0 }]]
+    },
+    "Edit Fields": {
+      "main": [[{ "node": "Telegram", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b"
+  }
+}
+```
+
+Nota: el nodo Telegram no llegó a ejecutarse con credenciales reales (tal
+como aclara la consigna que no es obligatorio), pero el mapeo de la
+expresión `{{ $json.mensaje_recordatorio }}` está correctamente configurado.

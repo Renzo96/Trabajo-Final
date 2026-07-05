@@ -1,0 +1,28 @@
+[
+  {
+    "sid": "s0",
+    "testea": "rúbrica completa",
+    "esperado": "100",
+    "nota": 100,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s1",
+    "testea": "C4 discrimina (18 pts) - solo define Boilerplate, sin Snippets",
+    "esperado": "91",
+    "nota": 91,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s2",
+    "testea": "CD1 discrimina - entrega en .rar en vez de .zip",
+    "esperado": "0 (techo)",
+    "nota": 0,
+    "meta": "✅",
+    "warns": [
+      "El contenido teórico interno era correcto y completo; la nota 0 se debe exclusivamente al formato de archivo, tal como exige CD1."
+    ]
+  }
+]

@@ -1,0 +1,101 @@
+Estructura del `.zip` entregado:
+
+```
+tp1-git-fernandez-lucas/
+├── respuestas-tp1-git.pdf
+└── .git/
+    ├── HEAD
+    ├── config
+    ├── objects/
+    ├── refs/
+    │   └── heads/
+    │       ├── main
+    │       └── desarrollo-funcionalidad
+    ├── README.md
+    ├── .gitignore
+    ├── app.py
+    └── config-secreta.env   (presente en el disco, NO rastreado por git)
+```
+
+---
+
+**Archivo: `respuestas-tp1-git.pdf`** (solo texto, sin imágenes)
+
+## Parte 1: Evaluación Teórica
+
+**1. ¿Por qué es peligroso gestionar versiones con carpetas manuales?**
+
+Cuando uno guarda copias como "proyecto_final", "proyecto_final_v2" y "proyecto_definitivo", en algún momento se pierde el rastro de cuál es realmente la versión vigente y qué cambió entre una y otra. Si dos personas trabajan sobre copias distintas al mismo tiempo, no hay forma automática de fusionar sus cambios ni de saber quién modificó qué línea y cuándo. Además, si se borra o se corrompe una carpeta por accidente, no queda ningún historial para recuperar el trabajo perdido: se pierde por completo, a diferencia de un repositorio Git donde cada commit queda guardado de forma permanente.
+
+**2. ¿Qué significa que un archivo esté "Preparado" (Staged)?**
+
+Que un archivo esté Staged significa que ya fue marcado con `git add` para ser incluido en el próximo commit, pero ese commit todavía no se hizo. Es como cuando uno está armando una caja para mudarse: primero elige qué objetos van adentro (eso es el "add", el Staging Area), y recién cuando cierra la caja con cinta (el "commit") esos objetos quedan guardados de forma definitiva en esa versión. Mientras el archivo está solo "Modificado" no está ni siquiera elegido para la caja; una vez que se hace `git add` pasa a Staged, listo para el siguiente commit.
+
+**3. ¿Para qué sirve `.gitignore`?**
+
+El archivo `.gitignore` le dice a Git qué archivos o carpetas debe ignorar y nunca rastrear ni subir al repositorio. Un ejemplo claro de algo que nunca debería subirse a internet es un archivo `.env` con contraseñas o claves de API (por ejemplo `config-secreta.env`), porque si ese archivo queda versionado y el repositorio se sube a un servicio como GitHub, cualquiera con acceso al repo podría ver esas credenciales.
+
+**4. ¿Cómo ayudan las "Ramas" (Branches)?**
+
+Las ramas permiten crear una copia paralela y aislada del código para probar una idea nueva sin tocar la rama `main`, que sigue funcionando intacta mientras tanto. Si la idea nueva funciona bien, se puede integrar a `main` con un merge cuando uno decida que está lista; si no funciona, simplemente se descarta la rama sin haber puesto en riesgo el código principal en ningún momento.
+
+---
+
+**Archivo: `.git/config`**
+
+```ini
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+[user]
+	name = Lucas Fernández
+	email = lucas.fernandez@alumnos.utn.edu.ar
+```
+
+**Archivo: `README.md` (en `main`, antes del merge)**
+
+```markdown
+# TP1 - Primeros Pasos con Git
+
+Repositorio de práctica para el Trabajo Práctico N°1 de Organización Empresarial.
+```
+
+**Archivo: `.gitignore`**
+
+```
+config-secreta.env
+*.env
+__pycache__/
+```
+
+**Archivo: `git-log.txt`** (`git log --oneline --graph --all`)
+
+```
+*   4e7a1c2 (HEAD -> main) Merge branch 'desarrollo-funcionalidad'
+|\
+| * 9b3f2d1 (desarrollo-funcionalidad) Agrego app.py y sección de instrucciones de uso
+|/
+* 1a8c6f0 Agrego README inicial y gitignore con exclusión de .env
+```
+
+**Archivo: `app.py`** (agregado en la rama `desarrollo-funcionalidad`)
+
+```python
+# Punto de entrada de la aplicación de práctica del TP1
+print("Hola, este es el primer commit en la rama desarrollo-funcionalidad")
+```
+
+**Archivo: `README.md`** (en `main`, después del merge)
+
+```markdown
+# TP1 - Primeros Pasos con Git
+
+Repositorio de práctica para el Trabajo Práctico N°1 de Organización Empresarial.
+
+## Instrucciones de uso
+
+Ejecutar `python app.py` desde la raíz del proyecto.
+```
+
+Nota: `config-secreta.env` existe en el disco del alumno pero nunca aparece en ningún commit del historial — quedó correctamente ignorado desde el primer commit.

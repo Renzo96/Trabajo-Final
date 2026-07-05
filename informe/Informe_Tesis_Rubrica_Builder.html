@@ -482,6 +482,48 @@ pantalla, diagramas en imagen o links externos. Cuando la consigna original
 requería representar un esquema, se optó por describirlo en texto o, en materias con
 contenido técnico afín, expresarlo en formatos de texto estructurado (por ejemplo,
 notación Mermaid o XML) en lugar de una imagen.</p>
+
+<h2 id="s4-1">4.1. Caso de estudio: estandarizar la tecnología antes de armar la rúbrica (evaluación de control de versiones con Git)</h2>
+<p>El paso de normalización no se agota en el formato del archivo de entrega: también
+implica decidir, <b>antes</b> de escribir un solo criterio, qué tecnología concreta va
+a usar toda la cursada para resolver una consigna, de manera que exista un único
+formato de evidencia posible para auditar. El siguiente caso, documentado en video
+(ver Fuentes, §12), ilustra este razonamiento aplicado a un TP cuyo objetivo es
+evaluar el uso de control de versiones.</p>
+<p>El punto de partida es que el TP ideal para un corrector automático es aquel que
+se resuelve enteramente con un PDF de preguntas y respuestas: es el formato más
+fácil de auditar, porque el corrector solo necesita leer texto. Pero no todos los
+temas de la cursada se prestan a ese formato. Un TP sobre control de versiones, por
+definición, no puede evaluarse solo con teoría: hay que verificar que el alumno
+efectivamente creó ramas, hizo commits, aplicó un merge. Ahí aparece la primera
+decisión de normalización: <b>unificar la tecnología</b>. Se optó por Git como
+sistema de control de versiones para toda la cursada, de modo que los alumnos
+entregaran evidencia comparable entre sí en lugar de un mosaico de herramientas
+distintas.</p>
+<p>La segunda decisión fue el formato de esa evidencia. La opción más intuitiva —pedir
+capturas de pantalla de la terminal mostrando cada comando ejecutado— se descartó
+deliberadamente: como ya se estableció en el diagnóstico de límites del corrector
+(§4), las imágenes quedan excluidas en los modos de código y, aunque no lo
+estuvieran, una IA no es un método confiable para verificar a partir de una captura
+que un commit, una rama o un merge realmente existen en el historial del
+repositorio. Una captura se puede editar, recortar o simular; un repositorio Git no
+miente.</p>
+<p>Consultando la documentación oficial de GitHub sobre la estructura interna de un
+repositorio, se identificó que la carpeta oculta <code>.git</code> —generada
+automáticamente por <code>git init</code>— contiene la totalidad de la información
+verificable de forma objetiva: el registro de commits, las referencias a las ramas
+(<code>refs/heads/</code>) y la configuración de identidad local. Es, en los hechos,
+el equivalente a un log de auditoría que no depende de lo que el alumno afirme haber
+hecho, sino de lo que el propio sistema de control de versiones registró.</p>
+<p>La consigna original del TP1 (que pedía un PDF de teoría más capturas de pantalla
+de la Parte 2) se modificó en consecuencia: la entrega pasó a ser un único
+<code>.zip</code> que contiene el PDF con la resolución de la parte teórica <b>y la
+carpeta <code>.git</code></b> del repositorio local, tal como se documenta en la
+consigna vigente del TP1 (§10) y se verifica en el criterio C1 de su rúbrica. Este
+caso resume el principio general de esta sección: antes de escribir un criterio hay
+que analizar qué es lo que realmente se necesita evaluar, reconocer las
+limitaciones concretas de la IA correctora, y recién entonces decidir qué
+tecnología y qué formato de entrega van a usar todos los alumnos por igual.</p>
 </div>
 
 <!-- ============ 5. CREAR ============ -->
@@ -628,6 +670,59 @@ de <b>criterio troncal</b>: al fallar, activa una condición de desaprobación o
 techo de puntuación severo definido en <code>instrucciones_puntuacion</code>, lo cual
 es el comportamiento deseado cuando ese requisito es central para el trabajo. Este
 tipo de desvíos es justamente lo que motiva el siguiente paso: el ajuste iterativo.</p>
+
+<h2>Resultados obtenidos (TP1 — Primeros pasos con Git)</h2>
+<table>
+<tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
+<tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>100</td><td>100</td><td>✅</td></tr>
+<tr><td>s1_falla_c2</td><td>C2 discrimina (10 pts) — pregunta teórica sin responder</td><td>90</td><td>90</td><td>✅</td></tr>
+<tr><td>s2_sin_git_cd2</td><td>CD2 discrimina — ausencia de la carpeta <code>.git</code></td><td>≤30 (techo)</td><td>30</td><td>✅</td></tr>
+</table>
+<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP1/sinteticos/2026-07-05_223422/</code>.</i></p>
+<p>El caso <code>s2_sin_git_cd2</code> confirma el diseño intencional descripto en
+§4.1: la carpeta <code>.git</code> es el artefacto que respalda toda la parte
+práctica (C6-C9). Sin ella, esos cuatro criterios no tienen evidencia verificable
+(quedan en 0) y, adicionalmente, la condición de desaprobación <code>CD2</code>
+impone un techo de 30 puntos aunque la parte teórica (C2-C5) esté perfecta. El
+subtotal bruto antes del techo fue 42/100, lo que evidencia una redundancia de
+diseño: la ausencia de <code>.git</code> ya se penaliza dentro de C1 (−8 puntos) y
+además dispara el techo global de CD2, que termina siendo el factor decisivo.</p>
+
+<h2>Resultados obtenidos (TP5 — Live Coding)</h2>
+<table>
+<tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
+<tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>100</td><td>100</td><td>✅</td></tr>
+<tr><td>s1_falla_c4</td><td>C4 discrimina (18 pts) — define Boilerplate sin mencionar Snippets</td><td>91</td><td>91</td><td>✅</td></tr>
+<tr><td>s2_zip_invalido_cd1</td><td>CD1 discrimina — entrega en <code>.rar</code> en vez de <code>.zip</code></td><td>0 (techo)</td><td>0</td><td>✅</td></tr>
+</table>
+<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP5/sinteticos/2026-07-05_223422/</code>.</i></p>
+<p>El caso <code>s2_zip_invalido_cd1</code> es el ejemplo más contundente de una
+condición de desaprobación: aunque el contenido teórico interno era correcto y
+completo en las cinco consignas, el sólo hecho de comprimir en <code>.rar</code> en
+vez de <code>.zip</code> —algo que la consigna prohíbe explícitamente— anula la nota
+por completo. Es la penalización más severa observada en todo el testeo, y la más
+evitable: un error de empaquetado, no de contenido.</p>
+
+<h2>Resultados obtenidos (TP6 — Automatización con n8n)</h2>
+<table>
+<tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
+<tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>100</td><td>100</td><td>✅</td></tr>
+<tr><td>s1_falla_c7</td><td>C7 discrimina (15 pts) — nombre de campo incorrecto en Edit Fields</td><td>~95 (solo C7)</td><td>91</td><td>✅</td></tr>
+<tr><td>s2_sin_json_cd2</td><td>CD2 discrimina — ausencia del <code>.json</code> exportado de n8n</td><td>≤30 (techo)</td><td>30</td><td>✅</td></tr>
+</table>
+<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP6/sinteticos/2026-07-05_223422/</code>.</i></p>
+<p>El caso <code>s1_falla_c7</code> arrojó un hallazgo no anticipado: el nombre de
+campo incorrecto en el nodo Edit Fields (criterio C7) se propagó también al nodo de
+mensajería (criterio C8), porque su expresión referencia ese mismo campo. La nota
+obtenida (91) fue más baja que la esperada si solo se penalizara C7 de forma
+aislada (~95), lo cual demuestra que la rúbrica evalúa correctamente la
+<b>coherencia entre nodos del workflow</b> y no cada nodo de manera independiente —
+un comportamiento deseable, ya que en un flujo real ese error haría que la
+automatización fallara en producción. El caso <code>s2_sin_json_cd2</code> replica,
+en el contexto de n8n, el mismo patrón de doble penalización observado en TP1: la
+falta del archivo <code>.json</code> exportado descuenta puntos dentro de C1 y
+además dispara el techo de <code>CD2</code>, que termina siendo el factor
+decisivo.</p>
 </div>
 
 <!-- ============ 9. AJUSTE ITERATIVO ============ -->
@@ -737,8 +832,11 @@ adicionales necesitaría el modo CURAR para esos casos.</p>
   <li>Video propio: <i>"¿Qué es una rúbrica?"</i> — disponible en:
   <a href="https://drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU">drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU</a>.</li>
   <li>Video propio: <i>"Normalización de la entrega para crear una rúbrica coherente
-  y minimizar fallos"</i> (pendiente de subir; se referenciará en el mismo
-  repositorio de Drive una vez publicado).</li>
+  y minimizar fallos"</i> — disponible en:
+  <a href="https://youtu.be/qOXTPzVbJ-s">https://youtu.be/qOXTPzVbJ-s</a>. Desarrolla
+  el caso de estudio documentado en la sección 4.1: la decisión de estandarizar Git
+  como tecnología de control de versiones y de reemplazar las capturas de pantalla
+  por la carpeta <code>.git</code> como evidencia auditable.</li>
   <li>Material propio generado durante la cursada de Organización Empresarial:
   rúbricas de las Unidades 1 a 6 y del TPI, junto con sus entregas sintéticas de
   testeo y resultados de corrección, utilizados como caso de estudio aplicado a lo

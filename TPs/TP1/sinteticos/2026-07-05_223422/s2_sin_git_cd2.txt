@@ -1,0 +1,55 @@
+Estructura del `.zip` entregado:
+
+```
+tp1-git-suarez-camila/
+└── respuestas-tp1-git.pdf
+```
+
+Nota: el alumno solo comprimió el PDF de respuestas. No incluyó la carpeta `.git`
+del repositorio local en el `.zip`, a pesar de que la consigna lo exige
+explícitamente ("Dentro del .zip debes incluir la carpeta oculta .git generada
+durante la Parte 2. Esta carpeta es esencial para auditar tu historial de
+comandos, commits y ramas").
+
+---
+
+**Archivo: `respuestas-tp1-git.pdf`** (solo texto, sin imágenes)
+
+## Parte 1: Evaluación Teórica
+
+**1. ¿Por qué es peligroso gestionar versiones con carpetas manuales?**
+
+Con carpetas manuales tipo "proyecto_final_v2" se pierde el historial real de
+cambios: no queda registro de qué se modificó entre una copia y otra, ni de
+quién lo hizo ni cuándo. Además, si alguien borra la carpeta equivocada por
+error, ese trabajo se pierde para siempre porque no hay ningún respaldo
+versionado detrás.
+
+**2. ¿Qué significa que un archivo esté "Preparado" (Staged)?**
+
+Significa que el archivo fue marcado con `git add` y está listo para
+incluirse en el próximo commit, aunque ese commit todavía no se ejecutó. Es
+el paso intermedio entre "Modificado" y "Confirmado".
+
+**3. ¿Para qué sirve `.gitignore`?**
+
+Le indica a Git qué archivos o carpetas no debe rastrear nunca. Un ejemplo
+claro es un archivo `.env` con contraseñas o claves de API, que jamás debería
+subirse a un repositorio.
+
+**4. ¿Cómo ayudan las "Ramas" (Branches)?**
+
+Permiten trabajar en una copia aislada del código para probar ideas nuevas
+sin poner en riesgo la rama `main`. Los cambios solo pasan a `main` cuando el
+programador decide integrarlos con un merge.
+
+---
+
+**Falla deliberada para testeo:** las 4 respuestas teóricas (C2-C5) están
+completas y correctas. La carpeta `.git` está directamente ausente de la
+entrega, por lo que no hay ninguna evidencia verificable de C1.3 (carpeta
+`.git` presente), C6 (init + configuración de identidad), C7 (primer commit),
+C8 (rama `desarrollo-funcionalidad`) ni C9 (merge) — más allá de lo que el
+alumno afirme en el PDF, no hay nada que auditar. Esto debería activar la
+condición de desaprobación `CD2` ("la carpeta .git está ausente → nota_maxima
+30"), independientemente de cuánto sume el resto de los criterios.
