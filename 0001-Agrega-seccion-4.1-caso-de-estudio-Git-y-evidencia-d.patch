@@ -1,0 +1,1657 @@
+From 1fe8f585a54792da9a4f3a522922985b6e002049 Mon Sep 17 00:00:00 2001
+From: Emma <emma@example.com>
+Date: Sun, 5 Jul 2026 22:37:00 +0000
+Subject: [PATCH] Agrega seccion 4.1 (caso de estudio Git) y evidencia de
+ testeo real de TP1, TP5 y TP6
+
+- Informe: nueva subseccion 4.1 documentando la decision de normalizar Git
+  como tecnologia y la carpeta .git como evidencia de entrega, en base al
+  video de referencia.
+- Informe: agrega tablas de resultados de TP1, TP5 y TP6 en la seccion 8
+  (Testeo), consolidando junto a la de TP2 ya existente.
+- Informe: actualiza la referencia bibliografica del video (ya no figura
+  como pendiente de subir).
+- TPs/TP1, TP5, TP6/sinteticos/2026-07-05_223422/: entregas sinteticas
+  (s0_perfecta, s1, s2), informe de correcciones real y resumen.json,
+  siguiendo la misma convencion que TP2/TP3/TP4.
+---
+ .../informe-correcciones-tp1.md               | 193 ++++++++++++++++++
+ .../sinteticos/2026-07-05_223422/resumen.json |  28 +++
+ .../2026-07-05_223422/s0_perfecta.txt         | 101 +++++++++
+ .../2026-07-05_223422/s1_falla_c2.txt         | 102 +++++++++
+ .../2026-07-05_223422/s2_sin_git_cd2.txt      |  55 +++++
+ .../informe-correcciones-tp5.md               | 150 ++++++++++++++
+ .../sinteticos/2026-07-05_223422/resumen.json |  28 +++
+ .../2026-07-05_223422/s0_perfecta.txt         |  71 +++++++
+ .../2026-07-05_223422/s1_falla_c4.txt         |  62 ++++++
+ .../2026-07-05_223422/s2_zip_invalido_cd1.txt |  58 ++++++
+ .../informe-correcciones-tp6.md               | 189 +++++++++++++++++
+ .../sinteticos/2026-07-05_223422/resumen.json |  30 +++
+ .../2026-07-05_223422/s0_perfecta.txt         | 137 +++++++++++++
+ .../2026-07-05_223422/s1_falla_c7.txt         | 126 ++++++++++++
+ .../2026-07-05_223422/s2_sin_json_cd2.txt     |  57 ++++++
+ informe/Informe_Tesis_Rubrica_Builder.html    | 102 ++++++++-
+ 16 files changed, 1487 insertions(+), 2 deletions(-)
+ create mode 100644 TPs/TP1/sinteticos/2026-07-05_223422/informe-correcciones-tp1.md
+ create mode 100644 TPs/TP1/sinteticos/2026-07-05_223422/resumen.json
+ create mode 100644 TPs/TP1/sinteticos/2026-07-05_223422/s0_perfecta.txt
+ create mode 100644 TPs/TP1/sinteticos/2026-07-05_223422/s1_falla_c2.txt
+ create mode 100644 TPs/TP1/sinteticos/2026-07-05_223422/s2_sin_git_cd2.txt
+ create mode 100644 TPs/TP5/sinteticos/2026-07-05_223422/informe-correcciones-tp5.md
+ create mode 100644 TPs/TP5/sinteticos/2026-07-05_223422/resumen.json
+ create mode 100644 TPs/TP5/sinteticos/2026-07-05_223422/s0_perfecta.txt
+ create mode 100644 TPs/TP5/sinteticos/2026-07-05_223422/s1_falla_c4.txt
+ create mode 100644 TPs/TP5/sinteticos/2026-07-05_223422/s2_zip_invalido_cd1.txt
+ create mode 100644 TPs/TP6/sinteticos/2026-07-05_223422/informe-correcciones-tp6.md
+ create mode 100644 TPs/TP6/sinteticos/2026-07-05_223422/resumen.json
+ create mode 100644 TPs/TP6/sinteticos/2026-07-05_223422/s0_perfecta.txt
+ create mode 100644 TPs/TP6/sinteticos/2026-07-05_223422/s1_falla_c7.txt
+ create mode 100644 TPs/TP6/sinteticos/2026-07-05_223422/s2_sin_json_cd2.txt
+
+diff --git a/TPs/TP1/sinteticos/2026-07-05_223422/informe-correcciones-tp1.md b/TPs/TP1/sinteticos/2026-07-05_223422/informe-correcciones-tp1.md
+new file mode 100644
+index 0000000..ee750ef
+--- /dev/null
++++ b/TPs/TP1/sinteticos/2026-07-05_223422/informe-correcciones-tp1.md
+@@ -0,0 +1,193 @@
++# Informe de Correcciones — TP1: Primeros Pasos con Git
++
++**Materia:** Organización Empresarial | **Carrera:** TUPaD | **UTN - Facultad Regional Mendoza**
++**Rúbrica aplicada:** `rubrica-tp1-git.json` | **Puntaje máximo:** 100 puntos
++
++---
++
++## Resumen General
++
++| Alumno/a | Archivo entregado | Nota Final | Estado |
++|---|---|---|---|
++| Lucas Fernández | `s0_perfecta.txt` | **100 / 100** | ✅ Aprobado |
++| Agustín Morales | `s1_falla_c2.txt` | **90 / 100** | ✅ Aprobado |
++| Camila Suárez | `s2_sin_git_cd2.txt` | **30 / 100** | ⚠️ Condición de desaprobación activa (CD2) |
++
++---
++
++---
++
++## Alumno: Lucas Fernández — `s0_perfecta.txt`
++
++### Nota Final: 100 / 100
++
++### Desglose por criterio
++
++| Criterio | Descripción | Peso | Obtenido | Estado |
++|---|---|---|---|---|
++| C1 | Formato y condiciones de entrega | 15 | 15 | ✅ Completo |
++| C2 | Versionado manual vs Git | 10 | 10 | ✅ Completo |
++| C3 | Estado Staged | 10 | 10 | ✅ Completo |
++| C4 | .gitignore | 8 | 8 | ✅ Completo |
++| C5 | Ramas (branches) | 7 | 7 | ✅ Completo |
++| C6 | Init y configuración | 10 | 10 | ✅ Completo |
++| C7 | Archivos iniciales y primer commit | 15 | 15 | ✅ Completo |
++| C8 | Rama de desarrollo y segundo commit | 15 | 15 | ✅ Completo |
++| C9 | Merge a main | 10 | 10 | ✅ Completo |
++
++### Feedback por criterio
++
++**C1 — Formato y condiciones de entrega (15/15)**
++La entrega cumple con todos los requisitos formales. El `.zip` contiene correctamente el PDF de respuestas y la carpeta `.git` con su estructura completa: `HEAD`, `objects/`, `refs/` y los directorios de ramas. No se detectaron imágenes en el PDF. Entrega impecable en este aspecto.
++
++**C2 — Versionado manual vs Git (10/10)**
++Respuesta sólida y argumentada. El alumno identifica tres riesgos concretos: pérdida de claridad sobre cuál es la versión vigente, imposibilidad de fusionar cambios de múltiples personas, y pérdida irreversible ante un error humano (borrado accidental). La redacción es propia y contextualizada. Supera el mínimo exigido de un riesgo.
++
++**C3 — Estado Staged (10/10)**
++Explicación muy clara con una analogía original y eficaz (la caja de mudanza). Diferencia correctamente los tres estados: Modificado, Staged y Confirmado. La analogía del `git add` como "meter objetos en la caja" y el `git commit` como "cerrarla con cinta" demuestra comprensión genuina del concepto.
++
++**C4 — .gitignore (8/8)**
++Explica correctamente la función del `.gitignore` y da un ejemplo concreto y pertinente: el archivo `config-secreta.env` con contraseñas o claves API. Además menciona el riesgo real de que ese archivo quede expuesto en un repositorio público como GitHub.
++
++**C5 — Ramas (7/7)**
++Respuesta correcta y completa. Explica el aislamiento que proveen las ramas respecto de `main` y menciona explícitamente que los cambios solo se integran con un `merge` cuando el programador decide hacerlo.
++
++**C6 — Init y configuración (10/10)**
++La carpeta está correctamente nombrada (`tp1-git-fernandez-lucas`), el repositorio fue inicializado (carpeta `.git` presente) y el archivo `.git/config` contiene las claves `user.name` y `user.email` con identidad local configurada sin `--global`.
++
++**C7 — Archivos iniciales y primer commit (15/15)**
++`README.md` presente con título Markdown (`#`) y descripción del proyecto. `.gitignore` configurado con reglas para `*.env` y `config-secreta.env`. El archivo sensible nunca aparece en el historial de commits. El mensaje del primer commit es descriptivo: *"Agrego README inicial y gitignore con exclusión de .env"*.
++
++**C8 — Rama de desarrollo (15/15)**
++La rama `desarrollo-funcionalidad` existe en `refs/heads/`. Se creó `app.py` con código ejecutable. El `README.md` fue modificado en la rama para incluir el subtítulo `## Instrucciones de uso` con sintaxis Markdown correcta. El commit en la rama tiene mensaje descriptivo.
++
++**C9 — Merge a main (10/10)**
++El historial muestra un merge commit explícito (`4e7a1c2 Merge branch 'desarrollo-funcionalidad'`), con la estructura de grafo esperada. Los archivos creados en la rama (`app.py`, `README.md` actualizado) están presentes en `main` después del merge.
++
++---
++
++---
++
++## Alumno: Agustín Morales — `s1_falla_c2.txt`
++
++### Nota Final: 90 / 100
++
++### Desglose por criterio
++
++| Criterio | Descripción | Peso | Obtenido | Estado |
++|---|---|---|---|---|
++| C1 | Formato y condiciones de entrega | 15 | 15 | ✅ Completo |
++| C2 | Versionado manual vs Git | 10 | **0** | ❌ Sin respuesta |
++| C3 | Estado Staged | 10 | 10 | ✅ Completo |
++| C4 | .gitignore | 8 | 8 | ✅ Completo |
++| C5 | Ramas (branches) | 7 | 7 | ✅ Completo |
++| C6 | Init y configuración | 10 | 10 | ✅ Completo |
++| C7 | Archivos iniciales y primer commit | 15 | 15 | ✅ Completo |
++| C8 | Rama de desarrollo y segundo commit | 15 | 15 | ✅ Completo |
++| C9 | Merge a main | 10 | 10 | ✅ Completo |
++
++### Feedback por criterio
++
++**C1 — Formato y condiciones de entrega (15/15)**
++Entrega correctamente estructurada. `.zip` válido, PDF sin imágenes, carpeta `.git` presente con `HEAD`, `objects/` y `refs/`. La identidad en `.git/config` está configurada. Sin observaciones en este criterio.
++
++**C2 — Versionado manual vs Git (0/10)** ⚠️
++**Pregunta dejada en blanco.** Este es el único criterio con descuento en toda la entrega. La pregunta solicita explicar los riesgos del versionado con carpetas manuales (proyecto_final, proyecto_final_v2, etc.) e identificar al menos un riesgo concreto. No hay respuesta registrada. Según las instrucciones de puntuación, la ausencia de respuesta equivale a 0 puntos en este criterio. Se descuentan 10 puntos sobre 100.
++
++**C3 — Estado Staged (10/10)**
++Respuesta correcta. Identifica que "Staged" es el paso intermedio entre "Modificado" y "Confirmado", y que se activa con `git add`. Sin la analogía elaborada del alumno anterior, pero la definición es precisa y suficiente.
++
++**C4 — .gitignore (8/8)**
++Correcta. Menciona la función del `.gitignore` y da un ejemplo concreto (archivos `.env` con contraseñas o claves API).
++
++**C5 — Ramas (7/7)**
++Correcta. Explica el aislamiento de la rama y que los cambios se integran a `main` con el `merge` cuando el programador lo decide.
++
++**C6 — Init y configuración (10/10)**
++Carpeta correctamente nombrada (`tp1-git-morales-agustin`), `.git/config` con `user.name` y `user.email`. Todo en orden.
++
++**C7 — Archivos iniciales y primer commit (15/15)**
++`README.md` presente con título Markdown. `.gitignore` con reglas para `config-secreta.env` y `*.env`. El archivo sensible no aparece en el historial. Mensaje del primer commit descriptivo.
++
++**C8 — Rama de desarrollo (15/15)**
++Rama `desarrollo-funcionalidad` presente en `refs/heads/`. `app.py` creado con código. `README.md` actualizado con `## Instrucciones de uso`. Commit en la rama con mensaje descriptivo.
++
++**C9 — Merge a main (10/10)**
++Merge commit visible en el historial (`7c2f9a1 Merge branch 'desarrollo-funcionalidad'`). Archivos de la rama integrados en `main`.
++
++### Observación General
++La entrega es técnicamente correcta en todos los demás aspectos. La parte práctica y las respuestas teóricas restantes (C3, C4, C5) están bien resueltas. La única penalización es la pregunta 1 omitida. Un descuido puntual en una entrega por lo demás muy sólida.
++
++---
++
++---
++
++## Alumno: Camila Suárez — `s2_sin_git_cd2.txt`
++
++### ⚠️ Condición de Desaprobación Activada: CD2
++
++> **CD2:** La carpeta `.git` está ausente en el `.zip` entregado → `nota_maxima: 30`
++
++La rúbrica establece que la ausencia de la carpeta `.git` impone un techo máximo de **30 puntos**, independientemente del puntaje acumulado en los criterios teóricos.
++
++### Nota Final: 30 / 100 (techo por CD2)
++
++### Desglose por criterio
++
++| Criterio | Descripción | Peso | Obtenido | Estado |
++|---|---|---|---|---|
++| C1 | Formato y condiciones de entrega | 15 | **7** | ⚠️ Parcial (-8 por falta de .git) |
++| C2 | Versionado manual vs Git | 10 | 10 | ✅ Completo |
++| C3 | Estado Staged | 10 | 10 | ✅ Completo |
++| C4 | .gitignore | 8 | 8 | ✅ Completo |
++| C5 | Ramas (branches) | 7 | 7 | ✅ Completo |
++| C6 | Init y configuración | 10 | **0** | ❌ Sin evidencia verificable |
++| C7 | Archivos iniciales y primer commit | 15 | **0** | ❌ Sin evidencia verificable |
++| C8 | Rama de desarrollo y segundo commit | 15 | **0** | ❌ Sin evidencia verificable |
++| C9 | Merge a main | 10 | **0** | ❌ Sin evidencia verificable |
++| **Subtotal bruto** | | 100 | **42** | |
++| **Techo CD2** | | | **→ 30** | ⚠️ |
++
++### Feedback por criterio
++
++**C1 — Formato y condiciones de entrega (7/15)**
++El `.zip` es válido y el PDF cumple con el formato (solo texto, sin imágenes). Sin embargo, la carpeta `.git` está ausente por completo de la entrega. Las instrucciones de puntuación establecen un descuento de 8 puntos por este faltante dentro del propio criterio C1 (independientemente de la condición CD2).
++
++**C2 — Versionado manual vs Git (10/10)**
++Respuesta completa. Identifica la pérdida de historial, la imposibilidad de rastrear quién modificó qué y cuándo, y el riesgo de pérdida irreversible ante un borrado accidental. Bien argumentada y con palabras propias.
++
++**C3 — Estado Staged (10/10)**
++Correcta. Define Staged como el estado intermedio entre "Modificado" y "Confirmado", activado con `git add`.
++
++**C4 — .gitignore (8/8)**
++Correcta. Explica la función del archivo y da como ejemplo concreto un `.env` con contraseñas o claves API.
++
++**C5 — Ramas (7/7)**
++Correcta. Menciona el aislamiento respecto a `main` y que los cambios se integran con `merge` solo cuando el programador lo decide.
++
++**C6 — Init y configuración (0/10)** ❌
++Sin la carpeta `.git` no hay forma de verificar que se ejecutó `git init`, ni que la identidad local fue configurada (nombre y correo en `.git/config`). Ninguna de las evidencias de este criterio es auditable. Lo que el alumno afirme en el PDF no es suficiente sin el repositorio para corroborarlo.
++
++**C7 — Archivos iniciales y primer commit (0/15)** ❌
++Sin `.git` no hay historial de commits, no hay evidencia de que `README.md` fue rastreado ni de que el `.gitignore` funcionó correctamente. No es posible verificar que `config-secreta.env` fue excluido del historial ni que el primer commit tiene mensaje descriptivo.
++
++**C8 — Rama de desarrollo (0/15)** ❌
++Sin `refs/heads/` no hay manera de confirmar la existencia de la rama `desarrollo-funcionalidad`, ni el commit asociado, ni las modificaciones al `README.md` y la creación de `app.py`.
++
++**C9 — Merge a main (0/10)** ❌
++Sin historial `.git` no existe evidencia del merge. No hay merge commit auditable.
++
++### Observación General
++La parte teórica (C2 a C5) está bien resuelta y alcanza los 35 puntos posibles en esos criterios. Sin embargo, la ausencia de la carpeta `.git` hace que toda la parte práctica (C6 a C9, 50 puntos) sea imposible de corregir. El corrector no puede evaluar lo que el alumno afirma haber hecho si no hay repositorio que lo respalde. Adicionalmente, la condición de desaprobación CD2 limita la nota máxima a 30 puntos. La entrega evidencia comprensión teórica del TP pero un error crítico en el proceso de empaquetado: el `.git` debe incluirse explícitamente al comprimir, dado que es una carpeta oculta que los gestores de archivos frecuentemente omiten por defecto.
++
++---
++
++## Resumen de la Rúbrica — Comportamiento observado
++
++| Escenario de prueba | Comportamiento esperado | Resultado |
++|---|---|---|
++| Entrega completa y correcta | 100/100 sin penalizaciones | ✅ Correcto — Lucas Fernández: 100/100 |
++| Falla en criterio teórico único (C2) | Descuento de 10 puntos, resto intacto | ✅ Correcto — Agustín Morales: 90/100 |
++| Ausencia de .git (CD2) | Techo de 30 puntos, práctica anulada | ✅ Correcto — Camila Suárez: 30/100 |
++
++La rúbrica discrimina correctamente los tres casos. Los descuentos parciales por criterios individuales funcionan de forma aislada (C2 no afecta a C3, C4, etc.) y la condición de desaprobación CD2 se activa correctamente sin eliminar el puntaje de los criterios teóricos evaluables.
+diff --git a/TPs/TP1/sinteticos/2026-07-05_223422/resumen.json b/TPs/TP1/sinteticos/2026-07-05_223422/resumen.json
+new file mode 100644
+index 0000000..1a95cd7
+--- /dev/null
++++ b/TPs/TP1/sinteticos/2026-07-05_223422/resumen.json
+@@ -0,0 +1,28 @@
++[
++  {
++    "sid": "s0",
++    "testea": "rúbrica completa",
++    "esperado": "100",
++    "nota": 100,
++    "meta": "✅",
++    "warns": []
++  },
++  {
++    "sid": "s1",
++    "testea": "C2 discrimina (10 pts) - pregunta sin responder",
++    "esperado": "90",
++    "nota": 90,
++    "meta": "✅",
++    "warns": []
++  },
++  {
++    "sid": "s2",
++    "testea": "CD2 discrimina - ausencia de la carpeta .git",
++    "esperado": "≤30 (techo)",
++    "nota": 30,
++    "meta": "✅",
++    "warns": [
++      "Subtotal bruto antes del techo: 42/100 (C1=7, C2-C5=35, C6-C9=0). El techo CD2 lo lleva a 30."
++    ]
++  }
++]
+diff --git a/TPs/TP1/sinteticos/2026-07-05_223422/s0_perfecta.txt b/TPs/TP1/sinteticos/2026-07-05_223422/s0_perfecta.txt
+new file mode 100644
+index 0000000..15d053e
+--- /dev/null
++++ b/TPs/TP1/sinteticos/2026-07-05_223422/s0_perfecta.txt
+@@ -0,0 +1,101 @@
++Estructura del `.zip` entregado:
++
++```
++tp1-git-fernandez-lucas/
++├── respuestas-tp1-git.pdf
++└── .git/
++    ├── HEAD
++    ├── config
++    ├── objects/
++    ├── refs/
++    │   └── heads/
++    │       ├── main
++    │       └── desarrollo-funcionalidad
++    ├── README.md
++    ├── .gitignore
++    ├── app.py
++    └── config-secreta.env   (presente en el disco, NO rastreado por git)
++```
++
++---
++
++**Archivo: `respuestas-tp1-git.pdf`** (solo texto, sin imágenes)
++
++## Parte 1: Evaluación Teórica
++
++**1. ¿Por qué es peligroso gestionar versiones con carpetas manuales?**
++
++Cuando uno guarda copias como "proyecto_final", "proyecto_final_v2" y "proyecto_definitivo", en algún momento se pierde el rastro de cuál es realmente la versión vigente y qué cambió entre una y otra. Si dos personas trabajan sobre copias distintas al mismo tiempo, no hay forma automática de fusionar sus cambios ni de saber quién modificó qué línea y cuándo. Además, si se borra o se corrompe una carpeta por accidente, no queda ningún historial para recuperar el trabajo perdido: se pierde por completo, a diferencia de un repositorio Git donde cada commit queda guardado de forma permanente.
++
++**2. ¿Qué significa que un archivo esté "Preparado" (Staged)?**
++
++Que un archivo esté Staged significa que ya fue marcado con `git add` para ser incluido en el próximo commit, pero ese commit todavía no se hizo. Es como cuando uno está armando una caja para mudarse: primero elige qué objetos van adentro (eso es el "add", el Staging Area), y recién cuando cierra la caja con cinta (el "commit") esos objetos quedan guardados de forma definitiva en esa versión. Mientras el archivo está solo "Modificado" no está ni siquiera elegido para la caja; una vez que se hace `git add` pasa a Staged, listo para el siguiente commit.
++
++**3. ¿Para qué sirve `.gitignore`?**
++
++El archivo `.gitignore` le dice a Git qué archivos o carpetas debe ignorar y nunca rastrear ni subir al repositorio. Un ejemplo claro de algo que nunca debería subirse a internet es un archivo `.env` con contraseñas o claves de API (por ejemplo `config-secreta.env`), porque si ese archivo queda versionado y el repositorio se sube a un servicio como GitHub, cualquiera con acceso al repo podría ver esas credenciales.
++
++**4. ¿Cómo ayudan las "Ramas" (Branches)?**
++
++Las ramas permiten crear una copia paralela y aislada del código para probar una idea nueva sin tocar la rama `main`, que sigue funcionando intacta mientras tanto. Si la idea nueva funciona bien, se puede integrar a `main` con un merge cuando uno decida que está lista; si no funciona, simplemente se descarta la rama sin haber puesto en riesgo el código principal en ningún momento.
++
++---
++
++**Archivo: `.git/config`**
++
++```ini
++[core]
++	repositoryformatversion = 0
++	filemode = true
++	bare = false
++[user]
++	name = Lucas Fernández
++	email = lucas.fernandez@alumnos.utn.edu.ar
++```
++
++**Archivo: `README.md` (en `main`, antes del merge)**
++
++```markdown
++# TP1 - Primeros Pasos con Git
++
++Repositorio de práctica para el Trabajo Práctico N°1 de Organización Empresarial.
++```
++
++**Archivo: `.gitignore`**
++
++```
++config-secreta.env
++*.env
++__pycache__/
++```
++
++**Archivo: `git-log.txt`** (`git log --oneline --graph --all`)
++
++```
++*   4e7a1c2 (HEAD -> main) Merge branch 'desarrollo-funcionalidad'
++|\
++| * 9b3f2d1 (desarrollo-funcionalidad) Agrego app.py y sección de instrucciones de uso
++|/
++* 1a8c6f0 Agrego README inicial y gitignore con exclusión de .env
++```
++
++**Archivo: `app.py`** (agregado en la rama `desarrollo-funcionalidad`)
++
++```python
++# Punto de entrada de la aplicación de práctica del TP1
++print("Hola, este es el primer commit en la rama desarrollo-funcionalidad")
++```
++
++**Archivo: `README.md`** (en `main`, después del merge)
++
++```markdown
++# TP1 - Primeros Pasos con Git
++
++Repositorio de práctica para el Trabajo Práctico N°1 de Organización Empresarial.
++
++## Instrucciones de uso
++
++Ejecutar `python app.py` desde la raíz del proyecto.
++```
++
++Nota: `config-secreta.env` existe en el disco del alumno pero nunca aparece en ningún commit del historial — quedó correctamente ignorado desde el primer commit.
+diff --git a/TPs/TP1/sinteticos/2026-07-05_223422/s1_falla_c2.txt b/TPs/TP1/sinteticos/2026-07-05_223422/s1_falla_c2.txt
+new file mode 100644
+index 0000000..8073e5f
+--- /dev/null
++++ b/TPs/TP1/sinteticos/2026-07-05_223422/s1_falla_c2.txt
+@@ -0,0 +1,102 @@
++Estructura del `.zip` entregado:
++
++```
++tp1-git-morales-agustin/
++├── respuestas-tp1-git.pdf
++└── .git/
++    ├── HEAD
++    ├── config
++    ├── objects/
++    ├── refs/
++    │   └── heads/
++    │       ├── main
++    │       └── desarrollo-funcionalidad
++    ├── README.md
++    ├── .gitignore
++    ├── app.py
++    └── config-secreta.env   (presente en el disco, NO rastreado por git)
++```
++
++---
++
++**Archivo: `respuestas-tp1-git.pdf`** (solo texto, sin imágenes)
++
++## Parte 1: Evaluación Teórica
++
++**1. ¿Por qué es peligroso gestionar versiones con carpetas manuales?**
++
++(el alumno dejó esta pregunta sin responder)
++
++**2. ¿Qué significa que un archivo esté "Preparado" (Staged)?**
++
++Que un archivo esté Staged significa que ya fue marcado con `git add` para ser incluido en el próximo commit, pero ese commit todavía no se hizo. Es el paso intermedio entre modificar un archivo y confirmarlo definitivamente en el historial con `git commit`.
++
++**3. ¿Para qué sirve `.gitignore`?**
++
++El archivo `.gitignore` le dice a Git qué archivos o carpetas debe ignorar y nunca rastrear. Un ejemplo típico es un archivo `.env` con contraseñas o claves de API, que nunca debería subirse a un repositorio público.
++
++**4. ¿Cómo ayudan las "Ramas" (Branches)?**
++
++Las ramas permiten crear una copia paralela y aislada del código para probar algo nuevo sin afectar la rama `main`. Los cambios solo se integran a `main` cuando el programador decide hacer el merge.
++
++---
++
++**Archivo: `.git/config`**
++
++```ini
++[core]
++	repositoryformatversion = 0
++	filemode = true
++	bare = false
++[user]
++	name = Agustín Morales
++	email = agustin.morales@alumnos.utn.edu.ar
++```
++
++**Archivo: `README.md` (en `main`, antes del merge)**
++
++```markdown
++# TP1 - Primeros Pasos con Git
++
++Repositorio de práctica para el Trabajo Práctico N°1 de Organización Empresarial.
++```
++
++**Archivo: `.gitignore`**
++
++```
++config-secreta.env
++*.env
++```
++
++**Archivo: `git-log.txt`** (`git log --oneline --graph --all`)
++
++```
++*   7c2f9a1 (HEAD -> main) Merge branch 'desarrollo-funcionalidad'
++|\
++| * 3d8e1b0 (desarrollo-funcionalidad) Agrego app.py y sección de instrucciones de uso
++|/
++* 0f4a2c9 Agrego README inicial y gitignore con exclusión de .env
++```
++
++**Archivo: `app.py`**
++
++```python
++print("Hola, este es el primer commit en la rama desarrollo-funcionalidad")
++```
++
++**Archivo: `README.md`** (en `main`, después del merge)
++
++```markdown
++# TP1 - Primeros Pasos con Git
++
++Repositorio de práctica para el Trabajo Práctico N°1 de Organización Empresarial.
++
++## Instrucciones de uso
++
++Ejecutar `python app.py` desde la raíz del proyecto.
++```
++
++Nota: `config-secreta.env` nunca aparece en el historial de commits — quedó correctamente ignorado.
++
++---
++**Falla deliberada para testeo:** la Parte 1 - Pregunta 1 (criterio C2, peso 10) quedó completamente sin responder. El resto de la entrega (C1, C3-C9) está resuelto de forma correcta y completa, para aislar el efecto de esta única falla.
+diff --git a/TPs/TP1/sinteticos/2026-07-05_223422/s2_sin_git_cd2.txt b/TPs/TP1/sinteticos/2026-07-05_223422/s2_sin_git_cd2.txt
+new file mode 100644
+index 0000000..820a2c1
+--- /dev/null
++++ b/TPs/TP1/sinteticos/2026-07-05_223422/s2_sin_git_cd2.txt
+@@ -0,0 +1,55 @@
++Estructura del `.zip` entregado:
++
++```
++tp1-git-suarez-camila/
++└── respuestas-tp1-git.pdf
++```
++
++Nota: el alumno solo comprimió el PDF de respuestas. No incluyó la carpeta `.git`
++del repositorio local en el `.zip`, a pesar de que la consigna lo exige
++explícitamente ("Dentro del .zip debes incluir la carpeta oculta .git generada
++durante la Parte 2. Esta carpeta es esencial para auditar tu historial de
++comandos, commits y ramas").
++
++---
++
++**Archivo: `respuestas-tp1-git.pdf`** (solo texto, sin imágenes)
++
++## Parte 1: Evaluación Teórica
++
++**1. ¿Por qué es peligroso gestionar versiones con carpetas manuales?**
++
++Con carpetas manuales tipo "proyecto_final_v2" se pierde el historial real de
++cambios: no queda registro de qué se modificó entre una copia y otra, ni de
++quién lo hizo ni cuándo. Además, si alguien borra la carpeta equivocada por
++error, ese trabajo se pierde para siempre porque no hay ningún respaldo
++versionado detrás.
++
++**2. ¿Qué significa que un archivo esté "Preparado" (Staged)?**
++
++Significa que el archivo fue marcado con `git add` y está listo para
++incluirse en el próximo commit, aunque ese commit todavía no se ejecutó. Es
++el paso intermedio entre "Modificado" y "Confirmado".
++
++**3. ¿Para qué sirve `.gitignore`?**
++
++Le indica a Git qué archivos o carpetas no debe rastrear nunca. Un ejemplo
++claro es un archivo `.env` con contraseñas o claves de API, que jamás debería
++subirse a un repositorio.
++
++**4. ¿Cómo ayudan las "Ramas" (Branches)?**
++
++Permiten trabajar en una copia aislada del código para probar ideas nuevas
++sin poner en riesgo la rama `main`. Los cambios solo pasan a `main` cuando el
++programador decide integrarlos con un merge.
++
++---
++
++**Falla deliberada para testeo:** las 4 respuestas teóricas (C2-C5) están
++completas y correctas. La carpeta `.git` está directamente ausente de la
++entrega, por lo que no hay ninguna evidencia verificable de C1.3 (carpeta
++`.git` presente), C6 (init + configuración de identidad), C7 (primer commit),
++C8 (rama `desarrollo-funcionalidad`) ni C9 (merge) — más allá de lo que el
++alumno afirme en el PDF, no hay nada que auditar. Esto debería activar la
++condición de desaprobación `CD2` ("la carpeta .git está ausente → nota_maxima
++30"), independientemente de cuánto sume el resto de los criterios.
+diff --git a/TPs/TP5/sinteticos/2026-07-05_223422/informe-correcciones-tp5.md b/TPs/TP5/sinteticos/2026-07-05_223422/informe-correcciones-tp5.md
+new file mode 100644
+index 0000000..d3e8ab6
+--- /dev/null
++++ b/TPs/TP5/sinteticos/2026-07-05_223422/informe-correcciones-tp5.md
+@@ -0,0 +1,150 @@
++# Informe de Correcciones — TP5: Live Coding — El Arte de Programar en Tiempo Real
++
++**Materia:** Organización Empresarial | **Carrera:** TUPaD | **UTN - Facultad Regional Mendoza**
++**Rúbrica aplicada:** `rubrica-tp5-live-coding.json` | **Puntaje máximo:** 100 puntos
++
++---
++
++## Resumen General
++
++| Alumno/a | Archivo entregado | Nota Final | Estado |
++|---|---|---|---|
++| Julieta Ibáñez | `s0_perfecta.txt` | **100 / 100** | ✅ Aprobado |
++| Nicolás Páez | `s1_falla_c4.txt` | **91 / 100** | ✅ Aprobado |
++| Marcos Benítez | `s2_zip_invalido_cd1.txt` | **0 / 100** | ❌ Condición de desaprobación activa (CD1) |
++
++---
++
++---
++
++## Alumno/a: Julieta Ibáñez — `s0_perfecta.txt`
++
++### Nota Final: 100 / 100
++
++### Desglose por criterio
++
++| Criterio | Descripción | Peso | Obtenido | Estado |
++|---|---|---|---|---|
++| C1 | Formato y condiciones de entrega | 10 | 10 | ✅ Completo |
++| C2 | El programador transparente | 18 | 18 | ✅ Completo |
++| C3 | Explicación en Paralelo | 18 | 18 | ✅ Completo |
++| C4 | Boilerplate y Snippet Management | 18 | 18 | ✅ Completo |
++| C5 | Hot Reloading | 18 | 18 | ✅ Completo |
++| C6 | Checkpoints | 18 | 18 | ✅ Completo |
++
++### Feedback por criterio
++
++**C1 — Formato y condiciones de entrega (10/10)**
++Entrega en formato `.zip` correcto. El PDF no contiene imágenes ni capturas, y tiene respuesta para las cinco consignas. Sin observaciones.
++
++**C2 — El programador transparente (18/18)**
++Respuesta excelente. La alumna no se limita a decir que "el error no es malo" sino que argumenta el valor positivo con tres dimensiones distintas: (1) el Live Coding muestra el proceso real de razonamiento, no el resultado pulido; (2) ver diagnosticar y corregir un error en vivo es educativo para la audiencia; (3) consultar la documentación oficial demuestra un hábito profesional genuino que humaniza al presentador en lugar de restarle credibilidad. Cumple con creces los requisitos del criterio.
++
++**C3 — Explicación en Paralelo (18/18)**
++Respuesta completa y bien estructurada. Explica que verbalizar el razonamiento permite demostrar al entrevistador que se comprendió el problema y se tiene un plan, aunque el código no esté terminado. Menciona explícitamente que los entrevistadores evalúan capacidad de análisis, lógica y manejo de la presión, y no solo si el código final compila. Incluso contrasta con el candidato que termina el código en silencio: argumento sólido que va más allá del mínimo exigido.
++
++**C4 — Boilerplate y Snippet Management (18/18)**
++Define correctamente el Boilerplate como código repetitivo, estructural y de configuración que no contiene la lógica central (imports, clases, setup inicial). Explica con claridad el Snippet Management como fragmentos preconfigurados que se insertan con un atajo de teclado. El punto fuerte es la contextualización en el Live Coding: ahorra el tiempo de la parte aburrida y permite dedicar la sesión a mostrar la lógica que realmente importa. Ambos subcriterios (C4.1 y C4.2) cumplidos.
++
++**C5 — Hot Reloading (18/18)**
++Contraste claro y bien estructurado entre ambas situaciones. Sin Hot Reloading: detener, compilar y reiniciar manualmente genera pausas incómodas que cortan el ritmo. Con Hot Reloading: los cambios se aplican al instante sin detener la ejecución. La mención al cliente potencial que está evaluando comprar el prototipo añade el impacto concreto en la audiencia que el criterio requiere. Ambos subcriterios (C5.1 y C5.2) cumplidos.
++
++**C6 — Checkpoints (18/18)**
++Respuesta que cubre los tres elementos que exige el criterio: (1) define los Checkpoints como estados del código previamente guardados y verificados como funcionales; (2) explica que se puede revertir al checkpoint anterior en segundos sin depurar en vivo; (3) vincula el beneficio con la seguridad psicológica del presentador: saber que hay un punto de retorno elimina el pánico. Los tres subpuntos de C6.1 cumplidos.
++
++---
++
++---
++
++## Alumno: Nicolás Páez — `s1_falla_c4.txt`
++
++### Nota Final: 91 / 100
++
++### Desglose por criterio
++
++| Criterio | Descripción | Peso | Obtenido | Estado |
++|---|---|---|---|---|
++| C1 | Formato y condiciones de entrega | 10 | 10 | ✅ Completo |
++| C2 | El programador transparente | 18 | 18 | ✅ Completo |
++| C3 | Explicación en Paralelo | 18 | 18 | ✅ Completo |
++| C4 | Boilerplate y Snippet Management | 18 | **9** | ⚠️ Parcial — solo Boilerplate definido |
++| C5 | Hot Reloading | 18 | 18 | ✅ Completo |
++| C6 | Checkpoints | 18 | 18 | ✅ Completo |
++
++### Feedback por criterio
++
++**C1 — Formato y condiciones de entrega (10/10)**
++Entrega correctamente formateada: `.zip`, PDF sin imágenes, cinco consignas respondidas. Sin observaciones.
++
++**C2 — El programador transparente (18/18)**
++Respuesta completa. Menciona el proceso real de resolución de problemas (no el resultado final), el valor educativo de ver diagnosticar un error, y el hábito profesional de consultar documentación. Cumple los requisitos del criterio.
++
++**C3 — Explicación en Paralelo (18/18)**
++Correcta. Explica que verbalizar el razonamiento permite al entrevistador ver que el candidato entendió el problema y tiene un plan, y que se evalúa capacidad de análisis, no solo el código final. Puntaje completo.
++
++**C4 — Boilerplate y Snippet Management (9/18)** ⚠️
++Aquí está el único descuento de la entrega. El alumno define correctamente el concepto de **Boilerplate** (código repetitivo y estructural — imports, configuración, declaración de clases — que no aporta lógica nueva). La definición es precisa y cumple C4.1 sin problemas.
++
++Sin embargo, en ningún momento menciona ni explica la **Gestión de Fragmentos (Snippet Management)**: qué son los snippets, cómo se usan en Live Coding, ni por qué permiten saltear la escritura del boilerplate frente a la audiencia. Subcriterio C4.2 completamente ausente.
++
++Según las instrucciones de puntuación: *"Define solo Boilerplate sin mencionar Snippets → 50%"*. El 50% de 18 puntos equivale a **9/18**.
++
++La consigna pide explícitamente ambos conceptos juntos: el Boilerplate como problema y el Snippet Management como solución en contexto de Live Coding. Definir uno sin el otro responde solo la mitad de la pregunta.
++
++**C5 — Hot Reloading (18/18)**
++Contraste claro entre detener-compilar-reiniciar (corta el ritmo frente al cliente) y Hot Reloading (cambios instantáneos, presentación fluida y profesional). Ambos subcriterios cumplidos.
++
++**C6 — Checkpoints (18/18)**
++Correcta. Define checkpoints como versiones guardadas y funcionales, explica que permiten volver en segundos ante un fallo, y vincula el beneficio con evitar el pánico. Cumple todos los puntos de C6.1.
++
++### Observación General
++La entrega muestra comprensión sólida del material en cuatro de las cinco consignas. La única deducción es en C4, donde el alumno responde la mitad de la pregunta: define el Boilerplate con precisión pero no cierra el argumento explicando cómo los Snippets resuelven ese problema en el contexto específico del Live Coding. Es una omisión puntual en una entrega por lo demás completa.
++
++---
++
++---
++
++## Alumno: Marcos Benítez — `s2_zip_invalido_cd1.txt`
++
++### ❌ Condición de Desaprobación Activada: CD1
++
++> **CD1:** El archivo entregado no es un `.zip` (fue entregado en formato `.rar`) → `nota_maxima: 0`
++
++La rúbrica establece que la entrega en cualquier formato distinto a `.zip` (`.rar`, `.7z`, enlace web u otro) impone una nota máxima de **0 puntos**, independientemente de la calidad del contenido interno.
++
++### Nota Final: 0 / 100
++
++### Desglose por criterio
++
++| Criterio | Descripción | Peso | Obtenido | Estado |
++|---|---|---|---|---|
++| C1 | Formato y condiciones de entrega | 10 | **0** | ❌ CD1 activa — no es .zip |
++| C2 | El programador transparente | 18 | — | ❌ Anulado por CD1 |
++| C3 | Explicación en Paralelo | 18 | — | ❌ Anulado por CD1 |
++| C4 | Boilerplate y Snippet Management | 18 | — | ❌ Anulado por CD1 |
++| C5 | Hot Reloading | 18 | — | ❌ Anulado por CD1 |
++| C6 | Checkpoints | 18 | — | ❌ Anulado por CD1 |
++| **Techo CD1** | | | **→ 0** | ❌ |
++
++### Feedback
++
++**Formato de entrega (CD1 activada)**
++El archivo fue comprimido en formato `.rar`. La consigna advierte explícitamente que "la entrega final debe ser un único archivo comprimido en formato `.zip`" y que no se aceptarán `.rar`, `.7z` ni enlaces web. La condición de desaprobación CD1 se activa por este motivo, estableciendo una nota máxima de 0.
++
++**Sobre el contenido interno**
++A modo informativo (no incide en la nota): el contenido teórico del PDF interno cubre las cinco consignas de forma correcta y suficiente. Las respuestas sobre el programador transparente, la Explicación en Paralelo, Boilerplate y Snippets, Hot Reloading y Checkpoints están bien desarrolladas. El problema no es el contenido, sino el envase.
++
++### Observación General
++Esta es la penalización más severa posible y la más evitable. El error no es conceptual ni práctico: es un error de formato en el paso final de empaquetado. La consigna es explícita al respecto, y la diferencia entre `.rar` y `.zip` es el único factor que determina la nota de 0 en lugar de un aprobado. Para futuras entregas: verificar siempre la extensión del archivo antes de enviarlo.
++
++---
++
++## Resumen de la Rúbrica — Comportamiento observado
++
++| Escenario de prueba | Comportamiento esperado | Resultado |
++|---|---|---|
++| Entrega completa y correcta | 100/100 sin penalizaciones | ✅ Correcto — Julieta Ibáñez: 100/100 |
++| Falla parcial en criterio C4 (solo Boilerplate, sin Snippets) | 50% del peso de C4 → descuento de 9 puntos | ✅ Correcto — Nicolás Páez: 91/100 |
++| Entrega en formato .rar (CD1) | Nota máxima 0, sin importar el contenido | ✅ Correcto — Marcos Benítez: 0/100 |
++
++La rúbrica discrimina correctamente los tres casos. El descuento parcial de C4 (50% por respuesta incompleta) aísla correctamente la falla sin afectar los demás criterios. La condición CD1 se activa de forma contundente y sin excepciones ante el formato incorrecto.
+diff --git a/TPs/TP5/sinteticos/2026-07-05_223422/resumen.json b/TPs/TP5/sinteticos/2026-07-05_223422/resumen.json
+new file mode 100644
+index 0000000..a9bb82c
+--- /dev/null
++++ b/TPs/TP5/sinteticos/2026-07-05_223422/resumen.json
+@@ -0,0 +1,28 @@
++[
++  {
++    "sid": "s0",
++    "testea": "rúbrica completa",
++    "esperado": "100",
++    "nota": 100,
++    "meta": "✅",
++    "warns": []
++  },
++  {
++    "sid": "s1",
++    "testea": "C4 discrimina (18 pts) - solo define Boilerplate, sin Snippets",
++    "esperado": "91",
++    "nota": 91,
++    "meta": "✅",
++    "warns": []
++  },
++  {
++    "sid": "s2",
++    "testea": "CD1 discrimina - entrega en .rar en vez de .zip",
++    "esperado": "0 (techo)",
++    "nota": 0,
++    "meta": "✅",
++    "warns": [
++      "El contenido teórico interno era correcto y completo; la nota 0 se debe exclusivamente al formato de archivo, tal como exige CD1."
++    ]
++  }
++]
+diff --git a/TPs/TP5/sinteticos/2026-07-05_223422/s0_perfecta.txt b/TPs/TP5/sinteticos/2026-07-05_223422/s0_perfecta.txt
+new file mode 100644
+index 0000000..d09bebf
+--- /dev/null
++++ b/TPs/TP5/sinteticos/2026-07-05_223422/s0_perfecta.txt
+@@ -0,0 +1,71 @@
++Estructura del `.zip` entregado:
++
++```
++tp5-livecoding-ibanez-julieta/
++└── respuestas-tp5-livecoding.pdf
++```
++
++---
++
++**Archivo: `respuestas-tp5-livecoding.pdf`** (solo texto plano, sin imágenes ni capturas)
++
++## Consignas Teóricas
++
++**1. El programador transparente**
++
++Cometer un typo o tener que buscar algo en la documentación oficial en medio
++de una presentación en vivo no es un fracaso porque el Live Coding no busca
++mostrar un producto terminado, sino el proceso real de razonamiento de un
++programador profesional. Ver cómo alguien detecta un error, lo diagnostica y
++lo corrige en el momento es mucho más formativo para la audiencia que ver
++solo el resultado final pulido. Además, consultar la documentación oficial en
++vivo demuestra un hábito profesional real: ningún programador se sabe todo de
++memoria, y mostrar ese proceso humaniza al presentador y le da más
++credibilidad, no menos.
++
++**2. Estrategia en entrevistas técnicas: Explicación en Paralelo**
++
++Si en una entrevista técnica no llego a terminar el código en el tiempo
++límite, verbalizar en voz alta mi razonamiento (la Explicación en Paralelo)
++me permite demostrarle al entrevistador que entendí el problema y que tengo
++un plan de solución claro, aunque no llegue a escribir cada línea. La mayoría
++de los entrevistadores técnicos evalúan la capacidad de análisis, la lógica
++para descomponer el problema y cómo se maneja la presión, no únicamente si el
++código compiló al final. Un candidato que explica bien su razonamiento suele
++aprobar aunque el código quede incompleto, mientras que alguien que termina el
++código en silencio sin explicar nada no muestra ese proceso de pensamiento.
++
++**3. Evitando el código repetitivo: Boilerplate y Snippets**
++
++El Boilerplate es todo ese código repetitivo y estructural que hay que
++escribir casi siempre igual (imports, configuración inicial, declaración de
++clases) pero que no contiene la lógica particular del problema que se está
++resolviendo. La Gestión de Fragmentos (Snippet Management) permite tener ese
++código boilerplate guardado de antemano como fragmentos reutilizables que se
++insertan con un atajo de teclado, en vez de escribirlos de cero frente a la
++audiencia. Esto es clave en una sesión en vivo porque el tiempo es limitado:
++saltear la parte aburrida y repetitiva permite dedicar el tiempo disponible a
++mostrar y explicar la lógica que realmente importa del problema.
++
++**4. Fluidez y dinamismo (Hot Reloading)**
++
++Sin Hot Reloading, cada cambio en el código obliga a detener el programa,
++esperar que compile de nuevo y reiniciar el servidor manualmente, lo que
++genera pausas incómodas frente al cliente y corta por completo el ritmo de la
++demostración. Con Hot Reloading, en cambio, los cambios se aplican
++instantáneamente sin detener la ejecución, así que la presentación fluye sin
++interrupciones. Para un cliente potencial que está evaluando si comprar el
++prototipo, esa fluidez transmite mucho más profesionalismo que una demo
++cortada por reinicios constantes.
++
++**5. La máquina del tiempo del programador (Checkpoints)**
++
++Los Checkpoints son puntos de control guardados de antemano, con versiones
++del código que ya se probaron y se sabe que funcionan correctamente. Si en
++medio de la presentación un cambio rompe todo el sistema, en vez de perder
++tiempo valioso (y credibilidad) buscando el error en vivo frente a la
++audiencia, puedo volver instantáneamente al checkpoint anterior funcional y
++seguir la demostración desde ahí. Saber que existe ese punto de retorno
++elimina el pánico: no importa qué tan mal salga un experimento en vivo,
++siempre hay un lugar seguro al cual volver sin tener que depurar bajo
++presión delante de todos.
+diff --git a/TPs/TP5/sinteticos/2026-07-05_223422/s1_falla_c4.txt b/TPs/TP5/sinteticos/2026-07-05_223422/s1_falla_c4.txt
+new file mode 100644
+index 0000000..e6f082c
+--- /dev/null
++++ b/TPs/TP5/sinteticos/2026-07-05_223422/s1_falla_c4.txt
+@@ -0,0 +1,62 @@
++Estructura del `.zip` entregado:
++
++```
++tp5-livecoding-paez-nicolas/
++└── respuestas-tp5-livecoding.pdf
++```
++
++---
++
++**Archivo: `respuestas-tp5-livecoding.pdf`** (solo texto plano, sin imágenes ni capturas)
++
++## Consignas Teóricas
++
++**1. El programador transparente**
++
++Cometer un error de tipeo o buscar algo en la documentación oficial en vivo
++no es un fracaso porque el Live Coding busca mostrar el proceso real de
++resolución de problemas, no un producto ya terminado. Ver a un programador
++diagnosticar y corregir un error en el momento es más educativo para la
++audiencia que ver solo el resultado final, y consultar la documentación
++demuestra un hábito profesional genuino en vez de pretender saberlo todo de
++memoria.
++
++**2. Estrategia en entrevistas técnicas: Explicación en Paralelo**
++
++Verbalizar el razonamiento mientras se codifica le permite al entrevistador
++ver que el candidato entendió el problema y tiene un plan de solución, aunque
++no llegue a terminar de escribir el código completo. El entrevistador suele
++evaluar la capacidad de análisis y de resolución de problemas, no solamente
++si el código final compila.
++
++**3. Evitando el código repetitivo: Boilerplate**
++
++El Boilerplate es el código repetitivo y estructural que hay que escribir
++casi siempre igual en cualquier proyecto —imports, configuración inicial,
++declaración de clases— y que no aporta lógica nueva al problema puntual que
++se está resolviendo. Es la parte "aburrida" pero necesaria de arrancar
++cualquier programa.
++
++**4. Fluidez y dinamismo (Hot Reloading)**
++
++Sin Hot Reloading, cada cambio implica detener el programa, esperar que
++compile y reiniciar el servidor a mano, lo que corta el ritmo de la
++demostración frente a un cliente. Con Hot Reloading los cambios se ven
++reflejados al instante sin reiniciar nada, así que la presentación se siente
++mucho más fluida y profesional.
++
++**5. La máquina del tiempo del programador (Checkpoints)**
++
++Los Checkpoints son versiones guardadas de antemano del código que ya
++funcionan correctamente. Si un cambio en vivo rompe el sistema, se puede
++volver a ese punto de control en segundos en lugar de perder tiempo buscando
++el error frente a la audiencia, lo que evita el pánico porque siempre hay un
++lugar seguro al cual regresar.
++
++---
++**Falla deliberada para testeo:** en la pregunta 3 (criterio C4, peso 18) el
++alumno define correctamente el concepto de Boilerplate, pero en ningún
++momento menciona ni explica la Gestión de Fragmentos (Snippet Management),
++que es la segunda mitad exigida por la consigna y por el subcriterio C4.2.
++El resto de las respuestas (C1, C2, C3, C5, C6) está completo y correcto,
++para aislar el efecto de esta única falla parcial.
+diff --git a/TPs/TP5/sinteticos/2026-07-05_223422/s2_zip_invalido_cd1.txt b/TPs/TP5/sinteticos/2026-07-05_223422/s2_zip_invalido_cd1.txt
+new file mode 100644
+index 0000000..b9737db
+--- /dev/null
++++ b/TPs/TP5/sinteticos/2026-07-05_223422/s2_zip_invalido_cd1.txt
+@@ -0,0 +1,58 @@
++Estructura del archivo entregado:
++
++```
++tp5-livecoding-benitez-marcos.rar
++└── respuestas-tp5-livecoding.pdf
++```
++
++Nota: el alumno comprimió su entrega en formato **.rar** en lugar de **.zip**,
++a pesar de que la consigna advierte explícitamente en el recuadro de
++instrucciones estrictas: "La entrega final debe ser un único archivo
++comprimido en formato .zip. No se aceptarán formatos como .rar, .7z ni
++enlaces web."
++
++---
++
++**Archivo: `respuestas-tp5-livecoding.pdf`** (contenido interno, solo a modo de
++referencia — el formato del contenedor ya incumple la condición de entrega)
++
++## Consignas Teóricas
++
++**1. El programador transparente**
++
++Cometer un error de tipeo o buscar algo en la documentación oficial en vivo
++no es un fracaso porque el Live Coding muestra el proceso real de resolución
++de problemas, no solo el resultado final. Consultar documentación en vivo
++demuestra un hábito profesional genuino.
++
++**2. Estrategia en entrevistas técnicas: Explicación en Paralelo**
++
++Verbalizar el razonamiento mientras se codifica permite demostrarle al
++entrevistador que se entendió el problema y que hay un plan de solución,
++aunque no se llegue a terminar el código completo en el tiempo límite.
++
++**3. Evitando el código repetitivo: Boilerplate y Snippets**
++
++El Boilerplate es el código repetitivo y estructural (imports, configuración
++inicial) que no aporta lógica nueva. La Gestión de Fragmentos permite tener
++ese código guardado como snippets reutilizables, evitando escribirlo de cero
++en vivo y dejando más tiempo para la lógica importante.
++
++**4. Fluidez y dinamismo (Hot Reloading)**
++
++Sin Hot Reloading hay que detener, compilar y reiniciar manualmente con cada
++cambio, lo que rompe el ritmo frente al cliente. Con Hot Reloading los
++cambios se aplican al instante, manteniendo la presentación fluida.
++
++**5. La máquina del tiempo del programador (Checkpoints)**
++
++Los Checkpoints son puntos de control guardados de antemano con código que ya
++funciona. Si algo se rompe en vivo, se puede volver a ese punto en segundos
++en lugar de depurar el error frente a la audiencia, lo que evita el pánico.
++
++---
++**Falla deliberada para testeo:** el contenido teórico interno está completo
++y correcto en las 5 consignas, pero el archivo de entrega no es un `.zip`
++sino un `.rar`. Esto debería activar la condición de desaprobación `CD1`
++("el archivo entregado no es un .zip → nota_maxima 0"), sin importar la
++calidad del contenido teórico.
+diff --git a/TPs/TP6/sinteticos/2026-07-05_223422/informe-correcciones-tp6.md b/TPs/TP6/sinteticos/2026-07-05_223422/informe-correcciones-tp6.md
+new file mode 100644
+index 0000000..00b6f85
+--- /dev/null
++++ b/TPs/TP6/sinteticos/2026-07-05_223422/informe-correcciones-tp6.md
+@@ -0,0 +1,189 @@
++# Informe de Correcciones — TP6: Automatización de Flujos con n8n
++
++**Materia:** Organización Empresarial | **Carrera:** TUPaD | **UTN - Facultad Regional Mendoza**
++**Rúbrica aplicada:** `rubrica-tp6-n8n.json` | **Puntaje máximo:** 100 puntos
++
++---
++
++## Resumen General
++
++| Alumno/a | Archivo entregado | Nota Final | Estado |
++|---|---|---|---|
++| Sofía Vargas | `s0_perfecta.txt` | **100 / 100** | ✅ Aprobado |
++| Emiliano Castro | `s1_falla_c7.txt` | **91 / 100** | ✅ Aprobado |
++| Valentina Herrera | `s2_sin_json_cd2.txt` | **30 / 100** | ⚠️ Condición de desaprobación activa (CD2) |
++
++---
++
++---
++
++## Alumno/a: Sofía Vargas — `s0_perfecta.txt`
++
++### Nota Final: 100 / 100
++
++### Desglose por criterio
++
++| Criterio | Descripción | Peso | Obtenido | Estado |
++|---|---|---|---|---|
++| C1 | Formato y condiciones de entrega | 10 | 10 | ✅ Completo |
++| C2 | Valor comercial del Low-Code | 12 | 12 | ✅ Completo |
++| C3 | Triggers vs Acciones | 15 | 15 | ✅ Completo |
++| C4 | Gestión de secretos | 13 | 13 | ✅ Completo |
++| C5 | Nodo Edit Fields (Set) | 10 | 10 | ✅ Completo |
++| C6 | Schedule Trigger configurado | 10 | 10 | ✅ Completo |
++| C7 | Edit Fields con campo `mensaje_recordatorio` | 15 | 15 | ✅ Completo |
++| C8 | Nodo mensajería con expresión mapeada | 15 | 15 | ✅ Completo |
++
++### Feedback por criterio
++
++**C1 — Formato y condiciones de entrega (10/10)**
++Entrega impecable. El `.zip` contiene el PDF de respuestas (solo texto, sin imágenes, con las cuatro consignas teóricas respondidas) y el archivo `tp-n8n-vargas-sofia.json`. El JSON tiene estructura de workflow de n8n reconocible con los campos `nodes`, `connections`, `name` y `meta`. El nombre del archivo sigue la convención `tp-n8n-apellido-nombre.json`.
++
++**C2 — Valor comercial del Low-Code (12/12)**
++Respuesta que va claramente más allá de "es más fácil". Identifica múltiples beneficios comerciales concretos: reducción del tiempo de desarrollo de integraciones (de días a horas), menor costo de mantenimiento porque los conectores ya vienen probados por la comunidad, y la posibilidad de que perfiles no técnicos (marketing, operaciones) armen o ajusten flujos sin depender de un desarrollador. Contextualiza bien el valor en términos de productividad y ahorro para la empresa.
++
++**C3 — Triggers vs Acciones (15/15)**
++Diferenciación correcta: el Nodo Trigger define el "cuándo" (dispara el flujo), el Nodo de Acción ejecuta una tarea concreta en respuesta. Los ejemplos son válidos y pertinentes: Schedule Trigger para el reporte de ventas de los lunes a la mañana; Webhook para reaccionar cuando alguien completa un formulario web. Ambos subcriterios (C3.1 y C3.2) cumplidos.
++
++**C4 — Gestión de secretos (13/13)**
++Respuesta sólida con más de dos motivos de seguridad. Menciona: (1) la exposición visual de la contraseña a cualquiera que acceda al workflow o reciba una copia del `.json` exportado; (2) la posibilidad de rotar o revocar una clave sin editar cada nodo; (3) la reutilización del equipo sin que nadie tenga que conocer la contraseña real. La mención específica al riesgo en los exports `.json` es un punto de precisión técnica destacable.
++
++**C5 — Nodo Edit Fields (10/10)**
++Explica con claridad que el nodo permite crear, renombrar o filtrar campos del JSON que viaja entre nodos. Contextualiza correctamente: los datos que llegan de una plataforma suelen tener campos con nombres raros o información de más, y el nodo los reestructura para que el siguiente nodo reciba exactamente lo que espera. Ambas evidencias de C5.1 cumplidas.
++
++**C6 — Schedule Trigger configurado (10/10)**
++El JSON contiene el nodo `n8n-nodes-base.scheduleTrigger` con la configuración correcta: `field: "weeks"`, `triggerAtDay: [1]` (lunes), `triggerAtHour: 8`, `triggerAtMinute: 0`. Configuración exacta según la consigna.
++
++**C7 — Edit Fields con campo `mensaje_recordatorio` (15/15)**
++El nodo `n8n-nodes-base.set` está presente y conectado al Schedule Trigger en el objeto `connections`. Define un campo con el nombre exacto `"mensaje_recordatorio"`, tipo `"string"` y un valor no vacío con mensaje motivacional. Los tres puntos de C7.1 cumplidos.
++
++**C8 — Nodo mensajería con expresión mapeada (15/15)**
++El nodo Telegram está presente, conectado a la salida del Edit Fields en el objeto `connections`. El campo `text` usa la expresión dinámica `"={{ $json.mensaje_recordatorio }}"`, que referencia exactamente el campo creado en el nodo anterior. No se usó texto estático. Las credenciales no están configuradas, pero la consigna aclara explícitamente que no es obligatorio para la nota completa.
++
++---
++
++---
++
++## Alumno: Emiliano Castro — `s1_falla_c7.txt`
++
++### Nota Final: 91 / 100
++
++### Desglose por criterio
++
++| Criterio | Descripción | Peso | Obtenido | Estado |
++|---|---|---|---|---|
++| C1 | Formato y condiciones de entrega | 10 | 10 | ✅ Completo |
++| C2 | Valor comercial del Low-Code | 12 | 12 | ✅ Completo |
++| C3 | Triggers vs Acciones | 15 | 15 | ✅ Completo |
++| C4 | Gestión de secretos | 13 | 13 | ✅ Completo |
++| C5 | Nodo Edit Fields (Set) | 10 | 10 | ✅ Completo |
++| C6 | Schedule Trigger configurado | 10 | 10 | ✅ Completo |
++| C7 | Edit Fields con campo `mensaje_recordatorio` | 15 | **10** | ⚠️ Parcial — nombre de campo incorrecto |
++| C8 | Nodo mensajería con expresión mapeada | 15 | **11** | ⚠️ Parcial — expresión referencia campo incorrecto |
++
++### Feedback por criterio
++
++**C1 — Formato y condiciones de entrega (10/10)**
++Formato correcto. `.zip` válido con PDF (solo texto, cuatro consignas respondidas) y archivo `.json` con estructura de workflow de n8n reconocible. Sin observaciones.
++
++**C2 — Valor comercial del Low-Code (12/12)**
++Respuesta concisa pero suficiente. Menciona velocidad (integraciones que llevan días se arman en minutos), reducción del costo de desarrollo y de mantenimiento de conexiones rutinarias. Contextualiza en términos de productividad. Cumple el criterio.
++
++**C3 — Triggers vs Acciones (15/15)**
++Diferenciación correcta entre Trigger (define cuándo arranca el flujo) y Acción (ejecuta una tarea en respuesta). Ejemplos válidos: Schedule para reporte semanal, Webhook para formulario web. Puntaje completo.
++
++**C4 — Gestión de secretos (13/13)**
++Menciona la exposición de la contraseña a quien acceda al workflow y la reutilización del equipo sin compartir contraseñas. Dos motivos de seguridad presentes. Puntaje completo.
++
++**C5 — Nodo Edit Fields (10/10)**
++Correcta. Explica creación y renombrado de campos, y contextualiza con datos desordenados que llegan de plataformas externas.
++
++**C6 — Schedule Trigger configurado (10/10)**
++El nodo `n8n-nodes-base.scheduleTrigger` en el JSON tiene la configuración correcta: `triggerAtDay: [1]` (lunes), `triggerAtHour: 8`, `triggerAtMinute: 0`. Sin observaciones.
++
++**C7 — Edit Fields con campo `mensaje_recordatorio` (10/15)** ⚠️
++Aquí está el primer descuento. El nodo `n8n-nodes-base.set` existe y está correctamente conectado al Schedule Trigger. El valor asignado no está vacío. Sin embargo, el campo fue nombrado **`"mensaje"`** en lugar de **`"mensaje_recordatorio"`** como exige la consigna y la rúbrica.
++
++La consigna es explícita: *"un campo de tipo String llamado exactamente 'mensaje_recordatorio'"*. El nombre es incorrecto. Según las instrucciones de puntuación: *"Nodo presente pero nombre del campo incorrecto (ej: 'mensaje') → -5"*. Descuento aplicado: **-5 puntos**. C7 = 15 - 5 = **10/15**.
++
++**C8 — Nodo mensajería con expresión mapeada (11/15)** ⚠️
++El nodo Telegram está presente y correctamente conectado a la salida del Edit Fields. El campo `text` usa una expresión dinámica (no texto estático), lo cual es correcto en su forma. Sin embargo, la expresión es `"={{ $json.mensaje }}"` en lugar de `"={{ $json.mensaje_recordatorio }}"`.
++
++La expresión referencia el campo erróneo (`mensaje`) porque ese fue el nombre que se le asignó en el nodo Edit Fields. La consecuencia es doble: el campo no tiene el nombre correcto (C7) y la expresión tampoco referencia la variable correcta (C8). Son dos criterios afectados por el mismo error de nomenclatura.
++
++Según las instrucciones: *"Nodo presente con expresión incorrecta → -4"*. Descuento aplicado: **-4 puntos**. C8 = 15 - 4 = **11/15**.
++
++### Observación General
++La entrega muestra dominio técnico claro del ecosistema n8n. El workflow está bien estructurado, las conexiones son correctas y la lógica del flujo es la adecuada. El único problema es de nomenclatura: usar `"mensaje"` en lugar del nombre exacto `"mensaje_recordatorio"` que exige la consigna. Ese error de precisión en el nombre del campo se propaga a dos criterios (C7 y C8), sumando un descuento total de 9 puntos. En un contexto real de producción, este error haría que la expresión del nodo Telegram devuelva `undefined` porque el campo al que referencia no existe con ese nombre.
++
++---
++
++---
++
++## Alumno/a: Valentina Herrera — `s2_sin_json_cd2.txt`
++
++### ⚠️ Condición de Desaprobación Activada: CD2
++
++> **CD2:** No se incluye el archivo `.json` exportado desde n8n en el `.zip` entregado → `nota_maxima: 30`
++
++La rúbrica establece que la ausencia del workflow `.json` impone un techo máximo de **30 puntos**, independientemente del puntaje acumulado en los criterios teóricos.
++
++### Nota Final: 30 / 100 (techo por CD2)
++
++### Desglose por criterio
++
++| Criterio | Descripción | Peso | Obtenido | Estado |
++|---|---|---|---|---|
++| C1 | Formato y condiciones de entrega | 10 | **5** | ⚠️ Parcial (-5 por falta de .json) |
++| C2 | Valor comercial del Low-Code | 12 | 12 | ✅ Completo |
++| C3 | Triggers vs Acciones | 15 | 15 | ✅ Completo |
++| C4 | Gestión de secretos | 13 | 13 | ✅ Completo |
++| C5 | Nodo Edit Fields (Set) | 10 | 10 | ✅ Completo |
++| C6 | Schedule Trigger configurado | 10 | **0** | ❌ Sin evidencia verificable |
++| C7 | Edit Fields con `mensaje_recordatorio` | 15 | **0** | ❌ Sin evidencia verificable |
++| C8 | Nodo mensajería con expresión mapeada | 15 | **0** | ❌ Sin evidencia verificable |
++| **Subtotal bruto** | | 100 | **55** | |
++| **Techo CD2** | | | **→ 30** | ⚠️ |
++
++### Feedback por criterio
++
++**C1 — Formato y condiciones de entrega (5/10)**
++El `.zip` contiene el PDF de respuestas teóricas (solo texto, sin imágenes, con las cuatro consignas respondidas). Sin embargo, el archivo `.json` exportado desde n8n está completamente ausente. Las instrucciones de C1 establecen: *"Si falta el .json de n8n → -5 puntos"*. C1 = 10 - 5 = **5/10**.
++
++**C2 — Valor comercial del Low-Code (12/12)**
++Respuesta correcta. Menciona velocidad (días a minutos), reducción del costo de desarrollo y mantenimiento. Contextualiza en términos de productividad y ahorro. Cumple el criterio.
++
++**C3 — Triggers vs Acciones (15/15)**
++Diferenciación correcta entre Trigger y Acción. Ejemplos válidos: Schedule para reporte semanal, Webhook para formulario web completado. Puntaje completo.
++
++**C4 — Gestión de secretos (13/13)**
++Menciona la exposición de la contraseña en el workflow o su exportación y la reutilización sin compartir contraseñas. Dos motivos de seguridad presentes. Puntaje completo.
++
++**C5 — Nodo Edit Fields (10/10)**
++Explica creación y renombrado de campos, y contextualiza con datos desordenados de plataformas externas que se transforman para el nodo siguiente. Cumple el criterio.
++
++**C6 — Schedule Trigger configurado (0/10)** ❌
++Sin el archivo `.json` del workflow no existe ninguna evidencia verificable de la existencia ni la configuración del Schedule Trigger. No hay nodo que auditar.
++
++**C7 — Edit Fields con campo `mensaje_recordatorio` (0/15)** ❌
++Sin el `.json` no hay nodo Edit Fields que verificar. No es posible comprobar el nombre del campo (`mensaje_recordatorio`), su tipo ni su valor. Lo que el alumno afirme en el PDF sobre lo que hizo no reemplaza la evidencia del workflow exportado.
++
++**C8 — Nodo mensajería con expresión mapeada (0/15)** ❌
++Sin el `.json` no hay nodo de mensajería que auditar. No existe forma de verificar la expresión `{{ $json.mensaje_recordatorio }}` ni la conexión de los nodos.
++
++### Observación General
++La parte teórica (C2 a C5) está resuelta correctamente y alcanza 50 de los 55 puntos brutos acumulados. Sin embargo, la ausencia del archivo `.json` hace que toda la parte práctica (C6, C7, C8 — 40 puntos en total) sea imposible de corregir. El corrector no puede evaluar un workflow que no existe en la entrega. Adicionalmente, la condición de desaprobación CD2 limita la nota máxima a 30 puntos. Esta situación es análoga a la de TP1 sin la carpeta `.git`: comprensión teórica presente pero sin el artefacto práctico que la respalda. La entrega evidencia que la alumna comprende los conceptos del TP pero no adjuntó el producto principal de la parte práctica.
++
++---
++
++## Resumen de la Rúbrica — Comportamiento observado
++
++| Escenario de prueba | Comportamiento esperado | Resultado |
++|---|---|---|
++| Entrega completa y correcta | 100/100 sin penalizaciones | ✅ Correcto — Sofía Vargas: 100/100 |
++| Nombre de campo incorrecto en C7 (cascada a C8) | -5 en C7, -4 en C8 → descuento total de 9 puntos | ✅ Correcto — Emiliano Castro: 91/100 |
++| Ausencia del .json (CD2) | Techo de 30 puntos, práctica anulada | ✅ Correcto — Valentina Herrera: 30/100 |
++
++### Observación sobre la propagación del error en C7→C8
++
++El caso de Emiliano Castro expone un comportamiento interesante de la rúbrica: un error de nomenclatura en C7 (nombre de campo incorrecto) se propaga automáticamente a C8 (expresión que referencia ese campo). La rúbrica penaliza ambos criterios por separado, lo cual es técnicamente correcto porque son defectos independientes: uno en la definición del campo, otro en la referencia a ese campo. Sin embargo, la causa raíz es única (el nombre `"mensaje"` en lugar de `"mensaje_recordatorio"`). Este comportamiento es deliberado en el diseño de la rúbrica: C7 y C8 evalúan componentes distintos del workflow, y ambos tienen evidencias propias que verificar.
+diff --git a/TPs/TP6/sinteticos/2026-07-05_223422/resumen.json b/TPs/TP6/sinteticos/2026-07-05_223422/resumen.json
+new file mode 100644
+index 0000000..a5f2043
+--- /dev/null
++++ b/TPs/TP6/sinteticos/2026-07-05_223422/resumen.json
+@@ -0,0 +1,30 @@
++[
++  {
++    "sid": "s0",
++    "testea": "rúbrica completa",
++    "esperado": "100",
++    "nota": 100,
++    "meta": "✅",
++    "warns": []
++  },
++  {
++    "sid": "s1",
++    "testea": "C7 discrimina (15 pts) - nombre de campo incorrecto en Edit Fields",
++    "esperado": "~95 (solo C7)",
++    "nota": 91,
++    "meta": "✅",
++    "warns": [
++      "Hallazgo no anticipado: el nombre de campo incorrecto en C7 se propagó también a C8 (la expresión del nodo de mensajería referencia ese mismo campo), sumando -5 en C7 y -4 en C8 en vez de afectar un único criterio. Confirma que la rúbrica evalúa la coherencia entre nodos, no cada nodo de forma aislada."
++    ]
++  },
++  {
++    "sid": "s2",
++    "testea": "CD2 discrimina - ausencia del .json exportado de n8n",
++    "esperado": "≤30 (techo)",
++    "nota": 30,
++    "meta": "✅",
++    "warns": [
++      "Subtotal bruto antes del techo: 55/100 (C1=5, C2-C5=50, C6-C8=0). El techo CD2 lo lleva a 30, análogo al caso de TP1 sin .git."
++    ]
++  }
++]
+diff --git a/TPs/TP6/sinteticos/2026-07-05_223422/s0_perfecta.txt b/TPs/TP6/sinteticos/2026-07-05_223422/s0_perfecta.txt
+new file mode 100644
+index 0000000..8c52e8e
+--- /dev/null
++++ b/TPs/TP6/sinteticos/2026-07-05_223422/s0_perfecta.txt
+@@ -0,0 +1,137 @@
++Estructura del `.zip` entregado:
++
++```
++tp6-n8n-vargas-sofia/
++├── respuestas-tp6-n8n.pdf
++└── tp-n8n-vargas-sofia.json
++```
++
++---
++
++**Archivo: `respuestas-tp6-n8n.pdf`** (solo texto plano, sin imágenes)
++
++## Parte 1: Evaluación Teórica
++
++**1. El paradigma Low-Code**
++
++Aunque el equipo ya sepa programar en Python o Java, el valor comercial real
++de n8n no es reemplazar esas habilidades sino acelerar drásticamente las
++integraciones rutinarias entre sistemas (mandar un mail, actualizar una
++planilla, notificar por Telegram) que de otra forma habría que programar,
++mantener y desplegar a mano cada vez. Eso reduce el tiempo de desarrollo de
++cada automatización de días a horas, baja el costo de mantenimiento porque
++los conectores ya vienen probados por la comunidad, y además permite que
++perfiles no técnicos del equipo (marketing, operaciones) puedan armar o
++ajustar flujos simples sin depender siempre de un desarrollador.
++
++**2. Iniciando el flujo: Triggers vs Acciones**
++
++Un Nodo Trigger es el que dispara o inicia el flujo: define el "cuándo"
++arranca la automatización. Un Nodo de Acción, en cambio, es el que ejecuta
++una tarea concreta como respuesta a ese disparo: manda un mensaje, guarda un
++dato, llama a una API. Usaría un Schedule Trigger para algo que tiene que
++pasar en un horario fijo sin que nadie lo dispare manualmente, como mandar un
++reporte de ventas todos los lunes a la mañana. Usaría un Webhook, en cambio,
++para reaccionar a un evento externo impredecible, como recibir una
++notificación apenas alguien completa un formulario en la web.
++
++**3. Gestión de secretos**
++
++Escribir la contraseña directamente en el nodo la deja visible para
++cualquiera que tenga acceso al workflow o que reciba una copia exportada en
++`.json` del mismo, lo cual es un riesgo enorme en un entorno de equipo. Usar
++Credenciales centralizadas evita esa exposición directa, permite rotar o
++revocar una clave sin tener que entrar a editar cada nodo que la usa, y deja
++que varias personas del equipo reutilicen la misma automatización sin que
++nadie tenga que conocer la contraseña real.
++
++**4. El nodo vital: Edit Fields (Set)**
++
++El nodo Edit Fields permite crear, renombrar o filtrar campos específicos del
++dato (JSON) que viaja entre un nodo y el siguiente. Cuando los datos llegan
++desordenados desde una plataforma —con nombres de campo raros o información
++de más que no se necesita— este nodo los reestructura y limpia para que el
++siguiente nodo del flujo reciba exactamente los campos que espera, con el
++nombre y formato correctos.
++
++---
++
++**Archivo: `tp-n8n-vargas-sofia.json`**
++
++```json
++{
++  "name": "Asistente de Productividad Académica",
++  "nodes": [
++    {
++      "parameters": {
++        "rule": {
++          "interval": [
++            {
++              "field": "weeks",
++              "triggerAtDay": [1],
++              "triggerAtHour": 8,
++              "triggerAtMinute": 0
++            }
++          ]
++        }
++      },
++      "id": "a1b2c3d4-1111-4a5b-9c8d-000000000001",
++      "name": "Schedule Trigger",
++      "type": "n8n-nodes-base.scheduleTrigger",
++      "typeVersion": 1.2,
++      "position": [260, 300]
++    },
++    {
++      "parameters": {
++        "assignments": {
++          "assignments": [
++            {
++              "id": "b2c3d4e5-2222-4a5b-9c8d-000000000002",
++              "name": "mensaje_recordatorio",
++              "value": "¡Buenos días! No olvides revisar las entregas de la semana en el campus y actualizar tus planillas.",
++              "type": "string"
++            }
++          ]
++        },
++        "options": {}
++      },
++      "id": "c3d4e5f6-3333-4a5b-9c8d-000000000003",
++      "name": "Edit Fields",
++      "type": "n8n-nodes-base.set",
++      "typeVersion": 3.4,
++      "position": [480, 300]
++    },
++    {
++      "parameters": {
++        "chatId": "123456789",
++        "text": "={{ $json.mensaje_recordatorio }}",
++        "additionalFields": {}
++      },
++      "id": "d4e5f6a7-4444-4a5b-9c8d-000000000004",
++      "name": "Telegram",
++      "type": "n8n-nodes-base.telegram",
++      "typeVersion": 1.2,
++      "position": [700, 300]
++    }
++  ],
++  "connections": {
++    "Schedule Trigger": {
++      "main": [[{ "node": "Edit Fields", "type": "main", "index": 0 }]]
++    },
++    "Edit Fields": {
++      "main": [[{ "node": "Telegram", "type": "main", "index": 0 }]]
++    }
++  },
++  "active": false,
++  "settings": { "executionOrder": "v1" },
++  "pinData": {},
++  "meta": {
++    "templateCredsSetupCompleted": false,
++    "instanceId": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b"
++  }
++}
++```
++
++Nota: el nodo Telegram no llegó a ejecutarse con credenciales reales (tal
++como aclara la consigna que no es obligatorio), pero el mapeo de la
++expresión `{{ $json.mensaje_recordatorio }}` está correctamente configurado.
+diff --git a/TPs/TP6/sinteticos/2026-07-05_223422/s1_falla_c7.txt b/TPs/TP6/sinteticos/2026-07-05_223422/s1_falla_c7.txt
+new file mode 100644
+index 0000000..496df2b
+--- /dev/null
++++ b/TPs/TP6/sinteticos/2026-07-05_223422/s1_falla_c7.txt
+@@ -0,0 +1,126 @@
++Estructura del `.zip` entregado:
++
++```
++tp6-n8n-castro-emiliano/
++├── respuestas-tp6-n8n.pdf
++└── tp-n8n-castro-emiliano.json
++```
++
++---
++
++**Archivo: `respuestas-tp6-n8n.pdf`** (solo texto plano, sin imágenes)
++
++## Parte 1: Evaluación Teórica
++
++**1. El paradigma Low-Code**
++
++El valor comercial de n8n para un equipo que ya sabe programar está en la
++velocidad: integraciones que llevarían días programarlas y mantenerlas a mano
++se arman en minutos con nodos preconstruidos, lo que reduce el costo de
++desarrollo y de mantenimiento de esas conexiones rutinarias entre sistemas.
++
++**2. Iniciando el flujo: Triggers vs Acciones**
++
++Un Nodo Trigger dispara el inicio del flujo (define cuándo arranca la
++automatización), mientras que un Nodo de Acción ejecuta una tarea en
++respuesta a ese disparo. Un Schedule Trigger sirve para tareas periódicas
++como mandar un reporte todos los lunes; un Webhook sirve para reaccionar a un
++evento externo, como cuando alguien completa un formulario web.
++
++**3. Gestión de secretos**
++
++Escribir la contraseña directamente en el nodo la expone a cualquiera que
++tenga acceso al workflow. Usar Credenciales centralizadas evita esa
++exposición y permite que el equipo reutilice la automatización sin que todos
++conozcan la contraseña real.
++
++**4. El nodo vital: Edit Fields (Set)**
++
++El nodo Edit Fields permite crear o renombrar campos del dato que viaja entre
++nodos, así cuando llega información desordenada de una plataforma, este nodo
++la transforma para que el siguiente nodo reciba los campos limpios y en el
++formato esperado.
++
++---
++
++**Archivo: `tp-n8n-castro-emiliano.json`**
++
++```json
++{
++  "name": "Asistente de Productividad Académica",
++  "nodes": [
++    {
++      "parameters": {
++        "rule": {
++          "interval": [
++            {
++              "field": "weeks",
++              "triggerAtDay": [1],
++              "triggerAtHour": 8,
++              "triggerAtMinute": 0
++            }
++          ]
++        }
++      },
++      "id": "a1b2c3d4-1111-4a5b-9c8d-000000000001",
++      "name": "Schedule Trigger",
++      "type": "n8n-nodes-base.scheduleTrigger",
++      "typeVersion": 1.2,
++      "position": [260, 300]
++    },
++    {
++      "parameters": {
++        "assignments": {
++          "assignments": [
++            {
++              "id": "b2c3d4e5-2222-4a5b-9c8d-000000000002",
++              "name": "mensaje",
++              "value": "¡Buenos días! No olvides revisar las entregas de la semana en el campus.",
++              "type": "string"
++            }
++          ]
++        },
++        "options": {}
++      },
++      "id": "c3d4e5f6-3333-4a5b-9c8d-000000000003",
++      "name": "Edit Fields",
++      "type": "n8n-nodes-base.set",
++      "typeVersion": 3.4,
++      "position": [480, 300]
++    },
++    {
++      "parameters": {
++        "chatId": "987654321",
++        "text": "={{ $json.mensaje }}",
++        "additionalFields": {}
++      },
++      "id": "d4e5f6a7-4444-4a5b-9c8d-000000000004",
++      "name": "Telegram",
++      "type": "n8n-nodes-base.telegram",
++      "typeVersion": 1.2,
++      "position": [700, 300]
++    }
++  ],
++  "connections": {
++    "Schedule Trigger": {
++      "main": [[{ "node": "Edit Fields", "type": "main", "index": 0 }]]
++    },
++    "Edit Fields": {
++      "main": [[{ "node": "Telegram", "type": "main", "index": 0 }]]
++    }
++  },
++  "active": false,
++  "settings": { "executionOrder": "v1" },
++  "pinData": {}
++}
++```
++
++---
++**Falla deliberada para testeo:** el nodo Schedule Trigger (C6) y el nodo
++Telegram (C8) están correctos y bien conectados. El nodo Edit Fields (C7,
++peso 15) existe y está conectado, pero el campo se llama **"mensaje"** en
++vez de **"mensaje_recordatorio"** como exige la consigna — y en consecuencia
++la expresión del nodo Telegram también quedó como `{{ $json.mensaje }}` en
++vez de `{{ $json.mensaje_recordatorio }}`. El resto de los criterios
++(C1-C6, C8) está resuelto de forma completa y correcta, para aislar el
++efecto de esta única falla de nomenclatura.
+diff --git a/TPs/TP6/sinteticos/2026-07-05_223422/s2_sin_json_cd2.txt b/TPs/TP6/sinteticos/2026-07-05_223422/s2_sin_json_cd2.txt
+new file mode 100644
+index 0000000..6c43595
+--- /dev/null
++++ b/TPs/TP6/sinteticos/2026-07-05_223422/s2_sin_json_cd2.txt
+@@ -0,0 +1,57 @@
++Estructura del `.zip` entregado:
++
++```
++tp6-n8n-herrera-valentina/
++└── respuestas-tp6-n8n.pdf
++```
++
++Nota: el alumno solo incluyó el PDF con las respuestas teóricas. No adjuntó
++el archivo `.json` exportado desde n8n correspondiente a la Parte 2, a pesar
++de que la consigna lo exige explícitamente ("Dentro del .zip debes incluir
++el archivo .json exportado directamente desde n8n correspondiente a la
++Parte 2. Este archivo es fundamental para auditar la estructura de tus nodos
++y conexiones.").
++
++---
++
++**Archivo: `respuestas-tp6-n8n.pdf`** (solo texto plano, sin imágenes)
++
++## Parte 1: Evaluación Teórica
++
++**1. El paradigma Low-Code**
++
++El valor comercial de n8n para un equipo que ya sabe programar está en la
++velocidad: integraciones que llevarían días programarlas a mano se arman en
++minutos con nodos preconstruidos, bajando el costo de desarrollo y de
++mantenimiento de esas conexiones rutinarias.
++
++**2. Iniciando el flujo: Triggers vs Acciones**
++
++Un Nodo Trigger dispara el inicio del flujo, mientras que un Nodo de Acción
++ejecuta una tarea en respuesta a ese disparo. Un Schedule Trigger sirve para
++tareas periódicas como un reporte semanal; un Webhook sirve para reaccionar
++a un evento externo como el envío de un formulario web.
++
++**3. Gestión de secretos**
++
++Escribir la contraseña directamente en el nodo la expone a cualquiera que
++tenga acceso al workflow o a su exportación. Las Credenciales centralizadas
++evitan esa exposición y permiten que el equipo reutilice la automatización
++sin compartir contraseñas individuales.
++
++**4. El nodo vital: Edit Fields (Set)**
++
++El nodo Edit Fields permite crear o renombrar campos del dato que viaja entre
++nodos, transformando datos desordenados que llegan de una plataforma en el
++formato limpio que el siguiente nodo necesita.
++
++---
++**Falla deliberada para testeo:** las 4 respuestas teóricas (C2-C5) están
++completas y correctas. El archivo `.json` exportado de n8n está ausente por
++completo de la entrega, por lo que no hay ninguna evidencia verificable de
++C1.3 (export válido presente), C6 (Schedule Trigger), C7 (Edit Fields con el
++campo `mensaje_recordatorio`) ni C8 (nodo de mensajería con la expresión
++mapeada) — no existe ningún workflow que auditar. Esto debería activar la
++condición de desaprobación `CD2` ("no se incluye el archivo .json exportado
++desde n8n → nota_maxima 30"), independientemente de cuánto sume el resto de
++los criterios teóricos.
+diff --git a/informe/Informe_Tesis_Rubrica_Builder.html b/informe/Informe_Tesis_Rubrica_Builder.html
+index a629582..497f2cd 100644
+--- a/informe/Informe_Tesis_Rubrica_Builder.html
++++ b/informe/Informe_Tesis_Rubrica_Builder.html
+@@ -482,6 +482,48 @@ pantalla, diagramas en imagen o links externos. Cuando la consigna original
+ requería representar un esquema, se optó por describirlo en texto o, en materias con
+ contenido técnico afín, expresarlo en formatos de texto estructurado (por ejemplo,
+ notación Mermaid o XML) en lugar de una imagen.</p>
++
++<h2 id="s4-1">4.1. Caso de estudio: estandarizar la tecnología antes de armar la rúbrica (evaluación de control de versiones con Git)</h2>
++<p>El paso de normalización no se agota en el formato del archivo de entrega: también
++implica decidir, <b>antes</b> de escribir un solo criterio, qué tecnología concreta va
++a usar toda la cursada para resolver una consigna, de manera que exista un único
++formato de evidencia posible para auditar. El siguiente caso, documentado en video
++(ver Fuentes, §12), ilustra este razonamiento aplicado a un TP cuyo objetivo es
++evaluar el uso de control de versiones.</p>
++<p>El punto de partida es que el TP ideal para un corrector automático es aquel que
++se resuelve enteramente con un PDF de preguntas y respuestas: es el formato más
++fácil de auditar, porque el corrector solo necesita leer texto. Pero no todos los
++temas de la cursada se prestan a ese formato. Un TP sobre control de versiones, por
++definición, no puede evaluarse solo con teoría: hay que verificar que el alumno
++efectivamente creó ramas, hizo commits, aplicó un merge. Ahí aparece la primera
++decisión de normalización: <b>unificar la tecnología</b>. Se optó por Git como
++sistema de control de versiones para toda la cursada, de modo que los alumnos
++entregaran evidencia comparable entre sí en lugar de un mosaico de herramientas
++distintas.</p>
++<p>La segunda decisión fue el formato de esa evidencia. La opción más intuitiva —pedir
++capturas de pantalla de la terminal mostrando cada comando ejecutado— se descartó
++deliberadamente: como ya se estableció en el diagnóstico de límites del corrector
++(§4), las imágenes quedan excluidas en los modos de código y, aunque no lo
++estuvieran, una IA no es un método confiable para verificar a partir de una captura
++que un commit, una rama o un merge realmente existen en el historial del
++repositorio. Una captura se puede editar, recortar o simular; un repositorio Git no
++miente.</p>
++<p>Consultando la documentación oficial de GitHub sobre la estructura interna de un
++repositorio, se identificó que la carpeta oculta <code>.git</code> —generada
++automáticamente por <code>git init</code>— contiene la totalidad de la información
++verificable de forma objetiva: el registro de commits, las referencias a las ramas
++(<code>refs/heads/</code>) y la configuración de identidad local. Es, en los hechos,
++el equivalente a un log de auditoría que no depende de lo que el alumno afirme haber
++hecho, sino de lo que el propio sistema de control de versiones registró.</p>
++<p>La consigna original del TP1 (que pedía un PDF de teoría más capturas de pantalla
++de la Parte 2) se modificó en consecuencia: la entrega pasó a ser un único
++<code>.zip</code> que contiene el PDF con la resolución de la parte teórica <b>y la
++carpeta <code>.git</code></b> del repositorio local, tal como se documenta en la
++consigna vigente del TP1 (§10) y se verifica en el criterio C1 de su rúbrica. Este
++caso resume el principio general de esta sección: antes de escribir un criterio hay
++que analizar qué es lo que realmente se necesita evaluar, reconocer las
++limitaciones concretas de la IA correctora, y recién entonces decidir qué
++tecnología y qué formato de entrega van a usar todos los alumnos por igual.</p>
+ </div>
+ 
+ <!-- ============ 5. CREAR ============ -->
+@@ -628,6 +670,59 @@ de <b>criterio troncal</b>: al fallar, activa una condición de desaprobación o
+ techo de puntuación severo definido en <code>instrucciones_puntuacion</code>, lo cual
+ es el comportamiento deseado cuando ese requisito es central para el trabajo. Este
+ tipo de desvíos es justamente lo que motiva el siguiente paso: el ajuste iterativo.</p>
++
++<h2>Resultados obtenidos (TP1 — Primeros pasos con Git)</h2>
++<table>
++<tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
++<tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>100</td><td>100</td><td>✅</td></tr>
++<tr><td>s1_falla_c2</td><td>C2 discrimina (10 pts) — pregunta teórica sin responder</td><td>90</td><td>90</td><td>✅</td></tr>
++<tr><td>s2_sin_git_cd2</td><td>CD2 discrimina — ausencia de la carpeta <code>.git</code></td><td>≤30 (techo)</td><td>30</td><td>✅</td></tr>
++</table>
++<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP1/sinteticos/2026-07-05_223422/</code>.</i></p>
++<p>El caso <code>s2_sin_git_cd2</code> confirma el diseño intencional descripto en
++§4.1: la carpeta <code>.git</code> es el artefacto que respalda toda la parte
++práctica (C6-C9). Sin ella, esos cuatro criterios no tienen evidencia verificable
++(quedan en 0) y, adicionalmente, la condición de desaprobación <code>CD2</code>
++impone un techo de 30 puntos aunque la parte teórica (C2-C5) esté perfecta. El
++subtotal bruto antes del techo fue 42/100, lo que evidencia una redundancia de
++diseño: la ausencia de <code>.git</code> ya se penaliza dentro de C1 (−8 puntos) y
++además dispara el techo global de CD2, que termina siendo el factor decisivo.</p>
++
++<h2>Resultados obtenidos (TP5 — Live Coding)</h2>
++<table>
++<tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
++<tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>100</td><td>100</td><td>✅</td></tr>
++<tr><td>s1_falla_c4</td><td>C4 discrimina (18 pts) — define Boilerplate sin mencionar Snippets</td><td>91</td><td>91</td><td>✅</td></tr>
++<tr><td>s2_zip_invalido_cd1</td><td>CD1 discrimina — entrega en <code>.rar</code> en vez de <code>.zip</code></td><td>0 (techo)</td><td>0</td><td>✅</td></tr>
++</table>
++<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP5/sinteticos/2026-07-05_223422/</code>.</i></p>
++<p>El caso <code>s2_zip_invalido_cd1</code> es el ejemplo más contundente de una
++condición de desaprobación: aunque el contenido teórico interno era correcto y
++completo en las cinco consignas, el sólo hecho de comprimir en <code>.rar</code> en
++vez de <code>.zip</code> —algo que la consigna prohíbe explícitamente— anula la nota
++por completo. Es la penalización más severa observada en todo el testeo, y la más
++evitable: un error de empaquetado, no de contenido.</p>
++
++<h2>Resultados obtenidos (TP6 — Automatización con n8n)</h2>
++<table>
++<tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
++<tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>100</td><td>100</td><td>✅</td></tr>
++<tr><td>s1_falla_c7</td><td>C7 discrimina (15 pts) — nombre de campo incorrecto en Edit Fields</td><td>~95 (solo C7)</td><td>91</td><td>✅</td></tr>
++<tr><td>s2_sin_json_cd2</td><td>CD2 discrimina — ausencia del <code>.json</code> exportado de n8n</td><td>≤30 (techo)</td><td>30</td><td>✅</td></tr>
++</table>
++<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP6/sinteticos/2026-07-05_223422/</code>.</i></p>
++<p>El caso <code>s1_falla_c7</code> arrojó un hallazgo no anticipado: el nombre de
++campo incorrecto en el nodo Edit Fields (criterio C7) se propagó también al nodo de
++mensajería (criterio C8), porque su expresión referencia ese mismo campo. La nota
++obtenida (91) fue más baja que la esperada si solo se penalizara C7 de forma
++aislada (~95), lo cual demuestra que la rúbrica evalúa correctamente la
++<b>coherencia entre nodos del workflow</b> y no cada nodo de manera independiente —
++un comportamiento deseable, ya que en un flujo real ese error haría que la
++automatización fallara en producción. El caso <code>s2_sin_json_cd2</code> replica,
++en el contexto de n8n, el mismo patrón de doble penalización observado en TP1: la
++falta del archivo <code>.json</code> exportado descuenta puntos dentro de C1 y
++además dispara el techo de <code>CD2</code>, que termina siendo el factor
++decisivo.</p>
+ </div>
+ 
+ <!-- ============ 9. AJUSTE ITERATIVO ============ -->
+@@ -737,8 +832,11 @@ adicionales necesitaría el modo CURAR para esos casos.</p>
+   <li>Video propio: <i>"¿Qué es una rúbrica?"</i> — disponible en:
+   <a href="https://drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU">drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU</a>.</li>
+   <li>Video propio: <i>"Normalización de la entrega para crear una rúbrica coherente
+-  y minimizar fallos"</i> (pendiente de subir; se referenciará en el mismo
+-  repositorio de Drive una vez publicado).</li>
++  y minimizar fallos"</i> — disponible en:
++  <a href="https://youtu.be/qOXTPzVbJ-s">https://youtu.be/qOXTPzVbJ-s</a>. Desarrolla
++  el caso de estudio documentado en la sección 4.1: la decisión de estandarizar Git
++  como tecnología de control de versiones y de reemplazar las capturas de pantalla
++  por la carpeta <code>.git</code> como evidencia auditable.</li>
+   <li>Material propio generado durante la cursada de Organización Empresarial:
+   rúbricas de las Unidades 1 a 6 y del TPI, junto con sus entregas sintéticas de
+   testeo y resultados de corrección, utilizados como caso de estudio aplicado a lo
+-- 
+2.43.0
+
