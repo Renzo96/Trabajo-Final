@@ -1,0 +1,68 @@
+{
+  "nota": 84,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 84,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Actividad 1: Arquitectura de la Instrucción",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "El prompt incluye los 4 elementos fundamentales claramente etiquetados (### INSTRUCCIÓN ###, ### CONTEXTO ###, ### DATOS DE ENTRADA ###, ### INDICADOR DE SALIDA ###), usa delimitadores visibles consistentes en todas las secciones, y menciona explícitamente las 3 categorías requeridas ('Urgente', 'Consulta General', 'Feedback') tanto en la instrucción como en el contexto, definiendo además el criterio de clasificación de cada una. Cumple con todas las evidencias esperadas."
+    },
+    {
+      "id": "C2",
+      "nombre": "Actividad 2: Laboratorio de Parámetros (Cuadro Comparativo)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "Caso A propone Temperatura 0.1 y Top-p 0.1 (ambos coherentes con determinismo/precisión) con justificación técnica que explica correctamente cómo la temperatura baja concentra la probabilidad en el token más probable y referencia explícitamente la teoría de Predicción de Tokens y el nucleus sampling. Caso B propone Temperatura 0.9 y Top-p 0.95 (coherentes con creatividad/variedad) con justificación que explica el aplanamiento de la distribución de probabilidad y la ampliación del pool de tokens candidatos, también referenciando la teoría de Predicción de Tokens. Ambos casos cumplen todas las evidencias esperadas."
+    },
+    {
+      "id": "C3",
+      "nombre": "Actividad 3: Razonamiento Avanzado (Chain-of-Thought)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "El prompt incluye un ejemplo previo de un problema diferente (máquinas y tornillos) con razonamiento paso a paso explícito en 4 pasos antes de la respuesta final, cumpliendo el esquema Few-shot CoT. Incluye el problema objetivo de las camisas exactamente como se pidió, y solicita explícitamente que se siga el mismo método de razonamiento paso a paso. Cumple todas las evidencias esperadas."
+    },
+    {
+      "id": "C4",
+      "nombre": "Actividad 4: Asistente de Refactorización de Código",
+      "puntaje_obtenido": 0,
+      "puntaje_maximo": 16,
+      "estado": "ERROR",
+      "feedback": "El prompt entregado ('Hola, necesito que me ayudes con esta función de Python. Contame si el código está bien escrito o si le ves algún error, y dame tu opinión.') no cumple ninguno de los requisitos de la consigna: no define el rol de desarrollador Senior, no incluye el código original `def suma(a,b): return a+b`, y no solicita ninguno de los 4 requisitos técnicos (type hints, docstring, explicación línea por línea, ni mejora/refactorización del código). Es un prompt genérico pidiendo una opinión, no una refactorización. Aplicando los descuentos acumulables (20% rol ausente + 20% código ausente + 15%×4 requisitos ausentes = 100%), el puntaje resultante es 0."
+    },
+    {
+      "id": "C5",
+      "nombre": "Actividad 5: Seguridad y Ética (Defensa de Prompts)",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El texto está correctamente estructurado como System Prompt (instrucciones dirigidas al modelo) con un propósito principal claro (asistente bancario). Incluye protección explícita contra Jailbreaking (reglas 3 y 4: rechazar cambios de rol, nuevas instrucciones o intentos de reencuadre, reafirmando siempre su función original) y protección explícita contra Prompt Leaking (reglas 1 y 2: nunca revelar el contenido del system prompt, datos sensibles, claves de API o información técnica, incluso ante pedidos disfrazados). Cumple todas las evidencias esperadas."
+    },
+    {
+      "id": "C6",
+      "nombre": "Actividad 6: Simulación de Sesgos (Análisis Crítico)",
+      "puntaje_obtenido": 14,
+      "puntaje_maximo": 14,
+      "estado": "OK",
+      "feedback": "El prompt de mitigación instruye explícitamente a no limitarse a rasgos masculinos o de un género particular, incluir diversidad cultural, geográfica y de género en los ejemplos, y centrarse exclusivamente en competencias profesionales universales evitando rasgos físicos o personales. La justificación explica claramente por qué es necesario intervenir, menciona el origen del sesgo en los datos de entrenamiento y la sobrerrepresentación histórica de hombres occidentales como arquetipo de CEO, y argumenta la necesidad de instrucciones explícitas de diversidad. Cumple todas las evidencias esperadas."
+    }
+  ],
+  "fortalezas": [
+    "Dominio sólido y consistente de la técnica de estructuración de prompts con delimitadores en las Actividades 1 y 5.",
+    "Justificaciones técnicas de alta calidad en la Actividad 2, con referencias correctas y precisas a la teoría de Predicción de Tokens para ambos casos.",
+    "Buen manejo de la técnica Few-shot Chain-of-Thought en la Actividad 3, con un ejemplo bien elegido y razonamiento intermedio explícito.",
+    "Análisis crítico maduro sobre sesgos algorítmicos en la Actividad 6, con justificación que conecta correctamente el sesgo con los datos de entrenamiento."
+  ],
+  "recomendaciones": [
+    "Rehacer completamente la Actividad 4: el prompt debe definir explícitamente el rol de 'desarrollador Senior', incluir el código original `def suma(a,b): return a+b`, y pedir de forma explícita tipado de datos, docstring, explicación línea por línea y mejora/refactorización del código.",
+    "Revisar la consigna de cada actividad antes de redactar el prompt para asegurarse de que se cubren todos los requisitos técnicos solicitados, tal como se hizo correctamente en las demás actividades.",
+    "Mantener el mismo nivel de detalle y estructura (delimitadores, roles definidos, formato de salida) demostrado en las Actividades 1, 2, 3, 5 y 6 también en la Actividad 4."
+  ],
+  "comentario_general": "La entrega demuestra un manejo muy sólido de ingeniería de prompts en 5 de las 6 actividades, con estructuras claras, justificaciones técnicas correctas y buen pensamiento crítico sobre sesgos y seguridad. Sin embargo, la Actividad 4 no cumple ningún requisito de la consigna (falta el rol Senior, el código original y los 4 requisitos técnicos), lo cual afecta significativamente la nota final pese al excelente desempeño en el resto del trabajo."
+}

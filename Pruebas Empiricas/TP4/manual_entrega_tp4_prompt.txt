@@ -1,0 +1,203 @@
+Eres un evaluador experto de trabajos prácticos de programación para la materia "Organización Empresarial".
+
+Tu tarea es evaluar el siguiente código del alumno "Entrega manual (borrador)" según la rúbrica proporcionada.
+
+## RÚBRICA DE EVALUACIÓN
+
+Título: TP4 - El Ecosistema Startup y el Modelo Lean
+Tipo: TP
+Puntaje máximo: 100
+
+## CONTEXTO ADICIONAL
+
+- materia: Organización Empresarial
+- carrera: Tecnicatura Universitaria en Programación
+- universidad: UTN - Facultad Regional Mendoza
+- formato_entrega: ZIP con PDF de texto plano
+- temas: Startup vs PyME, Lean Startup, MVP, Customer Discovery, LTV vs CAC, Modelos de Negocio
+
+
+Criterios:
+- ID: C1
+  Nombre: Startup vs PyME
+  Peso: 20 pts
+  Descripción: Pregunta 1: El alumno debe explicar por qué una aplicación móvil tipo Uber (que conecta panaderos caseros con clientes de toda la ciudad) es una Startup y una panadería de barrio es una PyME tradicional, usando los conceptos de Escalabilidad (Scalability) e Incertidumbre.
+  Instrucciones de puntuación: Puntaje completo: usa correctamente AMBOS conceptos (escalabilidad e incertidumbre) aplicados al caso concreto de la panadería vs. la app. Si solo usa uno de los dos conceptos → techo 10/20. Si define los conceptos pero no los aplica al caso → techo 10/20. Si confunde cuál es la startup y cuál la PyME → 0.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Aplica el concepto de Escalabilidad al caso.
+    * Explica que la app puede crecer exponencialmente (servir a miles de clientes sin aumentar proporcionalmente los costos) gracias a la tecnología/distribución digital
+    * Explica que la panadería tiene crecimiento lineal, limitado por su capacidad física, geografía o personal
+  - Aplica el concepto de Incertidumbre al caso.
+    * Explica que la app opera bajo extrema incertidumbre: no se sabe si habrá demanda, si el modelo de negocio funcionará o si los usuarios pagarán
+    * Explica que la panadería opera con certeza relativa: el modelo de negocio (vender pan) es conocido y probado
+
+- ID: C2
+  Nombre: Lean Startup y MVP Smoke Test
+  Peso: 20 pts
+  Descripción: Pregunta 2: El alumno debe explicar cómo la metodología Lean Startup y el concepto de MVP tipo Smoke Test (Prueba de Humo) habrían ayudado a un grupo de programadores que pasó dos años desarrollando una red social para dueños de mascotas que nadie descargó, evitando esa pérdida masiva de tiempo y dinero.
+  Instrucciones de puntuación: Puntaje completo: explica el ciclo Construir-Medir-Aprender (o la idea de validar antes de construir) Y describe correctamente qué es un MVP Smoke Test y cómo lo habrían aplicado al caso. Si solo explica Lean Startup sin mencionar el Smoke Test → techo 12/20. Si solo describe el Smoke Test sin conectar con Lean Startup → techo 12/20. Si no conecta con el caso concreto de la red social de mascotas → techo 10/20.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Explica cómo Lean Startup habría evitado el problema.
+    * Menciona el ciclo Construir-Medir-Aprender o la idea de validar hipótesis antes de invertir años en desarrollo completo
+    * Identifica el error de los programadores: construyeron sin validar si alguien quería el producto (se enamoraron de la idea)
+  - Describe el MVP Smoke Test y cómo aplicarlo al caso.
+    * Define el Smoke Test como una landing page o página de aterrizaje que presenta el producto sin tenerlo construido, con un llamado a la acción (registro, email, pre-orden) para medir interés real
+    * Conecta con el caso: podrían haber creado una landing page de la red social de mascotas y medido cuánta gente se registraba antes de desarrollarla
+
+- ID: C3
+  Nombre: Test de la Madre (Customer Discovery)
+  Peso: 20 pts
+  Descripción: Pregunta 3: El alumno debe explicar por qué, según el Test de la Madre, preguntar '¿usarían una app para compartir resúmenes?' genera respuestas inútiles, y proponer qué tipo de pregunta debería hacerse en su lugar para obtener información real y accionable.
+  Instrucciones de puntuación: Puntaje completo: explica POR QUÉ las respuestas no sirven (sesgo de confirmación, opiniones vs. hechos, predicciones futuras no confiables) Y propone al menos una pregunta alternativa sobre comportamiento pasado o hechos concretos. Si solo explica por qué no sirven pero no propone alternativa → techo 12/20. Si propone alternativa pero no explica el problema de fondo → techo 12/20.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Explica por qué las respuestas de los compañeros no sirven.
+    * Menciona que las personas tienden a dar respuestas amables o positivas por cortesía (sesgo de confirmación o sesgo social), especialmente si son amigos o conocidos
+    * Explica que preguntar sobre intenciones futuras o sobre la idea del fundador genera opiniones, no hechos sobre comportamiento real de compra/uso
+  - Propone preguntas alternativas basadas en comportamiento pasado.
+    * Propone al menos una pregunta que indague sobre el comportamiento PASADO del entrevistado respecto al problema (ej: '¿Cómo conseguís resúmenes hoy?', '¿Cuánto tiempo perdiste la última vez buscando apuntes?', '¿Pagaste alguna vez por material de estudio?')
+    * La pregunta propuesta se enfoca en hechos concretos y acciones reales, no en opiniones ni predicciones
+
+- ID: C4
+  Nombre: LTV vs CAC y Retención
+  Peso: 20 pts
+  Descripción: Pregunta 4: Dado el caso de una app con CAC de $5.000 y un usuario que paga $1.000/mes durante 2 meses (LTV = $2.000), el alumno debe explicar por qué este modelo de negocio está destinado a quebrar y qué relación tiene la métrica de Retención (Churn Rate) con el problema.
+  Instrucciones de puntuación: Puntaje completo: demuestra que LTV ($2.000) < CAC ($5.000) por lo tanto se pierde dinero con cada usuario, Y explica que el Churn Rate alto reduce la vida útil del cliente lo cual baja el LTV. Si hace la cuenta pero no conecta con Churn Rate → techo 12/20. Si habla de Churn pero no demuestra la relación numérica LTV < CAC → techo 12/20.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Explica por qué el modelo está destinado a quebrar.
+    * Calcula o identifica que el LTV es $2.000 (o $1.000 x 2 meses) y el CAC es $5.000
+    * Concluye que como LTV < CAC, la empresa pierde dinero con cada cliente nuevo que adquiere (modelo de negocio roto)
+  - Relaciona el Churn Rate con el problema del LTV.
+    * Define o describe el Churn Rate como la tasa de cancelación o abandono de usuarios
+    * Explica que un Churn Rate alto (el usuario se va a los 2 meses) reduce la vida útil del cliente, lo que automáticamente reduce el LTV haciendo imposible que supere al CAC
+
+- ID: C5
+  Nombre: Modelos de negocio en software
+  Peso: 20 pts
+  Descripción: Pregunta 5: El alumno debe elegir uno de los modelos de ingresos vistos en clase (SaaS, Freemium, Marketplace o Pago por Uso), explicar en qué consiste, y mencionar un desafío técnico (de programación o arquitectura) que tendría que resolver para implementarlo correctamente.
+  Instrucciones de puntuación: Puntaje completo: elige un modelo válido de los vistos en clase, lo explica correctamente Y menciona un desafío técnico pertinente y específico. Si explica el modelo pero el desafío técnico es genérico o no está relacionado con el modelo elegido → techo 12/20. Si el modelo elegido no es de los vistos en clase → techo 5/20. Si no menciona ningún desafío técnico → techo 10/20.
+  Evidencias esperadas (checklist verificable en la entrega):
+  - Explica correctamente el modelo de ingresos elegido.
+    * Nombra un modelo de ingresos válido de los vistos en clase (SaaS, Freemium, Marketplace, Pago por Uso u Open Source con Soporte)
+    * La explicación del modelo es correcta y coherente con la definición vista en el material (ej: SaaS = cobro recurrente por uso de software en la nube; Freemium = funciones básicas gratis + premium pagas; Marketplace = comisión por transacción entre terceros; Pago por Uso = cobro por consumo real de recursos)
+  - Menciona un desafío técnico pertinente al modelo elegido.
+    * Identifica un desafío de programación o arquitectura específico y pertinente al modelo elegido (ej: para SaaS → facturación recurrente y control de acceso por tiers; para Freemium → feature flagging y separación de funciones gratis/premium; para Marketplace → sistema de pagos duales y sistema de reputación; para Pago por Uso → metering en tiempo real)
+    * El desafío mencionado tiene sentido técnico y no es una generalidad vaga como 'que funcione bien' o 'que sea seguro'
+
+
+## PENALIZACIONES
+
+Estas penalizaciones se aplican SOBRE el puntaje obtenido en los criterios. Evalúa si alguna aplica al código entregado.
+Ninguna definida.
+
+## CONDICIONES DE DESAPROBACIÓN
+
+IMPORTANTE: Estas condiciones establecen un TECHO (nota máxima) para la calificación. Si CUALQUIERA de ellas se cumple, la nota final NO PUEDE SUPERAR el máximo indicado. La nota final será el MÍNIMO entre la suma de criterios y la nota máxima de la condición. Evalúa cada condición cuidadosamente.
+- ID: CD1
+  Condición: El documento PDF contiene imágenes o capturas de pantalla en lugar de texto plano, violando la instrucción explícita de entrega.
+  Nota máxima permitida: 0
+
+
+
+## CÓDIGO DEL ALUMNO
+
+```
+TP4 - El Ecosistema Startup y el Modelo Lean
+
+Pregunta 1:
+
+La app que conecta panaderos caseros con clientes de toda la ciudad es una Startup, mientras que una panadería de barrio es una PyME tradicional. La diferencia clave está en dos conceptos: escalabilidad e incertidumbre.
+
+En cuanto a la escalabilidad, la app puede crecer de forma exponencial porque su producto es digital. Puede sumar miles de usuarios y procesar cientos de pedidos sin que sus costos aumenten en la misma proporción, ya que la distribución es a través de la tienda de aplicaciones y la infraestructura es software. En cambio, la panadería de barrio tiene un crecimiento lineal: si quiere vender el doble de pan, necesita más harina, más hornos, más empleados y posiblemente otro local. Está limitada por su capacidad física y su ubicación geográfica.
+
+Respecto a la incertidumbre, la app opera bajo condiciones de incertidumbre extrema. No se sabe si va a haber suficiente demanda de gente que quiera comprar pan casero por una app, no se sabe si los panaderos van a querer sumarse a la plataforma, y no se sabe si el modelo de negocio (por ejemplo, cobrar una comisión por pedido) va a ser rentable. Nadie hizo esto antes, no hay un camino probado. La panadería de barrio, en cambio, opera con mucha más certeza: el modelo de negocio de vender pan es conocido desde hace siglos, se sabe que la gente compra pan, se sabe más o menos cuánto se vende por día según la ubicación. La incertidumbre es baja porque el mercado ya existe y está validado.
+
+
+Pregunta 2:
+
+Lean Startup es una metodología que propone no hacer planes de negocio larguísimos sino ir probando cosas chicas y ver qué funciona. La idea principal es "fallar rápido" y aprender de los errores sin gastar tanta plata. Básicamente es no pasarse años desarrollando algo sin saber si a alguien le interesa, que es justo lo que hicieron los programadores de la red social de mascotas.
+
+En lugar de estar dos años programando, tendrían que haber sacado versiones chiquitas o prototipos e ir preguntándole a la gente si les gustaba. Por ejemplo, en vez de hacer toda la red social de una, podrían haber hecho una página de Facebook o un grupo de WhatsApp de dueños de mascotas para ver si la gente se sumaba, y si funcionaba ahí recién construir la plataforma. Así se ahorraban los dos años de desarrollo para algo que al final a nadie le interesó.
+
+
+Pregunta 3:
+
+La pregunta "¿usarían una app para compartir resúmenes?" genera respuestas inútiles por varios motivos. En primer lugar, cuando le preguntás eso a alguien, sobre todo si es un amigo o conocido, la persona tiende a responder que sí por cortesía o para no quedar mal. Esto se conoce como sesgo de confirmación o sesgo social: la gente te dice lo que quiere escuchar, no lo que realmente haría.
+
+En segundo lugar, preguntar sobre intenciones futuras ("¿usarías...?") te da opiniones, no hechos. Que alguien diga que usaría una app no significa que efectivamente la vaya a descargar, registrarse y usarla todos los días cuando la app exista. Son predicciones que la gente hace sobre su propio comportamiento futuro, y están casi siempre equivocadas.
+
+Lo que hay que hacer, según el Test de la Madre, es preguntar sobre comportamientos pasados concretos. Por ejemplo: "¿Cómo conseguís los resúmenes hoy para estudiar?" o "La última vez que tuviste que preparar un final, ¿cuánto tiempo perdiste buscando apuntes de otros compañeros?" o "¿Alguna vez pagaste por material de estudio, como resúmenes o cursos online?". Estas preguntas indagan sobre hechos reales que ya ocurrieron, no sobre lo que la persona cree que haría en el futuro. Ahí obtenés información accionable de verdad.
+
+
+Pregunta 4:
+
+El modelo de negocio está destinado a quebrar porque el LTV (Lifetime Value) del cliente es menor que el CAC (Customer Acquisition Cost). Haciendo la cuenta: el CAC es de $5.000 por cada usuario nuevo que adquieren, mientras que el LTV es de $1.000 por mes durante 2 meses, o sea $2.000 en total. Como $2.000 es menor que $5.000, la empresa pierde $3.000 con cada cliente que suma. Es un modelo de negocio roto: cuanto más crece, más plata pierde.
+
+El Churn Rate está directamente relacionado con este problema. El Churn Rate es la tasa de cancelación o abandono de usuarios, es decir, qué porcentaje de clientes deja de pagar en un período determinado. En este caso, el usuario se va a los 2 meses, lo que implica que el Churn Rate es muy alto. Esto hace que la vida útil del cliente sea muy corta, y como el LTV se calcula justamente multiplicando el ingreso mensual por los meses que el cliente se queda, un Churn Rate alto aplasta el LTV. Por más que bajaran el CAC o subieran el precio, si los usuarios se siguen yendo a los 2 meses, el LTV nunca va a alcanzar para cubrir los costos de adquisición. La retención es el problema de fondo: sin clientes que se queden, no hay forma de que el LTV supere al CAC.
+
+
+Pregunta 5:
+
+El modelo que elijo es Freemium. Este modelo consiste en ofrecer una versión gratuita de la aplicación con funcionalidades básicas, y una o varias versiones pagas (Premium) que desbloquean funcionalidades avanzadas, eliminan publicidad o dan algún beneficio exclusivo. La idea es que la versión gratuita funcione como motor de adquisición de usuarios: mucha gente usa el producto gratis, y un pequeño porcentaje de esos usuarios decide pagar por el plan premium, generando los ingresos del negocio. Ejemplos conocidos son Spotify, Dropbox o Notion.
+
+Un desafío técnico concreto para implementar correctamente un modelo Freemium es el feature flagging. Hay que diseñar la arquitectura del sistema de forma que, según el plan del usuario, la aplicación muestre u oculte funcionalidades sin necesidad de mantener dos versiones de código distintas. Esto implica implementar un sistema de permisos o "feature flags" a nivel de backend que controle qué endpoints o funcionalidades están habilitadas para cada tipo de usuario. Si no está bien hecho, es muy fácil que se filtren funcionalidades premium a usuarios gratuitos por un bug en el frontend o en la lógica de autorización. Además, hay que decidir si las comprobaciones de permisos se hacen en tiempo real contra una base de datos (lo cual puede afectar la performance) o si se cachean en el cliente (lo cual abre riesgos de seguridad si alguien manipula el código).
+
+```
+
+## INSTRUCCIONES DE EVALUACIÓN
+
+1. Primero, evalúa cada criterio de la rúbrica normalmente (puntaje y feedback), verificando las evidencias esperadas de cada criterio contra el código.
+2. Luego, verifica si alguna CONDICIÓN DE DESAPROBACIÓN se cumple:
+   - CD1: El documento PDF contiene imágenes o capturas de pantalla en lugar de texto plano, violando la instrucción explícita de entrega. → Si se cumple, nota máxima = 0
+3. Luego, verifica si alguna PENALIZACIÓN aplica:
+   Ninguna.
+4. Calcula la nota final:
+   - Calcula nota_antes_penalizaciones = suma de puntajes de los criterios.
+   - Si aplica alguna condición de desaprobación → nota = min(nota_antes_penalizaciones, nota_maxima_de_la_condicion). Es decir, la nota no puede superar el techo.
+   - Si aplica alguna penalización → aplica el descuento porcentual sobre nota_antes_penalizaciones.
+   - Si no aplica nada → nota = nota_antes_penalizaciones.
+
+Para cada criterio:
+1. DEBES incluir el ID exacto del criterio de la rúbrica
+2. Asigna un puntaje entre 0 y el peso del criterio
+3. Determina el estado:
+   - "OK" si logra ≥80% del peso del criterio
+   - "WARNING" si logra 40-79% del peso
+   - "ERROR" si logra <40% del peso
+4. Proporciona feedback específico y constructivo, citando las evidencias cumplidas o faltantes
+
+Además:
+- Lista 2-4 fortalezas del código (array de strings)
+- Lista 2-4 recomendaciones de mejora específicas (array de strings)
+- Escribe un comentario general de 2-3 oraciones
+
+## FORMATO DE RESPUESTA OBLIGATORIO
+
+Responde ÚNICAMENTE con un JSON válido con esta estructura exacta:
+
+{
+  "nota": <número entre 0 y 100>,
+  "condicion_desaprobacion_aplicada": <null si no aplica, o el ID de la condición que aplica (ej: "CD1")>,
+  "penalizaciones_aplicadas": [<array de IDs de penalizaciones aplicadas, vacío si ninguna>],
+  "nota_antes_penalizaciones": <número: suma de criterios antes de aplicar condiciones o penalizaciones>,
+  "criterios": [
+    {
+      "id": "<ID exacto del criterio de la rúbrica>",
+      "nombre": "<nombre exacto del criterio de la rúbrica>",
+      "puntaje_obtenido": <número>,
+      "puntaje_maximo": <número igual al peso del criterio>,
+      "estado": "<OK|WARNING|ERROR>",
+      "feedback": "<feedback específico>"
+    }
+  ],
+  "fortalezas": ["<fortaleza 1>", "<fortaleza 2>"],
+  "recomendaciones": ["<recomendación 1>", "<recomendación 2>"],
+  "comentario_general": "<comentario de 2-3 oraciones>"
+}
+
+IMPORTANTE:
+- CADA criterio debe tener su ID exacto de la rúbrica
+- Si aplica una condición de desaprobación, "nota" debe ser min(suma_criterios, nota_maxima_de_la_condicion), pero IGUAL debes evaluar todos los criterios con su puntaje real.
+- Si aplica una penalización, "nota" debe reflejar el descuento aplicado sobre "nota_antes_penalizaciones".
+- Si no aplica ni condición ni penalización, "nota" = "nota_antes_penalizaciones" = suma de puntajes.
+- Cada criterio de la rúbrica debe aparecer en la respuesta
+- NO incluyas texto antes o después del JSON
