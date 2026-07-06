@@ -1,0 +1,60 @@
+{
+  "nota": 94,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 94,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Startup vs PyME",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Aplica correctamente ambos conceptos al caso concreto. Sobre escalabilidad, distingue con claridad el crecimiento exponencial de la app (distribución digital, costos que no aumentan proporcionalmente) frente al crecimiento lineal de la panadería (limitado por harina, hornos, empleados y local). Sobre incertidumbre, explica que la app no sabe si habrá demanda, si los panaderos se sumarán o si el modelo de comisión será rentable, mientras que la panadería opera sobre un modelo de negocio validado desde hace siglos. No confunde los roles de startup y PyME."
+    },
+    {
+      "id": "C2",
+      "nombre": "Lean Startup y MVP Smoke Test",
+      "puntaje_obtenido": 14,
+      "puntaje_maximo": 20,
+      "estado": "WARNING",
+      "feedback": "Explica bien la idea central de Lean Startup (validar antes de invertir años de desarrollo) y conecta correctamente con el error de los programadores de la red social de mascotas, que construyeron sin validar interés real. Sin embargo, no describe el concepto específico de 'MVP Smoke Test' como landing page con llamado a la acción (registro, email o pre-orden) para medir interés real: en su lugar propone una página de Facebook o grupo de WhatsApp, que es una aproximación válida pero no captura la mecánica concreta de medir intención de registro/pago que pide la consigna. Falta precisión técnica en esa parte para el puntaje completo."
+    },
+    {
+      "id": "C3",
+      "nombre": "Test de la Madre (Customer Discovery)",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Explica con precisión por qué la pregunta genera respuestas inútiles: menciona el sesgo social/cortesía hacia amigos o conocidos y distingue entre opiniones/predicciones futuras y hechos reales. Propone varias preguntas alternativas centradas en comportamiento pasado y concreto ('¿Cómo conseguís los resúmenes hoy?', tiempo perdido buscando apuntes, si alguna vez pagó por material de estudio), todas orientadas a hechos verificables en vez de intenciones futuras."
+    },
+    {
+      "id": "C4",
+      "nombre": "LTV vs CAC y Retención",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Calcula correctamente LTV = $2.000 y CAC = $5.000, concluyendo que la empresa pierde $3.000 por cada cliente y que el modelo está roto. Relaciona explícitamente el Churn Rate alto (el usuario se va a los 2 meses) con la reducción de la vida útil del cliente y por ende del LTV, explicando que ni bajando el CAC ni subiendo el precio se resuelve el problema si la retención no mejora."
+    },
+    {
+      "id": "C5",
+      "nombre": "Modelos de negocio en software",
+      "puntaje_obtenido": 20,
+      "puntaje_maximo": 20,
+      "estado": "OK",
+      "feedback": "Elige Freemium, un modelo válido visto en clase, y lo explica correctamente (funcionalidades básicas gratis + plan premium pago, con ejemplos reales como Spotify, Dropbox y Notion). El desafío técnico mencionado —feature flagging para habilitar/deshabilitar funcionalidades según el plan del usuario, con consideraciones concretas de arquitectura (permisos en backend, riesgo de fuga de features premium, trade-off entre verificación en tiempo real vs. cacheo en cliente)— es específico, pertinente al modelo elegido y no una generalidad vaga."
+    }
+  ],
+  "fortalezas": [
+    "Domina con solidez los conceptos teóricos centrales del Lean Startup, LTV/CAC y Customer Discovery, y los aplica siempre a los casos concretos planteados, no solo en abstracto.",
+    "En la Pregunta 4 hace explícito el cálculo numérico (LTV vs. CAC) en vez de quedarse en una explicación cualitativa, lo cual demuestra comprensión real de la métrica.",
+    "En la Pregunta 5 conecta el modelo de negocio elegido con un desafío técnico de arquitectura genuino y bien justificado (feature flagging, riesgos de seguridad y performance), mostrando pensamiento de ingeniería aplicado a un concepto de negocio.",
+    "La redacción es clara, ordenada por pregunta y evita relleno innecesario, facilitando la corrección."
+  ],
+  "recomendaciones": [
+    "En la Pregunta 2, nombrar explícitamente el concepto de 'MVP Smoke Test' y describirlo como una landing page con un llamado a la acción concreto (registro, email o pre-orden) antes de dar el ejemplo aplicado al caso, para dejar en claro que se domina la definición técnica y no solo una intuición general de 'probar antes de construir'.",
+    "Reforzar la Pregunta 2 explicitando el ciclo 'Construir-Medir-Aprender' con esas palabras o su equivalente estructurado, en vez de solo describir la idea de forma narrativa.",
+    "Podría enriquecer la Pregunta 5 mencionando brevemente por qué descartó otros modelos (SaaS, Marketplace, Pago por Uso) para mostrar que la elección de Freemium fue deliberada y no la primera opción disponible."
+  ],
+  "comentario_general": "Entrega sólida que demuestra comprensión profunda de los conceptos de la unidad y los aplica de forma consistente a los casos propuestos, con especial fortaleza en el manejo cuantitativo de LTV/CAC y en la conexión entre negocio y arquitectura técnica en la última pregunta. El único punto débil es la Pregunta 2, donde la idea de validación temprana está bien resuelta pero falta nombrar y definir con precisión el 'MVP Smoke Test' tal como se espera en la consigna."
+}

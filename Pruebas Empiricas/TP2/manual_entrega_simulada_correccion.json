@@ -1,0 +1,68 @@
+{
+  "nota": 89.2,
+  "condicion_desaprobacion_aplicada": null,
+  "penalizaciones_aplicadas": [],
+  "nota_antes_penalizaciones": 89.2,
+  "criterios": [
+    {
+      "id": "C1",
+      "nombre": "Actividad 1: Arquitectura de la Instrucción",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "El prompt contiene los 4 elementos fundamentales claramente identificados y delimitados con marcadores <<<...>>>: INSTRUCCIÓN (tarea de clasificación), CONTEXTO (rol del equipo de soporte y flujo de derivación), DATOS DE ENTRADA (correo de ejemplo con asunto y cuerpo) e INDICADOR DE SALIDA (formato JSON especificado con estructura exacta). Las 3 categorías requeridas ('Urgente', 'Consulta General', 'Feedback') están mencionadas explícitamente en la sección de instrucción. Cumple todas las evidencias esperadas."
+    },
+    {
+      "id": "C2",
+      "nombre": "Actividad 2: Laboratorio de Parámetros (Cuadro Comparativo)",
+      "puntaje_obtenido": 18,
+      "puntaje_maximo": 18,
+      "estado": "OK",
+      "feedback": "Caso A: Temperatura 0.1 y Top-p 0.15 (ambos bajos, coherentes con precisión/determinismo), con justificación que explica que la distribución de probabilidad se vuelve 'puntiaguda' y referencia explícitamente la teoría de Predicción de Tokens (selección del token más probable). Caso B: Temperatura 0.9 y Top-p 0.95 (ambos altos, coherentes con creatividad), con justificación que explica el aplanamiento de la distribución de probabilidad y la exploración de tokens candidatos menos probables. Ambos casos cumplen valores correctos y justificación técnica completa basada en la teoría solicitada."
+    },
+    {
+      "id": "C3",
+      "nombre": "Actividad 3: Razonamiento Avanzado (Chain-of-Thought)",
+      "puntaje_obtenido": 7.2,
+      "puntaje_maximo": 18,
+      "estado": "WARNING",
+      "feedback": "El prompt incluye correctamente el problema objetivo de las camisas ('5 camisas se secan al sol en 5 horas...') y está diseñado para que el modelo razone paso a paso ('Pensá en voz alta, mostrando cada paso'). Sin embargo, el prompt es Zero-shot: no incluye ningún ejemplo previo resuelto de un problema diferente que muestre el razonamiento paso a paso antes de abordar el problema de las camisas, requisito central de la técnica Few-shot CoT pedida en la consigna. Por tratarse de un prompt zero-shot, se aplica el techo del 40% (7.2 pts) según las instrucciones de puntuación."
+    },
+    {
+      "id": "C4",
+      "nombre": "Actividad 4: Asistente de Refactorización de Código",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El prompt define explícitamente el rol de Desarrollador Senior de Python con más de 10 años de experiencia, e incluye el código original `def suma(a,b): return a+b` en un bloque delimitado. Los 4 requisitos técnicos están presentes: (1) type hints en parámetros y retorno, (2) docstring en formato estándar, (3) explicación línea por línea del cambio, y (4) instrucción de mejora/refactorización adicional del código. Cumple todas las evidencias esperadas."
+    },
+    {
+      "id": "C5",
+      "nombre": "Actividad 5: Seguridad y Ética (Defensa de Prompts)",
+      "puntaje_obtenido": 16,
+      "puntaje_maximo": 16,
+      "estado": "OK",
+      "feedback": "El texto está redactado íntegramente como instrucción de sistema dirigida al modelo, en segunda persona e imperativo, estableciendo un propósito principal fijo (asistente bancario) que debe mantenerse siempre. Incluye protección explícita contra Jailbreaking (rechazo de intentos de redefinir rol o ignorar instrucciones, con ejemplos concretos de frases de ataque) y protección explícita contra Prompt Leaking (prohibición de revelar el system prompt, instrucciones internas, claves de API o configuración, con respuesta predefinida ante intentos de extracción). Cumple todas las evidencias esperadas de forma completa."
+    },
+    {
+      "id": "C6",
+      "nombre": "Actividad 6: Simulación de Sesgos (Análisis Crítico)",
+      "puntaje_obtenido": 14,
+      "puntaje_maximo": 14,
+      "estado": "OK",
+      "feedback": "El prompt de mitigación instruye explícitamente a no asumir género ni origen étnico/cultural específico, a incluir diversidad de género y cultural, y a basar la descripción en competencias profesionales universales (liderazgo, toma de decisiones, visión de negocio, etc.) en lugar de rasgos físicos o culturales. La justificación escrita explica claramente que el sesgo se origina en los datos de entrenamiento y los patrones históricos de representación desigual, y argumenta la necesidad de instrucciones explícitas de diversidad para corregirlo. Cumple todas las evidencias esperadas."
+    }
+  ],
+  "fortalezas": [
+    "Uso consistente y explícito de delimitadores y estructura profesional en todos los prompts (Actividades 1, 4 y 5), lo que facilita que un modelo distinga secciones sin ambigüedad.",
+    "Justificaciones técnicas sólidas en la Actividad 2, con referencias correctas y detalladas a la teoría de Predicción de Tokens tanto para el caso determinista como para el creativo.",
+    "System Prompt de seguridad (Actividad 5) muy completo, con ejemplos concretos de ataques de jailbreaking y prompt leaking y respuestas predefinidas ante intentos de extracción.",
+    "Justificación crítica y bien argumentada del sesgo algorítmico en la Actividad 6, conectando correctamente el sesgo con los datos de entrenamiento."
+  ],
+  "recomendaciones": [
+    "En la Actividad 3, incorporar un ejemplo previo resuelto (Few-shot) de un problema lógico distinto al de las camisas, mostrando explícitamente el razonamiento paso a paso antes de la solución, ya que actualmente el prompt es zero-shot y no aplica la técnica Few-shot CoT pedida.",
+    "Reforzar en la Actividad 3 la distinción entre razonamiento zero-shot y few-shot, dado que el prompt actual da la instrucción de razonar paso a paso pero no ejemplifica ese razonamiento con un caso previo.",
+    "Mantener el nivel de detalle y estructura logrado en las Actividades 1, 2, 4, 5 y 6 como estándar para futuras entregas."
+  ],
+  "comentario_general": "La entrega es sólida y demuestra un manejo avanzado de ingeniería de prompts en la mayoría de las actividades, con justificaciones técnicas precisas y prompts bien estructurados. El punto débil es la Actividad 3, donde el prompt resulta zero-shot en lugar de few-shot CoT al no incluir un ejemplo previo con razonamiento paso a paso, lo cual limita significativamente el puntaje de ese criterio pese a que el resto del trabajo es de muy buen nivel."
+}
