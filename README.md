@@ -21,6 +21,10 @@ El documento central de este repositorio está en [`informe/`](informe/):
 - [`Informe_Tesis_Rubrica_Builder.html`](informe/Informe_Tesis_Rubrica_Builder.html) — versión con formato de tesis (portada, índice, estilos), lista para imprimir a PDF.
 - [`Informe_Final.pdf`](informe/Informe_Final.pdf) — versión final exportada.
 
+## 🎥 Video de la tesis (fundamentos y motivaciones)
+
+[https://www.youtube.com/watch?v=OOzTbtUt_-Q](https://www.youtube.com/watch?v=OOzTbtUt_-Q)
+
 ## 📂 Estructura del repositorio
 
 ```
