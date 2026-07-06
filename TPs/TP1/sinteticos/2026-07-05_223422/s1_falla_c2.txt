@@ -1,0 +1,102 @@
+Estructura del `.zip` entregado:
+
+```
+tp1-git-morales-agustin/
+├── respuestas-tp1-git.pdf
+└── .git/
+    ├── HEAD
+    ├── config
+    ├── objects/
+    ├── refs/
+    │   └── heads/
+    │       ├── main
+    │       └── desarrollo-funcionalidad
+    ├── README.md
+    ├── .gitignore
+    ├── app.py
+    └── config-secreta.env   (presente en el disco, NO rastreado por git)
+```
+
+---
+
+**Archivo: `respuestas-tp1-git.pdf`** (solo texto, sin imágenes)
+
+## Parte 1: Evaluación Teórica
+
+**1. ¿Por qué es peligroso gestionar versiones con carpetas manuales?**
+
+(el alumno dejó esta pregunta sin responder)
+
+**2. ¿Qué significa que un archivo esté "Preparado" (Staged)?**
+
+Que un archivo esté Staged significa que ya fue marcado con `git add` para ser incluido en el próximo commit, pero ese commit todavía no se hizo. Es el paso intermedio entre modificar un archivo y confirmarlo definitivamente en el historial con `git commit`.
+
+**3. ¿Para qué sirve `.gitignore`?**
+
+El archivo `.gitignore` le dice a Git qué archivos o carpetas debe ignorar y nunca rastrear. Un ejemplo típico es un archivo `.env` con contraseñas o claves de API, que nunca debería subirse a un repositorio público.
+
+**4. ¿Cómo ayudan las "Ramas" (Branches)?**
+
+Las ramas permiten crear una copia paralela y aislada del código para probar algo nuevo sin afectar la rama `main`. Los cambios solo se integran a `main` cuando el programador decide hacer el merge.
+
+---
+
+**Archivo: `.git/config`**
+
+```ini
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+[user]
+	name = Agustín Morales
+	email = agustin.morales@alumnos.utn.edu.ar
+```
+
+**Archivo: `README.md` (en `main`, antes del merge)**
+
+```markdown
+# TP1 - Primeros Pasos con Git
+
+Repositorio de práctica para el Trabajo Práctico N°1 de Organización Empresarial.
+```
+
+**Archivo: `.gitignore`**
+
+```
+config-secreta.env
+*.env
+```
+
+**Archivo: `git-log.txt`** (`git log --oneline --graph --all`)
+
+```
+*   7c2f9a1 (HEAD -> main) Merge branch 'desarrollo-funcionalidad'
+|\
+| * 3d8e1b0 (desarrollo-funcionalidad) Agrego app.py y sección de instrucciones de uso
+|/
+* 0f4a2c9 Agrego README inicial y gitignore con exclusión de .env
+```
+
+**Archivo: `app.py`**
+
+```python
+print("Hola, este es el primer commit en la rama desarrollo-funcionalidad")
+```
+
+**Archivo: `README.md`** (en `main`, después del merge)
+
+```markdown
+# TP1 - Primeros Pasos con Git
+
+Repositorio de práctica para el Trabajo Práctico N°1 de Organización Empresarial.
+
+## Instrucciones de uso
+
+Ejecutar `python app.py` desde la raíz del proyecto.
+```
+
+Nota: `config-secreta.env` nunca aparece en el historial de commits — quedó correctamente ignorado.
+
+---
+**Falla deliberada para testeo:** la Parte 1 - Pregunta 1 (criterio C2, peso 10) quedó completamente sin responder. El resto de la entrega (C1, C3-C9) está resuelto de forma correcta y completa, para aislar el efecto de esta única falla.

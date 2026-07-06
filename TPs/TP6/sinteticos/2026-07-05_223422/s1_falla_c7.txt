@@ -1,0 +1,126 @@
+Estructura del `.zip` entregado:
+
+```
+tp6-n8n-castro-emiliano/
+├── respuestas-tp6-n8n.pdf
+└── tp-n8n-castro-emiliano.json
+```
+
+---
+
+**Archivo: `respuestas-tp6-n8n.pdf`** (solo texto plano, sin imágenes)
+
+## Parte 1: Evaluación Teórica
+
+**1. El paradigma Low-Code**
+
+El valor comercial de n8n para un equipo que ya sabe programar está en la
+velocidad: integraciones que llevarían días programarlas y mantenerlas a mano
+se arman en minutos con nodos preconstruidos, lo que reduce el costo de
+desarrollo y de mantenimiento de esas conexiones rutinarias entre sistemas.
+
+**2. Iniciando el flujo: Triggers vs Acciones**
+
+Un Nodo Trigger dispara el inicio del flujo (define cuándo arranca la
+automatización), mientras que un Nodo de Acción ejecuta una tarea en
+respuesta a ese disparo. Un Schedule Trigger sirve para tareas periódicas
+como mandar un reporte todos los lunes; un Webhook sirve para reaccionar a un
+evento externo, como cuando alguien completa un formulario web.
+
+**3. Gestión de secretos**
+
+Escribir la contraseña directamente en el nodo la expone a cualquiera que
+tenga acceso al workflow. Usar Credenciales centralizadas evita esa
+exposición y permite que el equipo reutilice la automatización sin que todos
+conozcan la contraseña real.
+
+**4. El nodo vital: Edit Fields (Set)**
+
+El nodo Edit Fields permite crear o renombrar campos del dato que viaja entre
+nodos, así cuando llega información desordenada de una plataforma, este nodo
+la transforma para que el siguiente nodo reciba los campos limpios y en el
+formato esperado.
+
+---
+
+**Archivo: `tp-n8n-castro-emiliano.json`**
+
+```json
+{
+  "name": "Asistente de Productividad Académica",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [1],
+              "triggerAtHour": 8,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "a1b2c3d4-1111-4a5b-9c8d-000000000001",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b2c3d4e5-2222-4a5b-9c8d-000000000002",
+              "name": "mensaje",
+              "value": "¡Buenos días! No olvides revisar las entregas de la semana en el campus.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c3d4e5f6-3333-4a5b-9c8d-000000000003",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "987654321",
+        "text": "={{ $json.mensaje }}",
+        "additionalFields": {}
+      },
+      "id": "d4e5f6a7-4444-4a5b-9c8d-000000000004",
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [700, 300]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [[{ "node": "Edit Fields", "type": "main", "index": 0 }]]
+    },
+    "Edit Fields": {
+      "main": [[{ "node": "Telegram", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}
+```
+
+---
+**Falla deliberada para testeo:** el nodo Schedule Trigger (C6) y el nodo
+Telegram (C8) están correctos y bien conectados. El nodo Edit Fields (C7,
+peso 15) existe y está conectado, pero el campo se llama **"mensaje"** en
+vez de **"mensaje_recordatorio"** como exige la consigna — y en consecuencia
+la expresión del nodo Telegram también quedó como `{{ $json.mensaje }}` en
+vez de `{{ $json.mensaje_recordatorio }}`. El resto de los criterios
+(C1-C6, C8) está resuelto de forma completa y correcta, para aislar el
+efecto de esta única falla de nomenclatura.

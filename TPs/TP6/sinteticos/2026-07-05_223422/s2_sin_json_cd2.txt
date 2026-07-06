@@ -1,0 +1,57 @@
+Estructura del `.zip` entregado:
+
+```
+tp6-n8n-herrera-valentina/
+└── respuestas-tp6-n8n.pdf
+```
+
+Nota: el alumno solo incluyó el PDF con las respuestas teóricas. No adjuntó
+el archivo `.json` exportado desde n8n correspondiente a la Parte 2, a pesar
+de que la consigna lo exige explícitamente ("Dentro del .zip debes incluir
+el archivo .json exportado directamente desde n8n correspondiente a la
+Parte 2. Este archivo es fundamental para auditar la estructura de tus nodos
+y conexiones.").
+
+---
+
+**Archivo: `respuestas-tp6-n8n.pdf`** (solo texto plano, sin imágenes)
+
+## Parte 1: Evaluación Teórica
+
+**1. El paradigma Low-Code**
+
+El valor comercial de n8n para un equipo que ya sabe programar está en la
+velocidad: integraciones que llevarían días programarlas a mano se arman en
+minutos con nodos preconstruidos, bajando el costo de desarrollo y de
+mantenimiento de esas conexiones rutinarias.
+
+**2. Iniciando el flujo: Triggers vs Acciones**
+
+Un Nodo Trigger dispara el inicio del flujo, mientras que un Nodo de Acción
+ejecuta una tarea en respuesta a ese disparo. Un Schedule Trigger sirve para
+tareas periódicas como un reporte semanal; un Webhook sirve para reaccionar
+a un evento externo como el envío de un formulario web.
+
+**3. Gestión de secretos**
+
+Escribir la contraseña directamente en el nodo la expone a cualquiera que
+tenga acceso al workflow o a su exportación. Las Credenciales centralizadas
+evitan esa exposición y permiten que el equipo reutilice la automatización
+sin compartir contraseñas individuales.
+
+**4. El nodo vital: Edit Fields (Set)**
+
+El nodo Edit Fields permite crear o renombrar campos del dato que viaja entre
+nodos, transformando datos desordenados que llegan de una plataforma en el
+formato limpio que el siguiente nodo necesita.
+
+---
+**Falla deliberada para testeo:** las 4 respuestas teóricas (C2-C5) están
+completas y correctas. El archivo `.json` exportado de n8n está ausente por
+completo de la entrega, por lo que no hay ninguna evidencia verificable de
+C1.3 (export válido presente), C6 (Schedule Trigger), C7 (Edit Fields con el
+campo `mensaje_recordatorio`) ni C8 (nodo de mensajería con la expresión
+mapeada) — no existe ningún workflow que auditar. Esto debería activar la
+condición de desaprobación `CD2` ("no se incluye el archivo .json exportado
+desde n8n → nota_maxima 30"), independientemente de cuánto sume el resto de
+los criterios teóricos.

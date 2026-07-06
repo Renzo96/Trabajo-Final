@@ -1,0 +1,62 @@
+Estructura del `.zip` entregado:
+
+```
+tp5-livecoding-paez-nicolas/
+└── respuestas-tp5-livecoding.pdf
+```
+
+---
+
+**Archivo: `respuestas-tp5-livecoding.pdf`** (solo texto plano, sin imágenes ni capturas)
+
+## Consignas Teóricas
+
+**1. El programador transparente**
+
+Cometer un error de tipeo o buscar algo en la documentación oficial en vivo
+no es un fracaso porque el Live Coding busca mostrar el proceso real de
+resolución de problemas, no un producto ya terminado. Ver a un programador
+diagnosticar y corregir un error en el momento es más educativo para la
+audiencia que ver solo el resultado final, y consultar la documentación
+demuestra un hábito profesional genuino en vez de pretender saberlo todo de
+memoria.
+
+**2. Estrategia en entrevistas técnicas: Explicación en Paralelo**
+
+Verbalizar el razonamiento mientras se codifica le permite al entrevistador
+ver que el candidato entendió el problema y tiene un plan de solución, aunque
+no llegue a terminar de escribir el código completo. El entrevistador suele
+evaluar la capacidad de análisis y de resolución de problemas, no solamente
+si el código final compila.
+
+**3. Evitando el código repetitivo: Boilerplate**
+
+El Boilerplate es el código repetitivo y estructural que hay que escribir
+casi siempre igual en cualquier proyecto —imports, configuración inicial,
+declaración de clases— y que no aporta lógica nueva al problema puntual que
+se está resolviendo. Es la parte "aburrida" pero necesaria de arrancar
+cualquier programa.
+
+**4. Fluidez y dinamismo (Hot Reloading)**
+
+Sin Hot Reloading, cada cambio implica detener el programa, esperar que
+compile y reiniciar el servidor a mano, lo que corta el ritmo de la
+demostración frente a un cliente. Con Hot Reloading los cambios se ven
+reflejados al instante sin reiniciar nada, así que la presentación se siente
+mucho más fluida y profesional.
+
+**5. La máquina del tiempo del programador (Checkpoints)**
+
+Los Checkpoints son versiones guardadas de antemano del código que ya
+funcionan correctamente. Si un cambio en vivo rompe el sistema, se puede
+volver a ese punto de control en segundos en lugar de perder tiempo buscando
+el error frente a la audiencia, lo que evita el pánico porque siempre hay un
+lugar seguro al cual regresar.
+
+---
+**Falla deliberada para testeo:** en la pregunta 3 (criterio C4, peso 18) el
+alumno define correctamente el concepto de Boilerplate, pero en ningún
+momento menciona ni explica la Gestión de Fragmentos (Snippet Management),
+que es la segunda mitad exigida por la consigna y por el subcriterio C4.2.
+El resto de las respuestas (C1, C2, C3, C5, C6) está completo y correcto,
+para aislar el efecto de esta única falla parcial.

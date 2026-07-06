@@ -1,0 +1,71 @@
+Estructura del `.zip` entregado:
+
+```
+tp5-livecoding-ibanez-julieta/
+└── respuestas-tp5-livecoding.pdf
+```
+
+---
+
+**Archivo: `respuestas-tp5-livecoding.pdf`** (solo texto plano, sin imágenes ni capturas)
+
+## Consignas Teóricas
+
+**1. El programador transparente**
+
+Cometer un typo o tener que buscar algo en la documentación oficial en medio
+de una presentación en vivo no es un fracaso porque el Live Coding no busca
+mostrar un producto terminado, sino el proceso real de razonamiento de un
+programador profesional. Ver cómo alguien detecta un error, lo diagnostica y
+lo corrige en el momento es mucho más formativo para la audiencia que ver
+solo el resultado final pulido. Además, consultar la documentación oficial en
+vivo demuestra un hábito profesional real: ningún programador se sabe todo de
+memoria, y mostrar ese proceso humaniza al presentador y le da más
+credibilidad, no menos.
+
+**2. Estrategia en entrevistas técnicas: Explicación en Paralelo**
+
+Si en una entrevista técnica no llego a terminar el código en el tiempo
+límite, verbalizar en voz alta mi razonamiento (la Explicación en Paralelo)
+me permite demostrarle al entrevistador que entendí el problema y que tengo
+un plan de solución claro, aunque no llegue a escribir cada línea. La mayoría
+de los entrevistadores técnicos evalúan la capacidad de análisis, la lógica
+para descomponer el problema y cómo se maneja la presión, no únicamente si el
+código compiló al final. Un candidato que explica bien su razonamiento suele
+aprobar aunque el código quede incompleto, mientras que alguien que termina el
+código en silencio sin explicar nada no muestra ese proceso de pensamiento.
+
+**3. Evitando el código repetitivo: Boilerplate y Snippets**
+
+El Boilerplate es todo ese código repetitivo y estructural que hay que
+escribir casi siempre igual (imports, configuración inicial, declaración de
+clases) pero que no contiene la lógica particular del problema que se está
+resolviendo. La Gestión de Fragmentos (Snippet Management) permite tener ese
+código boilerplate guardado de antemano como fragmentos reutilizables que se
+insertan con un atajo de teclado, en vez de escribirlos de cero frente a la
+audiencia. Esto es clave en una sesión en vivo porque el tiempo es limitado:
+saltear la parte aburrida y repetitiva permite dedicar el tiempo disponible a
+mostrar y explicar la lógica que realmente importa del problema.
+
+**4. Fluidez y dinamismo (Hot Reloading)**
+
+Sin Hot Reloading, cada cambio en el código obliga a detener el programa,
+esperar que compile de nuevo y reiniciar el servidor manualmente, lo que
+genera pausas incómodas frente al cliente y corta por completo el ritmo de la
+demostración. Con Hot Reloading, en cambio, los cambios se aplican
+instantáneamente sin detener la ejecución, así que la presentación fluye sin
+interrupciones. Para un cliente potencial que está evaluando si comprar el
+prototipo, esa fluidez transmite mucho más profesionalismo que una demo
+cortada por reinicios constantes.
+
+**5. La máquina del tiempo del programador (Checkpoints)**
+
+Los Checkpoints son puntos de control guardados de antemano, con versiones
+del código que ya se probaron y se sabe que funcionan correctamente. Si en
+medio de la presentación un cambio rompe todo el sistema, en vez de perder
+tiempo valioso (y credibilidad) buscando el error en vivo frente a la
+audiencia, puedo volver instantáneamente al checkpoint anterior funcional y
+seguir la demostración desde ahí. Saber que existe ese punto de retorno
+elimina el pánico: no importa qué tan mal salga un experimento en vivo,
+siempre hay un lugar seguro al cual volver sin tener que depurar bajo
+presión delante de todos.

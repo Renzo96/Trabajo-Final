@@ -1,0 +1,58 @@
+Estructura del archivo entregado:
+
+```
+tp5-livecoding-benitez-marcos.rar
+└── respuestas-tp5-livecoding.pdf
+```
+
+Nota: el alumno comprimió su entrega en formato **.rar** en lugar de **.zip**,
+a pesar de que la consigna advierte explícitamente en el recuadro de
+instrucciones estrictas: "La entrega final debe ser un único archivo
+comprimido en formato .zip. No se aceptarán formatos como .rar, .7z ni
+enlaces web."
+
+---
+
+**Archivo: `respuestas-tp5-livecoding.pdf`** (contenido interno, solo a modo de
+referencia — el formato del contenedor ya incumple la condición de entrega)
+
+## Consignas Teóricas
+
+**1. El programador transparente**
+
+Cometer un error de tipeo o buscar algo en la documentación oficial en vivo
+no es un fracaso porque el Live Coding muestra el proceso real de resolución
+de problemas, no solo el resultado final. Consultar documentación en vivo
+demuestra un hábito profesional genuino.
+
+**2. Estrategia en entrevistas técnicas: Explicación en Paralelo**
+
+Verbalizar el razonamiento mientras se codifica permite demostrarle al
+entrevistador que se entendió el problema y que hay un plan de solución,
+aunque no se llegue a terminar el código completo en el tiempo límite.
+
+**3. Evitando el código repetitivo: Boilerplate y Snippets**
+
+El Boilerplate es el código repetitivo y estructural (imports, configuración
+inicial) que no aporta lógica nueva. La Gestión de Fragmentos permite tener
+ese código guardado como snippets reutilizables, evitando escribirlo de cero
+en vivo y dejando más tiempo para la lógica importante.
+
+**4. Fluidez y dinamismo (Hot Reloading)**
+
+Sin Hot Reloading hay que detener, compilar y reiniciar manualmente con cada
+cambio, lo que rompe el ritmo frente al cliente. Con Hot Reloading los
+cambios se aplican al instante, manteniendo la presentación fluida.
+
+**5. La máquina del tiempo del programador (Checkpoints)**
+
+Los Checkpoints son puntos de control guardados de antemano con código que ya
+funciona. Si algo se rompe en vivo, se puede volver a ese punto en segundos
+en lugar de depurar el error frente a la audiencia, lo que evita el pánico.
+
+---
+**Falla deliberada para testeo:** el contenido teórico interno está completo
+y correcto en las 5 consignas, pero el archivo de entrega no es un `.zip`
+sino un `.rar`. Esto debería activar la condición de desaprobación `CD1`
+("el archivo entregado no es un .zip → nota_maxima 0"), sin importar la
+calidad del contenido teórico.

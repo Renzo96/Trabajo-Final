@@ -1,0 +1,30 @@
+[
+  {
+    "sid": "s0",
+    "testea": "rúbrica completa",
+    "esperado": "100",
+    "nota": 100,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s1",
+    "testea": "C7 discrimina (15 pts) - nombre de campo incorrecto en Edit Fields",
+    "esperado": "~95 (solo C7)",
+    "nota": 91,
+    "meta": "✅",
+    "warns": [
+      "Hallazgo no anticipado: el nombre de campo incorrecto en C7 se propagó también a C8 (la expresión del nodo de mensajería referencia ese mismo campo), sumando -5 en C7 y -4 en C8 en vez de afectar un único criterio. Confirma que la rúbrica evalúa la coherencia entre nodos, no cada nodo de forma aislada."
+    ]
+  },
+  {
+    "sid": "s2",
+    "testea": "CD2 discrimina - ausencia del .json exportado de n8n",
+    "esperado": "≤30 (techo)",
+    "nota": 30,
+    "meta": "✅",
+    "warns": [
+      "Subtotal bruto antes del techo: 55/100 (C1=5, C2-C5=50, C6-C8=0). El techo CD2 lo lleva a 30, análogo al caso de TP1 sin .git."
+    ]
+  }
+]

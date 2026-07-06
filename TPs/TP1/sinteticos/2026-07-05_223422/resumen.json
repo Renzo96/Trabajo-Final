@@ -1,0 +1,28 @@
+[
+  {
+    "sid": "s0",
+    "testea": "rúbrica completa",
+    "esperado": "100",
+    "nota": 100,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s1",
+    "testea": "C2 discrimina (10 pts) - pregunta sin responder",
+    "esperado": "90",
+    "nota": 90,
+    "meta": "✅",
+    "warns": []
+  },
+  {
+    "sid": "s2",
+    "testea": "CD2 discrimina - ausencia de la carpeta .git",
+    "esperado": "≤30 (techo)",
+    "nota": 30,
+    "meta": "✅",
+    "warns": [
+      "Subtotal bruto antes del techo: 42/100 (C1=7, C2-C5=35, C6-C9=0). El techo CD2 lo lleva a 30."
+    ]
+  }
+]
