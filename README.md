@@ -23,7 +23,7 @@ El documento central de este repositorio está en [`informe/`](informe/):
 
 ## 🎥 Video de la tesis (fundamentos y motivaciones)
 
-[https://www.youtube.com/watch?v=l34laR3YpRk](https://www.youtube.com/watch?v=l34laR3YpRk)
+[Ver video en YouTube](https://www.youtube.com/watch?v=l34laR3YpRk){:target="_blank"}
 
 ## 📂 Estructura del repositorio
 
