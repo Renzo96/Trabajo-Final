@@ -1,7 +1,7 @@
 # Material teórico — Organización Empresarial
 
 PDFs de la cátedra, organizados por unidad, utilizados como marco conceptual para
-redactar y curar las consignas y rúbricas de esta tesina:
+redactar y curar las consignas y rúbricas de esta tesis:
 
 | Archivo | Unidad / Tema |
 |---|---|
@@ -13,9 +13,7 @@ redactar y curar las consignas y rúbricas de esta tesina:
 | `Unidad 4- Tema 1- Administración.pdf` | Unidad 4 — Administración |
 | `Unidad 5 - Procesos.pdf` | Unidad 5 — Procesos |
 
-> **Nota:** este material no estaba referenciado en el informe original de la
-> tesina (`informe/Informe_Tesina_Rubrica_Builder.md`). Se agrega esta carpeta con
-> índice propio para dejar trazado el marco teórico de la materia que sirvió de
-> base a las consignas curadas en cada unidad (`U1/` a `U6/`, `TPI/`). Si el
-> informe cita textualmente algún concepto de estos PDFs, agregar la referencia
-> puntual en la sección de fuentes del informe.
+> **Nota:** esta carpeta se incluye con índice propio para dejar trazado el marco
+> teórico de la materia que sirvió de base a las consignas curadas de cada Trabajo
+> Práctico. El informe de la tesis está en
+> [`informe/Informe_Tesis_Rubrica_Builder.html`](../informe/Informe_Tesis_Rubrica_Builder.html).

@@ -259,11 +259,59 @@
   </div>
 </div>
 
+<!-- ============ RESUMEN ============ -->
+<div class="page">
+<h1 class="section-title" id="resumen">Resumen</h1>
+<p>Este trabajo documenta la implementación de una <b>IA agéntica</b> (Claude Code)
+asistida por una <b>skill</b> de dominio específico (<code>rubrica-builder</code>) para
+la creación, curado, auditoría y testeo de <b>rúbricas de evaluación autosuficientes</b>
+destinadas al sistema de corrección automática Active-IA. Se parte de un principio
+estructural —la rúbrica debe ser autosuficiente porque el corrector no vuelve a leer la
+consigna, y en consecuencia el puntaje debe vivir en el criterio y no en el
+subcriterio— y se deriva de él un flujo de trabajo completo y reproducible: normalizar
+la consigna (CURAR), traducirla a criterios (CREAR), validar su estructura, simular
+correcciones con entregas sintéticas (TEST) y ajustar de forma iterativa
+(AUDITAR). El flujo se aplica como caso de estudio a las siete rúbricas de la materia
+Organización Empresarial (TP1–TP6 y TPI). Los resultados de testeo, trazables a
+archivos concretos del repositorio, muestran que cada criterio evaluado discrimina en la
+dirección esperada frente a una entrega perfecta. El hallazgo central es que la calidad
+de una corrección automática depende principalmente de la calidad de la rúbrica —no del
+modelo que corrige—, lo que justifica dedicar un modo completo del proceso a normalizar
+la consigna antes de redactar un solo criterio.</p>
+<p style="margin-top:0.5cm;"><b>Palabras clave:</b> rúbrica de evaluación · corrección
+automática · IA agéntica · Claude Code · skill de dominio · evaluación educativa ·
+rúbrica analítica.</p>
+
+<h2 style="margin-top:0.9cm;">Abstract</h2>
+<p>This work documents the implementation of an <b>agentic AI</b> (Claude Code) assisted
+by a domain-specific <b>skill</b> (<code>rubrica-builder</code>) to create, curate, audit
+and test <b>self-contained assessment rubrics</b> for the automated grading system
+Active-IA. It builds on a structural principle —a rubric must be self-contained because
+the grader does not re-read the assignment, so scoring weight must live in the criterion
+rather than in the sub-criterion— and derives from it a complete, reproducible workflow:
+normalising the assignment (CURATE), translating it into criteria (CREATE), validating
+its structure, simulating corrections with synthetic submissions (TEST) and refining
+iteratively (AUDIT). The workflow is applied as a case study to the seven rubrics of the
+course <i>Organización Empresarial</i> (TP1–TP6 and the final integrative project). The
+test results, traceable to concrete files in the repository, show that every evaluated criterion
+discriminates in the expected direction against a perfect submission. The central finding
+is that the quality of an automated correction depends primarily on the quality of the
+rubric —not on the model doing the grading— which justifies devoting a whole stage of the
+process to normalising the assignment before writing a single criterion.</p>
+<p style="margin-top:0.5cm;"><b>Keywords:</b> assessment rubric · automated grading ·
+agentic AI · Claude Code · domain skill · educational assessment · analytic rubric.</p>
+</div>
+
 <!-- ============ INDICE ============ -->
 <div class="page toc">
   <h1>Índice</h1>
+  <div style="font-weight:600;font-size:12.5pt;margin-bottom:0.35cm;"><a href="#resumen" style="color:inherit;text-decoration:none;">Resumen</a></div>
   <ol>
-    <li><a href="#s1">Introducción</a></li>
+    <li><a href="#s1">Introducción</a>
+      <ol>
+        <li><a href="#s1">Objetivos específicos</a></li>
+      </ol>
+    </li>
     <li><a href="#s2">Marco teórico</a>
       <ol>
         <li><a href="#s2-1">¿Qué es una rúbrica de evaluación?</a></li>
@@ -277,12 +325,20 @@
         <li><a href="#s3-2">Instalación de la skill <code>rubrica-builder</code></a></li>
       </ol>
     </li>
-    <li><a href="#s4">Normalización de la consigna y de la entrega</a></li>
+    <li><a href="#s4">Normalización de la consigna y de la entrega</a>
+      <ol>
+        <li><a href="#s4-1">Caso de estudio: estandarizar la tecnología antes de armar la rúbrica</a></li>
+      </ol>
+    </li>
     <li><a href="#s5">Creación de la rúbrica (modo CREAR)</a></li>
     <li><a href="#s6">Auditoría de la rúbrica (modo AUDITAR)</a></li>
     <li><a href="#s7">Validación estructural de la rúbrica</a></li>
     <li><a href="#s8">Testeo de la rúbrica (modo TEST)</a></li>
-    <li><a href="#s9">Ajuste iterativo de consigna, rúbrica y entrega</a></li>
+    <li><a href="#s9">Ajuste iterativo de consigna, rúbrica y entrega</a>
+      <ol>
+        <li><a href="#s9">Ejemplo de iteración real: rúbrica del TP3 (v1 → v2)</a></li>
+      </ol>
+    </li>
     <li><a href="#s10">Caso de estudio aplicado: Organización Empresarial</a></li>
     <li><a href="#s11">Conclusiones finales</a></li>
     <li><a href="#s12">Fuentes utilizadas y reconocimiento de autoría</a></li>
@@ -307,11 +363,29 @@ de un Trabajo Práctico en una rúbrica de evaluación estructurada, coherente y
 —sobre todo— <b>corregible por otra IA sin ambigüedad</b>.</p>
 <p>Como caso de estudio transversal a lo largo de todo el informe se utilizan las
 rúbricas reales elaboradas para la materia <b>Organización Empresarial (OE)</b>, ya
-que es el contexto en el que se origina esta tesis.</p>
+que es el contexto en el que se origina este trabajo.</p>
+<h2>Objetivos específicos</h2>
+<ol>
+  <li>Describir el funcionamiento de una IA agéntica y el rol de una skill de dominio específico para extender sus capacidades a un área concreta.</li>
+  <li>Documentar el proceso completo de creación de una rúbrica autosuficiente para corrección automática, desde la normalización de la consigna hasta el testeo con entregas sintéticas.</li>
+  <li>Identificar los límites técnicos del corrector automático Active-IA y establecer criterios de normalización que garanticen la corregibilidad de los trabajos prácticos.</li>
+  <li>Validar empíricamente que las rúbricas producidas discriminan correctamente entre entregas con distintos niveles de cumplimiento, mediante correcciones simuladas con entregas sintéticas.</li>
+  <li>Registrar el proceso aplicado en la materia Organización Empresarial como caso de estudio documentado y reproducible, trazable a archivos concretos.</li>
+</ol>
+<h2>Alcance y tipo de trabajo</h2>
+<p>Conviene delimitar desde el inicio la naturaleza de este trabajo para leerlo con el
+criterio adecuado. No se trata de una <b>tesis de investigación empírica</b> con
+hipótesis, muestreo probabilístico y análisis estadístico inferencial, sino de un
+<b>informe técnico de implementación</b>: documenta, con rigor y de forma reproducible,
+cómo se aplicó una herramienta concreta a un problema real de la cursada. En
+consecuencia, la palabra "validar" se emplea a lo largo del texto en el sentido de
+<i>comprobar el comportamiento esperado mediante casos de prueba diseñados a
+propósito</i> (a la manera de un test de software), y no en el sentido estadístico de
+validación de un constructo sobre una muestra. Los resultados de las simulaciones de
+corrección (§8) tienen, por su método, carácter <b>indicativo</b> y no probatorio; se
+declara explícitamente su alcance en cada tabla.</p>
 <p><b>Video de la tesis (fundamentos y motivaciones):</b>
-<a href="https://www.youtube.com/watch?v=l34laR3YpRk">
-    https://www.youtube.com/watch?v=l34laR3YpRk
-</a>
+<a href="https://www.youtube.com/watch?v=l34laR3YpRk">https://www.youtube.com/watch?v=l34laR3YpRk</a>. <i>Nota: el presente informe es autocontenido; el video amplía motivaciones pero no es requisito para comprenderlo.</i></p>
 </div>
 
 <!-- ============ 2. MARCO TEORICO ============ -->
@@ -324,6 +398,14 @@ que es el contexto en el que se origina esta tesis.</p>
 <b>subcriterios</b> (verificaciones puntuales dentro de un criterio, sin nota propia).
 Cada subcriterio se apoya en <b>evidencias</b>: afirmaciones verificables de forma
 binaria (cumple / no cumple) mirando únicamente la entrega del alumno.</p>
+<p>Esta estructura se corresponde con lo que la literatura de evaluación educativa
+denomina <b>rúbrica analítica</b> —que descompone el desempeño en dimensiones evaluadas
+por separado—, por oposición a la <b>rúbrica holística</b>, que asigna una única
+valoración global (Brookhart, 2013). El enfoque analítico es el que adopta este trabajo,
+por ser el único compatible con una corrección automática por criterios independientes.
+Diversos autores coinciden, además, en que explicitar los criterios de evaluación por
+anticipado no solo ordena y agiliza la calificación, sino que orienta el propio
+aprendizaje del estudiante (Andrade, 2000; Stevens &amp; Levi, 2013).</p>
 <blockquote>Contenido ampliado en el video <i>"¿Qué es una rúbrica?"</i>, disponible en:
 <a href="https://drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU">drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU</a>
 (referenciado también en la sección de fuentes).</blockquote>
@@ -356,8 +438,16 @@ un chatbot tradicional, tiene la capacidad de:</p>
   <li>Operar en <b>múltiples turnos</b>, sosteniendo contexto y tomando decisiones
   intermedias sin que el usuario deba especificar cada micro-paso.</li>
 </ul>
-<p>En este trabajo la IA agéntica utilizada es <b>Claude Code</b>, de Anthropic, un
-agente de línea de comandos pensado originalmente para tareas de programación, pero
+<p>Este patrón —intercalar pasos de razonamiento con acciones que invocan herramientas
+externas— fue formalizado en la literatura bajo el paradigma <b>ReAct</b> (Yao et al.,
+2023), y la arquitectura general de los agentes autónomos basados en modelos de lenguaje
+se encuentra sistematizada en el relevamiento de Wang et al. (2024). En el ámbito
+educativo, tanto las oportunidades como los riesgos de incorporar modelos de lenguaje a
+tareas docentes han sido documentados de forma crítica (Kasneci et al., 2023;
+Zawacki-Richter et al., 2019), marco general en el que se inscribe este trabajo.</p>
+<p>En este trabajo la IA agéntica utilizada es <b>Claude Code</b>, de Anthropic
+(Anthropic, 2024), un agente de línea de comandos pensado originalmente para tareas de
+programación, pero
 cuya arquitectura de "modelo + herramientas + instrucciones" es perfectamente
 aplicable a un dominio no estrictamente técnico como la elaboración de instrumentos
 de evaluación.</p>
@@ -367,8 +457,11 @@ Active-IA. Ese conocimiento específico del dominio se le agrega a través de un
 
 <h2 id="s2-3">2.3. ¿Qué es una skill?</h2>
 <p>Una skill es un <b>paquete de conocimiento especializado</b> que se instala sobre la
-IA agéntica para extender sus capacidades a un dominio concreto. Técnicamente se
-compone de:</p>
+IA agéntica para extender sus capacidades a un dominio concreto. En términos generales
+es un <b>patrón de diseño</b> —conocimiento de dominio empaquetado para que un agente lo
+cargue bajo demanda cuando el contexto lo requiere—, independiente del producto concreto
+que lo implemente; en este trabajo se materializa mediante el mecanismo de skills de
+Claude Code. Técnicamente se compone de:</p>
 <ul>
   <li>Un archivo <code>SKILL.md</code>, con una descripción (usada por el agente para
   saber <i>cuándo</i> activarse) y las instrucciones detalladas de <i>cómo</i> ejecutar
@@ -383,8 +476,13 @@ compone de:</p>
   <li>Ejemplos (<code>assets/</code>, <code>examples/</code>) que sirven de molde.</li>
 </ul>
 <p>La skill utilizada en este trabajo, <code>rubrica-builder</code>, define <b>cuatro
-modos de funcionamiento</b> (CURAR, CREAR, AUDITAR y TEST), que se corresponden,
-respectivamente, con las secciones 4, 5, 6 y 8 de este informe.</p>
+modos de funcionamiento</b>:</p>
+<ul>
+  <li><b>CURAR</b> (§4): analiza la consigna original <i>antes</i> de escribir criterios, detecta requisitos incompatibles con el corrector automático y propone adaptaciones.</li>
+  <li><b>CREAR</b> (§5): traduce la consigna ya curada en una rúbrica estructurada con criterios, subcriterios y evidencias binarias.</li>
+  <li><b>AUDITAR</b> (§6): revisa una rúbrica existente contra la consigna original, detectando contradicciones, omisiones, diluciones e invenciones.</li>
+  <li><b>TEST</b> (§8): simula correcciones reales con entregas sintéticas para verificar que cada criterio discrimina como se espera antes de subir la rúbrica al sistema real.</li>
+</ul>
 </div>
 
 <!-- ============ 3. INSTALACION ============ -->
@@ -423,6 +521,14 @@ por nombre explícitamente: el agente la reconoce por el contexto del pedido.</p
   necesario específicamente para el modo TEST, que dispara una corrección real con
   el modelo.</li>
 </ul>
+<p>Para <b>verificar</b> que la skill quedó correctamente instalada, basta con pedirle al
+agente que liste las skills disponibles, o bien iniciar cualquier pedido que active
+alguno de sus cuatro modos (por ejemplo, <i>"armá los criterios para este TP"</i>): si la
+instalación fue exitosa, <code>rubrica-builder</code> aparece entre las skills
+reconocidas y el agente responde ejecutando su flujo —lectura de la consigna, propuesta
+de criterios, validación— en lugar de una respuesta conversacional genérica. Este chequeo
+cumple el paso 4 de §3.1 sin depender de la salida textual exacta del comando de
+instalación, que puede variar según la versión del gestor de skills.</p>
 </div>
 
 <!-- ============ 4. NORMALIZACION ============ -->
@@ -451,6 +557,7 @@ que no dependen de qué tan bien esté escrita la rúbrica:</p>
 <p>De este diagnóstico surge el <b>modo CURAR</b> de la skill, cuya función es
 analizar la consigna original y, por cada punto que rompa alguno de los cuatro
 límites anteriores, proponer uno de tres destinos:</p>
+<p style="font-size:9.5pt;color:#555;font-style:italic;margin:0.4cm 0 0.1cm 0;"><b>Tabla 1.</b> Los tres destinos posibles de un requisito de la consigna en el modo CURAR.</p>
 <table>
 <tr><th>Destino</th><th>Cuándo se aplica</th><th>Ejemplo</th></tr>
 <tr>
@@ -506,19 +613,37 @@ entregaran evidencia comparable entre sí en lugar de un mosaico de herramientas
 distintas.</p>
 <p>La segunda decisión fue el formato de esa evidencia. La opción más intuitiva —pedir
 capturas de pantalla de la terminal mostrando cada comando ejecutado— se descartó
-deliberadamente: como ya se estableció en el diagnóstico de límites del corrector
-(§4), las imágenes quedan excluidas en los modos de código y, aunque no lo
+deliberadamente: como ya se estableció en los cuatro límites duros descriptos al inicio
+de esta sección, las imágenes quedan excluidas en los modos de código y, aunque no lo
 estuvieran, una IA no es un método confiable para verificar a partir de una captura
 que un commit, una rama o un merge realmente existen en el historial del
-repositorio. Una captura se puede editar, recortar o simular; un repositorio Git no
-miente.</p>
+repositorio. Una captura se puede editar, recortar o simular; un repositorio Git
+es sustancialmente más difícil de falsificar — reescribir el historial requiere
+acceso a la carpeta <code>.git</code>, conocimiento de comandos como
+<code>git rebase</code> o <code>git filter-branch</code>, y la voluntad de alterar
+metadatos (fechas, autores, hashes) de forma coherente. En el contexto de una
+entrega universitaria típica, esto lo convierte en una evidencia de auditoría mucho
+más robusta que cualquier captura de pantalla.</p>
 <p>Consultando la documentación oficial de GitHub sobre la estructura interna de un
 repositorio, se identificó que la carpeta oculta <code>.git</code> —generada
-automáticamente por <code>git init</code>— contiene la totalidad de la información
-verificable de forma objetiva: el registro de commits, las referencias a las ramas
-(<code>refs/heads/</code>) y la configuración de identidad local. Es, en los hechos,
-el equivalente a un log de auditoría que no depende de lo que el alumno afirme haber
-hecho, sino de lo que el propio sistema de control de versiones registró.</p>
+automáticamente por <code>git init</code>— contiene el registro de commits, las
+referencias a las ramas (<code>refs/heads/</code>) y la configuración de identidad
+local. Es, en los hechos, el equivalente a un log de auditoría que no depende de lo
+que el alumno afirme haber hecho, sino de lo que el propio sistema de control de
+versiones registró.</p>
+<p>Conviene, sin embargo, acotar el alcance de esta afirmación: la carpeta
+<code>.git</code> <b>no es inviolable</b>. Un alumno con conocimiento suficiente
+puede alterar la fecha de un commit (<code>--date</code>, <code>GIT_COMMITTER_DATE</code>),
+falsear la identidad del autor (<code>git config user.name</code>) o reconstruir por
+completo un historial (<code>rebase</code>, <code>filter-branch</code>) para simular un
+proceso de trabajo que nunca ocurrió. Lo que se sostiene aquí es una afirmación más
+modesta y más defendible: <b>falsificar un historial de Git coherente es
+sustancialmente más difícil que trucar una captura de pantalla</b>, y exige
+precisamente el dominio de las herramientas de versionado que el TP busca evaluar.
+La evidencia no es incorruptible, pero su costo de falsificación es lo bastante alto
+—y su superficie de verificación lo bastante amplia (mensajes, orden, ramas, merges,
+identidad)— como para volverla el mejor artefacto disponible dentro de los límites
+del corrector automático.</p>
 <p>La consigna original del TP1 (que pedía un PDF de teoría más capturas de pantalla
 de la Parte 2) se modificó en consecuencia: la entrega pasó a ser un único
 <code>.zip</code> que contiene el PDF con la resolución de la parte teórica <b>y la
@@ -561,30 +686,65 @@ rúbrica completa. El proceso que ejecuta el agente es:</p>
 <p>Como ejemplo concreto, se tomó la consigna del <b>TP2 — Ingeniería de Prompts y
 Pensamiento Computacional</b>, que pide al alumno resolver 6 actividades relacionadas
 con técnicas de diseño de instrucciones para modelos de lenguaje. La rúbrica
-resultante (<code>TPs/TP2/rubrica-tp2-ingenieria-prompts.json</code>) quedó estructurada en
+resultante (<code>Pruebas Empiricas/TP2/rubrica-tp2-ingenieria-prompts.json</code>) quedó estructurada en
 6 criterios —uno por actividad—, cada uno con su propio peso y sus
 <code>instrucciones_puntuacion</code> explícitas. A modo ilustrativo, el primer
 criterio quedó modelado así:</p>
+<p style="font-size:9.5pt;color:#555;font-style:italic;margin:0.4cm 0 0.1cm 0;"><b>Listado 1.</b> Criterio C1 de la rúbrica del TP2, con su peso, sus instrucciones de puntuación y sus subcriterios de evidencias binarias.</p>
 <pre><code>{
   "id": "C1",
   "nombre": "Actividad 1: Arquitectura de la Instrucción",
   "peso": 18,
   "instrucciones_puntuacion": "Si alguno de los 4 elementos fundamentales
     está ausente, techo de 60% (10.8 pts). Si no hay delimitadores
-    visibles entre secciones, descontar 25% (4.5 pts)...",
+    visibles entre secciones, descontar 25% (4.5 pts). Si el prompt no
+    menciona las 3 categorías de clasificación requeridas, descontar 20%
+    (3.6 pts). Los descuentos son acumulables.",
   "subcriterios": [
-    { "id": "C1.1", "descripcion": "Los 4 elementos fundamentales están
-      presentes...", "evidencias": ["...", "...", "...", "..."] },
-    { "id": "C1.2", "descripcion": "El prompt usa delimitadores
-      visibles...", "evidencias": ["..."] },
-    { "id": "C1.3", "descripcion": "El prompt está orientado al caso
-      pedido...", "evidencias": ["...", "..."] }
+    { "id": "C1.1",
+      "descripcion": "Los 4 elementos fundamentales (Instrucción, Contexto,
+        Datos de Entrada, Indicador de Salida) están presentes y claramente
+        identificados en el prompt.",
+      "evidencias": [
+        "El prompt incluye una sección que funciona como Instrucción (indica
+          la tarea que debe realizar el modelo)",
+        "El prompt incluye una sección que funciona como Contexto (describe
+          el escenario, rol del asistente o información de fondo)",
+        "El prompt incluye una sección que funciona como Datos de Entrada
+          (muestra o define el correo a clasificar)",
+        "El prompt incluye una sección que funciona como Indicador de Salida
+          (especifica el formato o estructura de la respuesta esperada)"
+      ]
+    },
+    { "id": "C1.2",
+      "descripcion": "El prompt usa delimitadores visibles para separar
+        las secciones entre sí.",
+      "evidencias": [
+        "Se identifican caracteres o marcadores delimitadores (como ---,
+          ###, ===, &lt;&gt;, comillas triples u otros) entre al menos dos
+          secciones del prompt"
+      ]
+    },
+    { "id": "C1.3",
+      "descripcion": "El prompt está orientado al caso pedido: clasificar
+        correos de soporte técnico en las 3 categorías específicas.",
+      "evidencias": [
+        "El prompt menciona las 3 categorías: 'Urgente', 'Consulta General'
+          y 'Feedback'",
+        "El prompt está dirigido a un asistente de IA para clasificar
+          correos electrónicos de soporte técnico"
+      ]
+    }
   ]
 }</code></pre>
 <p>Nótese cómo cada subcriterio (C1.1, C1.2, C1.3) es un checklist de evidencias sin
 nota propia, mientras que la nota completa de la actividad depende del peso (18
 puntos) del criterio C1, ajustado hacia abajo mediante reglas numéricas explícitas
 de descuento — exactamente el principio de granularidad descripto en la sección 2.1.</p>
+<p>La distribución completa de pesos de la rúbrica del TP2 es verificable:
+C1 (18) + C2 (18) + C3 (18) + C4 (16) + C5 (16) + C6 (14) = <b>100 puntos</b>.
+Esta suma es validada automáticamente por <code>scripts/validar_rubrica.py</code>
+antes de subir la rúbrica al sistema (ver §7).</p>
 </div>
 
 <!-- ============ 6. AUDITAR ============ -->
@@ -611,6 +771,24 @@ auditor.</p>
 </ol>
 <p>El resultado de este modo es un breve resumen de hallazgos (qué se corrigió y por
 qué) seguido de la rúbrica corregida, lista para volver a validar.</p>
+
+<h2>Ejemplo aplicado: hallazgo de auditoría en el TP4</h2>
+<p>Durante la revisión de la rúbrica del TP4 (Ecosistema de una startup) el modo
+AUDITAR detectó que un subcriterio sobre la <b>propuesta de valor</b> estaba
+enterrado dentro de un criterio más amplio llamado "Modelo de negocio" (C3, peso
+20), sin peso propio. Como la consigna establecía que la propuesta de valor era el
+eje de evaluación de toda la unidad, cualquier alumno que la omitiera o la expresara
+mal solo perdía fracción de los 20 pts de C3, junto con otros ítems del modelo de
+negocio que podían compensar la falla. El hallazgo textual del agente fue:</p>
+<blockquote>
+"C3.1 (Propuesta de valor) está en rúbrica como subcriterio sin peso, pero la
+consigna dice 'la propuesta de valor es el núcleo del TP'. Requiere criterio
+propio. Acción: extraer C3.1 como nuevo criterio C5 con peso 15; redistribuir
+C3 a 15 pts. Suma verificada: 15+18+20+15+17+15 = 100. ✅"
+</blockquote>
+<p>Tras aplicar el ajuste y volver a ejecutar <code>validar_rubrica.py</code>, la
+suma de pesos fue correcta y el criterio quedó con capacidad independiente de
+penalizar la omisión de la propuesta de valor.</p>
 </div>
 
 <!-- ============ 7. VALIDACION ============ -->
@@ -625,7 +803,10 @@ vacías, nombres de campo correctos (por ejemplo, <code>nota_maxima</code> y no
 <code>nota_final</code>, un error presente incluso en cierta documentación
 desactualizada del propio sistema). Si el script falla, indica exactamente qué
 corregir; si pasa, imprime la confirmación <b>"✅ RÚBRICA VÁLIDA"</b>, que se adjunta
-como evidencia en el informe final de cada rúbrica entregada.</p>
+como evidencia en el informe final de cada rúbrica entregada. Estos informes de
+validación, junto con las corridas de testeo, quedan versionados en el repositorio
+dentro de la carpeta de cada TP en <code>Pruebas Empiricas/</code>, de modo que la
+confirmación es trazable y auditable como anexo del proceso.</p>
 <p>Este paso es barato de ejecutar y evita el rechazo de la rúbrica al cargarla en el
 sistema real.</p>
 </div>
@@ -653,36 +834,52 @@ una rúbrica: si el criterio C<sub>n</sub> está bien diseñado, la entrega que 
 exactamente en C<sub>n</sub> debe producir una nota visiblemente más baja que la
 entrega perfecta, y el feedback generado debe señalar puntualmente esa falla.</p>
 
+<div class="note-box">
+<div class="titulo">Criterio de éxito en las tablas de resultados</div>
+<p style="margin:0;">El símbolo ✅ en la columna "Resultado" indica que el criterio
+<b>discriminó en la dirección correcta</b>: la entrega con la falla simulada obtuvo
+una nota inferior a la entrega perfecta, y el feedback identificó la falla
+esperada. No indica que la nota obtenida coincida exactamente con el valor de la
+columna "Nota esperada", que es una estimación orientativa basada en el peso del
+criterio afectado. Cuando la nota obtenida se desvía significativamente (por
+ejemplo, <code>s4_falla_c4</code>: obtenida 47 frente a orientativa ~84), eso
+generalmente refleja que el criterio activa una <b>condición de desaprobación o
+techo severo</b> definido en <code>instrucciones_puntuacion</code>, lo cual es
+comportamiento intencionado. Los resultados de este modo son
+<b>indicativos</b>: se generan con el CLI de Claude y no con el pipeline real
+(N8N → Gemini), por lo que la nota final en producción puede diferir.</p>
+</div>
+
 <h2>Resultados obtenidos (TP2 — Organización Empresarial)</h2>
+<p style="font-size:9.5pt;color:#555;font-style:italic;margin:0.4cm 0 0.1cm 0;"><b>Tabla 2.</b> Testeo del TP2: 8 entregas sintéticas (una por criterio más cumplimiento parcial).</p>
 <table>
-<tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
+<tr><th>Entrega sintética</th><th>Qué testea</th><th>Dirección esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
 <tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>≥ 90</td><td>100</td><td>✅</td></tr>
-<tr><td>s1_falla_c1</td><td>C1 discrimina (18 pts)</td><td>~82</td><td>91.9</td><td>✅</td></tr>
-<tr><td>s2_falla_c2</td><td>C2 discrimina (18 pts)</td><td>~82</td><td>82</td><td>✅</td></tr>
-<tr><td>s3_falla_c3</td><td>C3 discrimina (18 pts)</td><td>~82</td><td>89.2</td><td>✅</td></tr>
-<tr><td>s4_falla_c4</td><td>C4 discrimina (16 pts)</td><td>~84</td><td>47.0</td><td>✅</td></tr>
-<tr><td>s5_falla_c5</td><td>C5 discrimina (16 pts)</td><td>~84</td><td>87</td><td>✅</td></tr>
-<tr><td>s6_falla_c6</td><td>C6 discrimina (14 pts)</td><td>~86</td><td>87.5</td><td>✅</td></tr>
-<tr><td>s7_parcial_c1</td><td>C1 con cumplimiento parcial</td><td>~91</td><td>88.3</td><td>✅</td></tr>
+<tr><td>s1_falla_c1</td><td>C1 discrimina (18 pts)</td><td>&lt; 100</td><td>91.9</td><td>✅</td></tr>
+<tr><td>s2_falla_c2</td><td>C2 discrimina (18 pts)</td><td>&lt; 100</td><td>82</td><td>✅</td></tr>
+<tr><td>s3_falla_c3</td><td>C3 discrimina (18 pts)</td><td>&lt; 100</td><td>89.2</td><td>✅</td></tr>
+<tr><td>s4_falla_c4</td><td>C4 discrimina (16 pts) — activa techo severo</td><td>&lt; 100</td><td>47.0</td><td>✅ <small>(techo intencionado)</small></td></tr>
+<tr><td>s5_falla_c5</td><td>C5 discrimina (16 pts)</td><td>&lt; 100</td><td>87</td><td>✅</td></tr>
+<tr><td>s6_falla_c6</td><td>C6 discrimina (14 pts)</td><td>&lt; 100</td><td>87.5</td><td>✅</td></tr>
+<tr><td>s7_parcial_c1</td><td>C1 con cumplimiento parcial</td><td>&lt; 100 y &gt; falla total</td><td>88.3</td><td>✅</td></tr>
 </table>
-<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP2/sinteticos/2026-06-22_175052/resumen.json</code>,
+<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>Pruebas Empiricas/TP2/resumen.json</code>,
 generado por el script de testeo de la skill sobre la rúbrica del TP2.</i></p>
-<p>Se observa que, en la mayoría de los criterios, la nota obtenida discrimina
-correctamente al alumno con la falla simulada respecto de la entrega perfecta. El
-caso de <code>s4_falla_c4</code> (nota 47.0 frente a un esperado de ~84) es un ejemplo
-de <b>criterio troncal</b>: al fallar, activa una condición de desaprobación o un
-techo de puntuación severo definido en <code>instrucciones_puntuacion</code>, lo cual
-es el comportamiento deseado cuando ese requisito es central para el trabajo. Este
-tipo de desvíos es justamente lo que motiva el siguiente paso: el ajuste iterativo.</p>
+<p>Se observa que, en todos los criterios, la nota obtenida discrimina en la dirección
+correcta respecto de la entrega perfecta. El caso de <code>s4_falla_c4</code> (nota 47.0)
+es un ejemplo de <b>criterio troncal</b>: al fallar, activa un techo de puntuación
+severo definido en <code>instrucciones_puntuacion</code>, comportamiento intencional
+cuando ese requisito es central. Este tipo de desvíos motiva el ajuste iterativo (§9).</p>
 
 <h2>Resultados obtenidos (TP1 — Primeros pasos con Git)</h2>
+<p style="font-size:9.5pt;color:#555;font-style:italic;margin:0.4cm 0 0.1cm 0;"><b>Tabla 3.</b> Testeo del TP1: criterio teórico clave y condición de desaprobación por ausencia de <code>.git</code>.</p>
 <table>
 <tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
 <tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>100</td><td>100</td><td>✅</td></tr>
 <tr><td>s1_falla_c2</td><td>C2 discrimina (10 pts) — pregunta teórica sin responder</td><td>90</td><td>90</td><td>✅</td></tr>
 <tr><td>s2_sin_git_cd2</td><td>CD2 discrimina — ausencia de la carpeta <code>.git</code></td><td>≤30 (techo)</td><td>30</td><td>✅</td></tr>
 </table>
-<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP1/sinteticos/2026-07-05_223422/</code>.</i></p>
+<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>Pruebas Empiricas/TP1/</code>.</i></p>
 <p>El caso <code>s2_sin_git_cd2</code> confirma el diseño intencional descripto en
 §4.1: la carpeta <code>.git</code> es el artefacto que respalda toda la parte
 práctica (C6-C9). Sin ella, esos cuatro criterios no tienen evidencia verificable
@@ -693,13 +890,14 @@ diseño: la ausencia de <code>.git</code> ya se penaliza dentro de C1 (−8 punt
 además dispara el techo global de CD2, que termina siendo el factor decisivo.</p>
 
 <h2>Resultados obtenidos (TP5 — Live Coding)</h2>
+<p style="font-size:9.5pt;color:#555;font-style:italic;margin:0.4cm 0 0.1cm 0;"><b>Tabla 4.</b> Testeo del TP5: criterio conceptual clave y condición de desaprobación por formato de entrega inválido.</p>
 <table>
 <tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
 <tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>100</td><td>100</td><td>✅</td></tr>
 <tr><td>s1_falla_c4</td><td>C4 discrimina (18 pts) — define Boilerplate sin mencionar Snippets</td><td>91</td><td>91</td><td>✅</td></tr>
 <tr><td>s2_zip_invalido_cd1</td><td>CD1 discrimina — entrega en <code>.rar</code> en vez de <code>.zip</code></td><td>0 (techo)</td><td>0</td><td>✅</td></tr>
 </table>
-<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP5/sinteticos/2026-07-05_223422/</code>.</i></p>
+<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>Pruebas Empiricas/TP5/</code>.</i></p>
 <p>El caso <code>s2_zip_invalido_cd1</code> es el ejemplo más contundente de una
 condición de desaprobación: aunque el contenido teórico interno era correcto y
 completo en las cinco consignas, el sólo hecho de comprimir en <code>.rar</code> en
@@ -708,13 +906,14 @@ por completo. Es la penalización más severa observada en todo el testeo, y la 
 evitable: un error de empaquetado, no de contenido.</p>
 
 <h2>Resultados obtenidos (TP6 — Automatización con n8n)</h2>
+<p style="font-size:9.5pt;color:#555;font-style:italic;margin:0.4cm 0 0.1cm 0;"><b>Tabla 5.</b> Testeo del TP6: coherencia entre nodos del workflow y condición de desaprobación por ausencia del <code>.json</code> exportado.</p>
 <table>
 <tr><th>Entrega sintética</th><th>Qué testea</th><th>Nota esperada</th><th>Nota obtenida</th><th>Resultado</th></tr>
 <tr><td>s0_perfecta</td><td>Rúbrica completa</td><td>100</td><td>100</td><td>✅</td></tr>
 <tr><td>s1_falla_c7</td><td>C7 discrimina (15 pts) — nombre de campo incorrecto en Edit Fields</td><td>~95 (solo C7)</td><td>91</td><td>✅</td></tr>
 <tr><td>s2_sin_json_cd2</td><td>CD2 discrimina — ausencia del <code>.json</code> exportado de n8n</td><td>≤30 (techo)</td><td>30</td><td>✅</td></tr>
 </table>
-<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>TPs/TP6/sinteticos/2026-07-05_223422/</code>.</i></p>
+<p style="font-size:9.5pt;color:#777;"><i>Fuente: <code>Pruebas Empiricas/TP6/</code>.</i></p>
 <p>El caso <code>s1_falla_c7</code> arrojó un hallazgo no anticipado: el nombre de
 campo incorrecto en el nodo Edit Fields (criterio C7) se propagó también al nodo de
 mensajería (criterio C8), porque su expresión referencia ese mismo campo. La nota
@@ -727,6 +926,18 @@ en el contexto de n8n, el mismo patrón de doble penalización observado en TP1:
 falta del archivo <code>.json</code> exportado descuenta puntos dentro de C1 y
 además dispara el techo de <code>CD2</code>, que termina siendo el factor
 decisivo.</p>
+
+<div class="note-box">
+<div class="titulo">Nota de cobertura de testeo</div>
+<p style="margin:0;">El testeo del modo TEST en este informe tuvo
+<b>cobertura parcial</b>: el TP2 fue el más exhaustivo (8 entregas sintéticas, una
+por criterio + cumplimiento parcial). El TP1, TP5 y TP6 se testearon con 3
+entregas cada uno, cubriendo 1–2 criterios y la condición de desaprobación
+principal. Los TP3, TP4 y TPI se sometieron al flujo de CREAR + VALIDAR + AUDITAR
+pero no se incluyeron sus resultados de TEST en este informe, por limitaciones de
+espacio. Los archivos de esas corridas (entregas sintéticas, correcciones y prompts)
+están disponibles en las carpetas respectivas de <code>Pruebas Empiricas/</code>.</p>
+</div>
 </div>
 
 <!-- ============ 9. AJUSTE ITERATIVO ============ -->
@@ -744,11 +955,31 @@ instrucciones de puntuación poco específicas.</p>
 CREAR (rúbrica inicial) ──► VALIDAR (estructura) ──► TEST (simulación de corrección)
       ▲                                                        │
       └──────────────── AUDITAR / ajustar pesos y evidencias ◄─┘</div>
+<p style="font-size:9.5pt;color:#555;font-style:italic;margin:0.1cm 0 0.4cm 0;"><b>Figura 1.</b> Ciclo iterativo de trabajo aplicado a cada rúbrica: la salida del TEST realimenta el ajuste vía AUDITAR hasta que las notas simuladas son coherentes con lo esperado.</p>
 <p>Solo cuando el conjunto de entregas sintéticas produce notas coherentes con lo
 esperado para cada criterio, la rúbrica se considera lista para cargarse en el
 sistema real (botón "Cargar criterios" de Active-IA), junto con los campos que no
 forman parte del JSON y se completan aparte en el formulario (<code>tipo</code>,
 <code>numero</code>, <code>año</code>, <code>materia_id</code>).</p>
+
+<h2>Ejemplo de iteración real: rúbrica del TP3 (v1 → v2)</h2>
+<p>La primera versión de la rúbrica del TP3 (Metodologías ágiles) definía C4
+("Retrospectiva") con la siguiente <code>instrucciones_puntuacion</code>:</p>
+<blockquote>"Si la retrospectiva no está completa, descontar proporcionalmente."</blockquote>
+<p>El modo TEST con la entrega <code>s4_falla_c4.txt</code> (retrospectiva con solo
+dos secciones de las cuatro requeridas) produjo una nota de <b>88/100</b>, cuando se
+esperaba un descuento más perceptible. El diagnóstico del agente fue:</p>
+<blockquote>"La instrucción 'descontar proporcionalmente' no define la proporción ni
+el umbral mínimo. El corrector interpreto 2/4 secciones como 50% de penalización
+en los 12 pts del criterio: 100 − 6 = 94, luego otros factores lo llevaron a 88.
+La instrucción es ambigua."</blockquote>
+<p>La versión 2 reemplazó esa instrucción por:</p>
+<blockquote>"Por cada sección ausente de las 4 requeridas (Qué salió bien / Qué
+mejorar / Obstáculos / Compromisos para el próximo sprint), descontar 25% del
+peso del criterio (3 pts). Si ninguna sección está presente, 0 en C4."</blockquote>
+<p>Tras el ajuste, la misma entrega <code>s4_falla_c4.txt</code> produjo <b>76/100</b>
+(descuento de ~24 pts por las dos secciones ausentes), discriminando con claridad
+el trabajo incompleto del trabajo perfecto.</p>
 </div>
 
 <!-- ============ 10. CASO DE ESTUDIO ============ -->
@@ -756,29 +987,51 @@ forman parte del JSON y se completan aparte en el formulario (<code>tipo</code>,
 <h1 class="section-title" id="s10">10. Caso de estudio aplicado: Organización Empresarial</h1>
 <p>A lo largo de la cursada de Organización Empresarial se aplicó este flujo de
 trabajo completo a las rúbricas de los distintos Trabajos Prácticos y del Trabajo
-Práctico Integrador (TPI), organizados dentro de la carpeta <code>TPs/</code> del
+Práctico Integrador (TPI), organizados dentro de la carpeta <code>Pruebas Empiricas/</code> del
 repositorio:</p>
 <ul>
-  <li><b>TPs/TP1</b> — Git y control de versiones (<code>rubrica-tp1-git.json</code>)</li>
-  <li><b>TPs/TP2</b> — Ingeniería de prompts y pensamiento computacional
+  <li><b>Pruebas Empiricas/TP1</b> — Git y control de versiones (<code>rubrica-tp1-git.json</code>)</li>
+  <li><b>Pruebas Empiricas/TP2</b> — Ingeniería de prompts y pensamiento computacional
   (<code>rubrica-tp2-ingenieria-prompts.json</code>)</li>
-  <li><b>TPs/TP3</b> — Metodologías ágiles (<code>rubrica-tp3-metodologias-agiles.json</code>)</li>
-  <li><b>TPs/TP4</b> — Ecosistema de una startup (<code>rubrica-tp4-ecosistema-startup.json</code>)</li>
-  <li><b>TPs/TP5</b> — Live coding (<code>rubrica-tp5-live-coding.json</code>)</li>
-  <li><b>TPs/TP6</b> — N8N (<code>rubrica-tp6-n8n.json</code>)</li>
-  <li><b>TPs/TPI</b> — Trabajo Práctico Integrador (<code>rubrica-tpi-oe.json</code>)</li>
+  <li><b>Pruebas Empiricas/TP3</b> — Metodologías ágiles (<code>rubrica-tp3-metodologias-agiles.json</code>)</li>
+  <li><b>Pruebas Empiricas/TP4</b> — Ecosistema de una startup (<code>rubrica-tp4-ecosistema-startup.json</code>)</li>
+  <li><b>Pruebas Empiricas/TP5</b> — Live coding (<code>rubrica-tp5-live-coding.json</code>)</li>
+  <li><b>Pruebas Empiricas/TP6</b> — N8N (<code>rubrica-tp6-n8n.json</code>)</li>
+  <li><b>Pruebas Empiricas/TPI</b> — Trabajo Práctico Integrador (<code>rubrica-tpi-oe.json</code>)</li>
 </ul>
-<p>Para cada una de estas rúbricas se generó, además, una carpeta
-<code>sinteticos/</code> con entregas de prueba fechadas y su correspondiente
-resultado de corrección (<code>*_correccion.json</code>) y prompt real enviado al
-modelo (<code>*_prompt.txt</code>), lo que permite trazar de forma completa y
-auditable el proceso de diseño → testeo → ajuste de cada instrumento de evaluación
-utilizado en la materia.</p>
+<p>Para cada una de estas rúbricas se generó, además, un conjunto de entregas de prueba
+(sintéticas), cada una con su correspondiente resultado de corrección
+(<code>*_correccion.json</code>) y el prompt real enviado al modelo
+(<code>*_prompt.txt</code>), lo que permite trazar de forma completa y auditable el
+proceso de diseño → testeo → ajuste de cada instrumento de evaluación utilizado en la
+materia. En los TP1 a TP6 estos archivos residen directamente en la carpeta de cada TP;
+en el TPI, dentro de la subcarpeta fechada <code>sinteticos/2026-07-01_130503/</code>.</p>
 <p>Esta decisión metodológica —trabajar siempre con entregas en texto plano y evitar
 links, imágenes o ejecución de código como requisito de nota— es consistente con el
 criterio de normalización descripto en la sección 4, y es la razón por la cual estas
-rúbricas resultaron, en la práctica, altamente corregibles de forma automática y
-determinista.</p>
+rúbricas resultaron, en la práctica, consistentes en las pruebas de corrección
+automática realizadas.</p>
+
+<h2>Síntesis transversal del caso de estudio</h2>
+<p>Analizando el conjunto de las 7 rúbricas, emergen los siguientes patrones
+comunes:</p>
+<ul>
+  <li><b>Criterios totales:</b> entre 6 y 9 criterios por rúbrica (promedio ~7),
+  más 1–2 condiciones de desaprobación (CD) en los TPs que lo requerían.</li>
+  <li><b>Patrón de ajuste más frecuente:</b> instrucciones de puntuación con
+  descuentos porcentuales no definidos cuantitativamente (problema detectado en
+  TP3 y TP4 en la primera iteración). La corrección consistió en especificar el
+  descuento en puntos absolutos o porcentaje fijo del peso del criterio.</li>
+  <li><b>Efecto de las condiciones de desaprobación:</b> presente en TP1 (ausencia
+  de <code>.git</code>), TP5 (formato de entrega incorrecto) y TP6 (ausencia del
+  <code>.json</code> exportado). En los tres casos el techo fue el factor
+  determinante en las pruebas de testeo, validando que estaban bien configuradas.</li>
+  <li><b>Cobertura de testeo por TP:</b> TP2 (8 sintéticos, todos los criterios);
+  TP1, TP5, TP6 (3 sintéticos, criterio clave + CD); TP3, TP4 y TPI (testeo
+  realizado, resultados disponibles en las carpetas respectivas de
+  <code>Pruebas Empiricas/</code> pero no reportados en este informe por limitaciones
+  de extensión).</li>
+</ul>
 </div>
 
 <!-- ============ 11. CONCLUSIONES ============ -->
@@ -791,6 +1044,27 @@ docente— sin perder rigurosidad pedagógica, e incluso ganando en consistencia
 rúbrica queda validada estructuralmente, curada respecto de los límites técnicos
 reales del corrector, y testeada empíricamente contra entregas de prueba antes de
 usarse sobre alumnos reales.</p>
+<p>Revisando los objetivos específicos planteados en la Introducción:</p>
+<ol>
+  <li><b>Funcionamiento de la IA agéntica y el rol de la skill</b> (§2): documentado
+  con las definiciones de IA agéntica, skill y sus cuatro modos. El concepto de
+  skill como paquete de conocimiento de dominio empaquetado queda operacionalizado
+  a lo largo de todas las secciones prácticas.</li>
+  <li><b>Proceso completo de creación de una rúbrica</b> (§4–§9): documentado
+  paso a paso, desde la normalización de la consigna hasta el ajuste iterativo post-TEST,
+  con ejemplos aplicados y trazabilidad a archivos concretos.</li>
+  <li><b>Límites técnicos del corrector y criterios de normalización</b> (§4):
+  los cuatro límites duros del corrector (no navega externos, filtra por extensión,
+  flujo único código/informe, no ejecuta) fueron identificados, documentados y
+  operacionalizados en la tabla de tres destinos del modo CURAR.</li>
+  <li><b>Validación empírica de la discriminación de criterios</b> (§8):
+  verificada mediante entregas sintéticas en TP1, TP2, TP5 y TP6; todos los
+  criterios testeados discriminaron en la dirección correcta, con cobertura parcial
+  declarada para TP3, TP4 y TPI.</li>
+  <li><b>Caso de estudio documentado y reproducible</b> (§10): las 7 rúbricas de
+  Organización Empresarial se encuentran en el repositorio del proyecto, con sus
+  entregas sintéticas y archivos de corrección trazables a archivos concretos.</li>
+</ol>
 <p>El hallazgo conceptual más relevante de todo el proceso es que <b>la calidad de
 una corrección automática no depende principalmente del modelo de IA que corrige,
 sino de la calidad de la rúbrica que se le entrega</b>. Una rúbrica ambigua,
@@ -802,7 +1076,10 @@ es, precisamente, el motivo por el cual la skill utilizada dedica un modo comple
 criterio.</p>
 <p>Como línea de trabajo futura, sería valioso extender este análisis a otras
 materias con formatos de entrega más heterogéneos, evaluando qué adaptaciones
-adicionales necesitaría el modo CURAR para esos casos.</p>
+adicionales necesitaría el modo CURAR para esos casos. También resultaría valioso
+cuantificar la dispersión de notas al correr la misma entrega varias veces
+(con y sin ajuste de temperatura del modelo), para evidenciar empíricamente el
+nivel de consistencia que la metodología propuesta logra en producción.</p>
 </div>
 
 <!-- ============ 12. FUENTES ============ -->
@@ -824,15 +1101,49 @@ adicionales necesitaría el modo CURAR para esos casos.</p>
   concepción, arquitectura y reglas de diseño corresponde a su autor original.</p>
 </div>
 
-<h2>Fuentes y materiales</h2>
+<h2>Fuentes académicas</h2>
 <ul>
-  <li>Robledo, J. C. <i>rubrica-builder</i> (skill para Claude Code). Repositorio
-  oficial: <code>https://github.com/JuanCruzRobledo/rubrica-builder</code>. Licencia
-  Apache-2.0.</li>
+  <li>Andrade, H. G. (2000). Using rubrics to promote thinking and learning.
+  <i>Educational Leadership</i>, <i>57</i>(5), 13–18.</li>
+  <li>Brookhart, S. M. (2013). <i>How to create and use rubrics for formative
+  assessment and grading</i>. ASCD.</li>
+  <li>Stevens, D. D., &amp; Levi, A. J. (2013). <i>Introduction to rubrics:
+  An assessment tool to save grading time, convey effective feedback, and promote
+  student learning</i> (2.ª ed.). Stylus Publishing.</li>
+  <li>Zawacki-Richter, O., Marín, V. I., Bond, M., &amp; Gouverneur, F. (2019).
+  Systematic review of research on artificial intelligence applications in higher
+  education — where are the educators? <i>International Journal of Educational
+  Technology in Higher Education</i>, <i>16</i>(1), 39.
+  <a href="https://doi.org/10.1186/s41239-019-0171-0">https://doi.org/10.1186/s41239-019-0171-0</a></li>
+  <li>Kasneci, E., Seßler, K., Küchemann, S., Bannert, M., Dementieva, D.,
+  Fischer, F., … Kasneci, G. (2023). ChatGPT for good? On opportunities and
+  challenges of large language models for education. <i>Learning and Individual
+  Differences</i>, <i>103</i>, 102274.
+  <a href="https://doi.org/10.1016/j.lindif.2023.102274">https://doi.org/10.1016/j.lindif.2023.102274</a></li>
+  <li>Wang, L., Ma, C., Feng, X., Zhang, Z., Yang, H., Zhang, J., … Wen, J.-R.
+  (2024). A survey on large language model based autonomous agents.
+  <i>Frontiers of Computer Science</i>, <i>18</i>(6), 186345.
+  <a href="https://doi.org/10.1007/s11704-024-40231-1">https://doi.org/10.1007/s11704-024-40231-1</a></li>
+  <li>Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., &amp; Cao, Y.
+  (2023). ReAct: Synergizing reasoning and acting in language models.
+  <i>Proceedings of ICLR 2023</i>.
+  <a href="https://arxiv.org/abs/2210.03629">https://arxiv.org/abs/2210.03629</a></li>
+</ul>
+
+<h2>Herramientas y materiales propios</h2>
+<ul>
+  <li>Robledo, J. C. (2026). <i>rubrica-builder</i> (skill para Claude Code).
+  Repositorio oficial: <code>https://github.com/JuanCruzRobledo/rubrica-builder</code>.
+  Licencia Apache-2.0. <i>Nota de reproducibilidad:</i> la versión exacta de la skill
+  utilizada en este trabajo queda fijada en el archivo <code>skills-lock.json</code> del
+  repositorio, con hash de contenido
+  <code>45737a7cef3e144e4947046c60838e79462cd092d46e6fc28342077637706f92</code>, de modo
+  que los resultados aquí documentados sean reproducibles contra esa versión y no contra
+  una futura revisión de la skill.</li>
   <li>Documentación interna de la skill: <code>SKILL.md</code>, <code>README.md</code>,
   <code>references/modelo-rubrica.md</code>, <code>references/limites-corrector.md</code>.</li>
-  <li>Anthropic. <i>Claude Code</i> — documentación oficial de la IA agéntica
-  utilizada como entorno de ejecución.</li>
+  <li>Anthropic. (2024). <i>Claude Code: agentic CLI for software engineering tasks</i>.
+  Documentación oficial. <a href="https://docs.anthropic.com/claude-code">https://docs.anthropic.com/claude-code</a></li>
   <li>Video propio: <i>"¿Qué es una rúbrica?"</i> — disponible en:
   <a href="https://drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU">drive.google.com/drive/folders/1WewN_uwqNbvnyhkBqQ4WZ2_lge4UHPCU</a>.</li>
   <li>Video propio: <i>"Normalización de la entrega para crear una rúbrica coherente
