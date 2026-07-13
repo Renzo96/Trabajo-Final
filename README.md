@@ -29,16 +29,16 @@ El documento central de este repositorio está en [`informe/`](informe/):
 ├── teoria/              Material teórico de la cursada de Organización Empresarial (PDFs por unidad)
 ├── .agents/skills/      Skill rubrica-builder vendorizada (gestionada por `npx skills`, no editar a mano)
 ├── skills-lock.json     Lockfile de la skill instalada (versión/hash)
-├── TPs/
-│   ├── TP1/ … TP6/      Rúbrica de cada TP de OE, con sus entregas sintéticas de testeo (sinteticos/)
-│   └── TPI/             Rúbrica y testeo del Trabajo Práctico Integrador
-└── borradores/          Archivos de prueba manual previos al flujo ordenado por TP (histórico, no autoritativo)
+└── Pruebas Empiricas/
+    ├── TP1/ … TP6/      Rúbrica de cada TP de OE + sus entregas sintéticas de testeo (archivos sN_*.txt, *_correccion.json y *_prompt.txt) en la propia carpeta
+    └── TPI/             Rúbrica y testeo del Trabajo Práctico Integrador (entregas en sinteticos/<fecha>/, corrección en simulacion/)
 ```
 
-Cada carpeta `TPs/TP*/sinteticos/<timestamp>/` contiene el rastro completo de una
-corrida del modo TEST de la skill: la entrega sintética, el prompt real enviado al
-modelo y el resultado de corrección — la evidencia empírica de que cada rúbrica
-discrimina lo que tiene que discriminar (ver sección 8 del informe).
+Cada carpeta de TP en `Pruebas Empiricas/` contiene el rastro completo de las corridas
+del modo TEST de la skill: la entrega sintética, el prompt real enviado al modelo y el
+resultado de corrección — la evidencia empírica de que cada rúbrica discrimina lo que
+tiene que discriminar (ver sección 8 del informe). En los TP1 a TP6 estos archivos
+están directamente en la carpeta del TP; en el TPI, dentro de `sinteticos/<fecha>/`.
 
 ## 🧾 Trabajos Prácticos realizados
 
@@ -49,13 +49,13 @@ evaluados:
 
 | Carpeta | TP | Temas / teoría propia evaluados |
 |---|---|---|
-| `TPs/TP1/` | **TP1 — Primeros Pasos con Git** | Versionado, estados de archivos, `.gitignore`, ramas; flujo `init` → commits → rama de desarrollo → merge |
-| `TPs/TP2/` | **TP2 — Ingeniería de Prompts y Pensamiento Computacional** | Arquitectura de la instrucción (Instrucción/Contexto/Datos de Entrada/Indicador de Salida), parámetros de LLM (Temperatura, Top-p) y Predicción de Tokens, razonamiento Chain-of-Thought |
-| `TPs/TP3/` | **TP3 — Fundamentos de Metodologías Ágiles** | Waterfall vs. mentalidad ágil, roles de Scrum, Kanban y WIP Limit, Pair Programming (XP), Historias de Usuario con Criterios de Aceptación |
-| `TPs/TP4/` | **TP4 — El Ecosistema Startup y el Modelo Lean** | Startup vs. PyME (escalabilidad e incertidumbre), Lean Startup y MVP, Test de la Madre (Customer Discovery), métricas LTV vs. CAC y Churn Rate, modelos de negocio en software |
-| `TPs/TP5/` | **TP5 — Live Coding: El Arte de Programar en Tiempo Real** | Transparencia del proceso y explicación en paralelo en entrevistas técnicas, Boilerplate y Snippet Management, Hot Reloading, planificación con Checkpoints |
-| `TPs/TP6/` | **TP6 — Automatización de Flujos con n8n** | Ecosistema Low-Code, triggers vs. acciones, gestión de secretos, nodo Edit Fields, construcción de un workflow (`Schedule Trigger → Edit Fields → nodo de mensajería`) |
-| `TPs/TPI/` | **TPI — Del MVP a la Automatización (Parte 2: Automatización y Control de Versiones)** | Construcción de un flujo n8n (`Webhook → Edit Fields` con expresión dinámica) + evidencia de uso de Git (`git log --oneline --stat`). La Parte 1 (teoría en PDF) se corrige manualmente y no forma parte de esta rúbrica |
+| `Pruebas Empiricas/TP1/` | **TP1 — Primeros Pasos con Git** | Versionado, estados de archivos, `.gitignore`, ramas; flujo `init` → commits → rama de desarrollo → merge |
+| `Pruebas Empiricas/TP2/` | **TP2 — Ingeniería de Prompts y Pensamiento Computacional** | Arquitectura de la instrucción (Instrucción/Contexto/Datos de Entrada/Indicador de Salida), parámetros de LLM (Temperatura, Top-p) y Predicción de Tokens, razonamiento Chain-of-Thought |
+| `Pruebas Empiricas/TP3/` | **TP3 — Fundamentos de Metodologías Ágiles** | Waterfall vs. mentalidad ágil, roles de Scrum, Kanban y WIP Limit, Pair Programming (XP), Historias de Usuario con Criterios de Aceptación |
+| `Pruebas Empiricas/TP4/` | **TP4 — El Ecosistema Startup y el Modelo Lean** | Startup vs. PyME (escalabilidad e incertidumbre), Lean Startup y MVP, Test de la Madre (Customer Discovery), métricas LTV vs. CAC y Churn Rate, modelos de negocio en software |
+| `Pruebas Empiricas/TP5/` | **TP5 — Live Coding: El Arte de Programar en Tiempo Real** | Transparencia del proceso y explicación en paralelo en entrevistas técnicas, Boilerplate y Snippet Management, Hot Reloading, planificación con Checkpoints |
+| `Pruebas Empiricas/TP6/` | **TP6 — Automatización de Flujos con n8n** | Ecosistema Low-Code, triggers vs. acciones, gestión de secretos, nodo Edit Fields, construcción de un workflow (`Schedule Trigger → Edit Fields → nodo de mensajería`) |
+| `Pruebas Empiricas/TPI/` | **TPI — Del MVP a la Automatización (Parte 2: Automatización y Control de Versiones)** | Construcción de un flujo n8n (`Webhook → Edit Fields` con expresión dinámica) + evidencia de uso de Git (`git log --oneline --stat`). La Parte 1 (teoría en PDF) se corrige manualmente y no forma parte de esta rúbrica |
 
 > **Nota de numeración corregida:** las rúbricas de `TP5` y `TP6` tenían
 > originalmente los títulos "TP4" y "TP5" (coincidiendo por error con el TP4 de
