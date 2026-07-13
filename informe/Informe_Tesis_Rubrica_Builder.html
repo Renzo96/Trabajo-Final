@@ -626,11 +626,24 @@ entrega universitaria típica, esto lo convierte en una evidencia de auditoría 
 más robusta que cualquier captura de pantalla.</p>
 <p>Consultando la documentación oficial de GitHub sobre la estructura interna de un
 repositorio, se identificó que la carpeta oculta <code>.git</code> —generada
-automáticamente por <code>git init</code>— contiene la totalidad de la información
-verificable de forma objetiva: el registro de commits, las referencias a las ramas
-(<code>refs/heads/</code>) y la configuración de identidad local. Es, en los hechos,
-el equivalente a un log de auditoría que no depende de lo que el alumno afirme haber
-hecho, sino de lo que el propio sistema de control de versiones registró.</p>
+automáticamente por <code>git init</code>— contiene el registro de commits, las
+referencias a las ramas (<code>refs/heads/</code>) y la configuración de identidad
+local. Es, en los hechos, el equivalente a un log de auditoría que no depende de lo
+que el alumno afirme haber hecho, sino de lo que el propio sistema de control de
+versiones registró.</p>
+<p>Conviene, sin embargo, acotar el alcance de esta afirmación: la carpeta
+<code>.git</code> <b>no es inviolable</b>. Un alumno con conocimiento suficiente
+puede alterar la fecha de un commit (<code>--date</code>, <code>GIT_COMMITTER_DATE</code>),
+falsear la identidad del autor (<code>git config user.name</code>) o reconstruir por
+completo un historial (<code>rebase</code>, <code>filter-branch</code>) para simular un
+proceso de trabajo que nunca ocurrió. Lo que se sostiene aquí es una afirmación más
+modesta y más defendible: <b>falsificar un historial de Git coherente es
+sustancialmente más difícil que trucar una captura de pantalla</b>, y exige
+precisamente el dominio de las herramientas de versionado que el TP busca evaluar.
+La evidencia no es incorruptible, pero su costo de falsificación es lo bastante alto
+—y su superficie de verificación lo bastante amplia (mensajes, orden, ramas, merges,
+identidad)— como para volverla el mejor artefacto disponible dentro de los límites
+del corrector automático.</p>
 <p>La consigna original del TP1 (que pedía un PDF de teoría más capturas de pantalla
 de la Parte 2) se modificó en consecuencia: la entrega pasó a ser un único
 <code>.zip</code> que contiene el PDF con la resolución de la parte teórica <b>y la
@@ -1121,7 +1134,12 @@ nivel de consistencia que la metodología propuesta logra en producción.</p>
 <ul>
   <li>Robledo, J. C. (2026). <i>rubrica-builder</i> (skill para Claude Code).
   Repositorio oficial: <code>https://github.com/JuanCruzRobledo/rubrica-builder</code>.
-  Licencia Apache-2.0.</li>
+  Licencia Apache-2.0. <i>Nota de reproducibilidad:</i> la versión exacta de la skill
+  utilizada en este trabajo queda fijada en el archivo <code>skills-lock.json</code> del
+  repositorio, con hash de contenido
+  <code>45737a7cef3e144e4947046c60838e79462cd092d46e6fc28342077637706f92</code>, de modo
+  que los resultados aquí documentados sean reproducibles contra esa versión y no contra
+  una futura revisión de la skill.</li>
   <li>Documentación interna de la skill: <code>SKILL.md</code>, <code>README.md</code>,
   <code>references/modelo-rubrica.md</code>, <code>references/limites-corrector.md</code>.</li>
   <li>Anthropic. (2024). <i>Claude Code: agentic CLI for software engineering tasks</i>.
